@@ -1,4 +1,5 @@
 var express = require('express');
+var cons = require('consolidate')
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
@@ -11,9 +12,11 @@ var users = require('./routes/users');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
+var viewPath = path.join(__dirname, 'views');
+app.set('view engine', 'handlebars')
+app.set('views', viewPath);
+app.set('view options', { layout: false});
+app.engine('.html', cons.handlebars);
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
