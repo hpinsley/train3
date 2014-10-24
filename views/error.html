@@ -5,6 +5,10 @@
     <title>Generic Error Page</title>
 </head>
 <body>
-Some type of error occurred
+    <h1>message: {{message}}</h1>
+    <h2>status: {{error.status}}</h2>
+    <p>
+        stack: {{error.stack}}
+    </p>
 </body>
 </html>
