@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3832ecd3-a85d-41f0-b7d4-6db12949b7eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.html" afterPath="$PROJECT_DIR$/views/index.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/vendor/jquery/jquery-1.10.2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/vendor/jquery/modernizr-2.6.2.min.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="train3.iws" />
@@ -312,7 +313,11 @@
       <created>1414163848256</created>
       <updated>1414163848256</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Adding missing files">
+      <created>1414413069686</created>
+      <updated>1414413069686</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -362,7 +367,8 @@
     <MESSAGE value="Change to workspace.xml" />
     <MESSAGE value="Uninstall Jade" />
     <MESSAGE value="Main page is now from html5-boilerplat" />
-    <option name="LAST_COMMIT_MESSAGE" value="Main page is now from html5-boilerplat" />
+    <MESSAGE value="Adding missing files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding missing files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
