@@ -12,11 +12,11 @@ var users = require('./routes/users');
 var app = express();
 
 // view engine setup
-var viewPath = path.join(__dirname, 'views');
-app.set('view engine', 'handlebars')
-app.set('views', viewPath);
-app.set('view options', { layout: false});
-app.engine('.html', cons.handlebars);
+//var viewPath = path.join(__dirname, 'views');
+//app.set('view engine', 'handlebars')
+//app.set('views', viewPath);
+//app.set('view options', { layout: false});
+//app.engine('.html', cons.handlebars);
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -25,8 +25,8 @@ app.use(cookieParser());
 app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+//app.use('/', routes);
+//app.use('/users', users);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

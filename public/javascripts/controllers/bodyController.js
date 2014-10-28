@@ -1,3 +1,4 @@
-/**
- * Created by howard.pinsley on 10/28/14.
- */
+angular.module("train")
+    .controller("bodyController", function($scope){
+        $scope.title = "This is from angular";
+    });
