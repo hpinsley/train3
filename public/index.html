@@ -22,11 +22,19 @@
         <h1>{{title}}</h1>
         <p>Hello world! This is HTML5 Boilerplate.</p>
 
+        <div class="content">
+            <div ng-view>
+
+            </div>
+        </div>
+
         <script src="/vendor/jquery/jquery.js"></script>
         <script src="/vendor/bootstrap/js/bootstrap.js"></script>
         <script src="/vendor/angular/angular.js"></script>
+        <script src="/vendor/angular/angular-route.js"></script>
         <script src="/javascripts/app.js"></script>
         <script src="/javascripts/controllers/bodyController.js"></script>
+        <script src="/javascripts/controllers/HomeController.js"></script>
         <div class="container">
             <button class="btn">Button!</button>
         </div>
