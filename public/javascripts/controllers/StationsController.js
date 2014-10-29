@@ -1,6 +1,4 @@
 angular.module("train")
-    .controller("StationsController", function($scope){
-        $scope.title = "This is from the stations controller";
-
-        $scope.items = ["apple", "banana", "orange"]
+    .controller("StationsController", function($scope, trainServices){
+        $scope.stations = trainServices.getStations();
     });
