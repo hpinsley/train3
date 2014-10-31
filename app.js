@@ -25,11 +25,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
+
+app.use(function(req, res, next){
+    console.log("I'm injected!")
+    next();
+});
+
+
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api', api);
+
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
