@@ -9,13 +9,6 @@ router.get('/stations', function(req, res) {
     }
     res.send(results);
   });
-  /*
-  var stations = [
-      { station: 'Katonah', abbr: 'kat', name: req.name },
-      { station: 'Mount Kisco', abbr: 'mtk', name: req.name }
-  ];
-  res.send(stations);
-  */
 });
 
 module.exports = router;

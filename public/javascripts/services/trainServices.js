@@ -1,13 +1,7 @@
-angular.module("train").factory('trainServices', ["$q", function ($q) {
+angular.module("train").factory('trainServices', ["$http", function ($http) {
 
     var getStations = function() {
-        var def = $q.defer();
-
-        def.resolve([
-            { station: 'Katonah', abbr: 'kat' },
-            { station: 'Mount Kisco', abbr: 'mtk'}
-        ]);
-        return def.promise;
+        return $http.get("/api/stations");
     };
 
     return {

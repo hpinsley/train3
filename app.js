@@ -13,13 +13,6 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var api = require('./routes/api');
 
-
-// view engine setup
-//var viewPath = path.join(__dirname, 'views');
-//app.set('view engine', 'handlebars')
-//app.set('views', viewPath);
-//app.set('view options', { layout: false});
-//app.engine('.html', cons.handlebars);
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -31,9 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var db = mongoskin.db('mongodb://@localhost:27017/trains', {safe:true})
 
+//Inject the db into the request object
 app.use(function(req, res, next){
-    console.log("I'm injected!");
-    req.name = "Howard";
     req.db = db;
     next();
 });

@@ -1,6 +1,6 @@
 <h1>Stations</h1>
 <ul>
-    <li ng-repeat="station in stations">
-        {{station.station}} ({{station.abbr}})
+    <li ng-repeat="station in stations | orderBy:'name'">
+        {{station.name}} ({{station.abbr}})
     </li>
 </ul>
