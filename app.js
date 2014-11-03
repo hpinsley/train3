@@ -5,6 +5,7 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoskin = require('mongoskin');
 
 var app = express();
 
@@ -26,13 +27,16 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
 
+app.use(express.static(path.join(__dirname, 'public')));
+
+var db = mongoskin.db('mongodb://@localhost:27017/trains', {safe:true})
+
 app.use(function(req, res, next){
-    console.log("I'm injected!")
+    console.log("I'm injected!");
+    req.name = "Howard";
+    req.db = db;
     next();
 });
-
-
-app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', routes);
@@ -49,10 +53,7 @@ app.use(function(req, res, next) {
 
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error.html', {
-        message: err.message,
-        error: err
-    });
+    res.send("Error: " + err.message + " " + err);
 });
 
 module.exports = app;
