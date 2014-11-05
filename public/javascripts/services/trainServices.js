@@ -4,7 +4,12 @@ angular.module("train").factory('trainServices', ["$http", function ($http) {
         return $http.get("/api/stations");
     };
 
+    var addStation = function(station) {
+        return $http.post("/api/stations", station);
+    }
+
     return {
-        getStations: getStations
+        getStations: getStations,
+        addStation: addStation
     };
 }]);

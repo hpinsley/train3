@@ -1,0 +1,18 @@
+<h1>New Station</h1>
+<form name="newStationForm">
+    <div class="form-group">
+        <label for="stationAbbr">Abbr:</label>
+        <input id="stationAbbr" class="form-control" ng-model="station.abbr" required />
+    </div>
+
+    <div class="form-group">
+        <label for="stationName">Name:</label>
+        <input id="stationName" class="form-control" ng-model="station.name" required />
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary" ng-click="addStation()"
+                ng-disabled="!newStationForm.$valid">Submit</button>
+    </div>
+
+</form>
