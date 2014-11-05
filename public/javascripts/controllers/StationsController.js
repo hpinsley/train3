@@ -9,4 +9,8 @@ angular.module("train")
                     alert("Prop: " + prop + " = " + err[prop]);
                 }
             });
+
+        $scope.deleteStation = function(station) {
+            confirm("Do you really want to delete " + station.name + "?");
+        }
     });
