@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("StationsController", function($scope, trainServices){
+    .controller("StationsController", function($scope, $location, trainServices){
 
         trainServices.getStations()
             .then(function(res){
@@ -11,6 +11,12 @@ angular.module("train")
             });
 
         $scope.deleteStation = function(station) {
-            confirm("Do you really want to delete " + station.name + "?");
+            if (confirm("Do you really want to delete " + station.name + "?")) {
+                trainServices.deleteStation(station)
+                    .then(function(result){
+                        alert(result.data.msg);
+                        $location.path("/");
+                    });
+            }
         }
     });
