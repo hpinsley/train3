@@ -33,4 +33,24 @@ router.delete("/stations/:id", function(req, res, next){
     });
 });
 
+router.get('/trains', function(req, res) {
+    var coll = req.db.collection("trains");
+    coll.find({}).toArray(function(e,results){
+        if (e) {
+            return next(e);
+        }
+        res.send(results);
+    });
+});
+
+router.post('/trains', function(req, res, next){
+    var coll = req.db.collection("trains");
+    coll.insert(req.body, {}, function(e, results){
+        if (e) {
+            return next(e);
+        }
+        res.send(results);
+    });
+});
+
 module.exports = router;

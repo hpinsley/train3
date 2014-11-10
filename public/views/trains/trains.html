@@ -1,1 +1,16 @@
-This is the main trains page
+<p><a href="/#/trains/new">Add a train</a></p>
+
+<h2>Trains</h2>
+<table class="table">
+    <thead>Trains</thead>
+    <tbody>
+        <tr ng-repeat="train in trains">
+            <td>{{train.number}}</td>
+            <td>{{train.description}}</td>
+            <td>{{train.originStation}}</td>
+            <td>{{train.terminalStation}}</td>
+        </tr>
+    </tbody>
+</table>
+
+

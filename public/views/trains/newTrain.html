@@ -1,0 +1,28 @@
+<h1>New Train</h1>
+<form name="newTrainForm">
+    <div class="form-group">
+        <label for="trainNumber">Number:</label>
+        <input id="trainNumber" class="form-control" autofocus ng-model="train.number" required />
+    </div>
+
+    <div class="form-group">
+        <label for="trainDescription">Description:</label>
+        <input id="trainDescription" class="form-control" ng-model="train.description" required />
+    </div>
+
+    <div class="form-group">
+        <label for="originStation">Origination Station:</label>
+        <input id="originStation" class="form-control" ng-model="train.originStation" required />
+    </div>
+
+    <div class="form-group">
+        <label for="terminalStation">Terminal Station:</label>
+        <input id="terminalStation" class="form-control" ng-model="train.terminalStation" required />
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary" ng-click="addTrain()"
+                ng-disabled="!newTrainForm.$valid">Submit</button>
+    </div>
+
+</form>
