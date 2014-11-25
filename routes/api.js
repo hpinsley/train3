@@ -43,6 +43,17 @@ router.get('/trains', function(req, res) {
     });
 });
 
+router.get("/trains/:number", function(req, res, next){
+    var coll = req.db.collection("trains");
+    var number = req.params.number;
+    coll.findOne({number: number}, function(e, train){
+        if (e) {
+            return next(e);
+        }
+        res.send(train);
+    });
+});
+
 router.post('/trains', function(req, res, next){
     var coll = req.db.collection("trains");
     coll.insert(req.body, {}, function(e, results){

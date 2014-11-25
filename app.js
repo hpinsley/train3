@@ -8,11 +8,10 @@ var bodyParser = require('body-parser');
 var mongoskin = require('mongoskin');
 
 var app = express();
-
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var api = require('./routes/api');
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -20,7 +19,6 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
 
-app.use(express.static(path.join(__dirname, 'public')));
 
 var db = mongoskin.db('mongodb://@localhost:27017/trains', {safe:true})
 
@@ -32,7 +30,6 @@ app.use(function(req, res, next){
 
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/api', api);
 
 

@@ -12,12 +12,14 @@
 
     <div class="form-group">
         <label for="originStation">Origination Station:</label>
-        <input id="originStation" class="form-control" ng-model="train.originStation" required />
+        <!--<input id="originStation" class="form-control" ng-model="train.originStation"  />-->
+        <select id="originStation" ng-options="station.abbr as station.name for station in stations" ng-model="train.originStation"></select>
     </div>
 
     <div class="form-group">
         <label for="terminalStation">Terminal Station:</label>
-        <input id="terminalStation" class="form-control" ng-model="train.terminalStation" required />
+        <!--<input id="terminalStation" class="form-control" ng-model="train.terminalStation" required />-->
+        <select id="terminalStation" ng-options="station.abbr as station.name for station in stations" ng-model="train.terminalStation"></select>
     </div>
 
     <div class="form-group">
