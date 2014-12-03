@@ -2,7 +2,23 @@ var express = require('express');
 var router = express.Router();
 var mongoskin = require('mongoskin');
 
-router.get('/stations', function(req, res) {
+router.get('/stations/:abbr', function(req,res, next){
+    var coll = req.db.collection("stations");
+    var abbr = req.params.abbr;
+    coll.findOne({abbr: abbr}, function(e, station){
+        if (e) {
+            return next(e);
+        }
+        if (!station) {
+            var err = new Error('Not Found');
+            err.status = 404;
+            return next(err);
+        }
+        res.send(station);
+    });
+
+});
+router.get('/stations', function(req, res, next) {
   var coll = req.db.collection("stations");
   coll.find({}).toArray(function(e,results){
     if (e) {
@@ -33,13 +49,27 @@ router.delete("/stations/:id", function(req, res, next){
     });
 });
 
-router.get('/trains', function(req, res) {
+router.get('/trains', function(req, res, next) {
     var coll = req.db.collection("trains");
     coll.find({}).toArray(function(e,results){
         if (e) {
             return next(e);
         }
         res.send(results);
+    });
+});
+
+//Add a stop
+router.post("/trains/:number/stops", function(req, res, next){
+    var coll = req.db.collection("trains");
+    var number = req.params.number;
+    var stopTime = req.body.stopTime;
+    var station = req.body.station;
+    coll.update({number: number}, {$push: {"stops": {time: stopTime, station: station}}}, function(e,updateResult){
+        if (e) {
+            return next(e);
+        }
+        res.send("stop added");
     });
 });
 
