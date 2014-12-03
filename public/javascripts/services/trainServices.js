@@ -35,6 +35,18 @@ angular.module("train").factory('trainServices', ["$http", function ($http) {
         });
     }
 
+    var deleteStop = function(trainNumber, stop) {
+        var url = "/api/trains/" + trainNumber + "/stops";
+        var data =  {stop: stop}
+        return $http({
+            method: "DELETE",
+            url: url,
+            data: data,
+            headers: {
+                "Content-Type" : "application/json"
+            }
+        });
+    }
     return {
         getStation: getStation,
         getStations: getStations,
@@ -43,6 +55,7 @@ angular.module("train").factory('trainServices', ["$http", function ($http) {
         getTrains: getTrains,
         addTrain: addTrain,
         getTrain: getTrain,
-        addStop: addStop
+        addStop: addStop,
+        deleteStop: deleteStop
     };
 }]);

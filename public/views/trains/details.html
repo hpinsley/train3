@@ -24,6 +24,9 @@
         <tr ng-repeat="stop in train.stops">
             <td>{{stop.time}}</td>
             <td>{{stop.station}}</td>
+            <td>
+                <button ng-click="deleteStop(trainNumber, stop)">Delete</button>
+            </td>
         </tr>
     </tbody>
 </table>

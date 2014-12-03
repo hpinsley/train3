@@ -26,10 +26,19 @@ angular.module("train")
             trainServices.addStop($scope.trainNumber, stopTime, station)
                 .then(function(res){
                     return trainServices.getTrain($scope.trainNumber);
-                }, function(err){
-                    alert(err);
                 })
                 .then(function(res){
+                    $scope.train = res.data;
+                });
+        };
+
+        $scope.deleteStop = function (trainNumber, stop) {
+            //alert("Deleting stop for train " + trainNumber + " at " + stop.time + " at " + stop.station);
+            trainServices.deleteStop(trainNumber, stop)
+                .then(function (res) {
+                    return trainServices.getTrain($scope.trainNumber);
+                })
+                .then(function (res) {
                     $scope.train = res.data;
                 });
         }

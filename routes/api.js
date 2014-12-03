@@ -73,6 +73,19 @@ router.post("/trains/:number/stops", function(req, res, next){
     });
 });
 
+//Delete a stop
+router.delete("/trains/:number/stops", function(req, res, next){
+    var coll = req.db.collection("trains");
+    var number = req.params.number;
+    var stop = req.body.stop;
+    coll.update({number: number}, {$pull: {"stops": stop}}, function(e,updateResult){
+        if (e) {
+            return next(e);
+        }
+        res.send("stop removed");
+    });
+});
+
 router.get("/trains/:number", function(req, res, next){
     var coll = req.db.collection("trains");
     var number = req.params.number;
