@@ -8,7 +8,7 @@
 <h3>Stops</h3>
 <form name="newStopForm">
     <label for="stopTime">Time:</label>
-    <input type="number" id="stopTime" placeholder="Stop Time" ng-model="stopTime" required/>
+    <input type="time" id="stopTime" placeholder="Stop Time" ng-model="stopTime" required/>
     <label for="station">Station:</label>
     <select id="station" ng-options="station.abbr as station.name for station in stations" ng-model="station" required></select>
     <button ng-disabled="!newStopForm.$valid" ng-click="addStop(stopTime, station)">Add</button>
@@ -22,7 +22,7 @@
     </thead>
     <tbody>
         <tr ng-repeat="stop in train.stops">
-            <td>{{stop.time}}</td>
+            <td>{{stop.time | date:"hh:mm a"}}</td>
             <td>{{stop.station}}</td>
             <td>
                 <button ng-click="deleteStop(trainNumber, stop)">Delete</button>

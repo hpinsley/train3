@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoskin = require('mongoskin');
+var utils = require('../helpers/Utils');
 
 router.get('/stations/:abbr', function(req,res, next){
     var coll = req.db.collection("stations");
@@ -60,16 +61,36 @@ router.get('/trains', function(req, res, next) {
 });
 
 //Add a stop
+//router.post("/trains/:number/stops", function(req, res, next){
+//    var coll = req.db.collection("trains");
+//    var number = req.params.number;
+//    var stopTime = req.body.stopTime;
+//    var station = req.body.station;
+//    coll.update({number: number}, {$push: {"stops": {time: stopTime, station: station}}}, function(e,updateResult){
+//        if (e) {
+//            return next(e);
+//        }
+//        res.send("stop added");
+//    });
+//});
 router.post("/trains/:number/stops", function(req, res, next){
     var coll = req.db.collection("trains");
     var number = req.params.number;
-    var stopTime = req.body.stopTime;
-    var station = req.body.station;
-    coll.update({number: number}, {$push: {"stops": {time: stopTime, station: station}}}, function(e,updateResult){
+    var newStop = { time: req.body.stopTime, station: req.body.station};
+
+    coll.findOne({number:number}, {stops:1, _id:0}, function(e, result) {
         if (e) {
             return next(e);
         }
-        res.send("stop added");
+        var stops = result.stops;
+        stops.push(newStop);
+        stops = stops.sort(utils.stopCompare);
+        coll.update({number: number}, {$set: {"stops": stops}}, function(e,updateResult){
+            if (e) {
+                return next(e);
+            }
+            res.send("stop added");
+        });
     });
 });
 
