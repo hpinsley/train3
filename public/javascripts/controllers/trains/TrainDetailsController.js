@@ -1,19 +1,22 @@
 angular.module("train")
     .controller("TrainDetailsController", function ($scope, $location, trainServices, $routeParams) {
 
+        var displayTrainSummary = function() {
+            trainServices.getStation($scope.train.originStation).then(function(res){
+                $scope.originStation = res.data;
+            });
+            trainServices.getStation($scope.train.terminalStation).then(function(res){
+                $scope.terminalStation = res.data;
+            });
+        };
+
         var trainNumber = $routeParams["trainNumber"];
 
         $scope.trainNumber = trainNumber;
         trainServices.getTrain(trainNumber)
             .then(function(res){
                 $scope.train = res.data;
-
-                trainServices.getStation($scope.train.originStation).then(function(res){
-                    $scope.originStation = res.data;
-                });
-                trainServices.getStation($scope.train.terminalStation).then(function(res){
-                    $scope.terminalStation = res.data;
-                });
+                displayTrainSummary();
             });
 
         trainServices.getStations()
@@ -29,6 +32,7 @@ angular.module("train")
                 })
                 .then(function(res){
                     $scope.train = res.data;
+                    displayTrainSummary();
                 });
         };
 
@@ -40,6 +44,7 @@ angular.module("train")
                 })
                 .then(function (res) {
                     $scope.train = res.data;
+                    displayTrainSummary();
                 });
         }
     });

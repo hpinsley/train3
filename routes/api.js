@@ -21,7 +21,7 @@ router.get('/stations/:abbr', function(req,res, next){
 });
 router.get('/stations', function(req, res, next) {
   var coll = req.db.collection("stations");
-  coll.find({}).toArray(function(e,results){
+  coll.find({}).sort({name:1}).toArray(function(e,results){
     if (e) {
         return next(e);
     }
@@ -78,17 +78,15 @@ router.post("/trains/:number/stops", function(req, res, next){
     var number = req.params.number;
     var newStop = { time: req.body.stopTime, station: req.body.station};
 
-    coll.findOne({number:number}, {stops:1, _id:0}, function(e, result) {
+    coll.findOne({number:number}, function(e, train) {
         if (e) {
             return next(e);
         }
-        var stops = result.stops;
+        var stops = train.stops || [];
         stops.push(newStop);
-        stops = stops.sort(utils.stopCompare);
-        coll.update({number: number}, {$set: {"stops": stops}}, function(e,updateResult){
-            if (e) {
-                return next(e);
-            }
+        train.stops = stops.sort(utils.stopCompare);
+        utils.adjustTrainSummary(train);
+        coll.save(train, function(e, saveResult){
             res.send("stop added");
         });
     });
@@ -103,7 +101,16 @@ router.delete("/trains/:number/stops", function(req, res, next){
         if (e) {
             return next(e);
         }
-        res.send("stop removed");
+        coll.findOne({number: number}, function(e, train){
+            if (e) {
+                return next(e);
+            }
+            utils.adjustTrainSummary(train);
+            coll.save(train, function(e, saveResult){
+                res.send("stop removed");
+            });
+
+        });
     });
 });
 

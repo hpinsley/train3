@@ -11,6 +11,19 @@ var stopCompare = function(stop1, stop2) {
     return 1;
 };
 
+var adjustTrainSummary = function(train) {
+    if (!train.stops || train.stops.length == 0) {
+        return;
+    }
+    train.originStation = train.stops[0].station;
+    train.terminalStation = train.stops[train.stops.length-1].station;
+
+    var startTime = new Date(train.stops[0].time);
+    train.description = startTime.toTimeString();
+
+};
+
 module.exports = {
-    stopCompare: stopCompare
+    stopCompare: stopCompare,
+    adjustTrainSummary: adjustTrainSummary
 }
