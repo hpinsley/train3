@@ -19,6 +19,7 @@ angular.module("train")
                 displayTrainSummary();
             });
 
+        //for the select control
         trainServices.getStations()
             .then(function(res){
                 $scope.stations = res.data;

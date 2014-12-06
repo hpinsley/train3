@@ -23,7 +23,7 @@
     <tbody>
         <tr ng-repeat="stop in train.stops">
             <td>{{stop.time | date:"hh:mm a"}}</td>
-            <td>{{stop.station}}</td>
+            <td>{{stop.station | stationName}}</td>
             <td>
                 <button ng-click="deleteStop(trainNumber, stop)">Delete</button>
             </td>
