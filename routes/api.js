@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoskin = require('mongoskin');
 var utils = require('../helpers/Utils');
+var lookups = require('../helpers/lookups');
 
 router.get('/stations/:abbr', function(req,res, next){
     var coll = req.db.collection("stations");
@@ -35,6 +36,7 @@ router.post('/stations', function(req, res, next){
         if (e) {
             return next(e);
         }
+        lookups.refreshStationCache();
         res.send(results);
     });
 });
@@ -46,6 +48,7 @@ router.delete("/stations/:id", function(req, res, next){
         if (e) {
             return next(e);
         }
+        lookups.refreshStationCache();
         res.send((result === 1) ? { msg: 'success'} : {msg: 'error'});
     });
 });
@@ -61,18 +64,6 @@ router.get('/trains', function(req, res, next) {
 });
 
 //Add a stop
-//router.post("/trains/:number/stops", function(req, res, next){
-//    var coll = req.db.collection("trains");
-//    var number = req.params.number;
-//    var stopTime = req.body.stopTime;
-//    var station = req.body.station;
-//    coll.update({number: number}, {$push: {"stops": {time: stopTime, station: station}}}, function(e,updateResult){
-//        if (e) {
-//            return next(e);
-//        }
-//        res.send("stop added");
-//    });
-//});
 router.post("/trains/:number/stops", function(req, res, next){
     var coll = req.db.collection("trains");
     var number = req.params.number;

@@ -13,6 +13,7 @@
     "express": "~4.0.0",
     "handlebars": "^2.0.0",
     "less-middleware": "0.1.15",
+    "moment": "^2.8.4",
     "mongoskin": "^1.4.4",
     "morgan": "~1.0.0",
     "static-favicon": "~1.0.0"

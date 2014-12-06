@@ -1,3 +1,6 @@
+var moment = require('moment');
+var lookups = require("./lookups");
+
 /**
  * Created by howard.pinsley on 12/3/14.
  */
@@ -19,8 +22,8 @@ var adjustTrainSummary = function(train) {
     train.terminalStation = train.stops[train.stops.length-1].station;
 
     var startTime = new Date(train.stops[0].time);
-    train.description = startTime.toTimeString();
-
+    var t = moment(startTime);
+    train.description = t.format("hh:mm A") + " to " + lookups.stationName(train.terminalStation);
 };
 
 module.exports = {
