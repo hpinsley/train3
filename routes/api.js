@@ -66,7 +66,7 @@ router.get('/trains', function(req, res, next) {
 //Add a stop
 router.post("/trains/:number/stops", function(req, res, next){
     var coll = req.db.collection("trains");
-    var number = req.params.number;
+    var number = parseInt(req.params.number);
     var newStop = { time: req.body.stopTime, station: req.body.station};
 
     coll.findOne({number:number}, function(e, train) {
@@ -86,7 +86,7 @@ router.post("/trains/:number/stops", function(req, res, next){
 //Delete a stop
 router.delete("/trains/:number/stops", function(req, res, next){
     var coll = req.db.collection("trains");
-    var number = req.params.number;
+    var number = parseInt(req.params.number);
     var stop = req.body.stop;
     coll.update({number: number}, {$pull: {"stops": stop}}, function(e,updateResult){
         if (e) {
@@ -107,7 +107,7 @@ router.delete("/trains/:number/stops", function(req, res, next){
 
 router.get("/trains/:number", function(req, res, next){
     var coll = req.db.collection("trains");
-    var number = req.params.number;
+    var number = parseInt(req.params.number);
     coll.findOne({number: number}, function(e, train){
         if (e) {
             return next(e);
@@ -118,11 +118,24 @@ router.get("/trains/:number", function(req, res, next){
 
 router.post('/trains', function(req, res, next){
     var coll = req.db.collection("trains");
-    coll.insert(req.body, {}, function(e, results){
+
+    coll.find({},{_id:0, number:1}).sort({number:-1}).toArray(function(e, trainNumbers){
         if (e) {
             return next(e);
         }
-        res.send(results);
+        var train = {};
+        train.number = trainNumbers.length == 0 ? 100 : trainNumbers[0].number + 10;
+        train.description = "Train " + train.number;
+        train.stops = [];
+        train.originStation = "GCT";
+        train.terminalStation = "GCT"
+        coll.insert(train, {}, function(e, results){
+            if (e) {
+                return next(e);
+            }
+            res.send(results);
+        });
+
     });
 });
 

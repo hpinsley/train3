@@ -20,8 +20,8 @@ angular.module("train").factory('trainServices', ["$http", function ($http) {
         return $http.get("/api/trains");
     };
 
-    var addTrain = function(train) {
-        return $http.post("/api/trains", train);
+    var addTrain = function() {
+        return $http.post("/api/trains");
     }
 
     var getTrain = function(trainNumber) {

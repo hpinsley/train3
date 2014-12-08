@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("TrainsController", function($scope, trainServices){
+    .controller("TrainsController", function($scope, trainServices, $location){
         $scope.title = "This is from trains controller";
 
         $scope.items = ["apple", "banana", "orange"]
@@ -13,4 +13,11 @@ angular.module("train")
                 }
             });
 
+        $scope.newTrain = function() {
+            trainServices.addTrain()
+                .then(function(res){
+                    var train = res.data[0];
+                    $location.path("/trains/" + train.number);
+                });
+        }
     });
