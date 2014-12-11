@@ -1,6 +1,8 @@
 angular.module("train")
     .controller("TrainDetailsController", function ($scope, $location, trainServices, $routeParams) {
 
+        $scope.afterAdd = false;
+
         var displayTrainSummary = function() {
             trainServices.getStation($scope.train.originStation).then(function(res){
                 $scope.originStation = res.data;
@@ -34,6 +36,7 @@ angular.module("train")
                 .then(function(res){
                     $scope.train = res.data;
                     displayTrainSummary();
+                    $scope.afterAdd = true;
                 });
         };
 

@@ -8,7 +8,7 @@
 <h3>Stops</h3>
 <form name="newStopForm">
     <label for="stopTime">Time:</label>
-    <input type="time" id="stopTime" placeholder="Stop Time" ng-model="stopTime" required/>
+    <input hp-focus="afterAdd" type="time" id="stopTime" placeholder="Stop Time" ng-model="stopTime" required/>
     <label for="station">Station:</label>
     <select id="station" ng-options="station.abbr as station.name for station in stations" ng-model="station" required></select>
     <button ng-disabled="!newStopForm.$valid" ng-click="addStop(stopTime, station)">Add</button>
