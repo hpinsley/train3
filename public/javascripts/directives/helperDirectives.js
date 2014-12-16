@@ -24,42 +24,29 @@ angular.module('train')
             transclude: true,
             template: '<button ng-transclude></button>',
             link: function(scope, iElement, iAttrs) {
-                var target = iAttrs.target;
+                var targetName = iAttrs.target;
+                if (!targetName) {
+                    throw { msg: "You must specify the target attribute."}
+                }
+                var target = $("#" + targetName);
+                if (target.length === 0) {
+                    throw { msg: "The target with id " + targetName + " cannot be found."}
+                }
+
+                var modelName = target.attr("ng-model");
+
                 var increment = parseInt(iAttrs.increment);
-                var targetCtl = $("#" + target);
 
                 iElement.click(function(){
-
-                    var timeVal = targetCtl.val();
-                    if (!timeVal) {
-                        targetCtl.val("09:00");
+                    //scope.$apply();
+                    var stopTime = scope[modelName];
+                    if (stopTime) {
+                        var ms = stopTime.valueOf();
+                        ms = ms + increment * 60 * 1000;
+                        scope[modelName] = new Date(ms);
                     }
-                    else {
-                        var parts = timeVal.split(":");
-                        var hour = parseInt(parts[0]);
-                        var minutes = parseInt(parts[1]);
-                        minutes += increment;
-                        if (minutes >= 60) {
-                            minutes -= 60;
-                            hour += 1;
-                            if (hour == 24) {
-                                hour = 0;
-                            }
-                        }
-                        var hourStr = hour.toString();
-                        if (hourStr.length === 1) {
-                            hourStr = "0" + hourStr;
-                        }
-
-                        var minStr = minutes.toString();
-                        if (minStr.length === 1) {
-                            minStr = "0" + minStr;
-                        }
-                        var newVal = hourStr + ":" + minStr;
-                        targetCtl.val(newVal);
-                        $scope.apply();
-                        targetCtl.focus();
-                    }
+                    target.focus();
+                    return;
                 });
             }
         }
