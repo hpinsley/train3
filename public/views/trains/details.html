@@ -4,14 +4,18 @@
 <p>
     Origination: {{originStation.name}} Termination: {{terminalStation.name}}
 </p>
+
 <hr/>
 <h3>Stops</h3>
 <form name="newStopForm">
+    <div>
+        <hp-time-display watchitem="stopTime" />
+    </div>
     <label for="stopTime">Time:</label>
     <input hp-focus="afterAdd" type="time" id="stopTime" placeholder="Stop Time" ng-model="stopTime" required/>
     <hp-time-up target="stopTime" increment="5">Up</hp-time-up>
     <label for="station">Station:</label>
-    <select id="station" ng-options="station.abbr as station.name for station in stations" ng-model="station" required></select>
+    <select hp-open-list="true" id="station" ng-options="station.abbr as station.name for station in stations" ng-model="station" required></select>
     <button ng-disabled="!newStopForm.$valid" ng-click="addStop(stopTime, station)">Add</button>
 </form>
 <table class="table">
@@ -23,7 +27,7 @@
     </thead>
     <tbody>
         <tr ng-repeat="stop in train.stops">
-            <td>{{stop.time | date:"hh:mm a"}}</td>
+            <td hp-copytime="stopTime">{{stop.time | date:"hh:mm a"}}</td>
             <td>{{stop.station | stationName}}</td>
             <td>
                 <button ng-click="deleteStop(trainNumber, stop)">Delete</button>

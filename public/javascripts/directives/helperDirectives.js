@@ -44,9 +44,73 @@ angular.module('train')
                         var ms = stopTime.valueOf();
                         ms = ms + increment * 60 * 1000;
                         scope[modelName] = new Date(ms);
+                        target.focus();
+                        var c = $.Event("change");
+                        target.trigger(c);
                     }
-                    target.focus();
+                    else {
+                        target.focus();
+                    }
+
                     return;
+                });
+            }
+        }
+    })
+    .directive("hpOpenList", function(){
+        return {
+            restrict: 'A',
+            link: function(scope, iElement, iAttrs) {
+                iElement.focus(function(){
+                    console.log("got the focus at " + new Date());
+                    setTimeout(function(){
+                        var e = $.Event("keypress");
+                        e.which = 40;   //40 keydown
+                        e.keyCode = 40;
+                        iElement.trigger(e);
+                    }, 1000);
+
+                });
+            }
+        }
+    })
+    .directive("hpTimeDisplay", function(){
+        return {
+            restrict: 'E',
+            replace: true,
+            template: '<div style="font-size: 24pt; width: 300px; margin-left: auto; margin-right: auto" id="timeDisplay"></div>',
+            link: function(scope, iElement, iAttrs) {
+                var watchItem = iAttrs.watchitem;
+                if (!watchItem) {
+                    throw {msg: "You must specify watchitem as the scope item to watch"};
+                }
+                scope.$watch(watchItem, function(newVal, oldVal){
+                    if (newVal) {
+                        var m = moment(newVal);
+                        $("#timeDisplay").text(m.format("hh:mm A"));
+                    }
+                });
+            }
+        }
+    })
+    .directive("hpCopytime", function(){
+        return {
+            restrict: 'A',
+            link: function(scope, iElement, iAttrs) {
+                var scopeItem = iAttrs["hpCopytime"];
+                var target = $("#stopTime");
+                iElement.click(function(){
+                    var timeStr = iElement.text();
+                    timeStr = "2014-01-01 " + timeStr;
+                    var m = moment(timeStr);
+                    var d = m.toDate();
+                    scope.$parent.$apply(function(){
+                        scope.$parent[scopeItem] = d;
+                    });
+                    var target = $("#stopTime");
+                    target.focus();
+                    var c = $.Event("change");
+                    target.trigger(c);
                 });
             }
         }
