@@ -3,7 +3,7 @@
 <h3>{{train.description}}</h3>
 
 <p>
-    Origination: {{originStation.name}} Termination: {{terminalStation.name}}
+    Origination: {{train.originStation | stationName}} Termination: {{train.terminalStation | stationName}}
 </p>
 
 <div class="timeDisplay">Stop Time: {{stopTime | timeDisplay}}</div>
