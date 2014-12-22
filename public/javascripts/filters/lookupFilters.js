@@ -24,4 +24,16 @@ angular.module("train")
         };
 
         return stationNameFilter;
+    })
+    .filter("timeDisplay", function() {
+        return function(time) {
+            if (!time) {
+                return "Not Specified";
+            }
+            var m = moment(time);
+            if (m.isValid()) {
+                return m.format("hh:mm A");
+            }
+            return "Invalid time";
+        }
     });

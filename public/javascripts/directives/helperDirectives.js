@@ -96,21 +96,23 @@ angular.module('train')
     .directive("hpCopytime", function(){
         return {
             restrict: 'A',
+            scope: {
+                scopeItem: '=hpCopytime'
+            },
             link: function(scope, iElement, iAttrs) {
-                var scopeItem = iAttrs["hpCopytime"];
-                var target = $("#stopTime");
+                var targetName = iAttrs.target;
+                if (!targetName) {
+                    throw { msg: "You must specify the control target with targetName"}
+                }
+                var target = $("#" + targetName);
                 iElement.click(function(){
                     var timeStr = iElement.text();
                     timeStr = "2014-01-01 " + timeStr;
                     var m = moment(timeStr);
                     var d = m.toDate();
-                    scope.$parent.$apply(function(){
-                        scope.$parent[scopeItem] = d;
-                    });
-                    var target = $("#stopTime");
+                    scope.scopeItem = d;
+                    scope.$apply();
                     target.focus();
-                    var c = $.Event("change");
-                    target.trigger(c);
                 });
             }
         }

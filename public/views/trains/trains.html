@@ -5,11 +5,10 @@
     <thead>Trains</thead>
     <tbody>
         <tr ng-repeat="train in trains">
-            <td>{{train.number}}</td>
+            <td><a href="/#/trains/{{train.number}}">{{train.number}}</a></td>
             <td>{{train.description}}</td>
             <td>{{train.originStation}}</td>
             <td>{{train.terminalStation}}</td>
-            <td><a href="/#/trains/{{train.number}}">Details</a></td>
         </tr>
     </tbody>
 </table>

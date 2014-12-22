@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/stylesheets/trains/details.css" />
 <h2>Train {{trainNumber}}</h2>
 <h3>{{train.description}}</h3>
 
@@ -5,12 +6,10 @@
     Origination: {{originStation.name}} Termination: {{terminalStation.name}}
 </p>
 
+<div class="timeDisplay">Stop Time: {{stopTime | timeDisplay}}</div>
 <hr/>
 <h3>Stops</h3>
 <form name="newStopForm">
-    <div>
-        <hp-time-display watchitem="stopTime" />
-    </div>
     <label for="stopTime">Time:</label>
     <input hp-focus="afterAdd" type="time" id="stopTime" placeholder="Stop Time" ng-model="stopTime" required/>
     <hp-time-up target="stopTime" increment="5">Up</hp-time-up>
@@ -27,7 +26,7 @@
     </thead>
     <tbody>
         <tr ng-repeat="stop in train.stops">
-            <td hp-copytime="stopTime">{{stop.time | date:"hh:mm a"}}</td>
+            <td hp-copytime="$parent.stopTime" target="stopTime" class="clickable">{{stop.time | date:"hh:mm a"}}</td>
             <td>{{stop.station | stationName}}</td>
             <td>
                 <button ng-click="deleteStop(trainNumber, stop)">Delete</button>

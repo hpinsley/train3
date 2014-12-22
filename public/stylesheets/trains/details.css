@@ -1,0 +1,10 @@
+div.timeDisplay {
+    font-size: 18pt;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.clickable:hover {
+    cursor: pointer;
+}
