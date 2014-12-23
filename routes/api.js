@@ -55,7 +55,7 @@ router.delete("/stations/:id", function(req, res, next){
 
 router.get('/trains', function(req, res, next) {
     var coll = req.db.collection("trains");
-    coll.find({}).toArray(function(e,results){
+    coll.find({}).sort({number:1}).toArray(function(e,results){
         if (e) {
             return next(e);
         }

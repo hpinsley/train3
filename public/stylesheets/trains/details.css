@@ -8,3 +8,17 @@ div.timeDisplay {
 .clickable:hover {
     cursor: pointer;
 }
+
+h2,h3 {
+    color: blue;
+    width: 100%;
+    text-align: center;
+}
+
+h3 {
+    color: darkslateblue;
+}
+
+h3 label {
+    color: black;
+}

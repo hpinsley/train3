@@ -9,6 +9,10 @@ angular.module("train")
         trainServices.getTrain(trainNumber)
             .then(function(res){
                 $scope.train = res.data;
+                var stopCount = $scope.train.stops.length;
+                if (stopCount > 0) {
+                    $scope.stopTime = new Date($scope.train.stops[stopCount - 1].time);
+                }
             });
 
         //for the select control

@@ -1,23 +1,22 @@
 <link rel="stylesheet" href="/stylesheets/trains/details.css" />
-<h2>Train {{trainNumber}}</h2>
-<h3>{{train.description}}</h3>
+<h2>Train {{trainNumber}} - {{train.description}}</h2>
 
-<p>
-    Origination: {{train.originStation | stationName}} Termination: {{train.terminalStation | stationName}}
-</p>
+<h3>
+    <label>Origination:</label> {{train.originStation | stationName}} <label>Termination:</label> {{train.terminalStation | stationName}}
+</h3>
 
 <div class="timeDisplay">Stop Time: {{stopTime | timeDisplay}}</div>
 <hr/>
-<h3>Stops</h3>
+<h4>Stops</h4>
 <form name="newStopForm">
     <label for="stopTime">Time:</label>
     <input hp-focus="afterAdd" type="time" id="stopTime" placeholder="Stop Time" ng-model="stopTime" required/>
     <hp-time-up target="stopTime" increment="5">Up</hp-time-up>
     <label for="station">Station:</label>
     <select hp-open-list="true" id="station" ng-options="station.abbr as station.name for station in stations" ng-model="station" required></select>
-    <button ng-disabled="!newStopForm.$valid" ng-click="addStop(stopTime, station)">Add</button>
+    <button class="btn" ng-disabled="!newStopForm.$valid" ng-click="addStop(stopTime, station)">Add</button>
 </form>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Time</th>

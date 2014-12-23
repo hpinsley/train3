@@ -22,7 +22,7 @@ angular.module('train')
             restrict: 'E',
             replace: true,
             transclude: true,
-            template: '<button ng-transclude></button>',
+            template: '<button class="btn" ng-transclude></button>',
             link: function(scope, iElement, iAttrs) {
                 var targetName = iAttrs.target;
                 if (!targetName) {
