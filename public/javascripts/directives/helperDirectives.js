@@ -107,7 +107,7 @@ angular.module('train')
                 var target = $("#" + targetName);
                 iElement.click(function(){
                     var timeStr = iElement.text();
-                    timeStr = "2014-01-01 " + timeStr;
+                    timeStr = "1970-01-01 " + timeStr;
                     var m = moment(timeStr);
                     var d = m.toDate();
                     scope.scopeItem = d;
