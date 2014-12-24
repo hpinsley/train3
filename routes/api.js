@@ -4,6 +4,17 @@ var mongoskin = require('mongoskin');
 var utils = require('../helpers/Utils');
 var lookups = require('../helpers/lookups');
 
+router.get('/stations/:stationAbbr/trains', function(req,res, next) {
+    var coll = req.db.collection("trains");
+    var stationAbbr = req.params.stationAbbr;
+    coll.find({stops:{$elemMatch:{station:stationAbbr}}}).sort({number: 1}).toArray(function (e, results) {
+        if (e) {
+            return next(e);
+        }
+        res.send(results);
+    });
+});
+
 router.get('/stations/:abbr', function(req,res, next){
     var coll = req.db.collection("stations");
     var abbr = req.params.abbr;

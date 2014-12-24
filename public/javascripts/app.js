@@ -17,6 +17,10 @@ angular.module('train', ['ngRoute'])
                 templateUrl: 'views/stations/newStation.html',
                 controller: 'NewStationController'
             })
+            .when('/stations/:stationAbbr',{
+                templateUrl: 'views/stations/details.html',
+                controller: 'StationDetailsController'
+            })
             .when('/stations', {
                 templateUrl: 'views/stations/stations.html',
                 controller: 'StationsController'

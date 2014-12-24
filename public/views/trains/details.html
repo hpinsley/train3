@@ -17,14 +17,16 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th>Stop No.</th>
             <th>Time</th>
             <th>Station</th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="stop in train.stops">
+            <td>{{$index+1}}</td>
             <td hp-copytime="$parent.stopTime" target="stopTime" class="clickable">{{stop.time | date:"hh:mm a"}}</td>
-            <td>{{stop.station | stationName}}</td>
+            <td><a href="/#/stations/{{stop.station}}">{{stop.station | stationName}}</a></td>
             <td>
                 <button ng-click="deleteStop(trainNumber, stop)">Delete</button>
             </td>

@@ -5,7 +5,7 @@
 <table class="table">
     <tr ng-repeat="station in stations | orderBy:'name'">
         <td>
-            {{station.name}}
+            <a href="/#/stations/{{station.abbr}}">{{station.name}}</a>
         </td>
         <td>
             ({{station.abbr}})
