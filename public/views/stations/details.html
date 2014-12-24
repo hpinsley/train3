@@ -9,6 +9,7 @@
         <th>Stops</th>
         <th>Origination</th>
         <th>Termination</th>
+        <th>Arrive {{stationAbbr | stationName}}</th>
     </tr>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@
         <td>{{train.stops.length}}</td>
         <td>{{train.originStation | stationName}}</td>
         <td>{{train.terminalStation| stationName}}</td>
+        <td>{{train.stationStop.time | timeDisplay}}</td>
     </tr>
     </tbody>
 </table>
