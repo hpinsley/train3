@@ -13,7 +13,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="train in trains">
+    <tr ng-repeat="train in trains | orderBy:train.stationStop.time">
         <td><a href="/#/trains/{{train.number}}">{{train.number}}</a></td>
         <td>{{train.description}}</td>
         <td>{{train.stops.length}}</td>
