@@ -23,6 +23,10 @@ angular.module("train").factory('trainServices', ["$http", function ($http) {
         return $http.get("/api/trains");
     };
 
+    var getLines = function() {
+        return $http.get("/api/lines");
+    };
+
     var addTrain = function() {
         return $http.post("/api/trains");
     }
@@ -60,6 +64,7 @@ angular.module("train").factory('trainServices', ["$http", function ($http) {
         getTrain: getTrain,
         addStop: addStop,
         deleteStop: deleteStop,
-        getStationTrains: getStationTrains
+        getStationTrains: getStationTrains,
+        getLines: getLines
     };
 }]);

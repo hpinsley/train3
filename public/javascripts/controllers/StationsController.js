@@ -10,6 +10,18 @@ angular.module("train")
                 }
             });
 
+        trainServices.getLines()
+            .success(function(res){
+                $scope.lines = res;
+            });
+
+        $scope.selectedLineFn = function(station) {
+            if ($scope.selectedLine == null) {
+                return true;
+            }
+            return station.line == $scope.selectedLine;
+        };
+
         $scope.deleteStation = function(station) {
             if (confirm("Do you really want to delete " + station.name + "?")) {
                 trainServices.deleteStation(station)

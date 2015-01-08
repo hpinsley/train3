@@ -1,9 +1,26 @@
 <h1>Stations</h1>
-<div class="pull-right">
-    <a href="#/stations/new">New Station</a>
+<div class="row">
+    <div class="col-md-6">
+        Filter:
+        <select ng-model="selectedLine" ng-options="line.name as line.name for line in lines">
+            <option value="">(all)</option>
+        </select>
+        {{selectedLine}}
+    </div>
+    <div class="col-md-6 pull-right">
+        <a href="#/stations/new">New Station</a>
+    </div>
 </div>
 <table class="table">
-    <tr ng-repeat="station in stations | orderBy:'name'">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Abbr</th>
+        <th>Line</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="station in stations | filter:selectedLineFn | orderBy:'name'">
         <td>
             <a href="/#/stations/{{station.abbr}}">{{station.name}}</a>
         </td>
@@ -11,9 +28,13 @@
             ({{station.abbr}})
         </td>
         <td>
+            {{station.line}}
+        </td>
+        <td>
             <button class="btn btn-warning" ng-click="deleteStation(station)">Delete</button>
         </td>
     </tr>
+    </tbody>
 </table>
 <div>
     <a href="#/stations/new">New Station</a>
