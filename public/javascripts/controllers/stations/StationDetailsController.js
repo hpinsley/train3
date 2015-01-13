@@ -29,6 +29,10 @@ angular.module("train")
             });
 
         $scope.updateStation = function() {
+            if ($scope.station.lines.length == 0) {
+                alert("You must specify at least one line for the station.");
+                return;
+            }
             trainServices.updateStation($scope.station)
                 .success(function(data){
                     $location.path("/stations");

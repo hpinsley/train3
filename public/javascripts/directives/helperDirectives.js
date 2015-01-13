@@ -117,7 +117,7 @@ angular.module('train')
             }
         }
     })
-    .directive("hpCheckboxList", function($timeout){
+    .directive("hpCheckboxList", function(){
         return {
             restrict: 'E',
             controller: function($scope) {
@@ -126,21 +126,22 @@ angular.module('train')
                 };
             },
             link: function(scope, iElement, iAttrs) {
-                var checkedIndexes = [];
-                var objectArray = [];
-                var items = [];
+                var objectArray = [];       //Set to the scope item array
+                var items = [];             //Set to the list of all values corresponding to the checkboxes
 
+                //Handler used when a checkbox is checked/unchecked
                 var updateFunc = function(ev) {
                     var target = ev.target;
+                    var checked = target.checked;
                     var id = target.id;
                     var i = id.lastIndexOf("_");
                     if (i > 0) {
                         var indexStr = id.slice(i+1);
                         var index = parseInt(indexStr);
-                        var checked = target.checked;
                         var value = items[index];
                         if (checked) {
                             objectArray.push(value);
+                            objectArray.sort();
                         }
                         else {
                             var index = objectArray.indexOf(value);
@@ -158,6 +159,7 @@ angular.module('train')
                 }
                 var prefix = iElement[0].id + "_hpcbl_";
                 var listSource = iAttrs.listsource; //It gets lowercased for some reason
+                var listSourceProperty = iAttrs.listsourceproperty;
                 var objectSource = iAttrs.objectsource;
                 var objectProperty = iAttrs.objectproperty;
                 if (!listSource || !objectSource || !objectProperty) {
@@ -166,7 +168,12 @@ angular.module('train')
 
                 scope.$watch(listSource, function(listItems){
 
-                    items = _.map(listItems, function(item) { return item.name; });
+                    if (listSourceProperty) {   //Array of objects, transform with the property
+                        items = _.map(listItems, function(item) { return item[listSourceProperty]; });
+                    }
+                    else {
+                        items = listItems;  //Array contains direct values
+                    }
 
                     var div = $("<div>");
 

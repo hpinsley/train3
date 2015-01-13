@@ -9,7 +9,7 @@
             </label>
         </div>
         <div class="form-group">
-            <hp-checkbox-list id="lineSelect" listSource="lines" objectSource="station" objectProperty="lines"/>
+            <hp-checkbox-list id="lineSelect" listSource="lines" listSourceProperty="name" objectSource="station" objectProperty="lines"/>
         </div>
         <div class="form-group">
             <button class="btn btn-primary" ng-click="updateStation()"
@@ -17,7 +17,7 @@
         </div>
     </form>
 </div>
-{{station.lines}}
+<h3>Selected lines: {{station.lines}}</h3>
 <h2>Trains</h2>
 <table class="table">
     <thead>
