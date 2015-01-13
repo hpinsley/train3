@@ -116,4 +116,65 @@ angular.module('train')
                 });
             }
         }
+    })
+    .directive("hpCheckboxList", function($timeout){
+        return {
+            restrict: 'E',
+            controller: function($scope) {
+                $scope.testClick = function() {
+                    alert("click");
+                };
+            },
+            link: function(scope, iElement, iAttrs) {
+                var updateFunc = function(ev) {
+                    var target = ev.target;
+                    var id = target.id;
+                    var i = id.lastIndexOf("_");
+                    if (i > 0) {
+                        var indexStr = id.slice(i+1);
+                        var index = parseInt(indexStr);
+                        var checked = target.checked;
+                    }
+
+                };
+
+                if (!iElement[0].id) {
+                    throw { msg: "The element containing the hpCheckboxList directive must have an id."};
+                }
+                var prefix = iElement[0].id + "_hpcbl_";
+                var listSource = iAttrs.listsource; //It gets lowercased for some reason
+                var objectSource = iAttrs.objectsource;
+                var objectProperty = iAttrs.objectproperty;
+                if (!listSource || !objectSource || !objectProperty) {
+                    throw new { msg: "You must specify listSource, objectSource, and objectProperty"}
+                }
+                var checkedIndexes = [];
+
+                scope.$watch(listSource, function(newValue){
+
+                    var items = newValue;
+                    var div = $("<div>");
+                    var objectArray;
+
+                    if (scope[objectSource]) {
+                        objectArray = scope[objectSource][objectProperty];
+                    }
+                    else {
+                        objectArray = [];
+                    }
+
+                    _.each(items, function(item, i){
+                        var line = item.name;
+                        var input = $("<input type='checkbox' id='" + prefix + i + "'>" + line + "</input>");
+                        if (_.any(objectArray, function(v) { return v == line})) {
+                            input[0].checked = true;
+                        }
+                        input.change(updateFunc);
+                        div.append(input);
+                        div.append("<br/>");
+                    });
+                    iElement.append(div);
+                });
+            }
+        };
     });
