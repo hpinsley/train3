@@ -62,6 +62,18 @@ router.post('/stations', function(req, res, next){
     });
 });
 
+router.put('/stations/:abbr', function(req, res, next){
+    var coll = req.db.collection("stations");
+    var abbr = req.params.abbr;
+    req.body._id = mongoskin.helper.toObjectID(req.body._id);
+    coll.update({abbr: abbr}, req.body, function(e,updateResult){
+        if (e) {
+            return next(e);
+        }
+        res.send({updateResult: updateResult});
+    });
+});
+
 router.delete("/stations/:id", function(req, res, next){
     var coll = req.db.collection("stations");
     var id = mongoskin.helper.toObjectID(req.params.id);

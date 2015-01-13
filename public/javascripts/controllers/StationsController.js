@@ -1,9 +1,15 @@
 angular.module("train")
     .controller("StationsController", function($scope, $location, trainServices){
 
+        var setLineLists = function(stations) {
+            _.each(stations, function(station){
+                station.lineList = station.lines.join(", ");
+            });
+        }
         trainServices.getStations()
             .then(function(res){
                 $scope.stations = res.data;
+                setLineLists($scope.stations);
             }, function(err) {
                 for (var prop in err) {
                     alert("Prop: " + prop + " = " + err[prop]);

@@ -1,5 +1,23 @@
 <h2>Station {{stationAbbr | stationName}}</h2>
 
+<div class="well">
+    <form name="stationUpdateForm">
+        <div class="form-group">
+            <label>
+                Name:
+                <input type="text" required ng-model="station.name" />
+            </label>
+        </div>
+        <div class="form-group">
+            <hp-checkbox-list id="lineSelect" listSource="lines" objectSource="station" objectProperty="lines"/>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="updateStation()"
+                    ng-disabled="!stationUpdateForm.$valid">Submit</button>
+        </div>
+    </form>
+</div>
+{{station.lines}}
 <h2>Trains</h2>
 <table class="table">
     <thead>

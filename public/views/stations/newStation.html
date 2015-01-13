@@ -20,6 +20,16 @@
         <select id="line" name="line" class="form-control" ng-model="station.line" required ng-options="line.name as line.name for line in lines"/>
     </div>
 
+    <div class="input-group">
+        <label>Lines:</label>
+        <div ng-repeat="(line,selected) in lineSelects">
+            <label>
+                <input type="checkbox" ng-model="lineSelects[line]" />
+                {{line}}
+            </label>
+        </div>
+    </div>
+
     <div class="form-group">
         <button class="btn btn-primary" ng-click="addStation()"
                 ng-disabled="!newStationForm.$valid">Submit</button>

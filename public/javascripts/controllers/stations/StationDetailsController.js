@@ -3,8 +3,16 @@ angular.module("train")
 
         var trainNumber = $routeParams["trainNumber"];
         var stationAbbr = $routeParams["stationAbbr"];
-
         $scope.stationAbbr = stationAbbr;
+
+        trainServices.getStation(stationAbbr)
+            .success(function(data){
+                $scope.station = data;
+                trainServices.getLines()
+                    .success(function(data){
+                        $scope.lines = data;
+                    })
+            });
 
         trainServices.getStationTrains(stationAbbr)
             .then(function(res){
@@ -19,4 +27,18 @@ angular.module("train")
                 });
                 $scope.trains = trains;
             });
+
+        $scope.updateStation = function() {
+            trainServices.updateStation($scope.station)
+                .success(function(data){
+                    $location.path("/stations");
+                })
+                .error(function(err){
+                    alert(err.msg || err);
+                });
+        };
+
+        $scope.testClick = function() {
+            alert("Parent scope click");
+        }
     });

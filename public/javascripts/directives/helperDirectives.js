@@ -126,6 +126,10 @@ angular.module('train')
                 };
             },
             link: function(scope, iElement, iAttrs) {
+                var checkedIndexes = [];
+                var objectArray = [];
+                var items = [];
+
                 var updateFunc = function(ev) {
                     var target = ev.target;
                     var id = target.id;
@@ -134,6 +138,17 @@ angular.module('train')
                         var indexStr = id.slice(i+1);
                         var index = parseInt(indexStr);
                         var checked = target.checked;
+                        var value = items[index];
+                        if (checked) {
+                            objectArray.push(value);
+                        }
+                        else {
+                            var index = objectArray.indexOf(value);
+                            if (index >= 0) {
+                                objectArray.splice(index, 1);
+                            }
+                        }
+                        scope.$apply();
                     }
 
                 };
@@ -148,13 +163,12 @@ angular.module('train')
                 if (!listSource || !objectSource || !objectProperty) {
                     throw new { msg: "You must specify listSource, objectSource, and objectProperty"}
                 }
-                var checkedIndexes = [];
 
-                scope.$watch(listSource, function(newValue){
+                scope.$watch(listSource, function(listItems){
 
-                    var items = newValue;
+                    items = _.map(listItems, function(item) { return item.name; });
+
                     var div = $("<div>");
-                    var objectArray;
 
                     if (scope[objectSource]) {
                         objectArray = scope[objectSource][objectProperty];
@@ -164,7 +178,7 @@ angular.module('train')
                     }
 
                     _.each(items, function(item, i){
-                        var line = item.name;
+                        var line = item;
                         var input = $("<input type='checkbox' id='" + prefix + i + "'>" + line + "</input>");
                         if (_.any(objectArray, function(v) { return v == line})) {
                             input[0].checked = true;
