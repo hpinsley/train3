@@ -28,4 +28,7 @@ angular.module('train', ['ngRoute'])
             .otherwise({
                redirectTo: '/'
             });
+    }])
+    .run(["cacheServices", function(cacheServices){
+        cacheServices.init();
     }]);

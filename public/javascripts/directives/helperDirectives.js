@@ -120,11 +120,6 @@ angular.module('train')
     .directive("hpCheckboxList", function(){
         return {
             restrict: 'E',
-            controller: function($scope) {
-                $scope.testClick = function() {
-                    alert("click");
-                };
-            },
             link: function(scope, iElement, iAttrs) {
                 var objectArray = [];       //Set to the scope item array
                 var items = [];             //Set to the list of all values corresponding to the checkboxes
