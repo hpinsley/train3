@@ -51,15 +51,8 @@ angular.module("train")
             if (stops.length == 0) {
                 return true;
             }
-            var timeMatch = _.find(stops, function(stop) {
-                var trainStopTime = new Date(stop.time);
-                return trainStopTime.valueOf() == stopTime.valueOf();
-            });
-            if (timeMatch) {
-                alert("You are already stopping at " + timeMatch.station + " at " + stopTime);
-                return false;
-            };
 
+            //Are we stopping at this station already?
             var stationMatch = _.find(stops, function(stop){
                 return stop.station === stationAbbr;
             });
@@ -68,13 +61,32 @@ angular.module("train")
                 alert("You are already stopping at station " + stationMatch.station);
                 return false;
             }
-            
-            var priorStops = _.filter(stops, function(stop){
+
+            //Break the stops by time into three buckets -- prior stops(-1), later stops(1)
+            //and equal stop times (0)
+
+            var stopGroups = _.groupBy(stops, function(stop) {
                 var trainStopTime = new Date(stop.time);
-                return trainStopTime.valueOf() < stopTime.valueOf();
+                if (trainStopTime.valueOf() === stopTime.valueOf()) {
+                    return 0;
+                }
+                if (trainStopTime.valueOf() < stopTime.valueOf()) {
+                    return -1;
+                }
+                return 1;
             });
 
-            if (priorStops.length > 0) {
+            var timeMatch = stopGroups[0] ? stopGroups[0][0] : null;
+
+            if (timeMatch) {
+                alert("You are already stopping at " + timeMatch.station + " at " + stopTime);
+                return false;
+            };
+
+
+            var priorStops = stopGroups[-1];
+
+            if (priorStops) {
                 var previousStop = priorStops[priorStops.length - 1];
                 inCommon = helperServices.linesInCommon(previousStop.station, stationAbbr);
                 if (inCommon.length == 0) {
@@ -83,12 +95,9 @@ angular.module("train")
                 }
             }
 
-            var laterStops = _.filter(stops, function(stop){
-                var trainStopTime = new Date(stop.time);
-                return trainStopTime.valueOf() > stopTime.valueOf();
-            });
+            var laterStops = stopGroups[1];
 
-            if (laterStops.length > 0) {
+            if (laterStops) {
                 var nextStop = laterStops[0];
                 inCommon = helperServices.linesInCommon(nextStop.station, stationAbbr);
                 if (inCommon.length == 0) {
