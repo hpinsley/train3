@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("StationsController", function($scope, $location, trainServices){
+    .controller("StationsController", function($scope, $location, trainServices, cacheServices){
 
         var setLineLists = function(stations) {
             _.each(stations, function(station){
@@ -25,7 +25,12 @@ angular.module("train")
             if ($scope.selectedLine == null) {
                 return true;
             }
-            return station.line == $scope.selectedLine;
+
+            //console.log('Station ' + station.abbr + " has " + station.lines.length + " lines.");
+
+            return _.any(station.lines, function(line) {
+                return line === $scope.selectedLine}
+            );
         };
 
         $scope.deleteStation = function(station) {
@@ -33,6 +38,7 @@ angular.module("train")
                 trainServices.deleteStation(station)
                     .then(function(result){
                         alert(result.data.msg);
+                        cacheServices.refreshStationCache();
                         $location.path("/");
                     });
             }

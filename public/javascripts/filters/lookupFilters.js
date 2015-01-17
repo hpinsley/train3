@@ -1,29 +1,15 @@
 angular.module("train")
-    .filter('stationName', function(trainServices){
-
-        var stationCache = {};
-
-        trainServices.getStations()
-            .then(function(res){
-                var stations = res.data;
-                stations.forEach(function(station){
-                    stationCache[station.abbr] = station;
-                });
-            });
+    .filter('stationName', function(cacheServices){
 
         var stationName = function(abbr) {
-            var station = stationCache[abbr];
+            var station = cacheServices.getStation(abbr);
             if (!station) {
                 return "Unknown station " + abbr;
             }
             return station.name;
         }
 
-        var stationNameFilter = function(abbr) {
-            return stationName(abbr);
-        };
-
-        return stationNameFilter;
+        return stationName;
     })
     .filter("timeDisplay", function() {
         return function(time) {

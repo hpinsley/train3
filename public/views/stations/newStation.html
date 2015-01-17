@@ -15,11 +15,6 @@
         <input id="stationName" name="stationName" class="form-control" ng-model="station.name" required />
     </div>
 
-    <div class="form-group">
-        <label for="line">Line:</label>
-        <select id="line" name="line" class="form-control" ng-model="station.line" required ng-options="line.name as line.name for line in lines"/>
-    </div>
-
     <div class="input-group">
         <label>Lines:</label>
         <div ng-repeat="(line,selected) in lineSelects">
