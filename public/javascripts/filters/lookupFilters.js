@@ -22,4 +22,18 @@ angular.module("train")
             }
             return "Invalid time";
         }
+    })
+    .filter("showStationLines", function(cacheServices){
+        return function(stationAbbr) {
+            var station = cacheServices.getStation(stationAbbr);
+            if (station) {
+                return station.lines.join(",");
+            }
+            return "";
+        }
+    })
+    .filter("commaSeparate", function(){
+        return function(arr) {
+            return arr.join(",");
+        };
     });

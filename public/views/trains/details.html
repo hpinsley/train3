@@ -21,6 +21,8 @@
             <th>Stop No.</th>
             <th>Time</th>
             <th>Station</th>
+            <th>Lines</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -28,6 +30,7 @@
             <td>{{$index+1}}</td>
             <td hp-copytime="$parent.stopTime" target="stopTime" class="clickable">{{stop.time | date:"hh:mm a"}}</td>
             <td><a href="/#/stations/{{stop.station}}">{{stop.station | stationName}}</a></td>
+            <td>{{stop.station | showStationLines}}</td>
             <td>
                 <button ng-click="deleteStop(trainNumber, stop)">Delete</button>
             </td>
