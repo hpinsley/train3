@@ -13,7 +13,7 @@ angular.module("train").factory('trainServices', ["$http", function ($http) {
     }
 
     var deleteStation = function(station) {
-        return $http.delete("/api/stations/" + station._id);
+        return $http.delete("/api/stations/" + station.abbr);
     }
 
     var getStationTrains = function(stationAbbr) {

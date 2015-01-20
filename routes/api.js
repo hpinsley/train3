@@ -74,16 +74,27 @@ router.put('/stations/:abbr', function(req, res, next){
     });
 });
 
-router.delete("/stations/:id", function(req, res, next){
-    var coll = req.db.collection("stations");
-    var id = mongoskin.helper.toObjectID(req.params.id);
-    coll.remove({_id: id}, function(e, result){
-        if (e) {
-            return next(e);
-        }
-        lookups.refreshStationCache();
-        res.send((result === 1) ? { msg: 'success'} : {msg: 'error'});
-    });
+router.delete("/stations/:abbr", function(req, res, next){
+    var stationAbbr = mongoskin.helper.toObjectID(req.params.abbr);
+    var trains = req.db.collection("trains");
+    var findResult = trains.find({stops: {$elemMatch: {station: stationAbbr}}});
+    findResult.toArray(function(e, results){
+            if (e) {
+                return next(e);
+            }
+            if (results.length > 0) {
+                return next("Station cannot be deleted while it is a stop on a train.  Train " + results[0].number + " stops at this station.");
+            }
+
+            var coll = req.db.collection("stations");
+            coll.remove({abbr: stationAbbr}, function(e, result){
+                if (e) {
+                    return next(e);
+                }
+                lookups.refreshStationCache();
+                res.send((result === 1) ? { msg: 'success'} : {msg: 'error'});
+            });
+        });
 });
 
 router.get('/trains', function(req, res, next) {

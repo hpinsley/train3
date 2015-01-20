@@ -18,6 +18,7 @@ angular.module("train").factory('cacheServices', ["trainServices", function (tra
         console.log("Refreshing station cache.");
         trainServices.getStations()
             .success(function(stations) {
+                cache.stations = {};
                 console.log("Caching " + stations.length + " stations.");
                 _.each(stations, function(station) {
                     cache.stations[station.abbr] = station;

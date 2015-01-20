@@ -44,7 +44,13 @@ app.use(function(req, res, next) {
 
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.send("Error: " + err.message + " " + err);
+    if (err.message) {
+        res.send(err.message);
+    }
+    if (err.msg) {
+        res.send(err.msg);
+    }
+    res.send(err);
 });
 
 module.exports = app;

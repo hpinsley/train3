@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("StationsController", function($scope, $location, trainServices, cacheServices){
+    .controller("StationsController", function($scope, $location, $route, trainServices, cacheServices){
 
         var setLineLists = function(stations) {
             _.each(stations, function(station){
@@ -36,10 +36,12 @@ angular.module("train")
         $scope.deleteStation = function(station) {
             if (confirm("Do you really want to delete " + station.name + "?")) {
                 trainServices.deleteStation(station)
-                    .then(function(result){
-                        alert(result.data.msg);
-                        cacheServices.refreshStationCache();
-                        $location.path("/");
+                    .success(function(result){
+                        cacheServices.refreshStations();
+                        $route.reload();
+                    })
+                    .error(function(e){
+                        alert(e.msg || e);
                     });
             }
         }
