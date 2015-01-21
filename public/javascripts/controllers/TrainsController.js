@@ -16,6 +16,30 @@ angular.module("train")
                 }
             });
 
+        var stationSelect = function() {
+            if (!$scope.startStation || !$scope.endStation) {
+                return;
+            }
+            _.each($scope.trains, function(train){
+                var startStop = _.find(train.stops, function(stop){
+                    return stop.station == $scope.startStation;
+                });
+                if (startStop) {
+                    train.startTime = startStop.time;
+                }
+                var endStop = _.find(train.stops, function(stop){
+                    return stop.station == $scope.endStation;
+                });
+                if (endStop) {
+                    train.stopTime = endStop.time;
+                }
+            });
+        };
+
+        $scope.$watch("startStation", stationSelect);
+        $scope.$watch("endStation", stationSelect);
+
+
         $scope.selectedStopsFn = function(train) {
             var startStation = $scope.startStation;
             var endStation = $scope.endStation;

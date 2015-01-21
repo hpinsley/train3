@@ -45,8 +45,8 @@
             <td>{{train.stops.length}}</td>
             <td>{{train.originStation | stationName}}</td>
             <td>{{train.terminalStation| stationName}}</td>
-            <td ng-if="startStation && endStation">Time for {{startStation}}</td>
-            <td ng-if="startStation && endStation">Time for {{endStation}}</td>
+            <td ng-if="startStation && endStation">{{train.startTime | timeDisplay}}</td>
+            <td ng-if="startStation && endStation">{{train.stopTime | timeDisplay}}</td>
         </tr>
     </tbody>
 </table>
