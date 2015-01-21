@@ -21,17 +21,21 @@ angular.module("train")
                 return;
             }
             _.each($scope.trains, function(train){
-                var startStop = _.find(train.stops, function(stop){
+                var startIndex = _.findIndex(train.stops, function(stop){
                     return stop.station == $scope.startStation;
                 });
-                if (startStop) {
-                    train.startTime = startStop.time;
+                if (startIndex >= 0) {
+                    train.startTime = train.stops[startIndex].time;
                 }
-                var endStop = _.find(train.stops, function(stop){
+                var endIndex = _.findIndex(train.stops, function(stop){
                     return stop.station == $scope.endStation;
                 });
-                if (endStop) {
-                    train.stopTime = endStop.time;
+                if (endIndex >= 0) {
+                    train.stopTime = train.stops[endIndex].time;
+                }
+
+                if (startIndex >= 0 && endIndex >= 0 && endIndex > startIndex) {
+                    train.tripStops = endIndex - startIndex;
                 }
             });
         };
