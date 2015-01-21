@@ -1,4 +1,29 @@
-<p><button ng-click="newTrain()">Add a Train</button></p>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-2">
+        <button class="btn" ng-click="newTrain()">Add a Train</button>
+        </div>
+
+        <div class="col-md-4">
+            <label>Board:</label>
+            <select class="input-lg" id="startStation" ng-options="station.abbr as station.name group by station.lines for station in stations" ng-model="startStation">
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label>Final:</label>
+            <select class="input-lg" id="endStation" ng-options="station.abbr as station.name group by station.lines for station in stations" ng-model="endStation">
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <button class="btn" ng-click="clearFilters()">Clear</button>
+        </div>
+
+        </select>
+    </div>
+</div>
 
 <h2>Trains</h2>
 <table class="table">
@@ -9,15 +34,19 @@
             <th>Stops</th>
             <th>Origination</th>
             <th>Termination</th>
+            <th ng-if="startStation && endStation">Arrive {{startStation | stationName}}</th>
+            <th ng-if="startStation && endStation">Arrive {{endStation | stationName}}</th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="train in trains">
+        <tr ng-repeat="train in trains | filter:selectedStopsFn">
             <td><a href="/#/trains/{{train.number}}">{{train.number}}</a></td>
             <td>{{train.description}}</td>
             <td>{{train.stops.length}}</td>
             <td>{{train.originStation | stationName}}</td>
             <td>{{train.terminalStation| stationName}}</td>
+            <td ng-if="startStation && endStation">Time for {{startStation}}</td>
+            <td ng-if="startStation && endStation">Time for {{endStation}}</td>
         </tr>
     </tbody>
 </table>
