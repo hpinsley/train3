@@ -37,6 +37,7 @@
             <th ng-if="startStation && endStation">Arrive {{startStation | stationName}}</th>
             <th ng-if="startStation && endStation">Arrive {{endStation | stationName}}</th>
             <th ng-if="startStation && endStation">Trip Stops</th>
+            <th ng-if="startStation && endStation">Trip Time</th>
         </tr>
     </thead>
     <tbody>
@@ -49,6 +50,7 @@
             <td ng-if="startStation && endStation">{{train.startTime | timeDisplay}}</td>
             <td ng-if="startStation && endStation">{{train.stopTime | timeDisplay}}</td>
             <td ng-if="startStation && endStation">{{train.tripStops}}</td>
+            <td ng-if="startStation && endStation">{{train.tripTime}} Minutes</td>
         </tr>
     </tbody>
 </table>

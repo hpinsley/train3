@@ -17,7 +17,14 @@ angular.module("train").factory('helperServices', ["cacheServices", function (ca
         return inCommon;
     };
 
+    var elapsedMinutes = function(t1, t2) {
+        var m1 = moment(t1);
+        var m2 = moment(t2);
+        return (m2 - m1) / 60000;
+    };
+
     return {
-        linesInCommon: linesInCommon
+        linesInCommon: linesInCommon,
+        elapsedMinutes: elapsedMinutes
     };
 }]);

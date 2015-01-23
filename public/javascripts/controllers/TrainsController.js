@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("TrainsController", function($scope, trainServices, $location){
+    .controller("TrainsController", function($scope, trainServices, helperServices, $location){
         $scope.title = "This is from trains controller";
 
         trainServices.getStations()
@@ -36,6 +36,7 @@ angular.module("train")
 
                 if (startIndex >= 0 && endIndex >= 0 && endIndex > startIndex) {
                     train.tripStops = endIndex - startIndex;
+                    train.tripTime = helperServices.elapsedMinutes(train.startTime, train.stopTime);
                 }
             });
         };
