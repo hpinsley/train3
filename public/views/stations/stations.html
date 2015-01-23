@@ -31,7 +31,7 @@
         <td>
             {{station.lineList}}
         </td>
-        <td>{{station.trainCount}}</td>
+        <td><a href="/#/trains?startStation={{station.abbr}}">{{station.trainCount}}</a></td>
         <td>
             <button class="btn btn-warning" ng-click="deleteStation(station)">Delete</button>
         </td>

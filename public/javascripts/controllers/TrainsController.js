@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("TrainsController", function($scope, trainServices, helperServices, $location){
+    .controller("TrainsController", function($scope, trainServices, helperServices, $location, $routeParams){
         $scope.title = "This is from trains controller";
 
         trainServices.getStations()
@@ -10,6 +10,8 @@ angular.module("train")
         trainServices.getTrains()
             .then(function(res){
                 $scope.trains = res.data;
+                var startStation = $routeParams["startStation"];
+                $scope.startStation = startStation;
             }, function(err) {
                 for (var prop in err) {
                     alert("Prop: " + prop + " = " + err[prop]);
