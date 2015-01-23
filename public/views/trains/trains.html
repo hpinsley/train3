@@ -18,7 +18,12 @@
         </div>
 
         <div class="col-md-2">
-            <button class="btn" ng-click="clearFilters()">Clear</button>
+            <div style="margin-bottom:10px">
+                <button class="btn" ng-disabled="!startStation || !endStation" ng-click="swapStations()">Swap</button>
+            </div>
+            <div>
+                <button class="btn" ng-click="clearFilters()">Clear</button>
+            </div>
         </div>
 
         </select>

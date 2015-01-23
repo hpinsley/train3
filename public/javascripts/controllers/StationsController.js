@@ -5,21 +5,37 @@ angular.module("train")
             _.each(stations, function(station){
                 station.lineList = station.lines.join(", ");
             });
-        }
-        trainServices.getStations()
-            .then(function(res){
-                $scope.stations = res.data;
-                setLineLists($scope.stations);
-            }, function(err) {
-                for (var prop in err) {
-                    alert("Prop: " + prop + " = " + err[prop]);
-                }
+        };
+
+        var addTrainCountToStations = function() {
+            _.each($scope.stations, function(station){
+                var trains = _.filter($scope.trains, function(train){
+                    return _.any(train.stops, function(stop){
+                        return stop.station == station.abbr;
+                    });
+                });
+                station.trainCount = trains.length;
             });
+        };
+
+        trainServices.getStations()
+            .success(function(stations){
+                $scope.stations = stations;
+                setLineLists($scope.stations);
+                console.log("Set stations");
+            })
+            .then(trainServices.getTrains)
+            .then(function(res){
+                console.log("Setting trains");
+                $scope.trains = res.data;
+                addTrainCountToStations();
+            })
 
         trainServices.getLines()
             .success(function(res){
                 $scope.lines = res;
             });
+
 
         $scope.selectedLineFn = function(station) {
             if ($scope.selectedLine == null) {

@@ -17,6 +17,7 @@
         <th>Name</th>
         <th>Abbr</th>
         <th>Lines</th>
+        <th>Trains</th>
     </tr>
     </thead>
     <tbody>
@@ -30,6 +31,7 @@
         <td>
             {{station.lineList}}
         </td>
+        <td>{{station.trainCount}}</td>
         <td>
             <button class="btn btn-warning" ng-click="deleteStation(station)">Delete</button>
         </td>

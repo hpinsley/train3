@@ -61,6 +61,12 @@ angular.module("train")
         $scope.clearFilters = function() {
             $scope.startStation = null;
             $scope.endStation = null;
+        };
+
+        $scope.swapStations = function() {
+            var temp = $scope.startStation;
+            $scope.startStation = $scope.endStation;
+            $scope.endStation = temp;
         }
 
         $scope.newTrain = function() {
