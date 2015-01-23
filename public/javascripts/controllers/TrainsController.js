@@ -17,26 +17,37 @@ angular.module("train")
             });
 
         var stationSelect = function() {
-            if (!$scope.startStation || !$scope.endStation) {
+            if (!$scope.startStation && !$scope.endStation) {
                 return;
             }
             _.each($scope.trains, function(train){
-                var startIndex = _.findIndex(train.stops, function(stop){
-                    return stop.station == $scope.startStation;
-                });
-                if (startIndex >= 0) {
-                    train.startTime = train.stops[startIndex].time;
-                }
-                var endIndex = _.findIndex(train.stops, function(stop){
-                    return stop.station == $scope.endStation;
-                });
-                if (endIndex >= 0) {
-                    train.stopTime = train.stops[endIndex].time;
+
+                if ($scope.startStation) {
+                    var startIndex = _.findIndex(train.stops, function (stop) {
+                        return stop.station == $scope.startStation;
+                    });
+                    if (startIndex >= 0) {
+                        train.startTime = train.stops[startIndex].time;
+                    }
                 }
 
-                if (startIndex >= 0 && endIndex >= 0 && endIndex > startIndex) {
-                    train.tripStops = endIndex - startIndex;
-                    train.tripTime = helperServices.elapsedMinutes(train.startTime, train.stopTime);
+                if ($scope.endStation) {
+                    var endIndex = _.findIndex(train.stops, function(stop){
+                        return stop.station == $scope.endStation;
+                    });
+                    if (endIndex >= 0) {
+                        train.stopTime = train.stops[endIndex].time;
+                    }
+                }
+
+                if ($scope.startStation && $scope.endStation) {
+                    if (startIndex >= 0 && endIndex >= 0 && endIndex > startIndex) {
+                        train.tripStops = endIndex - startIndex;
+                        train.tripTime = helperServices.elapsedMinutes(train.startTime, train.stopTime);
+                    }
+                    else {
+                        train.tripStops = -1;
+                    }
                 }
             });
         };
@@ -49,13 +60,29 @@ angular.module("train")
             var startStation = $scope.startStation;
             var endStation = $scope.endStation;
 
-            if (!startStation || !endStation) {
+            if (!startStation && !endStation) {
                 return true;
             }
-            var startIndex = _.findIndex(train.stops, function(stop) { return stop.station == startStation});
-            var endIndex = _.findIndex(train.stops, function(stop) { return stop.station == endStation});
 
-            return (startIndex >= 0 && endIndex >= 0 && endIndex > startIndex);
+            if (startStation) {
+                var startIndex = _.findIndex(train.stops, function(stop) { return stop.station == startStation});
+            }
+
+            if (endStation) {
+                var endIndex = _.findIndex(train.stops, function(stop) { return stop.station == endStation});
+            }
+
+            if (startStation && endStation) {
+                return (startIndex >= 0 && endIndex >= 0 && endIndex > startIndex);
+            }
+
+            if (startStation) {
+                return startIndex >= 0;
+            }
+
+            if (endStation) {
+                return endIndex >= 0;
+            }
         };
 
         $scope.clearFilters = function() {
