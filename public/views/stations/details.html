@@ -1,4 +1,6 @@
-<h2>Station {{stationAbbr | stationName}}</h2>
+<h2>Station {{stationAbbr | stationName}}
+    <a href="/#/trains?startStation={{stationAbbr}}" class="btn btn-info btn-lg pull-right">Find a train from/to {{station.name}}</a>
+</h2>
 
 <div class="well">
     <form name="stationUpdateForm">

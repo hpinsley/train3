@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("TrainsController", function($scope, trainServices, helperServices, $location, $routeParams){
+    .controller("TrainsController", function($scope, trainServices, cacheServices, helperServices, $location, $routeParams){
         $scope.title = "This is from trains controller";
 
         trainServices.getStations()
@@ -11,6 +11,7 @@ angular.module("train")
             .then(function(res){
                 $scope.trains = res.data;
                 var startStation = $routeParams["startStation"];
+                setTrainStopTooltips();
                 $scope.startStation = startStation;
             }, function(err) {
                 for (var prop in err) {
@@ -18,6 +19,13 @@ angular.module("train")
                 }
             });
 
+        var setTrainStopTooltips = function() {
+            _.each($scope.trains, function(train){
+                train.toolTip = _.map(train.stops, function(stop){
+                    return cacheServices.getStation(stop.station).name;
+                }).join(", ");
+            });
+        }
         var stationSelect = function() {
             if (!$scope.startStation && !$scope.endStation) {
                 return;
