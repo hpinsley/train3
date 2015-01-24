@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3832ecd3-a85d-41f0-b7d4-6db12949b7eb" name="Default" comment="Allow navigation from station list to a filtered train list">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/TrainsController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/TrainsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/stations/details.html" afterPath="$PROJECT_DIR$/public/views/stations/details.html" />
+    <list default="true" id="3832ecd3-a85d-41f0-b7d4-6db12949b7eb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/trains/trains.html" afterPath="$PROJECT_DIR$/public/views/trains/trains.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -38,16 +36,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="details.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/views/stations/details.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.049868766" vertical-offset="0" max-vertical-offset="969">
-              <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="StationDetailsController.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/stations/StationDetailsController.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -58,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trains.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="trains.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/views/trains/trains.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-35.285713" vertical-offset="0" max-vertical-offset="1311">
-              <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.5984252" vertical-offset="399" max-vertical-offset="1349">
+              <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -188,8 +176,8 @@
         <option value="$PROJECT_DIR$/public/javascripts/controllers/StationsController.js" />
         <option value="$PROJECT_DIR$/public/views/stations/stations.html" />
         <option value="$PROJECT_DIR$/public/views/stations/details.html" />
-        <option value="$PROJECT_DIR$/public/views/trains/trains.html" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/TrainsController.js" />
+        <option value="$PROJECT_DIR$/public/views/trains/trains.html" />
       </list>
     </option>
   </component>
@@ -825,7 +813,11 @@
       <created>1422022562385</created>
       <updated>1422022562385</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Show a tooltip on the stop count">
+      <created>1422058593912</created>
+      <updated>1422058593913</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -890,7 +882,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="hpCopyTime now works with isolate scope" />
     <MESSAGE value="No longer call back to the server to display the station name after an add.  Rather use the filter cache." />
     <MESSAGE value="Fixed bug with copy time" />
     <MESSAGE value="Sorting and styling changes" />
@@ -915,7 +906,8 @@
     <MESSAGE value="Add a swap button" />
     <MESSAGE value="Allow the station filters to function singlely" />
     <MESSAGE value="Allow navigation from station list to a filtered train list" />
-    <option name="LAST_COMMIT_MESSAGE" value="Allow navigation from station list to a filtered train list" />
+    <MESSAGE value="Show a tooltip on the stop count" />
+    <option name="LAST_COMMIT_MESSAGE" value="Show a tooltip on the stop count" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1272,16 +1264,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/trains/trains.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.285713" vertical-offset="0" max-vertical-offset="1311">
-          <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/StationsController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1311">
@@ -1306,6 +1288,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/stations/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.049868766" vertical-offset="0" max-vertical-offset="969">
+          <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/TrainsController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="218" max-vertical-offset="2299">
@@ -1314,11 +1304,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/stations/details.html">
+    <entry file="file://$PROJECT_DIR$/public/views/trains/trains.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.049868766" vertical-offset="0" max-vertical-offset="969">
-          <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
-          <folding />
+        <state vertical-scroll-proportion="0.5984252" vertical-offset="399" max-vertical-offset="1349">
+          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

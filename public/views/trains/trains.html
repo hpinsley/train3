@@ -31,12 +31,12 @@
 </div>
 
 <h2>Trains</h2>
-<table class="table">
+<table class="table table-condensed table-striped">
     <thead>
         <tr>
             <th>Number</th>
             <th>Description</th>
-            <th>Stops</th>
+            <th class="text-center">Stops</th>
             <th>Origination</th>
             <th>Termination</th>
             <th ng-if="startStation">Arrive {{startStation | stationName}}</th>
@@ -49,7 +49,9 @@
         <tr ng-repeat="train in trains | filter:selectedStopsFn">
             <td><a href="/#/trains/{{train.number}}">{{train.number}}</a></td>
             <td>{{train.description}}</td>
-            <td title="{{train.toolTip}}">{{train.stops.length}}</td>
+            <td class="well well-sm text-center" title="{{train.toolTip}}">
+                {{train.stops.length}}
+            </td>
             <td><a href="/#/stations/{{train.originStation}}">{{train.originStation | stationName}}</a></td>
             <td><a href="/#/stations/{{train.terminalStation}}">{{train.terminalStation| stationName}}</a></td>
             <td ng-if="startStation">{{train.startTime | timeDisplay}}</td>
