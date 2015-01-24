@@ -11,13 +11,13 @@
         <a href="#/stations/new">New Station</a>
     </div>
 </div>
-<table class="table">
+<table class="table table-condensed table-striped">
     <thead>
     <tr>
         <th>Name</th>
         <th>Abbr</th>
         <th>Lines</th>
-        <th>Trains</th>
+        <th class="text-center">Trains</th>
     </tr>
     </thead>
     <tbody>
@@ -31,7 +31,7 @@
         <td>
             {{station.lineList}}
         </td>
-        <td><a href="/#/trains?startStation={{station.abbr}}">{{station.trainCount}}</a></td>
+        <td class="well well-sm text-center" title="{{station.trainCountToolTip}}"><a href="/#/trains?startStation={{station.abbr}}">{{station.trainCount}}</a></td>
         <td>
             <button class="btn btn-warning" ng-click="deleteStation(station)">Delete</button>
         </td>

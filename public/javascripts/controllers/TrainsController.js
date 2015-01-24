@@ -23,7 +23,7 @@ angular.module("train")
             _.each($scope.trains, function(train){
                 train.toolTip = _.map(train.stops, function(stop){
                     return cacheServices.getStation(stop.station).name;
-                }).join(", ");
+                }).join("\n");
             });
         }
         var stationSelect = function() {

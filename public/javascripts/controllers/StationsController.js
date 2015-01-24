@@ -7,7 +7,7 @@ angular.module("train")
             });
         };
 
-        var addTrainCountToStations = function() {
+        var addTrainCountsAndToolTipToStations = function() {
             _.each($scope.stations, function(station){
                 var trains = _.filter($scope.trains, function(train){
                     return _.any(train.stops, function(stop){
@@ -15,6 +15,9 @@ angular.module("train")
                     });
                 });
                 station.trainCount = trains.length;
+                station.trainCountToolTip = _.map(trains, function(train){
+                    return train.description;
+                }).join("\n");
             });
         };
 
@@ -28,7 +31,7 @@ angular.module("train")
             .then(function(res){
                 console.log("Setting trains");
                 $scope.trains = res.data;
-                addTrainCountToStations();
+                addTrainCountsAndToolTipToStations();
             })
 
         trainServices.getLines()

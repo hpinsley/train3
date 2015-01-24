@@ -50,7 +50,7 @@
             <td><a href="/#/trains/{{train.number}}">{{train.number}}</a></td>
             <td>{{train.description}}</td>
             <td class="well well-sm text-center" title="{{train.toolTip}}">
-                {{train.stops.length}}
+                <a href="/#/trains/{{train.number}}">{{train.stops.length}}</a>
             </td>
             <td><a href="/#/stations/{{train.originStation}}">{{train.originStation | stationName}}</a></td>
             <td><a href="/#/stations/{{train.terminalStation}}">{{train.terminalStation| stationName}}</a></td>

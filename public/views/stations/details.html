@@ -36,8 +36,8 @@
         <td><a href="/#/trains/{{train.number}}">{{train.number}}</a></td>
         <td>{{train.description}}</td>
         <td>{{train.stops.length}}</td>
-        <td>{{train.originStation | stationName}}</td>
-        <td>{{train.terminalStation| stationName}}</td>
+        <td><a href="/#/stations/{{train.originStation}}">{{train.originStation | stationName}}</a></td>
+        <td><a href="/#/stations/{{train.terminalStation}}">{{train.terminalStation| stationName}}</a></td>
         <td>{{train.stationStop.time | timeDisplay}}</td>
     </tr>
     </tbody>
