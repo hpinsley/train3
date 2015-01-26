@@ -67,8 +67,8 @@
             <td><a href="/#/stations/{{train.terminalStation}}">{{train.terminalStation| stationName}}</a></td>
             <td ng-if="startStation">{{train.startTime | timeDisplay}}</td>
             <td ng-if="endStation">{{train.stopTime | timeDisplay}}</td>
-            <td ng-if="startStation && endStation">{{train.tripStops}}</td>
-            <td ng-if="startStation && endStation">{{train.tripTime}} Minutes</td>
+            <td ng-if="startStation && endStation"><a href="/#/trains/{{train.number}}/trip?start={{startStation}}&end={{endStation}}">{{train.tripStops}}</a></td>
+            <td ng-if="startStation && endStation">{{train.tripTime | minutesToElapsed}}</td>
         </tr>
     </tbody>
 </table>

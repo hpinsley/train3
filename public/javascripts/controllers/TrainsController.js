@@ -1,6 +1,6 @@
 angular.module("train")
     .controller("TrainsController", function($scope, trainServices, cacheServices, helperServices, $location, $routeParams){
-        $scope.title = "This is from trains controller";
+        $scope.title = "Trains";
 
         trainServices.getStations()
             .success(function(stations){

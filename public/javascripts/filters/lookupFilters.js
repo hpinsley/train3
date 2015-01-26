@@ -36,4 +36,16 @@ angular.module("train")
         return function(arr) {
             return arr.join(",");
         };
+    })
+    .filter("minutesToElapsed", function(){
+        return function(minutes) {
+            var hours = Math.floor(minutes / 60);
+            var mins = minutes - (hours * 60);
+            var elapsed = hours.toString() + ":" + mins.toString();
+            var i = elapsed.indexOf(":");
+            if ((elapsed.length - i) == 2) {
+                elapsed = elapsed.replace(":", ":0");
+            }
+            return elapsed;
+        }
     });
