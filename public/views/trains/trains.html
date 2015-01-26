@@ -7,13 +7,13 @@
 
         <div class="col-md-4">
             <label>Board:</label>
-            <select class="input-lg" id="startStation" ng-options="station.abbr as station.name group by station.lines for station in stations" ng-model="startStation">
+            <select class="input-lg" id="startStation" ng-options="station.abbr as station.name group by station.lines for station in stations | filter:startStationFilter" ng-model="startStation">
             </select>
         </div>
 
         <div class="col-md-4">
             <label>Final:</label>
-            <select class="input-lg" id="endStation" ng-options="station.abbr as station.name group by station.lines for station in stations" ng-model="endStation">
+            <select class="input-lg" id="endStation" ng-options="station.abbr as station.name group by station.lines for station in stations | filter:endStationFilter" ng-model="endStation">
             </select>
         </div>
 
@@ -30,7 +30,18 @@
     </div>
 </div>
 
-<h2>Trains</h2>
+<h2>Trains
+    <span ng-if="startStation && endStation">
+        from {{startStation | stationName}} to {{endStation | stationName}}
+    </span>
+    <span ng-if="startStation && !endStation">
+        stopping at {{startStation | stationName}}
+    </span>
+    <span ng-if="!startStation && endStation">
+        stopping at {{endStation | stationName}}
+    </span>
+</h2>
+
 <table class="table table-condensed table-striped">
     <thead>
         <tr>

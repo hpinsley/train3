@@ -65,6 +65,42 @@ angular.module("train")
         $scope.$watch("startStation", stationSelect);
         $scope.$watch("endStation", stationSelect);
 
+        //For the start station dropdown, only show stations that connect with the selected
+        //end station.
+
+        $scope.startStationFilter = function(station) {
+            if (!$scope.endStation) {
+                return true;
+            }
+
+            return _.any($scope.trains, function(train){
+                var startIndex = _.findIndex(train.stops, function(stop){
+                    return stop.station == station.abbr;
+                });
+                var endIndex = _.findIndex(train.stops, function(stop){
+                    return stop.station == $scope.endStation;
+                });
+                return (startIndex >= 0 && endIndex >= 0 && endIndex > startIndex);
+            });
+        };
+
+        // For the end station dropdown, only show stations that connect with the start station
+
+        $scope.endStationFilter = function(station) {
+            if (!$scope.startStation) {
+                return true;
+            }
+
+            return _.any($scope.trains, function(train){
+                var startIndex = _.findIndex(train.stops, function(stop){
+                    return stop.station == $scope.startStation;
+                });
+                var endIndex = _.findIndex(train.stops, function(stop){
+                    return stop.station == station.abbr;
+                });
+                return (startIndex >= 0 && endIndex >= 0 && endIndex > startIndex);
+            });
+        }
 
         $scope.selectedStopsFn = function(train) {
             var startStation = $scope.startStation;
