@@ -50,8 +50,8 @@
             <th class="text-center">Stops</th>
             <th>Origination</th>
             <th>Termination</th>
-            <th ng-if="startStation">Arrive {{startStation | stationName}}</th>
-            <th ng-if="endStation">Arrive {{endStation | stationName}}</th>
+            <th ng-if="startStation" style="color:green">Arrive {{startStation | stationName}}</th>
+            <th ng-if="endStation" style="color:red">Arrive {{endStation | stationName}}</th>
             <th ng-if="startStation && endStation">Trip Stops</th>
             <th ng-if="startStation && endStation">Trip Time</th>
         </tr>
