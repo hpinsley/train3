@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("TrainsController", function($scope, trainServices, cacheServices, helperServices, $location, $routeParams){
+    .controller("TrainsController", function($scope, trainServices, cacheServices, helperServices, $location, $routeParams, $interval){
         $scope.title = "Trains";
 
         trainServices.getStations()
@@ -13,11 +13,23 @@ angular.module("train")
                 var startStation = $routeParams["startStation"];
                 setTrainStopTooltips();
                 $scope.startStation = startStation;
+                startTimer();
             }, function(err) {
                 for (var prop in err) {
                     alert("Prop: " + prop + " = " + err[prop]);
                 }
             });
+
+        var startTimer = function() {
+            $interval(function(){
+                console.log("Interval fired in trains controller");
+                _.each($scope.trains, function(train){
+                    if (train.startTime) {
+                        train.leavesIn = helperServices.elapsedSecondsUntil(train.startTime);
+                    }
+                });
+            }, 1000);
+        };
 
         var setTrainStopTooltips = function() {
             _.each($scope.trains, function(train){
@@ -38,6 +50,7 @@ angular.module("train")
                     });
                     if (startIndex >= 0) {
                         train.startTime = train.stops[startIndex].time;
+                        train.leavesIn = helperServices.elapsedSecondsUntil(train.startTime);
                     }
                 }
 
@@ -140,7 +153,7 @@ angular.module("train")
             var temp = $scope.startStation;
             $scope.startStation = $scope.endStation;
             $scope.endStation = temp;
-        }
+        };
 
         $scope.newTrain = function() {
             trainServices.addTrain()
@@ -148,5 +161,12 @@ angular.module("train")
                     var train = res.data[0];
                     $location.path("/trains/" + train.number);
                 });
-        }
+        };
+
+        $scope.getElapsedClass = function(leavesIn) {
+            if (leavesIn < 3600) {
+                return "text-danger";
+            }
+            return "";
+        };
     });

@@ -51,6 +51,7 @@
             <th>Origination</th>
             <th>Termination</th>
             <th ng-if="startStation" style="color:green">Arrive {{startStation | stationName}}</th>
+            <th ng-if="startStation">Leaves In</th>
             <th ng-if="endStation" style="color:red">Arrive {{endStation | stationName}}</th>
             <th ng-if="startStation && endStation">Trip Stops</th>
             <th ng-if="startStation && endStation">Trip Time</th>
@@ -66,6 +67,7 @@
             <td><a href="/#/stations/{{train.originStation}}">{{train.originStation | stationName}}</a></td>
             <td><a href="/#/stations/{{train.terminalStation}}">{{train.terminalStation| stationName}}</a></td>
             <td ng-if="startStation">{{train.startTime | timeDisplay}}</td>
+            <td ng-if="startStation" ng-class="getElapsedClass(train.leavesIn)">{{train.leavesIn | secondsToElapsed}}</td>
             <td ng-if="endStation">{{train.stopTime | timeDisplay}}</td>
             <td ng-if="startStation && endStation"><a href="/#/trains/{{train.number}}/trip?start={{startStation}}&end={{endStation}}">{{train.tripStops}}</a></td>
             <td ng-if="startStation && endStation">{{train.tripTime | minutesToElapsed}}</td>

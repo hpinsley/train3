@@ -23,8 +23,28 @@ angular.module("train").factory('helperServices', ["cacheServices", function (ca
         return (m2 - m1) / 60000;
     };
 
+    var elapsedSecondsUntil = function(t) {
+        var now = new moment();
+        now.year(1970);
+        now.dayOfYear(1);
+        var then = new moment(t);
+        var diff = then - now;
+        var seconds = diff / 1000;
+        if (seconds < 0) {
+            seconds += 24 * 3600;
+        }
+        return seconds;
+    };
+
+    var d2 = function(i) {
+        var s = i.toString();
+        return (s.length == 1) ? "0" + s : s;
+    }
+
     return {
         linesInCommon: linesInCommon,
-        elapsedMinutes: elapsedMinutes
+        elapsedMinutes: elapsedMinutes,
+        elapsedSecondsUntil: elapsedSecondsUntil,
+        d2: d2
     };
 }]);

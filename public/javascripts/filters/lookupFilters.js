@@ -37,15 +37,24 @@ angular.module("train")
             return arr.join(",");
         };
     })
-    .filter("minutesToElapsed", function(){
+    .filter("minutesToElapsed", function(helperServices){
         return function(minutes) {
             var hours = Math.floor(minutes / 60);
             var mins = minutes - (hours * 60);
-            var elapsed = hours.toString() + ":" + mins.toString();
-            var i = elapsed.indexOf(":");
-            if ((elapsed.length - i) == 2) {
-                elapsed = elapsed.replace(":", ":0");
-            }
+            var elapsed = hours.toString() + ":" + helperServices.d2(mins);
+            return elapsed;
+        }
+    })
+    .filter("secondsToElapsed", function(helperServices){
+        return function(seconds) {
+            var hours = Math.floor(seconds / 3600);
+            var remaining = seconds - 3600 * hours;
+            var minutes = Math.floor(remaining / 60);
+            var secs = Math.floor(remaining - minutes * 60);
+
+            var elapsed =   helperServices.d2(hours) + ":" +
+                            helperServices.d2(minutes) + ":" +
+                            helperServices.d2(secs);
             return elapsed;
         }
     });
