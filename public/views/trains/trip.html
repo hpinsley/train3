@@ -18,7 +18,9 @@
     <tbody>
         <tr ng-repeat="stop in train.stops | filter:stopFilter">
             <td>{{$index == 0 ? "Board" : $index}}</td>
-            <td>{{stop.time | date:"hh:mm a"}}</td>
+            <td>{{stop.time | date:"hh:mm a"}}
+                <span ng-if="$index == 0">(<span hp-seconds-elapsed expr="stop.time"></span>)</span>
+            </td>
             <td><a href="/#/stations/{{stop.station}}">{{stop.station | stationName}}</a></td>
             <td>{{stop.elapsedMinutes | minutesToElapsed}}</td>
         </tr>

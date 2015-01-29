@@ -17,6 +17,25 @@ angular.module('train')
             }
         };
     })
+    .directive("hpSecondsElapsed", ["helperServices","secondsToElapsedFilter","$interval", function(helperServices, secondsToElapsed, $interval){
+        return {
+            restrict: 'A',
+            link: function(scope, iElement, iAttrs) {
+                var expr = iAttrs.expr;
+                var stopTime = scope.$eval(expr);
+                var updateTime = function() {
+                    console.log("Update time fired");
+                    var seconds = helperServices.elapsedSecondsUntil(stopTime);
+                    iElement.text(secondsToElapsed(seconds));
+                }
+                var timer = $interval(updateTime, 1000);
+                iElement.on("$destroy", function(){
+                    console.log("Cancelling timer");
+                    $interval.cancel(timer);
+                });
+            }
+        };
+    }])
     .directive("hpTimeUp", function() {
         return {
             restrict: 'E',
