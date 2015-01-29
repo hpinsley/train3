@@ -2,6 +2,8 @@ angular.module("train")
     .controller("TrainsController", function($scope, trainServices, cacheServices, helperServices, $location, $routeParams, $interval){
         $scope.title = "Trains";
 
+        var timer;
+
         trainServices.getStations()
             .success(function(stations){
                 $scope.stations = stations;
@@ -21,7 +23,7 @@ angular.module("train")
             });
 
         var startTimer = function() {
-            $interval(function(){
+            timer = $interval(function(){
                 console.log("Interval fired in trains controller");
                 _.each($scope.trains, function(train){
                     if (train.startTime) {
@@ -31,6 +33,12 @@ angular.module("train")
             }, 1000);
         };
 
+        var killTimer = function() {
+            if (timer) {
+                $interval.cancel(timer);
+                console.log("Killed timer");
+            }
+        }
         var setTrainStopTooltips = function() {
             _.each($scope.trains, function(train){
                 train.toolTip = _.map(train.stops, function(stop){
@@ -169,4 +177,8 @@ angular.module("train")
             }
             return "";
         };
+
+        $scope.$on("$destroy", function(){
+            killTimer();
+        });
     });

@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3832ecd3-a85d-41f0-b7d4-6db12949b7eb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/TrainsController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/TrainsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/services/helperServices.js" afterPath="$PROJECT_DIR$/public/javascripts/services/helperServices.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js" afterPath="$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/trains/trains.html" afterPath="$PROJECT_DIR$/public/views/trains/trains.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="train3.iws" />
@@ -32,8 +29,8 @@
       <file leaf-file-name="TrainsController.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/TrainsController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29802954" vertical-offset="335" max-vertical-offset="3363">
-              <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
+            <state vertical-scroll-proportion="0.90640396" vertical-offset="3071" max-vertical-offset="3591">
+              <caret line="181" column="24" selection-start-line="181" selection-start-column="24" selection-end-line="181" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -831,7 +828,11 @@
       <created>1422451314879</created>
       <updated>1422451314879</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Show elapsed time until train arrival">
+      <created>1422454413471</created>
+      <updated>1422454413472</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -896,7 +897,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="Show the stop time for each train for the displayed station" />
     <MESSAGE value="Sort the train times for the station display" />
     <MESSAGE value="Make the trains sort by time for a station" />
     <MESSAGE value="Added missing vendor files" />
@@ -921,7 +921,8 @@
     <MESSAGE value="Filter the start and end station drop downs so that if one is selected the other only shows choices where connections are possible." />
     <MESSAGE value="Added a trip display page" />
     <MESSAGE value="Added some color" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some color" />
+    <MESSAGE value="Show elapsed time until train arrival" />
+    <option name="LAST_COMMIT_MESSAGE" value="Show elapsed time until train arrival" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1333,8 +1334,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/TrainsController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29802954" vertical-offset="335" max-vertical-offset="3363">
-          <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
+        <state vertical-scroll-proportion="0.90640396" vertical-offset="3071" max-vertical-offset="3591">
+          <caret line="181" column="24" selection-start-line="181" selection-start-column="24" selection-end-line="181" selection-end-column="24" />
           <folding />
         </state>
       </provider>
