@@ -27,6 +27,9 @@ angular.module('train')
                     console.log("Update time fired");
                     var seconds = helperServices.elapsedSecondsUntil(stopTime);
                     iElement.text(secondsToElapsed(seconds));
+                    if (seconds < 3600) {
+                        iElement.css("color", "red");
+                    }
                 }
                 var timer = $interval(updateTime, 1000);
                 iElement.on("$destroy", function(){

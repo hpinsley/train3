@@ -29,6 +29,7 @@
         <th>Origination</th>
         <th>Termination</th>
         <th>Arrive {{stationAbbr | stationName}}</th>
+        <th>Leaves In</th>
     </tr>
     </thead>
     <tbody>
@@ -39,6 +40,7 @@
         <td><a href="/#/stations/{{train.originStation}}">{{train.originStation | stationName}}</a></td>
         <td><a href="/#/stations/{{train.terminalStation}}">{{train.terminalStation| stationName}}</a></td>
         <td>{{train.stationStop.time | timeDisplay}}</td>
+        <td hp-seconds-elapsed expr="train.stationStop.time"></td>
     </tr>
     </tbody>
 </table>
