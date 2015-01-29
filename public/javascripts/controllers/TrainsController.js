@@ -2,8 +2,6 @@ angular.module("train")
     .controller("TrainsController", function($scope, trainServices, cacheServices, helperServices, $location, $routeParams, $interval){
         $scope.title = "Trains";
 
-        var timer;
-
         trainServices.getStations()
             .success(function(stations){
                 $scope.stations = stations;
@@ -15,30 +13,8 @@ angular.module("train")
                 var startStation = $routeParams["startStation"];
                 setTrainStopTooltips();
                 $scope.startStation = startStation;
-                startTimer();
-            }, function(err) {
-                for (var prop in err) {
-                    alert("Prop: " + prop + " = " + err[prop]);
-                }
             });
 
-        var startTimer = function() {
-            timer = $interval(function(){
-                console.log("Interval fired in trains controller");
-                _.each($scope.trains, function(train){
-                    if (train.startTime) {
-                        train.leavesIn = helperServices.elapsedSecondsUntil(train.startTime);
-                    }
-                });
-            }, 1000);
-        };
-
-        var killTimer = function() {
-            if (timer) {
-                $interval.cancel(timer);
-                console.log("Killed timer");
-            }
-        }
         var setTrainStopTooltips = function() {
             _.each($scope.trains, function(train){
                 train.toolTip = _.map(train.stops, function(stop){
@@ -170,15 +146,4 @@ angular.module("train")
                     $location.path("/trains/" + train.number);
                 });
         };
-
-        $scope.getElapsedClass = function(leavesIn) {
-            if (leavesIn < 3600) {
-                return "text-danger";
-            }
-            return "";
-        };
-
-        $scope.$on("$destroy", function(){
-            killTimer();
-        });
     });
