@@ -2,7 +2,8 @@
 <h2>Train {{trainNumber}} - {{train.description}}</h2>
 
 <h3>
-    <label>Origination:</label> {{train.originStation | stationName}} <label>Termination:</label> {{train.terminalStation | stationName}}
+    <label>Origination:</label> <a href="/#/stations/{{train.originStation}}">{{train.originStation | stationName}}</a>
+    <label>Termination:</label> <a href="/#/stations/{{train.terminalStation}}">{{train.terminalStation | stationName}}</a>
 </h3>
 
 <div class="timeDisplay">Stop Time: {{stopTime | timeDisplay}}</div>
@@ -28,7 +29,7 @@
     <tbody>
         <tr ng-repeat="stop in train.stops">
             <td>{{$index+1}}</td>
-            <td hp-copytime="$parent.stopTime" target="stopTime" class="clickable">{{stop.time | date:"hh:mm a"}}</td>
+            <td title="{{stop.time | date:'yyyy-MM-dd hh:mm a'}}" hp-copytime="$parent.stopTime" target="stopTime" class="clickable">{{stop.time | date:"hh:mm a"}}</td>
             <td><a href="/#/stations/{{stop.station}}">{{stop.station | stationName}}</a></td>
             <td>{{stop.station | showStationLines}}</td>
             <td>
