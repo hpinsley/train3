@@ -13,6 +13,8 @@ angular.module("train")
                 var startStation = $routeParams["startStation"];
                 setTrainStopTooltips();
                 $scope.startStation = startStation;
+                var endStation = $routeParams["endStation"];
+                $scope.endStation = endStation;
             });
 
         var setTrainStopTooltips = function() {

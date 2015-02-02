@@ -17,6 +17,7 @@
         <th>Name</th>
         <th>Abbr</th>
         <th>Lines</th>
+        <th>Travel To</th>
         <th class="text-center">Trains</th>
     </tr>
     </thead>
@@ -30,6 +31,10 @@
         </td>
         <td>
             {{station.lineList}}
+        </td>
+        <td>
+            <select id="endStation" ng-change="travel(station)" ng-model="station.travelTo" ng-options="stationPick.abbr as stationPick.name for stationPick in stations" ng-model="endStation">
+            </select>
         </td>
         <td class="well well-sm text-center" title="{{station.trainCountToolTip}}"><a href="/#/trains?startStation={{station.abbr}}">{{station.trainCount}}</a></td>
         <td>

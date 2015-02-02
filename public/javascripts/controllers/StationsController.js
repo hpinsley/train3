@@ -52,6 +52,14 @@ angular.module("train")
             );
         };
 
+        $scope.travel = function(station) {
+            if (station.travelTo) {
+                $location.path("/trains")
+                    .search("startStation", station.abbr)
+                    .search("endStation", station.travelTo);
+            }
+        }
+
         $scope.deleteStation = function(station) {
             if (confirm("Do you really want to delete " + station.name + "?")) {
                 trainServices.deleteStation(station)
