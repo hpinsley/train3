@@ -12,7 +12,15 @@ angular.module("train").factory('cacheServices', ["trainServices", function (tra
 
     var getStation = function(stationAbbr) {
         return cache.stations[stationAbbr];
-    }
+    };
+
+    var getStations = function() {
+        var list = [];
+        for (var prop in cache.stations) {
+            list.push(cache.stations[prop]);
+        }
+        return list;
+    };
 
     var refreshStations = function() {
         console.log("Refreshing station cache.");
@@ -29,6 +37,7 @@ angular.module("train").factory('cacheServices', ["trainServices", function (tra
     return {
         init: init,
         refreshStations: refreshStations,
-        getStation: getStation
+        getStation: getStation,
+        getStations: getStations
     };
 }]);

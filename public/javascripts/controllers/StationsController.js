@@ -71,5 +71,11 @@ angular.module("train")
                         alert(e.msg || e);
                     });
             }
+        };
+
+        $scope.travelToFilter = function(filterStation, station) {
+            //var station = $scope.$eval("station");
+            //var stations = $scope.$eval("stations");
+            return true;
         }
     });

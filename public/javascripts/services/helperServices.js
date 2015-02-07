@@ -1,4 +1,4 @@
-angular.module("train").factory('helperServices', ["cacheServices", function (cacheServices) {
+angular.module("train").factory('helperServices', ["cacheServices", "trainServices", function (cacheServices, trainServices) {
 
     var linesInCommon = function(station1Abbr, station2Abbr) {
         var inCommon = [];
@@ -15,6 +15,28 @@ angular.module("train").factory('helperServices', ["cacheServices", function (ca
             });
         });
         return inCommon;
+    };
+
+    //Returns a promise
+    var destinationStations = function(startStation) {
+        return trainServices.getTrains()
+            .then(function(res){
+                var trains = res.data;
+                var stations = cacheServices.getStations();
+                var selectedStations = _.filter(stations, function(station){
+                    console.log("Filtering station " + station.abbr);
+                    return _.any(trains, function(train){
+                        var startIndex = _.findIndex(train.stops, function(stop){
+                            return stop.station == startStation;
+                        });
+                        var endIndex = _.findIndex(train.stops, function(stop){
+                            return stop.station == station.abbr;
+                        });
+                        return startIndex >=0 && endIndex >=0 && endIndex > startIndex;
+                    });
+                });
+                return selectedStations;
+            });
     };
 
     var elapsedMinutes = function(t1, t2) {
@@ -45,6 +67,7 @@ angular.module("train").factory('helperServices', ["cacheServices", function (ca
         linesInCommon: linesInCommon,
         elapsedMinutes: elapsedMinutes,
         elapsedSecondsUntil: elapsedSecondsUntil,
-        d2: d2
+        d2: d2,
+        destinationStations: destinationStations
     };
 }]);

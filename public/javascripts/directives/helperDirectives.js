@@ -215,4 +215,22 @@ angular.module('train')
                 });
             }
         };
+    })
+    .directive("hpStationSelect", function(cacheServices, helperServices) {
+        return {
+            restrict: 'E',
+            link: function(scope, iElement, iAttrs) {
+                var startStation = scope.$eval("station");
+                var select = $("<select>");
+                var p = helperServices.destinationStations(startStation.abbr);
+                p.then(function(stations){
+                    _.each(stations, function(station){
+                        var option = $("<option val='" + station.abbr + "'>" + station.name + "</option>");
+                        select.append(option);
+                    });
+                    iElement.append(select);
+                })
+            }
+        }
     });
+
