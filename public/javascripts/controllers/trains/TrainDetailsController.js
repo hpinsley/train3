@@ -1,5 +1,7 @@
 angular.module("train")
-    .controller("TrainDetailsController", function ($scope, $location, trainServices, helperServices, $routeParams) {
+    .controller("TrainDetailsController", function ($scope, $modal, $log, $location, trainServices, helperServices, $routeParams) {
+
+        $log.debug("Start of TrainDetailController");
 
         $scope.afterAdd = false;
 
@@ -20,6 +22,20 @@ angular.module("train")
             .then(function(res){
                 $scope.stations = res.data;
             });
+
+        $scope.dupTrain = function(train) {
+            var modalInstance = $modal.open({
+                templateUrl: 'views/trains/dupTrainDialog.html',
+                controller: 'TrainDetailsDialogController',
+                scope: $scope,
+                size: 'lg'
+            });
+
+            modalInstance.result.then(function(minutes){
+                alert("Will duplicate train " + $scope.train.description + " offset by " + minutes + " minutes.");
+
+            });
+        };
 
         $scope.addStop = function(stopTime, station) {
             if (!validateStop(stopTime, station)) {

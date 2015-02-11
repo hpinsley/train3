@@ -4,6 +4,7 @@
 <h3>
     <label>Origination:</label> <a href="/#/stations/{{train.originStation}}">{{train.originStation | stationName}}</a>
     <label>Termination:</label> <a href="/#/stations/{{train.terminalStation}}">{{train.terminalStation | stationName}}</a>
+    <button ng-click="dupTrain(train)">Duplicate Train</button>
 </h3>
 
 <div class="timeDisplay">Stop Time: {{stopTime | timeDisplay}}</div>

@@ -220,15 +220,28 @@ angular.module('train')
         return {
             restrict: 'E',
             link: function(scope, iElement, iAttrs) {
-                var startStation = scope.$eval("station");
+                //var startStation = scope.$eval("station");
+                var startStationExpr = iAttrs.startstationexpr;
+                if (!startStationExpr) {
+                    throw { msg: "hp-station-select requires attribute startStationExpr"};
+                }
+
+                var onSelectExpr = iAttrs.onselect;
+                var onSelectFunc = scope.$eval(onSelectExpr);
+                var startStation = scope.$eval(startStationExpr);
                 var select = $("<select>");
                 var p = helperServices.destinationStations(startStation.abbr);
                 p.then(function(stations){
                     _.each(stations, function(station){
-                        var option = $("<option val='" + station.abbr + "'>" + station.name + "</option>");
+                        var option = $("<option value='" + station.abbr + "'>" + station.name + "</option>");
                         select.append(option);
                     });
                     iElement.append(select);
+                    select[0].selectedIndex = -1;
+                    select.change(function(ev){
+                        var endStationAbbr = select.val();
+                        onSelectFunc(startStation.abbr, endStationAbbr);
+                    });
                 })
             }
         }

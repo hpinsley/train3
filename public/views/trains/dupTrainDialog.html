@@ -1,0 +1,14 @@
+<div ng-controller="TrainDetailsDialogController">
+    <div class="modal-title">Duplicate Train</div>
+    <div class="modal-body">
+        <div class="container">
+            <h1>Duplicate train {{train.description}}</h1>
+            <div class="form-group">
+                <label>Time Offset in minutes:</label>
+                <input type="number" ng-model="minutes" required />
+            </div>
+            <button ng-click="onClose()">Close</button>
+            <button ng-click="onCancel()">Cancel</button>
+        </div>
+    </div>
+</div>

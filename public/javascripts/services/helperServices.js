@@ -24,7 +24,6 @@ angular.module("train").factory('helperServices', ["cacheServices", "trainServic
                 var trains = res.data;
                 var stations = cacheServices.getStations();
                 var selectedStations = _.filter(stations, function(station){
-                    console.log("Filtering station " + station.abbr);
                     return _.any(trains, function(train){
                         var startIndex = _.findIndex(train.stops, function(stop){
                             return stop.station == startStation;

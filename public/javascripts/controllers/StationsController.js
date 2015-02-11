@@ -73,9 +73,11 @@ angular.module("train")
             }
         };
 
-        $scope.travelToFilter = function(filterStation, station) {
-            //var station = $scope.$eval("station");
-            //var stations = $scope.$eval("stations");
-            return true;
-        }
+        $scope.onSelect = function(startStation, endStation) {
+            $scope.$apply(function(){
+                $location.path("/trains")
+                    .search("startStation", startStation)
+                    .search("endStation", endStation);
+            });
+        };
     });

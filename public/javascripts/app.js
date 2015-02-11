@@ -1,4 +1,4 @@
-angular.module('train', ['ngRoute'])
+angular.module('train', ['ngRoute','ui.bootstrap'])
     .config(['$routeProvider', function($routeProvider){
         $routeProvider
             .when('/', {
