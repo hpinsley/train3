@@ -2,203 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3832ecd3-a85d-41f0-b7d4-6db12949b7eb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/assets/github-16px.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/assets/img/glyphicons-halflings-white.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/assets/img/glyphicons-halflings.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/assets/header.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/.editorconfig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/.gitattributes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/.jshintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/Gruntfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/carousel/docs/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/ROADMAP.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsDialogController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/accordion/accordion-group.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/accordion/accordion-group.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/accordion/accordion.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/accordion/accordion.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/accordion/accordion.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/accordion/test/accordion.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/alert/alert.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/alert/alert.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/alert/alert.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/alert/test/alert.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/test-lib/angular-mocks.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/test-lib/angular.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/assets/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/modal/backdrop.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/modal/backdrop.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/progressbar/bar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/progressbar/bar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/bindHtml/bindHtml.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/buttons/buttons.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/buttons/test/buttons.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/carousel/carousel.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/carousel/carousel.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/carousel/carousel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/carousel/test/carousel.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/changelog.tpl.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/collapse/collapse.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/collapse/test/collapse.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/dateparser/dateparser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/dateparser/test/dateparser.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/datepicker/datepicker.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/datepicker/datepicker.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/datepicker/datepicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/datepicker/test/datepicker.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/datepicker/day.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/datepicker/day.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/assets/demo.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/accordion/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/alert/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/buttons/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/carousel/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/collapse/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/datepicker/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/dropdown/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/modal/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/pagination/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/popover/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/progressbar/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/rating/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/tabs/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/timepicker/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/tooltip/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/typeahead/docs/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/accordion/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/alert/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/buttons/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/carousel/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/collapse/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/datepicker/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/dropdown/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/modal/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/pagination/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/popover/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/progressbar/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/rating/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/tabs/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/timepicker/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/tooltip/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/typeahead/docs/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/alert/test/dismissOnTimeout.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/dropdown/dropdown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/dropdown/test/dropdown.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/trains/dupTrainDialog.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/test-lib/helpers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/test-lib/jquery-1.8.2.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/karma.conf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/modal/modal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/modal/test/modal.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/modal/test/modalWindow.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/datepicker/month.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/datepicker/month.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/docs/nav.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/pagination/pager.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/pagination/pager.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/pagination/test/pager.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/pagination/pagination.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/pagination/pagination.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/pagination/pagination.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/pagination/test/pagination.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/assets/plunker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/popover/popover.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/popover/popover.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/popover/popover.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/popover/test/popover.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/datepicker/popup.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/datepicker/popup.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/position/position.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/position/test/position.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/progressbar/progress.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/progressbar/progress.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/progressbar/progressbar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/progressbar/progressbar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/progressbar/progressbar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/progressbar/test/progressbar.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/assets/rainbow-generic.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/assets/rainbow-html.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/assets/rainbow-javascript.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/assets/rainbow.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/assets/rainbow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/rating/rating.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/rating/rating.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/rating/rating.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/rating/test/rating.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/raw-files-generator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/accordion/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/alert/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/buttons/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/collapse/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/datepicker/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/dropdown/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/modal/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/pagination/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/popover/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/progressbar/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/rating/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/tabs/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/timepicker/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/tooltip/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/typeahead/docs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/carousel/slide.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/carousel/slide.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/assets/smoothscroll-angular-custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/modal/test/stackedMap.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/docs/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/tabs/tab.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/tabs/tab.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/tabs/tabs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/tabs/test/tabs.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/tabs/tabset.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/tabs/tabset.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/position/test/test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/timepicker/timepicker.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/timepicker/timepicker.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/timepicker/timepicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/timepicker/test/timepicker.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/tooltip/tooltip-html-unsafe-popup.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/tooltip/tooltip-html-unsafe-popup.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/tooltip/tooltip-popup.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/tooltip/tooltip-popup.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/tooltip/tooltip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/tooltip/test/tooltip.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/tooltip/test/tooltip2.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/transition/transition.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/transition/test/transition.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/typeahead/test/typeahead-highlight.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/typeahead/typeahead-match.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/typeahead/typeahead-match.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/typeahead/test/typeahead-parser.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/typeahead/typeahead-popup.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/typeahead/typeahead-popup.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/typeahead/test/typeahead-popup.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/typeahead/typeahead.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/src/typeahead/test/typeahead.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/demo/assets/uglifyjs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/misc/validate-commit-msg.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/modal/window.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/modal/window.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/template/datepicker/year.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/template/datepicker/year.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/StationsController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/StationsController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/app.js" afterPath="$PROJECT_DIR$/public/javascripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/trains/details.html" afterPath="$PROJECT_DIR$/public/views/trains/details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/directives/helperDirectives.js" afterPath="$PROJECT_DIR$/public/javascripts/directives/helperDirectives.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/services/helperServices.js" afterPath="$PROJECT_DIR$/public/javascripts/services/helperServices.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/stations/stations.html" afterPath="$PROJECT_DIR$/public/views/stations/stations.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsDialogController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsDialogController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.js" afterPath="$PROJECT_DIR$/routes/api.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/trains/dupTrainDialog.html" afterPath="$PROJECT_DIR$/public/views/trains/dupTrainDialog.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/services/trainServices.js" afterPath="$PROJECT_DIR$/public/javascripts/services/trainServices.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="train3.iws" />
@@ -225,18 +33,18 @@
       <file leaf-file-name="TrainDetailsDialogController.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsDialogController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="437">
-              <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="475">
+              <caret line="8" column="76" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dupTrainDialog.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/views/trains/dupTrainDialog.html">
+      <file leaf-file-name="helperServices.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/services/helperServices.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3645084" vertical-offset="0" max-vertical-offset="417">
-              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1073" max-vertical-offset="1463">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -245,8 +53,60 @@
       <file leaf-file-name="TrainDetailsController.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="399" max-vertical-offset="2508">
-              <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="741" max-vertical-offset="2527">
+              <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/api.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.0178572" vertical-offset="2280" max-vertical-offset="4617">
+              <caret line="138" column="26" selection-start-line="138" selection-start-column="26" selection-end-line="138" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="helperDirectives.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/directives/helperDirectives.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="587" max-vertical-offset="4845">
+              <caret line="242" column="72" selection-start-line="242" selection-start-column="72" selection-end-line="242" selection-end-column="72" />
+              <folding>
+                <marker date="1423270029000" expanded="false" signature="3690:3758" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utils.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/helpers/Utils.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="183" max-vertical-offset="760">
+              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewStationController.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/NewStationController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="522" max-vertical-offset="931">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="trainServices.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/services/trainServices.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="731" max-vertical-offset="1729">
+              <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -255,18 +115,8 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1178">
-              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="details.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/trains/details.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6785714" vertical-offset="19" max-vertical-offset="893">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state vertical-scroll-proportion="27.884615" vertical-offset="801" max-vertical-offset="1178">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -316,9 +166,7 @@
         <option value="$PROJECT_DIR$/public/javascripts/services/cacheService.js" />
         <option value="$PROJECT_DIR$/public/views/stations/newStation.html" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/NewStationController.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/services/trainServices.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/routes/api.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/trains/TripController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js" />
         <option value="$PROJECT_DIR$/public/views/trains/trip.html" />
@@ -333,9 +181,11 @@
         <option value="$PROJECT_DIR$/public/views/trains/details.html" />
         <option value="$PROJECT_DIR$/public/javascripts/app.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/public/views/trains/dupTrainDialog.html" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsDialogController.js" />
+        <option value="$PROJECT_DIR$/public/views/trains/dupTrainDialog.html" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsController.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/services/trainServices.js" />
+        <option value="$PROJECT_DIR$/routes/api.js" />
       </list>
     </option>
   </component>
@@ -401,7 +251,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
+              <option name="myItemId" value="node_modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -415,7 +265,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lodash" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -841,7 +695,11 @@
       <created>1423267696910</created>
       <updated>1423267696911</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Created a dialog for duplicating a train">
+      <created>1423663712974</created>
+      <updated>1423663712975</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -868,24 +726,24 @@
     <frame x="0" y="22" width="1440" height="790" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4732143" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44642857" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29613096" sideWeight="0.49964765" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32886904" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29613096" sideWeight="0.49964765" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32886904" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24947146" sideWeight="0.49850747" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4503597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44940478" sideWeight="0.49928468" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44940478" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24947146" sideWeight="0.50149256" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29613096" sideWeight="0.5003524" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32440478" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44494048" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4732143" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32886904" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2532189" sideWeight="0.49850747" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32440478" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -906,7 +764,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="Implement cache and helper services to assist with train stop validation." />
     <MESSAGE value="Check for duplicate station" />
     <MESSAGE value="Show the station lines in the train stop list via a new filter." />
     <MESSAGE value="Don't allow a station to be deleted if it is a stop on a train." />
@@ -931,7 +788,8 @@
     <MESSAGE value="Add debugging tooltip" />
     <MESSAGE value="Add a dropdown to the stations list to select a destination" />
     <MESSAGE value="hp-station-select is creating the correct stations for the select HTML element." />
-    <option name="LAST_COMMIT_MESSAGE" value="hp-station-select is creating the correct stations for the select HTML element." />
+    <MESSAGE value="Created a dialog for duplicating a train" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created a dialog for duplicating a train" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -946,35 +804,24 @@
           <line>67</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsController.js</url>
+          <line>3</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/routes/api.js</url>
+          <line>141</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="79" />
+      <option name="time" value="88" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/handlebars/dist/handlebars.amd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5728154" vertical-offset="7473" max-vertical-offset="51374">
-          <caret line="378" column="6" selection-start-line="378" selection-start-column="6" selection-end-line="378" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24" vertical-offset="0" max-vertical-offset="425">
-          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/lodash/dist/lodash.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.357308" vertical-offset="6188" max-vertical-offset="115447">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/moment/README.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -1033,22 +880,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/helpers/Utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="336" max-vertical-offset="722">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2988" max-vertical-offset="3648">
-          <caret line="163" column="0" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/vendor/bootstrap/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33251232" vertical-offset="22247" max-vertical-offset="117971">
@@ -1069,14 +900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.607143" vertical-offset="242" max-vertical-offset="646">
           <caret line="21" column="92" selection-start-line="21" selection-start-column="92" selection-end-line="21" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/stations/newStation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.785714" vertical-offset="114" max-vertical-offset="722">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1108,14 +931,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/services/trainServices.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="1520">
-          <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/TrainsController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.961538" vertical-offset="1273" max-vertical-offset="2964">
@@ -1128,22 +943,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.821428" vertical-offset="228" max-vertical-offset="1102">
           <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/NewStationController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="931">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/services/helperServices.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="278" max-vertical-offset="1463">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1169,16 +968,6 @@
         <state vertical-scroll-proportion="-12.892858" vertical-offset="0" max-vertical-offset="1007">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/directives/helperDirectives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.214634" vertical-offset="0" max-vertical-offset="4845">
-          <caret line="242" column="72" selection-start-line="242" selection-start-column="72" selection-end-line="242" selection-end-column="72" />
-          <folding>
-            <marker date="1423270029000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1353,14 +1142,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1178">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/vendor/angular-ui-bootstrap/bower_components/angular-bootstrap/ui-bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="74119">
@@ -1369,26 +1150,124 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsController.js">
+    <entry file="file://$PROJECT_DIR$/public/views/stations/newStation.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="399" max-vertical-offset="2508">
-          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsDialogController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="437">
-          <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+        <state vertical-scroll-proportion="0.23514852" vertical-offset="209" max-vertical-offset="722">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/trains/dupTrainDialog.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3645084" vertical-offset="0" max-vertical-offset="417">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        <state vertical-scroll-proportion="-7.464286" vertical-offset="19" max-vertical-offset="475">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/NewStationController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="931">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsDialogController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="475">
+          <caret line="8" column="76" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/morgan/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5567">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/morgan/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1577061" vertical-offset="323" max-vertical-offset="1710">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/services/helperServices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="278" max-vertical-offset="1463">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helpers/Utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="183" max-vertical-offset="760">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="27.884615" vertical-offset="801" max-vertical-offset="1178">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/directives/helperDirectives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="587" max-vertical-offset="4845">
+          <caret line="242" column="72" selection-start-line="242" selection-start-column="72" selection-end-line="242" selection-end-column="72" />
+          <folding>
+            <marker date="1423270029000" expanded="false" signature="3690:3758" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/lodash/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.6953406" vertical-offset="2147" max-vertical-offset="3211">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="418" max-vertical-offset="2527">
+          <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/services/trainServices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="731" max-vertical-offset="1729">
+          <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0178572" vertical-offset="2280" max-vertical-offset="4617">
+          <caret line="138" column="26" selection-start-line="138" selection-start-column="26" selection-end-line="138" selection-end-column="26" />
           <folding />
         </state>
       </provider>

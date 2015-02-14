@@ -31,9 +31,10 @@ angular.module("train")
                 size: 'lg'
             });
 
-            modalInstance.result.then(function(minutes){
-                alert("Will duplicate train " + $scope.train.description + " offset by " + minutes + " minutes.");
-
+            modalInstance.result.then(function(res){
+                $log.debug("Will duplicate train " + $scope.train.description + " " + res.trainCount + " time(s) offset by " + res.minutes + " minutes.");
+                trainServices.dupTrain($scope.train.number, res.trainCount, res.minutes);
+                $location.path("/trains");
             });
         };
 

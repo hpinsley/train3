@@ -3,6 +3,8 @@ var router = express.Router();
 var mongoskin = require('mongoskin');
 var utils = require('../helpers/Utils');
 var lookups = require('../helpers/lookups');
+var _ = require('lodash');
+var moment = require('moment');
 
 router.get('/lines', function(req, res, next){
     var coll = req.db.collection("lines");
@@ -104,6 +106,55 @@ router.get('/trains', function(req, res, next) {
             return next(e);
         }
         res.send(results);
+    });
+});
+
+//Duplicate a train
+
+router.post("/trains/duplicate", function(req, res, next){
+    var trainNumber = req.body.trainNumber;
+    var numTimes = req.body.numTimes;
+    var offsetMinutes = req.body.offsetMinutes;
+
+    console.log("Duplicating train " + trainNumber + " " + numTimes + " time(s) offset by " + offsetMinutes + ".");
+    var coll = req.db.collection("trains");
+    coll.findOne({number: trainNumber}, function(e, train) {
+        if (e) {
+            return next(e);
+        }
+
+        //res.send(train);
+
+        //We need to get the next number to use
+        coll.find({}, {_id: 0, number: 1}).sort({number: -1}).toArray(function (e, trainNumbers) {
+            if (e) {
+                return next(e);
+            }
+            var nextNumber = trainNumbers[0].number;
+
+            for (var i = 1; i <= numTimes; ++i) {
+                nextNumber += 10;
+                var newTrain = {};
+                newTrain.number = nextNumber;
+                newTrain.description = "Train " + newTrain.number;
+                newTrain.stops = [];
+                _.each(train.stops, function(stop){
+                    var m = moment(stop.time);
+                    m.add(offsetMinutes * i, "minutes");
+                    var strTime = m._d.toJSON();
+                    newTrain.stops.push({station: stop.station, time: strTime});
+                });
+                newTrain.originStation = train.originStation;
+                newTrain.terminalStation = train.terminalStation;
+                utils.adjustTrainSummary(newTrain);
+
+                coll.insert(newTrain, {}, function(e, results){
+                    if (e) {
+                        return next(e);
+                    }
+                });
+            }
+        });
     });
 });
 

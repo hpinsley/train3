@@ -1,4 +1,4 @@
-angular.module("train").factory('trainServices', ["$http", function ($http) {
+angular.module("train").factory('trainServices', ["$http", "$log", function ($http,$log) {
 
     var getStations = function() {
         return $http.get("/api/stations");
@@ -46,6 +46,16 @@ angular.module("train").factory('trainServices', ["$http", function ($http) {
         });
     }
 
+    var dupTrain = function(trainNumber, numTimes, offsetMinutes) {
+        $log.info("Duplicating train " + trainNumber + " " + numTimes + " time(s) with offset of " + offsetMinutes + " minutes.");
+        return $http.post("/api/trains/duplicate",
+            {
+                trainNumber: trainNumber,
+                numTimes: numTimes,
+                offsetMinutes: offsetMinutes
+            });
+    }
+
     var deleteStop = function(trainNumber, stop) {
         var url = "/api/trains/" + trainNumber + "/stops";
         var data =  {stop: stop}
@@ -70,6 +80,7 @@ angular.module("train").factory('trainServices', ["$http", function ($http) {
         deleteStop: deleteStop,
         getStationTrains: getStationTrains,
         getLines: getLines,
-        updateStation: updateStation
+        updateStation: updateStation,
+        dupTrain: dupTrain
     };
 }]);
