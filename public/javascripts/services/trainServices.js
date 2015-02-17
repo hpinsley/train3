@@ -1,4 +1,4 @@
-angular.module("train").factory('trainServices', ["$http", "$log", function ($http,$log) {
+angular.module("train").factory('trainServices', ["$http", "$log", "$q", function ($http,$log,$q) {
 
     var getStations = function() {
         return $http.get("/api/stations");
@@ -67,7 +67,18 @@ angular.module("train").factory('trainServices', ["$http", "$log", function ($ht
                 "Content-Type" : "application/json"
             }
         });
-    }
+    };
+    var deleteTrains = function(trains) {
+        var promises = [];
+        _.each(trains, function(trainNumber){
+            var url = "/api/trains/" + trainNumber;
+            var p = $http.delete(url);
+            promises.push(p);
+        });
+        var allP = $q.all(promises);
+        return allP;
+    };
+
     return {
         getStation: getStation,
         getStations: getStations,
@@ -81,6 +92,7 @@ angular.module("train").factory('trainServices', ["$http", "$log", function ($ht
         getStationTrains: getStationTrains,
         getLines: getLines,
         updateStation: updateStation,
-        dupTrain: dupTrain
+        dupTrain: dupTrain,
+        deleteTrains: deleteTrains
     };
 }]);

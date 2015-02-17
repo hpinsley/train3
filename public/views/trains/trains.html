@@ -2,18 +2,22 @@
 
     <div class="row">
         <div class="col-md-2">
-        <button class="btn" ng-click="newTrain()">Add a Train</button>
+            <button class="btn" ng-click="newTrain()">Add a Train</button>
         </div>
 
         <div class="col-md-4">
             <label>Board:</label>
-            <select class="input-lg" id="startStation" ng-options="station.abbr as station.name group by station.lines for station in stations | filter:startStationFilter" ng-model="startStation">
+            <select class="input-lg" id="startStation"
+                    ng-options="station.abbr as station.name group by station.lines for station in stations | filter:startStationFilter"
+                    ng-model="startStation">
             </select>
         </div>
 
         <div class="col-md-4">
             <label>Final:</label>
-            <select class="input-lg" id="endStation" ng-options="station.abbr as station.name group by station.lines for station in stations | filter:endStationFilter" ng-model="endStation">
+            <select class="input-lg" id="endStation"
+                    ng-options="station.abbr as station.name group by station.lines for station in stations | filter:endStationFilter"
+                    ng-model="endStation">
             </select>
         </div>
 
@@ -25,8 +29,6 @@
                 <button class="btn" ng-click="clearFilters()">Clear</button>
             </div>
         </div>
-
-        </select>
     </div>
 </div>
 
@@ -42,36 +44,48 @@
     </span>
 </h2>
 
+<div class="well">
+    {{selectCount}} trains selected
+    <div>
+        <input type="button" class="btn" ng-click="deleteTrains()" value="Delete" />
+    </div>
+</div>
+
 <table class="table table-condensed table-striped">
     <thead>
-        <tr>
-            <th>Number</th>
-            <th>Description</th>
-            <th class="text-center">Stops</th>
-            <th>Origination</th>
-            <th>Termination</th>
-            <th ng-if="startStation" style="color:green">Arrive {{startStation | stationName}}</th>
-            <th ng-if="startStation">Leaves In</th>
-            <th ng-if="endStation" style="color:red">Arrive {{endStation | stationName}}</th>
-            <th ng-if="startStation && endStation">Trip Stops</th>
-            <th ng-if="startStation && endStation">Trip Time</th>
-        </tr>
+    <tr>
+        <th>Number</th>
+        <th>Description</th>
+        <th class="text-center">Stops</th>
+        <th>Origination</th>
+        <th>Termination</th>
+        <th ng-if="startStation" style="color:green">Arrive {{startStation | stationName}}</th>
+        <th ng-if="startStation">Leaves In</th>
+        <th ng-if="endStation" style="color:red">Arrive {{endStation | stationName}}</th>
+        <th ng-if="startStation && endStation">Trip Stops</th>
+        <th ng-if="startStation && endStation">Trip Time</th>
+    </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="train in trains | filter:selectedStopsFn">
-            <td><a href="/#/trains/{{train.number}}">{{train.number}}</a></td>
-            <td>{{train.description}}</td>
-            <td class="well well-sm text-center" title="{{train.toolTip}}">
-                <a href="/#/trains/{{train.number}}">{{train.stops.length}}</a>
-            </td>
-            <td><a href="/#/stations/{{train.originStation}}">{{train.originStation | stationName}}</a></td>
-            <td><a href="/#/stations/{{train.terminalStation}}">{{train.terminalStation| stationName}}</a></td>
-            <td ng-if="startStation">{{train.startTime | timeDisplay}}</td>
-            <td ng-if="startStation" hp-seconds-elapsed expr="train.startTime"></td>
-            <td ng-if="endStation">{{train.stopTime | timeDisplay}}</td>
-            <td ng-if="startStation && endStation"><a href="/#/trains/{{train.number}}/trip?start={{startStation}}&end={{endStation}}">{{train.tripStops}}</a></td>
-            <td ng-if="startStation && endStation">{{train.tripTime | minutesToElapsed}}</td>
-        </tr>
+    <tr ng-repeat="train in trains | filter:selectedStopsFn">
+        <td>
+            <input type="checkbox" ng-model="train.selected" ng-click="trainSelectionChanged()"/>
+            <a href="/#/trains/{{train.number}}">{{train.number}}</a>
+        </td>
+        <td>{{train.description}}</td>
+        <td class="well well-sm text-center" title="{{train.toolTip}}">
+            <a href="/#/trains/{{train.number}}">{{train.stops.length}}</a>
+        </td>
+        <td><a href="/#/stations/{{train.originStation}}">{{train.originStation | stationName}}</a></td>
+        <td><a href="/#/stations/{{train.terminalStation}}">{{train.terminalStation| stationName}}</a></td>
+        <td ng-if="startStation">{{train.startTime | timeDisplay}}</td>
+        <td ng-if="startStation" hp-seconds-elapsed expr="train.startTime"></td>
+        <td ng-if="endStation">{{train.stopTime | timeDisplay}}</td>
+        <td ng-if="startStation && endStation"><a
+                href="/#/trains/{{train.number}}/trip?start={{startStation}}&end={{endStation}}">{{train.tripStops}}</a>
+        </td>
+        <td ng-if="startStation && endStation">{{train.tripTime | minutesToElapsed}}</td>
+    </tr>
     </tbody>
 </table>
 

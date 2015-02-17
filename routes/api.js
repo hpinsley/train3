@@ -200,6 +200,18 @@ router.delete("/trains/:number/stops", function(req, res, next){
     });
 });
 
+router.delete("/trains/:number", function(req, res, next){
+    var coll = req.db.collection("trains");
+    var number = parseInt(req.params.number);
+
+    coll.remove({number:{$eq: number}}, function(e, removed){
+        if (e) {
+            return next(e);
+        }
+        res.send({removed: removed});
+    });
+});
+
 router.get("/trains/:number", function(req, res, next){
     var coll = req.db.collection("trains");
     var number = parseInt(req.params.number);

@@ -17,6 +17,7 @@ angular.module("train")
                 $scope.endStation = endStation;
             });
 
+
         var setTrainStopTooltips = function() {
             _.each($scope.trains, function(train){
                 train.toolTip = _.map(train.stops, function(stop){
@@ -148,4 +149,36 @@ angular.module("train")
                     $location.path("/trains/" + train.number);
                 });
         };
+
+        var selectedTrains = function() {
+            var trains = _.filter($scope.trains, function(train){
+                return train.selected;
+            });
+            return _.map(trains, function(train){
+                return train.number;
+            });
+        };
+
+        $scope.trainSelectionChanged = function() {
+            $scope.selectCount = selectedTrains().length;
+        };
+
+        $scope.deleteTrains = function() {
+
+            if (!$scope.selectCount) {
+                alert("No trains selected.");
+                return;
+            }
+
+            if (confirm("Do you want to delete " + $scope.selectCount + " trains?")) {
+                var trains = selectedTrains();
+                trainServices.deleteTrains(trains)
+                    .then(function(){
+                        alert($scope.selectCount + " trains have been deleted.");
+                        $location.path("/trains");
+                    },function(err){
+                        alert(err.statusText || err.msg || err)
+                    });
+            }
+        }
     });
