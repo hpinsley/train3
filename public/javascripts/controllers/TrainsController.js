@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("TrainsController", function($scope, trainServices, cacheServices, helperServices, $location, $routeParams, $interval){
+    .controller("TrainsController", function($scope, trainServices, cacheServices, helperServices, $location, $routeParams, $interval, $route){
         $scope.title = "Trains";
 
         trainServices.getStations()
@@ -174,8 +174,8 @@ angular.module("train")
                 var trains = selectedTrains();
                 trainServices.deleteTrains(trains)
                     .then(function(){
-                        alert($scope.selectCount + " trains have been deleted.");
-                        $location.path("/trains");
+                        console.log($scope.selectCount + " trains have been deleted.");
+                        $route.reload();
                     },function(err){
                         alert(err.statusText || err.msg || err)
                     });

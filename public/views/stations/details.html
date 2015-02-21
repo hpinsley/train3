@@ -15,6 +15,12 @@
                 <hp-checkbox-list id="lineSelect" listSource="lines" listSourceProperty="name" objectSource="station"
                                   objectProperty="lines"/>
             </div>
+            <div>
+                <hp-checkbox-list2 id="lineSelect2" model="station.lineString" all-selections="{{allLinesString}}" />
+            </div>
+            <div>
+                <input type="text" ng-model="station.lineString" style="width:300px" readonly />
+            </div>
             <div class="form-group">
                 <button class="btn btn-primary" ng-click="updateStation()"
                         ng-disabled="!stationUpdateForm.$valid">Submit
@@ -44,8 +50,10 @@
                 <td><a href="/#/stations/{{train.originStation}}">{{train.originStation | stationName}}</a></td>
                 <td><a href="/#/stations/{{train.terminalStation}}">{{train.terminalStation| stationName}}</a></td>
                 <td>{{train.stationStop.time | timeDisplay}}</td>
-                <td><a hp-seconds-elapsed expr="train.stationStop.time"
-                       href="/#/trains?startStation={{train.stationStop.station}}"></a></td>
+                <td>
+                    <a hp-seconds-elapsed expr="train.stationStop.time"
+                       href="/#/trains?startStation={{train.stationStop.station}}"></a>
+                </td>
             </tr>
             </tbody>
         </table>

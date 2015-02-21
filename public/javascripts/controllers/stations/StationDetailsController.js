@@ -8,9 +8,14 @@ angular.module("train")
         trainServices.getStation(stationAbbr)
             .success(function(data){
                 $scope.station = data;
+                $scope.station.lineString = $scope.station.lines.join(",");
+
                 trainServices.getLines()
                     .success(function(data){
                         $scope.lines = data;
+                        $scope.allLinesString = _.map($scope.lines, function(line){
+                            return line.name;
+                        }).join(",");
                     })
             });
 
@@ -18,11 +23,9 @@ angular.module("train")
             .then(function(res){
                 var trains = res.data;
                 _.each(trains, function(train){
-                    console.log(train.description);
                     var stop = _.find(train.stops, function(stop){
                         return stop.station === stationAbbr;
                     })
-                    console.log("Found stop for " + stop.station + " at " + stop.time);
                     train.stationStop = stop;
                 });
                 $scope.trains = trains;

@@ -139,6 +139,44 @@ angular.module('train')
             }
         }
     })
+    .directive("hpCheckboxList2", function(){
+        return {
+            restrict: 'E',
+            scope: {
+                model: '=model',
+                allSelections: '@allSelections'
+            },
+            link: function(scope, iElement, iAttrs) {
+                scope.checked = {};
+                scope.checkboxClick = function() {
+                    console.log("Checkbox clicked");
+                    var checkedItems = [];
+                    for (var k in scope.checked) {
+                        if (scope.checked[k]) {
+                            checkedItems.push(k);
+                        }
+                    }
+                    scope.model = checkedItems.join(",");
+                };
+
+                scope.$watch("allSelections", function(){
+                    console.log("All selections: " + scope.allSelections);
+                    if (scope.allSelections) {
+                        scope.checked = {};
+                        var checkedValues = scope.model.split(",");
+                        scope.values = scope.allSelections.split(",");
+                        _.each(scope.values, function(possibleValue){
+                            var match = _.find(checkedValues, function(cv){
+                                return cv == possibleValue;
+                            });
+                            scope.checked[possibleValue] = !!match;
+                        });
+                    }
+                });
+            },
+            template: '<ul><li ng-repeat="val in values">{{val}} <input type="checkbox" ng-click="checkboxClick()" ng-model="checked[val]" /></ul>'
+        };
+    })
     .directive("hpCheckboxList", function(){
         return {
             restrict: 'E',
