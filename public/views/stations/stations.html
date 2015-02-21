@@ -17,6 +17,7 @@
         <th>Name</th>
         <th>Abbr</th>
         <th>Lines</th>
+        <th>Image</th>
         <th>Travel To</th>
         <th class="text-center">Trains</th>
     </tr>
@@ -29,8 +30,11 @@
         <td>
             ({{station.abbr}})
         </td>
-        <td>
+        <td style="width:75px">
             {{station.lineList}}
+        </td>
+        <td>
+            <img style="height:40px" ng-src="images/{{station.image}}" />
         </td>
         <td>
             <hp-station-select startStationExpr="station" onSelect="onSelect">

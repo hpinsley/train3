@@ -19,6 +19,11 @@ angular.module("train")
                     })
             });
 
+        trainServices.getStations()
+            .success(function(stations){
+                $scope.stations = stations;
+            });
+
         trainServices.getStationTrains(stationAbbr)
             .then(function(res){
                 var trains = res.data;
@@ -47,5 +52,14 @@ angular.module("train")
 
         $scope.testClick = function() {
             alert("Parent scope click");
+        };
+
+        $scope.nextStation = function() {
+            var index = _.findIndex($scope.stations, function(station){
+                return station.abbr === $scope.station.abbr;
+            });
+            index = (index + 1) % $scope.stations.length;
+            var nextStation = $scope.stations[index];
+            $location.path("/stations/" + nextStation.abbr);
         }
     });
