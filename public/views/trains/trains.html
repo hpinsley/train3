@@ -45,9 +45,10 @@
 </h2>
 
 <div class="well">
-    {{selectCount}} trains selected
+    <span ng-if="selectCount">{{selectCount}} trains selected</span>
     <div>
         <input type="button" class="btn" ng-click="deleteTrains()" value="Delete" />
+        <input type="button" class="btn" ng-click="clearSelections()" value="Clear Selections" />
     </div>
 </div>
 

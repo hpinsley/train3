@@ -163,6 +163,12 @@ angular.module("train")
             $scope.selectCount = selectedTrains().length;
         };
 
+        $scope.clearSelections = function() {
+            _.each($scope.trains, function(train){
+                train.selected = false;
+            });
+            $scope.selectCount = 0;
+        }
         $scope.deleteTrains = function() {
 
             if (!$scope.selectCount) {
