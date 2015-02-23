@@ -14,8 +14,7 @@
     <hp-time-up target="stopTime" increment="5">Up</hp-time-up>
     <label for="station">Station:</label>
     <select class="input-lg" hp-open-list="true" id="station" ng-options="station.abbr as station.name group by station.lines for station in stations" ng-model="station" required></select>
-    <button class="btn" ng-disabled="!newStopForm.$valid" ng-click="addStop(stopTime, station)">Add</button>
-    <span ng-bind="newStopForm.$valid"></span>
+    <button class="btn btn-lg btn-info" ng-disabled="!newStopForm.$valid" ng-click="addStop(stopTime, station)">Add</button>
 </form>
 <table class="table table-striped">
     <thead>

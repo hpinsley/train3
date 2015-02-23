@@ -1,16 +1,18 @@
-<h1>Stations</h1>
-<div class="row">
-    <div class="col-md-6">
-        Filter:
+<div class="pull-right">
+    <span>
+        <label>Filter:</label>
         <select ng-model="selectedLine" ng-options="line.name as line.name for line in lines">
             <option value="">(all)</option>
         </select>
-        {{selectedLine}}
-    </div>
-    <div class="col-md-6 pull-right">
-        <a href="#/stations/new">New Station</a>
-    </div>
+    </span>
+    <span>
+        <a class="btn btn-lg btn-info" href="#/stations/new">New Station</a>
+    </span>
 </div>
+
+<h1>Stations <span ng-if="selectedLine">on the {{selectedLine}} line</span>
+</h1>
+
 <table class="table table-condensed table-striped">
     <thead>
     <tr>
