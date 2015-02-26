@@ -23,10 +23,10 @@
             <a href="/#/stations/{{stationAbbr}}">{{stationAbbr | stationName}}</a>
         </td>
         <td>
-            <button hp-focus-move-row offset="-1" ng-click="moveStationInLine(lineName, stationAbbr, 'up')">Move {{stationAbbr}} Up</button>
+            <button hp-focus-move-row ng-click="moveStationInLine(lineName, stationAbbr, 'up')">Up</button>
         </td>
         <td>
-            <button hp-focus-move-row offset="1" ng-click="moveStationInLine(lineName, stationAbbr, 'down')">Move {{stationAbbr}} Down</button>
+            <button hp-focus-move-row ng-click="moveStationInLine(lineName, stationAbbr, 'down')">Down</button>
         </td>
     </tr>
     </tbody>

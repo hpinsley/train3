@@ -259,41 +259,12 @@ angular.module('train')
         return {
             restrict: 'A',
             link: function(scope, iElement, iAttrs) {
-
-                var offset = parseInt(iAttrs.offset);
-                //The element we are on is in a row.  Find the owning tr element
-
                 iElement.click(function(event){
-
                     var elem = $(event.target);
-                    elem.focus();
-                    return;
-
                     setTimeout(function(){
-
-                        var td = $(elem).closest("td");
-                        var tr = td.closest("tr");
-                        var tbody = tr.closest("tbody");
-
-                        var columnIndex = _.findIndex(tr[0].children, function(tdNode){
-                            return tdNode == td[0];
-                        });
-                        var rowIndex = _.findIndex(tbody[0].children, function(trNode){
-                            return trNode == tr[0];
-                        });
-
-                        console.log("Got click at [" + rowIndex + "," + columnIndex + "]");
-
-                        //rowIndex += offset;
-                        console.log("Got click; move to [" + rowIndex + "," + columnIndex + "]");
-                        if (rowIndex >=0 && rowIndex < tbody[0].children.length) {
-                            var newTr = tbody[0].children[rowIndex];
-                            var newTd = newTr.children[columnIndex];
-                            var button = $(newTd).children("button");
-                            button.css("color","red");
-                            button.focus();
-                        }
-                    }, 1000);
+                        elem.focus();
+                        elem.css("color","blue");
+                    }, 100);
                 });
             }
         };
