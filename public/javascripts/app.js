@@ -29,6 +29,14 @@ angular.module('train', ['ngRoute','ui.bootstrap'])
                 templateUrl: 'views/stations/stations.html',
                 controller: 'StationsController'
             })
+            .when('/lines/:lineName', {
+                templateUrl: 'views/lines/lineDetails.html',
+                controller: 'LineDetailsController'
+            })
+            .when('/lines', {
+                templateUrl: 'views/lines/lines.html',
+                controller: 'LinesController'
+            })
             .otherwise({
                redirectTo: '/'
             });

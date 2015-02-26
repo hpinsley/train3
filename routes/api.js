@@ -6,6 +6,85 @@ var lookups = require('../helpers/lookups');
 var _ = require('lodash');
 var moment = require('moment');
 
+router.post("/lines/:lineName/stations/:stationAbbr/move", function(req, res, next){
+    var coll = req.db.collection("lines");
+
+    var lineName = req.params.lineName;
+    var stationAbbr = req.params.stationAbbr;
+    var direction = req.query.direction;
+    var move = (direction == "down") ? 1 : -1;
+
+    coll.findOne({name:lineName}, function(e, line) {
+        if (e) {
+            return next(e);
+        }
+        var foundIndex = _.findIndex(line.stations, function(station){
+            return station == stationAbbr;
+        });
+        if (foundIndex >= 0) {
+            var newIndex = foundIndex + move;
+            if (newIndex >=0 && newIndex < line.stations.length) {
+                line.stations.splice(foundIndex, 1);
+                line.stations.splice(newIndex, 0, stationAbbr);
+
+                coll.save(line, function(e, saveResult){
+                    if (e) {
+                        return next(e);
+                    }
+                });
+            }
+        }
+        res.send(line);
+    });
+});
+
+//Add a station to a line
+router.post("/lines/:lineName/stations", function(req, res, next){
+    var coll = req.db.collection("lines");
+    var lineName = req.params.lineName;
+    var stationAbbr = req.body.stationAbbr;
+
+    if (!stationAbbr) {
+        return next(new Error("Station is required."));
+    }
+
+    coll.findOne({name:lineName}, function(e, line) {
+        if (e) {
+            return next(e);
+        }
+        var stations = line.stations || [];
+        if (!_.find(stations, function(station){
+            return station === stationAbbr;
+        })) {
+            stations.push(stationAbbr);
+            line.stations = stations;
+            coll.save(line, function(e, saveResult){
+                if (e) {
+                    return next(e);
+                }
+            });
+        }
+        res.send(line);
+    });
+});
+
+router.get('/lines/:lineName', function(req,res, next){
+    var coll = req.db.collection("lines");
+    var lineName = req.params.lineName;
+    coll.findOne({name: lineName}, function(e, line){
+        if (e) {
+            return next(e);
+        }
+        if (!line) {
+            var err = new Error('Not Found');
+            err.status = 404;
+            return next(err);
+        }
+        res.send(line);
+    });
+
+});
+
 router.get('/lines', function(req, res, next){
     var coll = req.db.collection("lines");
     coll.find({}).sort({name:1}).toArray(function(e,results){

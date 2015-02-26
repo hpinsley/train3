@@ -31,6 +31,10 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         return $http.get("/api/lines");
     };
 
+    var getLine = function(lineName) {
+        return $http.get("/api/lines/" + lineName);
+    };
+
     var addTrain = function() {
         return $http.post("/api/trains");
     }
@@ -44,7 +48,17 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
             stopTime: stopTime,
             station: station
         });
-    }
+    };
+
+    var addStationToLine = function(lineName, stationAbbr) {
+        return $http.post("/api/lines/" + lineName + "/stations", {
+            stationAbbr: stationAbbr
+        });
+    };
+
+    var moveStationInLine = function(lineName, stationAbbr, direction) {
+        return $http.post("/api/lines/" + lineName + "/stations/" + stationAbbr + "/move?direction=" + direction);
+    };
 
     var dupTrain = function(trainNumber, numTimes, offsetMinutes) {
         $log.info("Duplicating train " + trainNumber + " " + numTimes + " time(s) with offset of " + offsetMinutes + " minutes.");
@@ -91,8 +105,11 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         deleteStop: deleteStop,
         getStationTrains: getStationTrains,
         getLines: getLines,
+        getLine: getLine,
         updateStation: updateStation,
         dupTrain: dupTrain,
-        deleteTrains: deleteTrains
+        deleteTrains: deleteTrains,
+        addStationToLine: addStationToLine,
+        moveStationInLine: moveStationInLine
     };
 }]);

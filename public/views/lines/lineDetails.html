@@ -1,0 +1,33 @@
+<h2>{{lineName}} Line</h2>
+<form>
+    <div class="form-group">
+        <label>Station:</label>
+        <select class="input-lg" hp-open-list="true" id="station" ng-options="station.abbr as station.name group by station.lines for station in stations" ng-model="selectedStationAbbr" required></select>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-lg" ng-click="addStation()">Add</button>
+    </div>
+</form>
+<h3>Stations</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Abbr</th>
+            <th>Move up</th>
+            <th>Move down</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="stationAbbr in line.stations">
+        <td>
+            <a href="/#/stations/{{stationAbbr}}">{{stationAbbr | stationName}}</a>
+        </td>
+        <td>
+            <button hp-focus-move-row offset="-1" ng-click="moveStationInLine(lineName, stationAbbr, 'up')">Move {{stationAbbr}} Up</button>
+        </td>
+        <td>
+            <button hp-focus-move-row offset="1" ng-click="moveStationInLine(lineName, stationAbbr, 'down')">Move {{stationAbbr}} Down</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
