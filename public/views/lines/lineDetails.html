@@ -2,19 +2,18 @@
 <form>
     <div class="form-group">
         <label>Station:</label>
-        <select class="input-lg" hp-open-list="true" id="station" ng-options="station.abbr as station.name group by station.lines for station in stations" ng-model="selectedStationAbbr" required></select>
-    </div>
-    <div class="form-group">
+        <select class="input-lg" hp-open-list="true" id="station" ng-options="station.abbr as station.name for station in stations | filter:lineStationFilter" ng-model="selectedStationAbbr" required></select>
         <button class="btn btn-lg" ng-click="addStation()">Add</button>
     </div>
 </form>
 <h3>Stations</h3>
-<table class="table table-striped">
+<table class="table table-hover table-striped table-condensed table-bordered">
     <thead>
         <tr>
-            <th>Abbr</th>
-            <th>Move up</th>
-            <th>Move down</th>
+            <th>Station</th>
+            <th></th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -23,10 +22,13 @@
             <a href="/#/stations/{{stationAbbr}}">{{stationAbbr | stationName}}</a>
         </td>
         <td>
-            <button hp-focus-move-row ng-click="moveStationInLine(lineName, stationAbbr, 'up')">Up</button>
+            <button class="btn btn-large glyphicon glyphicon-arrow-up" hp-focus-move-row ng-click="moveStationInLine(lineName, stationAbbr, 'up')">Up</button>
         </td>
         <td>
-            <button hp-focus-move-row ng-click="moveStationInLine(lineName, stationAbbr, 'down')">Down</button>
+            <button class="btn btn-large glyphicon glyphicon-arrow-down" hp-focus-move-row ng-click="moveStationInLine(lineName, stationAbbr, 'down')">Down</button>
+        </td>
+        <td>
+            <button class="btn btn-large" ng-click="deleteStation(lineName, stationAbbr)">Delete</button>
         </td>
     </tr>
     </tbody>

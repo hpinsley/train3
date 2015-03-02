@@ -263,7 +263,6 @@ angular.module('train')
                     var elem = $(event.target);
                     setTimeout(function(){
                         elem.focus();
-                        elem.css("color","blue");
                     }, 100);
                 });
             }

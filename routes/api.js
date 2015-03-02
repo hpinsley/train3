@@ -38,6 +38,33 @@ router.post("/lines/:lineName/stations/:stationAbbr/move", function(req, res, ne
     });
 });
 
+//Delete a station from a line
+router.delete("/lines/:lineName/stations/:stationAbbr", function(req, res, next){
+    var coll = req.db.collection("lines");
+
+    var lineName = req.params.lineName;
+    var stationAbbr = req.params.stationAbbr;
+
+    coll.findOne({name:lineName}, function(e, line) {
+        if (e) {
+            return next(e);
+        }
+        var foundIndex = _.findIndex(line.stations, function(station){
+            return station == stationAbbr;
+        });
+        if (foundIndex >= 0) {
+            line.stations.splice(foundIndex, 1);
+
+            coll.save(line, function(e, saveResult){
+                if (e) {
+                    return next(e);
+                }
+            });
+        }
+        res.send(line);
+    });
+});
+
 //Add a station to a line
 router.post("/lines/:lineName/stations", function(req, res, next){
     var coll = req.db.collection("lines");
@@ -56,7 +83,8 @@ router.post("/lines/:lineName/stations", function(req, res, next){
         if (!_.find(stations, function(station){
             return station === stationAbbr;
         })) {
-            stations.push(stationAbbr);
+            stations.unshift(stationAbbr);
+            //stations.push(stationAbbr);
             line.stations = stations;
             coll.save(line, function(e, saveResult){
                 if (e) {

@@ -23,6 +23,23 @@ angular.module("train")
                 $scope.stations = res.data;
             });
 
+        trainServices.getLines()
+            .success(function(lines){
+                $scope.lines = lines;
+            });
+
+        $scope.selectStation = function(stationAbbr) {
+            $scope.station = stationAbbr;
+        }
+
+        $scope.stationFilterFn = function(station) {
+            if (!$scope.line) {
+                return false;
+            }
+            return _.any(station.lines, function(lineName){
+                return lineName === $scope.line.name;
+            });
+        }
         $scope.dupTrain = function(train) {
             var modalInstance = $modal.open({
                 templateUrl: 'views/trains/dupTrainDialog.html',

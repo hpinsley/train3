@@ -93,6 +93,10 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         return allP;
     };
 
+    var deleteStationFromLine = function(lineName, stationAbbr) {
+        return $http.delete("/api/lines/" + lineName + "/stations/" + stationAbbr);
+    };
+
     return {
         getStation: getStation,
         getStations: getStations,
@@ -110,6 +114,7 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         dupTrain: dupTrain,
         deleteTrains: deleteTrains,
         addStationToLine: addStationToLine,
-        moveStationInLine: moveStationInLine
+        moveStationInLine: moveStationInLine,
+        deleteStationFromLine: deleteStationFromLine
     };
 }]);

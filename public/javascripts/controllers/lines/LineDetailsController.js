@@ -15,6 +15,33 @@ angular.module("train")
                 $scope.stations = stations;
             });
 
+        $scope.lineStationFilter = function(station) {
+            //Make sure the station is on the line
+            var matchingStation = _.find($scope.stations, function(stn){
+                return stn.abbr == station.abbr;
+            });
+
+            if (!matchingStation) {
+                return false;
+            }
+
+            var matchingLine = _.find(matchingStation.lines, function(lineName){
+                return lineName == $scope.line.name;
+            });
+
+            if (!matchingLine) {
+                return false;
+            }
+
+            //Now make sure we haven't already added the station to the line
+
+            matchingStation = _.find($scope.line.stations, function(stationAbbr){
+                return stationAbbr == station.abbr;
+            });
+
+            return !matchingStation;
+        };
+
         $scope.addStation = function() {
             if (!$scope.selectedStationAbbr) {
                 return;
@@ -31,5 +58,12 @@ angular.module("train")
                 .success(function(line){
                     $scope.line = line;
                 });
-        }
+        };
+
+        $scope.deleteStation = function(lineName, stationAbbr) {
+            trainServices.deleteStationFromLine(lineName, stationAbbr)
+                .success(function(line){
+                    $scope.line = line;
+                });
+        };
     });
