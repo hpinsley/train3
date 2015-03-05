@@ -1,50 +1,71 @@
-<link rel="stylesheet" type="text/css" href="/stylesheets/trains/details.css" />
-<h2>Train {{trainNumber}} - {{train.description}}</h2>
+<link rel="stylesheet" type="text/css" href="/stylesheets/trains/details.css"/>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <h2>Train {{trainNumber}} - {{train.description}}</h2>
 
-<h3>
-    <label>Origination:</label> <a href="/#/stations/{{train.originStation}}">{{train.originStation | stationName}}</a>
-    <label>Termination:</label> <a href="/#/stations/{{train.terminalStation}}">{{train.terminalStation | stationName}}</a>
-    <button ng-click="dupTrain(train)">Duplicate Train</button>
-</h3>
+            <h3>
+                <label>Origination:</label> <a href="/#/stations/{{train.originStation}}">{{train.originStation |
+                stationName}}</a>
+                <label>Termination:</label> <a href="/#/stations/{{train.terminalStation}}">{{train.terminalStation |
+                stationName}}</a>
+                <button ng-click="dupTrain(train)">Duplicate Train</button>
+            </h3>
 
-<form name="newStopForm">
-    <label for="stopTime">Time:</label>
-    <input hp-focus="afterAdd" type="time" id="stopTime" placeholder="Stop Time" ng-model="stopTime" required/>
-    <hp-time-up target="stopTime" increment="5">Up</hp-time-up>
-    <label for="line">Line:</label>
-    <select class="input-lg" id="line" ng-options="line.name for line in lines" ng-model="line" ng-click="lineChange(line)"/>
-    <label for="station">Station:</label>
-    <select class="input-lg" hp-open-list="true" id="station" ng-options="station.abbr as station.name for station in stations | filter:stationFilterFn" ng-model="station" required></select>
-    <button class="btn btn-lg btn-info" ng-disabled="!newStopForm.$valid" ng-click="addStop(stopTime, station)">Add</button>
-    <div ng-if="line">
-        <table id="stationSelectTable">
-            <tr>
-                <td ng-repeat="stationAbbr in line.stations">
-                    <div ng-click="selectStation(stationAbbr)">{{stationAbbr | stationName}}</div>
-                </td>
-            </tr>
-        </table>
+            <form name="newStopForm">
+                <label for="stopTime">Time:</label>
+                <input hp-focus="afterAdd" type="time" id="stopTime" placeholder="Stop Time" ng-model="stopTime"
+                       required/>
+                <hp-time-up target="stopTime" increment="5">Up</hp-time-up>
+                <label for="station">Station:</label>
+                <select class="input-lg" hp-open-list="true" id="station"
+                        ng-options="station.abbr as station.name for station in stations | filter:stationFilterFn"
+                        ng-model="station" required></select>
+                <button class="btn btn-lg btn-info" ng-disabled="!newStopForm.$valid"
+                        ng-click="addStop(stopTime, station)">
+                    Add
+                </button>
+            </form>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Stop No.</th>
+                    <th>Time</th>
+                    <th>Station</th>
+                    <th>Lines</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="stop in train.stops">
+                    <td>{{$index+1}}</td>
+                    <td title="{{stop.time | date:'yyyy-MM-dd hh:mm a'}}" hp-copytime="$parent.stopTime"
+                        target="stopTime"
+                        class="clickable">{{stop.time | date:"hh:mm a"}}
+                    </td>
+                    <td><a href="/#/stations/{{stop.station}}">{{stop.station | stationName}}</a></td>
+                    <td>{{stop.station | showStationLines}}</td>
+                    <td>
+                        <button ng-click="deleteStop(trainNumber, stop)">Delete</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <label for="line">Line:</label>
+            <select class="input-lg" id="line" ng-options="line.name for line in lines" ng-model="line"
+                    ng-click="lineChange(line)"/>
+
+            <div ng-if="line" id="stationSelectDiv">
+                <table id="stationSelectTable">
+                    <tr ng-repeat="stationAbbr in line.stations | filter:unusedStationsFn">
+                        <td>
+                            <div ng-click="selectStation(stationAbbr)">{{stationAbbr | stationName}}</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-</form>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Stop No.</th>
-            <th>Time</th>
-            <th>Station</th>
-            <th>Lines</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="stop in train.stops">
-            <td>{{$index+1}}</td>
-            <td title="{{stop.time | date:'yyyy-MM-dd hh:mm a'}}" hp-copytime="$parent.stopTime" target="stopTime" class="clickable">{{stop.time | date:"hh:mm a"}}</td>
-            <td><a href="/#/stations/{{stop.station}}">{{stop.station | stationName}}</a></td>
-            <td>{{stop.station | showStationLines}}</td>
-            <td>
-                <button ng-click="deleteStop(trainNumber, stop)">Delete</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+</div>

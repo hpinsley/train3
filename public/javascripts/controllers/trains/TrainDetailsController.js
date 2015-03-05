@@ -39,7 +39,14 @@ angular.module("train")
             return _.any(station.lines, function(lineName){
                 return lineName === $scope.line.name;
             });
-        }
+        };
+
+        $scope.unusedStationsFn = function(station) {
+            return !_.any($scope.train.stops, function(stop){
+                return stop.station == station;
+            });
+        };
+
         $scope.dupTrain = function(train) {
             var modalInstance = $modal.open({
                 templateUrl: 'views/trains/dupTrainDialog.html',
