@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/stations/details.css"/>
 <h2>Station {{stationAbbr | stationName}}
     <a href="/#/trains?startStation={{stationAbbr}}" class="btn btn-info btn-lg pull-right">Find a train from/to
         {{station.name}}</a>
@@ -58,7 +59,7 @@
             <tr ng-repeat="train in trains | orderBy:train.stationStop.time">
                 <td><a href="/#/trains/{{train.number}}">{{train.number}}</a></td>
                 <td>{{train.description}}</td>
-                <td>{{train.stops.length}}</td>
+                <td class="stopCount" title="{{trainStops(train)}}"><a href="/#/trains/{{train.number}}">{{train.stops.length}}<a></a></td>
                 <td><a href="/#/stations/{{train.originStation}}">{{train.originStation | stationName}}</a></td>
                 <td><a href="/#/stations/{{train.terminalStation}}">{{train.terminalStation| stationName}}</a></td>
                 <td>{{train.stationStop.time | timeDisplay}}</td>

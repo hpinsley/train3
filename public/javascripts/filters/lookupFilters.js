@@ -2,11 +2,7 @@ angular.module("train")
     .filter('stationName', function(cacheServices){
 
         var stationName = function(abbr) {
-            var station = cacheServices.getStation(abbr);
-            if (!station) {
-                return "Unknown station " + abbr;
-            }
-            return station.name;
+            return cacheServices.stationName(abbr);
         }
 
         return stationName;

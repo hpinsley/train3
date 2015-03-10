@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("StationDetailsController", function ($scope, $location, trainServices, $routeParams) {
+    .controller("StationDetailsController", function ($scope, $location, trainServices, $routeParams, cacheServices) {
 
         var trainNumber = $routeParams["trainNumber"];
         var stationAbbr = $routeParams["stationAbbr"];
@@ -36,6 +36,11 @@ angular.module("train")
                 $scope.trains = trains;
             });
 
+        $scope.trainStops = function(train) {
+            return _.map(train.stops, function(stop){
+                return cacheServices.stationName(stop.station);
+            }).join("\n");
+        }
         $scope.updateStation = function() {
             if ($scope.station.lines.length == 0) {
                 alert("You must specify at least one line for the station.");

@@ -14,6 +14,14 @@ angular.module("train").factory('cacheServices', ["trainServices", function (tra
         return cache.stations[stationAbbr];
     };
 
+    var stationName = function(abbr) {
+        var station = getStation(abbr);
+        if (!station) {
+            return "Unknown station " + abbr;
+        }
+        return station.name;
+    }
+
     var getStations = function() {
         var list = [];
         for (var prop in cache.stations) {
@@ -38,6 +46,7 @@ angular.module("train").factory('cacheServices', ["trainServices", function (tra
         init: init,
         refreshStations: refreshStations,
         getStation: getStation,
-        getStations: getStations
+        getStations: getStations,
+        stationName: stationName
     };
 }]);

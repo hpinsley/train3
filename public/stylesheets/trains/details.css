@@ -31,16 +31,27 @@ form {
 
 div#stationSelectDiv {
   position: fixed;
-  height: 500px;
-  overflow-y: scroll;
-  margin-top: 50px;
+  height: 600px;
   margin-left: 50px;
-  border: 5px solid black;
+  border: 5px solid #002a80;
   border-radius: 10px;
-  background-color: black;
+  background-color: #002a80;
   padding: 10px; }
+  div#stationSelectDiv label {
+    color: yellow; }
+
+div#stationSelectTableDiv {
+  height: 400px;
+  overflow-y: scroll;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; }
 
 table#stationSelectTable {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
   color: gold; }
   table#stationSelectTable tr td {
     text-align: center;
@@ -49,5 +60,12 @@ table#stationSelectTable {
     table#stationSelectTable tr td div:hover {
       cursor: pointer;
       color: white; }
+
+div#showUpdatePanelDiv {
+  width: 100%;
+  text-align: center; }
+  div#showUpdatePanelDiv button {
+    font-size: 24pt;
+    width: 100px; }
 
 /*# sourceMappingURL=details.css.map */

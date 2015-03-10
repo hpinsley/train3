@@ -1,11 +1,10 @@
-$tableBackColor: black;
+$tableBackColor: #002a80;
 
 div.timeDisplay {
   font-size: 18pt;
   width: 300px;
   margin-left: auto;
   margin-right: auto;
-
 }
 
 .clickable:hover {
@@ -41,17 +40,31 @@ form {
 
 div#stationSelectDiv {
   position: fixed;
-  height: 500px;
-  overflow-y: scroll;
-  margin-top: 50px;
+  height: 600px;
   margin-left: 50px;
   border: 5px solid $tableBackColor;
   border-radius: 10px;
   background-color: $tableBackColor;
   padding: 10px;
+
+  label {
+    color: yellow;
+  }
+}
+
+div#stationSelectTableDiv {
+  height: 400px;
+  overflow-y: scroll;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 table#stationSelectTable {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
   color: gold;
   tr {
     td {
@@ -63,6 +76,16 @@ table#stationSelectTable {
         color: white;
       }
     }
+  }
+}
+
+div#showUpdatePanelDiv {
+  width: 100%;
+  text-align: center;
+
+  button {
+    font-size:24pt;
+    width:100px;
   }
 }
 

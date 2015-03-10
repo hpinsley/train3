@@ -4,6 +4,7 @@ angular.module("train")
         $log.debug("Start of TrainDetailController");
 
         $scope.afterAdd = false;
+        $scope.showUpdatePanel = false;
 
         var trainNumber = $routeParams["trainNumber"];
 
@@ -30,11 +31,23 @@ angular.module("train")
 
         $scope.selectStation = function(stationAbbr) {
             $scope.station = stationAbbr;
+        };
+
+        $scope.toggleUpdatePanel = function() {
+            $scope.showUpdatePanel = !$scope.showUpdatePanel;
+        }
+
+        $scope.getLeftPanelClass = function() {
+            return $scope.showUpdatePanel ? "col-md-7" : "col-md-11";
+        }
+
+        $scope.getRightPanelClass = function() {
+            return $scope.showUpdatePanel ? "col-md-5" : "col-md-1";
         }
 
         $scope.stationFilterFn = function(station) {
             if (!$scope.line) {
-                return false;
+                return true;
             }
             return _.any(station.lines, function(lineName){
                 return lineName === $scope.line.name;
