@@ -23,6 +23,7 @@
     "lodash": "~2.4.1",
     "moment": "~2.8.4",
     "jquery-ui": "~1.11.2",
-    "angular-ui-bootstrap": "~0.12.0"
+    "angular-ui-bootstrap": "~0.12.0",
+    "d3": "~3.5.5"
   }
 }
