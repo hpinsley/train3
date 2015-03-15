@@ -34,8 +34,14 @@ angular.module("train")
             var stationCount = stats.length;
             var barWidth = width / stationCount;
             var padding = 2;
+            var maxTrains = _.max(stats, function(stat){ return stat.trainCount; }).trainCount;
+            var yScale = d3.scale
+                .linear()
+                .domain([0,maxTrains])
+                .range([0, height - 10]);
+
             var barHeight = function(trainCount) {
-                return trainCount * 10;
+                return yScale(trainCount);
             };
             svg.selectAll('rect')
                 .data(stats)

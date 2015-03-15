@@ -27,10 +27,10 @@
                         <li ng-class="getClass('/stations')"><a href="#/stations">Stations</a></li>
                         <li ng-class="getClass('/trains')"><a href="#/trains">Trains</a></li>
                         <li ng-class="getClass('/lines')"><a href="#/lines">Lines</a></li>
-                        <li ng-class="getClass('/d3')"><a href="#/d3">d3</a></li>
-                        <li class="dropdown">
-                            <div href="#" data-toggle="dropdown" class="dropdown-toggle">Messages <b class="caret"></b></div>
+                        <li ng-class="getClass('/d3')" class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle">D3<b class="caret"></b></a>
                             <ul class="dropdown-menu">
+                                <li><a href="#/d3">d3 Home</a></li>
                                 <li><a href="#/d3/trainsPerStation">Trains Per Station</a></li>
                                 <li><a href="#/d3?s=2">Sample 2</a></li>
                             </ul>
