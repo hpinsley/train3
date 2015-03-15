@@ -32,37 +32,48 @@ angular.module("train")
             var width = $("svg")[0].clientWidth;
             var height = $("svg")[0].clientHeight;
             var stationCount = stats.length;
-            var barWidth = width / stationCount;
-            var padding = 2;
+            var xBarPadding = 10;
+            var yBarPadding = 20;
+            var yAxisPadding = 30;
+            var barLabelPadding = 5;
+
+            var firstBarStart = yAxisPadding + xBarPadding;
+            var barWidth = (width - firstBarStart) / stationCount;
             var maxTrains = _.max(stats, function(stat){ return stat.trainCount; }).trainCount;
             var yScale = d3.scale
                 .linear()
                 .domain([0,maxTrains])
-                .range([0, height - 10]);
+                .range([height-yBarPadding, yBarPadding]);
 
-            var barHeight = function(trainCount) {
+            var yAxis = d3.svg.axis().scale(yScale).orient("left");
+            svg.append("g").call(yAxis)
+                .attr("class","axis")
+                .attr("transform", "translate(" + yAxisPadding + ",0)");
+
+            var barTop = function(trainCount) {
                 return yScale(trainCount);
             };
-            svg.selectAll('rect')
+            svg.selectAll('rect.bar')
                 .data(stats)
                 .enter()
                 .append('rect')
                 .attr({
-                    x: function(d,i) { return i * barWidth;},
-                    y: function(d) { return height - barHeight(d.trainCount);},
-                    width: function() { return barWidth - padding;},
-                    height: function(d) { return barHeight(d.trainCount);}
+                    class: "bar",
+                    x: function(d,i) { return firstBarStart + i * barWidth;},
+                    y: function(d) { return barTop(d.trainCount);},
+                    width: function() { return barWidth - xBarPadding;},
+                    height: function(d) { return height - yBarPadding - barTop(d.trainCount);}
                 });
 
-            svg.selectAll('text')
+            svg.selectAll('text.barLabel')
                 .data(stats)
                 .enter()
                 .append('text')
                 .text(function(d) { return d.station.name; })
                 .attr({
-                    x: function(d,i) { return i * barWidth;},
-                    y: function(d) { return height - barHeight(d.trainCount) - 10;}
-                    //transform: function(d) { return "rotate(-65)";}
+                    class: "barLabel",
+                    x: function(d,i) { return firstBarStart + i * barWidth;},
+                    y: function(d) { return barTop(d.trainCount) - barLabelPadding;}
                 });
         }
     });
