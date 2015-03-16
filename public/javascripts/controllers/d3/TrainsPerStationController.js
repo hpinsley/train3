@@ -32,48 +32,67 @@ angular.module("train")
             var width = $("svg")[0].clientWidth;
             var height = $("svg")[0].clientHeight;
             var stationCount = stats.length;
-            var xBarPadding = 10;
-            var yBarPadding = 20;
-            var yAxisPadding = 30;
+            var xBarPadding = 50;
+            var yBarPaddingTop = 30;
+            var yBarPaddingBottom = 140;
+            var yAxisPadding = 40;
             var barLabelPadding = 5;
-
-            var firstBarStart = yAxisPadding + xBarPadding;
-            var barWidth = (width - firstBarStart) / stationCount;
+            var barWidth = 10;
             var maxTrains = _.max(stats, function(stat){ return stat.trainCount; }).trainCount;
             var yScale = d3.scale
                 .linear()
                 .domain([0,maxTrains])
-                .range([height-yBarPadding, yBarPadding]);
+                .range([height-yBarPaddingBottom, yBarPaddingTop]);
+            var xScale = d3.scale
+                .linear()
+                .domain([0, stationCount-1])
+                .range([xBarPadding, width - xBarPadding]);
 
-            var yAxis = d3.svg.axis().scale(yScale).orient("left");
-            svg.append("g").call(yAxis)
+            var yAxisGen = d3.svg.axis().scale(yScale).orient("left");
+            var xAxisGen = d3.svg.axis().scale(xScale)
+                .ticks(stats.length)
+                .tickFormat(function(i){
+                    return stats[i].station.name;
+                })
+                .orient("bottom");
+
+            var yAxis = svg.append("g").call(yAxisGen)
                 .attr("class","axis")
                 .attr("transform", "translate(" + yAxisPadding + ",0)");
 
-            var barTop = function(trainCount) {
-                return yScale(trainCount);
-            };
+            var xAxis = svg.append("g").call(xAxisGen)
+                .attr("class","axis")
+                .attr("transform", "translate(0," + (height - yBarPaddingBottom) + ")");
+
+            xAxis.selectAll("text")
+                .style("text-anchor", "end")
+                .attr("dx", "-.8em")
+                .attr("dy", ".15em")
+                .attr("transform", function(d) {
+                    return "rotate(-65)"
+                });
+
             svg.selectAll('rect.bar')
                 .data(stats)
                 .enter()
                 .append('rect')
                 .attr({
                     class: "bar",
-                    x: function(d,i) { return firstBarStart + i * barWidth;},
-                    y: function(d) { return barTop(d.trainCount);},
-                    width: function() { return barWidth - xBarPadding;},
-                    height: function(d) { return height - yBarPadding - barTop(d.trainCount);}
+                    x: function(d,i) { return xScale(i);},
+                    y: function(d) { return yScale(d.trainCount);},
+                    width: function() { return barWidth;},
+                    height: function(d) { return height - yBarPaddingBottom - yScale(d.trainCount);}
                 });
 
             svg.selectAll('text.barLabel')
                 .data(stats)
                 .enter()
                 .append('text')
-                .text(function(d) { return d.station.name; })
+                .text(function(d) { return d.trainCount; })
                 .attr({
                     class: "barLabel",
-                    x: function(d,i) { return firstBarStart + i * barWidth;},
-                    y: function(d) { return barTop(d.trainCount) - barLabelPadding;}
+                    x: function(d,i) { return xScale(i);},
+                    y: function(d) { return yScale(d.trainCount) - barLabelPadding;}
                 });
         }
     });
