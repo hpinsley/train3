@@ -29,8 +29,8 @@
       <file leaf-file-name="TrainScatterController.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/d3/TrainScatterController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14690721" vertical-offset="2033" max-vertical-offset="3002">
-              <caret line="110" column="91" selection-start-line="110" selection-start-column="91" selection-end-line="110" selection-end-column="91" />
+            <state vertical-scroll-proportion="0.26546392" vertical-offset="2576" max-vertical-offset="3078">
+              <caret line="141" column="44" selection-start-line="141" selection-start-column="44" selection-end-line="141" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -841,7 +841,11 @@
       <created>1426956284522</created>
       <updated>1426956284522</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Added train detail to the tooltip">
+      <created>1426975104493</created>
+      <updated>1426975104493</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -906,7 +910,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Properly killing the timer when the scope is destroyed" />
     <MESSAGE value="Created directive to show elapsed time" />
     <MESSAGE value="Add CSS styling to elapsed directive." />
     <MESSAGE value="Use the new elapsed directive in the trains page" />
@@ -931,7 +934,8 @@
     <MESSAGE value="Add rotated labels along the X axis." />
     <MESSAGE value="Added scatter plot" />
     <MESSAGE value="Added tooltip support to the scatter plot." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added tooltip support to the scatter plot." />
+    <MESSAGE value="Added train detail to the tooltip" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added train detail to the tooltip" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1350,8 +1354,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/d3/TrainScatterController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14690721" vertical-offset="2033" max-vertical-offset="3002">
-          <caret line="110" column="91" selection-start-line="110" selection-start-column="91" selection-end-line="110" selection-end-column="91" />
+        <state vertical-scroll-proportion="0.26546392" vertical-offset="2576" max-vertical-offset="3078">
+          <caret line="141" column="44" selection-start-line="141" selection-start-column="44" selection-end-line="141" selection-end-column="44" />
           <folding />
         </state>
       </provider>

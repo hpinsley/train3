@@ -56,6 +56,7 @@ angular.module("train")
             };
 
             var timeScale = ComputeTimeScale(stops, h, yMarginTop, yMarginBottom);
+
             var stationScale = d3.scale
                 .linear()
                 .domain([0, stationList.length - 1])
@@ -138,8 +139,11 @@ angular.module("train")
 
             var yAxisGen = d3.svg.axis()
                 .scale(timeScale)
-                .tickFormat(function(seconds){
-                    var m = moment(seconds);
+                .tickValues(_.map(_.range(23), function(i){
+                    return 21600000 + (i + 5) * 3600000;
+                }))
+                .tickFormat(function(msSeconds){
+                    var m = moment(msSeconds);
                     return m.format("hh:mm A");
 
                 })
