@@ -1,12 +1,15 @@
 angular.module("train")
-    .controller("TrainScatterController", function($scope, trainServices, helperServices) {
+    .controller("TrainScatterController", function($scope, trainServices, helperServices, cacheServices) {
         $scope.title = "Train Scatter";
 
         trainServices.getTrains()
             .then(function(res){
                 $scope.trains = res.data;
                 var stops = _.flatten($scope.trains, function(train){
-                    return train.stops;
+                    return _.map(train.stops, function(stop){
+                        stop.train = train;
+                        return stop;
+                    });
                 });
                 plotStops(stops);
             });
@@ -105,7 +108,7 @@ angular.module("train")
                     tooltip.transition()
                         .duration(500)
                         .style("opacity", .9);
-                    tooltip.html("<strong>Station: " + d.station + "</strong>")
+                    tooltip.html("<strong>Station: " + cacheServices.stationName(d.station) + "<br/>Train: " + d.train.description + "</strong>")
                         .style("left", (d3.event.pageX) + "px")
                         .style("top", (d3.event.pageY - 28) + "px");
                 })
