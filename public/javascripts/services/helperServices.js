@@ -38,6 +38,11 @@ angular.module("train").factory('helperServices', ["cacheServices", "trainServic
             });
     };
 
+    var translateZuluString = function(zString) {
+        var m = moment(zString);
+        return m.toDate();
+    }
+
     var elapsedMinutes = function(t1, t2) {
         var m1 = moment(t1);
         var m2 = moment(t2);
@@ -67,6 +72,7 @@ angular.module("train").factory('helperServices', ["cacheServices", "trainServic
         elapsedMinutes: elapsedMinutes,
         elapsedSecondsUntil: elapsedSecondsUntil,
         d2: d2,
-        destinationStations: destinationStations
+        destinationStations: destinationStations,
+        translateZuluString: translateZuluString
     };
 }]);

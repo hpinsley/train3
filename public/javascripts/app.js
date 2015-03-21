@@ -41,6 +41,10 @@ angular.module('train', ['ngRoute','ui.bootstrap'])
                 templateUrl: 'views/d3/TrainsPerStation.html',
                 controller: 'TrainsPerStationController'
             })
+            .when('/d3/trainScatter', {
+                templateUrl: 'views/d3/TrainScatter.html',
+                controller: 'TrainScatterController'
+            })
             .when('/d3', {
                 templateUrl: 'views/d3/d3Home.html',
                 controller: 'd3HomeController'
