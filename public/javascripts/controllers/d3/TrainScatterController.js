@@ -41,11 +41,14 @@ angular.module("train")
             var w = 1000;
             var h = 500;
             var r = 5;
+            var rBig = 50;
 
             var xMarginLeft = 100;
             var xMarginRight = 50;
             var yMarginTop = 10;
             var yMarginBottom = 50;
+            var transitionTime = 500;
+
 
             var stationList = GetStationList(stops);
 
@@ -72,21 +75,6 @@ angular.module("train")
                 return timeScale(time);
             };
 
-            _.each(stationList, function(station){
-                console.log("Station " + station + " will be placed at " + MapStationToXValue(station));
-            });
-//            _.each(stops, function(stop) {
-//                console.log("Stop at " + stop.station + " at " +
-//                    stop.time + " maps to " + timeScale(helperServices.translateZuluString(stop.time)));
-//            });
-
-
-            //var svg = d3.select("svg");
-
-            var tooltip = d3.select("div#container").append("div")
-                .attr("id", "tooltip")
-                .style("opacity", 0);
-
             var svg = d3.select("div#container")
                 .append("svg")
                 .attr({
@@ -95,29 +83,48 @@ angular.module("train")
                 });
 
 
-            svg.selectAll('circle')
+            var nodes = svg.selectAll('circle')
                 .data(stops)
                 .enter()
-                .append('circle')
+                .append('g')
+                .attr("transform", function(d, i) {
+                    // Set d.x and d.y here so that other elements can use it. d is
+                    // expected to be an object here.
+                    d.x = MapStationToXValue(d.station);
+                    d.y = MapTimeToYValue(d.time);
+                    return "translate(" + d.x + "," + d.y + ")";
+                });
+
+            nodes.append('circle')
                 .attr({
-                    cx: function(d) { return MapStationToXValue(d.station);},
-                    cy: function(d) { return MapTimeToYValue(d.time);},
+                    //cx: function(d) { return MapStationToXValue(d.station);},
+                    //cy: function(d) { return MapTimeToYValue(d.time);},
                     r: r,
-                    fill: "red"
+                    fill: "red",
+                    stroke: "black"
                 })
                 .on("mouseover", function(d){
-                    tooltip.transition()
-                        .duration(500)
-                        .style("opacity", .9);
-                    tooltip.html("<strong>Station: " + cacheServices.stationName(d.station) + "<br/>Train: " + d.train.description + "</strong>")
-                        .style("left", (d3.event.pageX) + "px")
-                        .style("top", (d3.event.pageY - 28) + "px");
+                    d3.select(this)
+                        .transition()
+                        .duration(transitionTime)
+                        .attr({
+                            r: rBig
+                        });
                 })
                 .on("mouseout", function(d) {
-                    tooltip.transition()
-                        .duration(500)
-                        .style("opacity", 0);
+                    d3.select(this)
+                        .transition()
+                        .duration(transitionTime)
+                        .attr({
+                            r: r
+                        });
                 });
+
+            nodes.append("text")
+                .text(function(d,i){
+                    return "hi";
+                });
+
             var xAxisGen = d3.svg.axis().scale(stationScale)
                 .ticks(stationList.length)
                 .tickFormat(function(i){
@@ -140,7 +147,9 @@ angular.module("train")
             var yAxisGen = d3.svg.axis()
                 .scale(timeScale)
                 .tickValues(_.map(_.range(23), function(i){
-                    return 21600000 + (i + 5) * 3600000;
+                    var SixAm = 6 * 3600 * 1000;
+                    var utcOffset = 5;
+                    return SixAm + (i + utcOffset) * 3600000;
                 }))
                 .tickFormat(function(msSeconds){
                     var m = moment(msSeconds);
