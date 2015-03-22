@@ -41,7 +41,7 @@ angular.module("train")
             var w = 1000;
             var h = 500;
             var r = 5;
-            var rBig = 50;
+            var rBig = 100;
 
             var xMarginLeft = 100;
             var xMarginRight = 50;
@@ -75,6 +75,11 @@ angular.module("train")
                 return timeScale(time);
             };
 
+            var tooltipHtml = function(d) {
+                return "Station " + cacheServices.stationName(d.station) +
+                    "<br/>Train: " + d.train.description;
+            };
+
             var svg = d3.select("div#container")
                 .append("svg")
                 .attr({
@@ -82,6 +87,14 @@ angular.module("train")
                     height: h
                 });
 
+            var tooltip = d3.select("div#container")
+                .append("div")
+                .attr("id", "tooltip")
+                .style({
+                    opacity: 0,
+                    left: 0,
+                    top: 0
+                });
 
             var nodes = svg.selectAll('circle')
                 .data(stops)
@@ -102,27 +115,42 @@ angular.module("train")
                     r: r,
                     fill: "red",
                     stroke: "black"
-                })
-                .on("mouseover", function(d){
-                    d3.select(this)
-                        .transition()
-                        .duration(transitionTime)
-                        .attr({
-                            r: rBig
-                        });
-                })
-                .on("mouseout", function(d) {
-                    d3.select(this)
+                });
+
+            nodes.on("mouseover", function(d){
+                var g = d3.select(this);
+                var circle = g.select("circle");
+                circle
+                    .transition()
+                    .duration(transitionTime)
+                    .attr({
+                        r: rBig
+                    });
+
+                tooltip.html(cacheServices.stationName(d.station) + "<br/><a href='/#/trains/" + d.train.number + "'>" + d.train.description + "</a>")
+
+                tooltip.transition()
+                    .duration(3 * transitionTime)
+                    .style("opacity", .9)
+                    .style("left", d3.event.pageX - 65)
+                    .style("top", d3.event.pageY - 25);
+            })
+            .on("mouseout", function(d) {
+                    var g = d3.select(this);
+                    var circle = g.select("circle");
+                    circle
                         .transition()
                         .duration(transitionTime)
                         .attr({
                             r: r
                         });
-                });
-
-            nodes.append("text")
-                .text(function(d,i){
-                    return "hi";
+                    tooltip.transition()
+                        .duration(2 * transitionTime)
+                        .style({
+                            left: 0,
+                            top: 0,
+                            opacity: 0
+                        });
                 });
 
             var xAxisGen = d3.svg.axis().scale(stationScale)

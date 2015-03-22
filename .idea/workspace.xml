@@ -30,8 +30,8 @@
       <file leaf-file-name="TrainScatterController.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/d3/TrainScatterController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.46907216" vertical-offset="1550" max-vertical-offset="3249">
-              <caret line="72" column="15" selection-start-line="72" selection-start-column="15" selection-end-line="72" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.48335975" vertical-offset="2203" max-vertical-offset="3781">
+              <caret line="132" column="20" selection-start-line="132" selection-start-column="20" selection-end-line="132" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -40,8 +40,8 @@
       <file leaf-file-name="TrainScatter.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/d3/TrainScatter.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.464286" vertical-offset="209" max-vertical-offset="608">
-              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state vertical-scroll-proportion="-6.785714" vertical-offset="285" max-vertical-offset="950">
+              <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -362,7 +362,7 @@
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/howard.pinsley/dev/node/train3/app.js" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/howard.pinsley/dev/node/train3/public/javascripts/controllers/d3/TrainScatterController.js" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="147" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="148" />
@@ -850,7 +850,11 @@
       <created>1426976692137</created>
       <updated>1426976692137</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Start of changing from a floating div tooltip to text within an expanding circle">
+      <created>1427041695099</created>
+      <updated>1427041695099</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -886,7 +890,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44940478" sideWeight="0.49928468" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24947146" sideWeight="0.50149256" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44940478" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32291666" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32291666" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44494048" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -915,7 +919,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Add CSS styling to elapsed directive." />
     <MESSAGE value="Use the new elapsed directive in the trains page" />
     <MESSAGE value="Add debugging tooltip" />
     <MESSAGE value="Add a dropdown to the stations list to select a destination" />
@@ -940,7 +943,8 @@
     <MESSAGE value="Added tooltip support to the scatter plot." />
     <MESSAGE value="Added train detail to the tooltip" />
     <MESSAGE value="Change the tickmarks along the Y (time) axis to be generated in nice hourly increments at the top of the hour." />
-    <option name="LAST_COMMIT_MESSAGE" value="Change the tickmarks along the Y (time) axis to be generated in nice hourly increments at the top of the hour." />
+    <MESSAGE value="Start of changing from a floating div tooltip to text within an expanding circle" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start of changing from a floating div tooltip to text within an expanding circle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1351,16 +1355,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/d3/TrainScatter.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.464286" vertical-offset="209" max-vertical-offset="608">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state vertical-scroll-proportion="-6.785714" vertical-offset="285" max-vertical-offset="950">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/d3/TrainScatterController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.46907216" vertical-offset="1550" max-vertical-offset="3249">
-          <caret line="72" column="15" selection-start-line="72" selection-start-column="15" selection-end-line="72" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.48335975" vertical-offset="2203" max-vertical-offset="3781">
+          <caret line="132" column="20" selection-start-line="132" selection-start-column="20" selection-end-line="132" selection-end-column="20" />
           <folding />
         </state>
       </provider>
