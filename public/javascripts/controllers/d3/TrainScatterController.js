@@ -137,10 +137,10 @@ angular.module("train")
                 tooltip.html(BuildHtmlTooltip(d));
 
                 tooltip.transition()
-                    .duration(3 * transitionTime)
-                    .style("opacity", .9)
+                    .duration(5 * transitionTime)
+                    .style("opacity", 1)
                     .style("left", d3.event.pageX - 65)
-                    .style("top", d3.event.pageY - 25);
+                    .style("top", d3.event.pageY - 10);
             })
             .on("mouseout", function(d) {
                     var g = d3.select(this);
