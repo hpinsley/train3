@@ -49,6 +49,11 @@ angular.module("train").factory('helperServices', ["cacheServices", "trainServic
         return (m2 - m1) / 60000;
     };
 
+    var formatTime = function(time) {
+        var m = moment(time);
+        return m.format("hh:mm A");
+    };
+
     var elapsedSecondsUntil = function(t) {
         var now = new moment();
         now.year(1970);
@@ -73,6 +78,7 @@ angular.module("train").factory('helperServices', ["cacheServices", "trainServic
         elapsedSecondsUntil: elapsedSecondsUntil,
         d2: d2,
         destinationStations: destinationStations,
-        translateZuluString: translateZuluString
+        translateZuluString: translateZuluString,
+        formatTime: formatTime
     };
 }]);

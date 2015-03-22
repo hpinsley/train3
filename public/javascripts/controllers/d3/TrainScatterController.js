@@ -117,6 +117,13 @@ angular.module("train")
                     stroke: "black"
                 });
 
+            var BuildHtmlTooltip = function (d) {
+                return "The <a href='/#/trains/" + d.train.number + "'>" +
+                    d.train.description + "</a> arrives at " +
+                    cacheServices.stationName(d.station) + " at " +
+                    helperServices.formatTime(d.time);
+            };
+
             nodes.on("mouseover", function(d){
                 var g = d3.select(this);
                 var circle = g.select("circle");
@@ -127,7 +134,7 @@ angular.module("train")
                         r: rBig
                     });
 
-                tooltip.html(cacheServices.stationName(d.station) + "<br/><a href='/#/trains/" + d.train.number + "'>" + d.train.description + "</a>")
+                tooltip.html(BuildHtmlTooltip(d));
 
                 tooltip.transition()
                     .duration(3 * transitionTime)
