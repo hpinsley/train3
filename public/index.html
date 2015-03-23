@@ -28,12 +28,11 @@
                         <li ng-class="getClass('/trains')"><a href="#/trains">Trains</a></li>
                         <li ng-class="getClass('/lines')"><a href="#/lines">Lines</a></li>
                         <li ng-class="getClass('/d3')" class="dropdown">
-                            <a data-toggle="dropdown" class="dropdown-toggle">D3<b class="caret"></b></a>
+                            <a data-toggle="dropdown" class="dropdown-toggle">Visualizations<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#/d3">d3 Home</a></li>
                                 <li><a href="#/d3/trainsPerStation">Trains Per Station</a></li>
                                 <li><a href="#/d3/trainScatter">Train Scatter</a></li>
-                                <li><a href="#/d3?s=2">Sample 2</a></li>
+                                <li><a href="#/d3/stationMap">Station Map</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -72,8 +71,8 @@
         <script src="/javascripts/controllers/trains/TripController.js"></script>
         <script src="/javascripts/controllers/lines/LinesController.js"></script>
         <script src="/javascripts/controllers/lines/LineDetailsController.js"></script>
-        <script src="/javascripts/controllers/d3/d3HomeController.js"></script>
         <script src="/javascripts/controllers/d3/TrainsPerStationController.js"></script>
         <script src="/javascripts/controllers/d3/TrainScatterController.js"></script>
+        <script src="/javascripts/controllers/d3/StationMapController.js"></script>
     </body>
 </html>

@@ -1,0 +1,31 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/d3/stationMap.css"/>
+<h1>Station Map</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <div>
+                Line: <select ng-options="line.name as line.name for line in lines" ng-model="selectedLine" />
+            </div>
+            <ul id="stationList">
+                <li ng-repeat="station in stations | filter:stationInLineFn">
+                    {{station.name}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            <section id="mapSection" class="row">
+                <div id="svgContainer">
+                    <div class="col-md-12">
+                        Map goes here
+                    </div>
+                </div>
+            </section>
+            <section id="infoSection" class="row">
+                <div class="col-md-12">
+                    Info here
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+</div>

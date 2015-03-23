@@ -45,9 +45,9 @@ angular.module('train', ['ngRoute','ui.bootstrap'])
                 templateUrl: 'views/d3/TrainScatter.html',
                 controller: 'TrainScatterController'
             })
-            .when('/d3', {
-                templateUrl: 'views/d3/d3Home.html',
-                controller: 'd3HomeController'
+            .when('/d3/stationMap', {
+                templateUrl: 'views/d3/StationMap.html',
+                controller: 'StationMapController'
             })
             .otherwise({
                redirectTo: '/'
