@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-2">
             <div>
-                Line: <select ng-options="line.name as line.name for line in lines" ng-model="selectedLine" />
+                Line: <select ng-options="line as line.name for line in lines" ng-model="selectedLine"/>
             </div>
             <ul id="stationList">
                 <li ng-repeat="station in stations | filter:stationInLineFn">
@@ -14,10 +14,8 @@
         </div>
         <div class="col-md-10">
             <section id="mapSection" class="row">
-                <div id="svgContainer">
-                    <div class="col-md-12">
-                        Map goes here
-                    </div>
+                <div id="svgContainer" class="col-md-12">
+
                 </div>
             </section>
             <section id="infoSection" class="row">

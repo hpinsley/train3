@@ -1,8 +1,10 @@
 ul#stationList {
-  color: red;
-  height: 400px;
+  color: black;
+  height: 500px;
   border: 1px solid black;
   overflow: scroll;
+  font-family: sans-serif;
+  font-size: 11pt;
 }
 
 section#mapSection {
@@ -10,4 +12,5 @@ section#mapSection {
 }
 section#infoSection {
   border: 1px solid black;
+  height: 50px;
 }
