@@ -70,6 +70,36 @@ angular.module("train").factory('helperServices', ["cacheServices", "trainServic
     var d2 = function(i) {
         var s = i.toString();
         return (s.length == 1) ? "0" + s : s;
+    };
+
+    var getBoundsOfFeatures = function(features) {
+        for (var i = 0; i < features.length; ++i) {
+            var bounds = d3.geo.bounds(features[i]);
+            var gbounds;
+
+            if (i == 0) {
+                gbounds = [
+                            [bounds[0][0],bounds[0][1]],
+                            [bounds[1][0],bounds[1][1]]
+                          ];
+            }
+            else {
+                var minLng = bounds[0][0];
+                var minLat = bounds[0][1];
+                var maxLng = bounds[1][0];
+                var maxLat = bounds[1][1];
+
+                if (minLng < gbounds[0][0])
+                    gbounds[0][0] = minLng;
+                if (minLat < gbounds[0][1])
+                    gbounds[0][1] = minLat;
+                if (maxLng > gbounds[1][0])
+                    gbounds[1][0] = maxLng;
+                if (maxLat > gbounds[1][1])
+                    gbounds[1][1] = maxLat;
+            }
+        }
+        return gbounds;
     }
 
     return {
@@ -79,6 +109,7 @@ angular.module("train").factory('helperServices', ["cacheServices", "trainServic
         d2: d2,
         destinationStations: destinationStations,
         translateZuluString: translateZuluString,
-        formatTime: formatTime
+        formatTime: formatTime,
+        getBoundsOfFeatures: getBoundsOfFeatures
     };
 }]);

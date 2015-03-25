@@ -59,13 +59,22 @@ angular.module("train")
             var h = 500;
 
             //Load in GeoJSON data
-            d3.json("data/westchester.json", function(json) {
+            var geoFile;
 
-                var bounds = d3.geo.bounds(json.features[0]);
+            geoFile = "data/westchester.json";
+            geoFile = "data/us.json";
+            geoFile = "data/wcmun-2.json";
+
+            d3.json(geoFile, function(json) {
+
+                //var bounds = d3.geo.bounds(json.features[0]);
+
+                var bounds = helperServices.getBoundsOfFeatures(json.features);
                 var minLng = bounds[0][0];
                 var minLat = bounds[0][1];
                 var maxLng = bounds[1][0];
                 var maxLat = bounds[1][1];
+
                 var padding = 30;
 
                 var lngScale = d3.scale
