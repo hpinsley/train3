@@ -6,7 +6,6 @@ angular.module("train")
         var svg;
 
         $scope.title = "Station Map";
-        $scope.selectedStation = { abbr: "" };
         trainServices.getLines()
             .then(function(res){
                 $scope.lines = res.data;
@@ -25,40 +24,6 @@ angular.module("train")
             });
         }
 
-        function PlotStationStops(svg, projection) {
-            d3.csv("data/sales-by-city.csv", function (data) {
-
-                svg.selectAll("circle")
-                    .data(data)
-                    .enter()
-                    .append("circle")
-                    .attr("cx", function (d) {
-                        if (!d) {
-                            console.log("no d");
-                        }
-                        var p = projection([d.lon, d.lat]);
-                        if (!p || p.length == 0) {
-                            console.log("bad projection");
-                            return -1;
-                        }
-                        return p[0];
-                    })
-                    .attr("cy", function (d) {
-                        var p = projection([d.lon, d.lat]);
-                        if (!p || p.length == 0) {
-                            console.log("bad projection");
-                            return -1;
-                        }
-                        return p[1];
-                    })
-                    .attr("r", function (d) {
-                        return Math.sqrt(parseInt(d.sales) * 0.00005);
-                    })
-                    .style("fill", "red");
-
-            });
-        }
-
         $scope.stationChange = function(station) {
             if (!station || !station.lnglat) {
                 return;
@@ -66,12 +31,16 @@ angular.module("train")
             plotStationLoc(station);
         };
 
+        $scope.lineChange = function(line) {
+            plotMap($scope.selectedLine.map);
+        }
+
         var plotStationLoc = function(station) {
             var lng = station.lnglat[0];
             var lat = station.lnglat[1];
 
             svg.selectAll("circle.stopPoint").remove();
-            
+
             svg.append("circle")
                 .attr({
                     class: "stopPoint",
@@ -82,7 +51,11 @@ angular.module("train")
                 });
         }
 
-        $scope.plotMap = function() {
+        var plotMap = function(mapFile) {
+
+            if (!mapFile) {
+                return;
+            }
             var w = 500;
             var h = 500;
 
@@ -92,6 +65,7 @@ angular.module("train")
             geoFile = "data/westchester.json";
             geoFile = "data/us.json";
             geoFile = "data/wcmun-2.json";
+            geoFile = "data/" + mapFile;
 
             d3.json(geoFile, function(json) {
 
@@ -136,11 +110,7 @@ angular.module("train")
                     .attr("d", path)
                     .attr("fill","#666666")
                     .attr("stroke", "black");
-
-                //Load in cities data
-                //PlotStationStops(svg, projection);
             });
         };
 
-        $scope.plotMap();
     });
