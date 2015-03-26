@@ -1,18 +1,18 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/d3/stationMap.css"/>
-<h1>Station Map</h1>
 <div class="container">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-4">
             <div>
                 Line: <select ng-options="line as line.name for line in lines" ng-model="selectedLine"/>
             </div>
             <ul id="stationList">
                 <li ng-repeat="station in stations | filter:stationInLineFn">
-                    {{station.name}}
+                    <input type="radio" name="stationRadioGroup" value="{{station.abbr}}" ng-model="selectedStation.abbr" ng-change="stationChange(station)" />
+                    <span ng-class="station.lnglat ? 'geo': ''">{{station.name}}<span>
                 </li>
             </ul>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-8">
             <section id="mapSection" class="row">
                 <div id="svgContainer" class="col-md-12">
 

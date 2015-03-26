@@ -5,6 +5,7 @@ ul#stationList {
   overflow: scroll;
   font-family: sans-serif;
   font-size: 11pt;
+  list-style: none;
 }
 
 section#mapSection {
@@ -13,4 +14,8 @@ section#mapSection {
 section#infoSection {
   border: 1px solid black;
   height: 50px;
+}
+.geo {
+  font-weight: bold;
+  color: red;
 }

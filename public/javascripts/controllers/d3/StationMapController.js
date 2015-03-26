@@ -1,7 +1,7 @@
 angular.module("train")
     .controller("StationMapController", function($scope, trainServices, helperServices, cacheServices) {
         $scope.title = "Station Map";
-
+        $scope.selectedStation = { abbr: "" };
         trainServices.getLines()
             .then(function(res){
                 $scope.lines = res.data;
@@ -54,8 +54,15 @@ angular.module("train")
             });
         }
 
+        $scope.stationChange = function(station) {
+            var s = station;
+            var t = $scope.selectedStation;
+            alert("Selected " + s.name + " model " + t);
+        };
+
+
         $scope.plotMap = function() {
-            var w = 700;
+            var w = 500;
             var h = 500;
 
             //Load in GeoJSON data
