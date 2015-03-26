@@ -7,8 +7,10 @@
             </div>
             <ul id="stationList">
                 <li ng-repeat="station in stations | filter:stationInLineFn">
-                    <input type="radio" name="stationRadioGroup" value="{{station.abbr}}" ng-model="selectedStation.abbr" ng-change="stationChange(station)" />
-                    <span ng-class="station.lnglat ? 'geo': ''">{{station.name}}<span>
+                    <input type="radio" name="stationRadioGroup" value="{{station.abbr}}"
+                           ng-model="selectedStation[station.abbr]"
+                           ng-change="stationChange(station)" />
+                    <span ng-class="station.lnglat ? 'geo': ''">{{station.name}}</span>
                 </li>
             </ul>
         </div>

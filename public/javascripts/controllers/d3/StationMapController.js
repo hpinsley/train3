@@ -1,5 +1,10 @@
 angular.module("train")
     .controller("StationMapController", function($scope, trainServices, helperServices, cacheServices) {
+
+        var lngScale;
+        var latScale;
+        var svg;
+
         $scope.title = "Station Map";
         $scope.selectedStation = { abbr: "" };
         trainServices.getLines()
@@ -55,11 +60,27 @@ angular.module("train")
         }
 
         $scope.stationChange = function(station) {
-            var s = station;
-            var t = $scope.selectedStation;
-            alert("Selected " + s.name + " model " + t);
+            if (!station || !station.lnglat) {
+                return;
+            }
+            plotStationLoc(station);
         };
 
+        var plotStationLoc = function(station) {
+            var lng = station.lnglat[0];
+            var lat = station.lnglat[1];
+
+            svg.selectAll("circle.stopPoint").remove();
+            
+            svg.append("circle")
+                .attr({
+                    class: "stopPoint",
+                    cx: lngScale(lng),
+                    cy: latScale(lat),
+                    r: 5,
+                    fill: "red"
+                });
+        }
 
         $scope.plotMap = function() {
             var w = 500;
@@ -84,12 +105,12 @@ angular.module("train")
 
                 var padding = 30;
 
-                var lngScale = d3.scale
+                lngScale = d3.scale
                     .linear()
                     .domain([minLng, maxLng])
                     .range([padding,w-padding]);
 
-                var latScale = d3.scale
+                latScale = d3.scale
                     .linear()
                     .domain([minLat, maxLat])
                     .range([h-padding,padding]);
@@ -105,7 +126,7 @@ angular.module("train")
                     .projection(customProjection);
 
                 //Create SVG element
-                var svg = d3.select("#svgContainer").append("svg").attr({width:w, height: h});
+                svg = d3.select("#svgContainer").append("svg").attr({width:w, height: h});
 
                 //Bind data and create one path per GeoJSON feature
                 svg.selectAll("path")
