@@ -18,6 +18,7 @@
     "moment": "^2.8.4",
     "mongoskin": "^1.4.4",
     "morgan": "~1.0.0",
+    "prompt": "^0.2.14",
     "static-favicon": "~1.0.0"
   }
 }

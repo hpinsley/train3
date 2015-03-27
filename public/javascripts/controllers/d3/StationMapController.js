@@ -10,6 +10,7 @@ angular.module("train")
             .then(function(res){
                 $scope.lines = res.data;
                 $scope.selectedLine = $scope.lines[0];
+                plotSelectedLineMap();
             })
             .then(function(){
                 trainServices.getStations()
@@ -35,6 +36,10 @@ angular.module("train")
             plotMap($scope.selectedLine.map);
         }
 
+        var plotSelectedLineMap = function() {
+            plotMap($scope.selectedLine.map);
+        }
+
         var plotStationLoc = function(station) {
             var lng = station.lnglat[0];
             var lat = station.lnglat[1];
@@ -53,23 +58,21 @@ angular.module("train")
 
         var plotMap = function(mapFile) {
 
+            if (svg) {
+                svg.selectAll("*").remove();
+            }
+
             if (!mapFile) {
                 return;
             }
-            var w = 500;
+
+            var w = 800;
             var h = 500;
 
             //Load in GeoJSON data
-            var geoFile;
-
-            geoFile = "data/westchester.json";
-            geoFile = "data/us.json";
-            geoFile = "data/wcmun-2.json";
-            geoFile = "data/" + mapFile;
+            var geoFile = "data/" + mapFile;
 
             d3.json(geoFile, function(json) {
-
-                //var bounds = d3.geo.bounds(json.features[0]);
 
                 var bounds = helperServices.getBoundsOfFeatures(json.features);
                 var minLng = bounds[0][0];
@@ -99,8 +102,10 @@ angular.module("train")
                 var path = d3.geo.path()
                     .projection(customProjection);
 
-                //Create SVG element
-                svg = d3.select("#svgContainer").append("svg").attr({width:w, height: h});
+                //Create SVG element if we haven't already
+                if (!svg) {
+                    svg = d3.select("#svgContainer").append("svg").attr({width:w, height: h});
+                }
 
                 //Bind data and create one path per GeoJSON feature
                 svg.selectAll("path")
