@@ -7,6 +7,15 @@ angular.module("train")
 
         return stationName;
     })
+    .filter("latlng", function(){
+        var latlng = function(station) {
+                if (!station.lnglat) {
+                    return "";
+                }
+                return station.lnglat[1].toString() + "," + station.lnglat[0].toString();
+            };
+        return latlng;
+    })
     .filter("timeDisplay", function() {
         return function(time) {
             if (!time) {

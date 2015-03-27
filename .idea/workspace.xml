@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3832ecd3-a85d-41f0-b7d4-6db12949b7eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/stations/StationDetailsController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/stations/StationDetailsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/stations/details.html" afterPath="$PROJECT_DIR$/public/views/stations/details.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js" afterPath="$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/stations/stations.html" afterPath="$PROJECT_DIR$/public/views/stations/stations.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="train3.iws" />
@@ -47,11 +47,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StationDetailsController.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="StationDetailsController.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/stations/StationDetailsController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12801932" vertical-offset="1106" max-vertical-offset="1805">
-              <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1805">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lookupFilters.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1330">
+              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stations.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/views/stations/stations.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.68911916" vertical-offset="532" max-vertical-offset="1159">
+              <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -90,7 +110,6 @@
         <option value="$PROJECT_DIR$/public/javascripts/controllers/TrainsController.js" />
         <option value="$PROJECT_DIR$/public/views/trains/trains.html" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/bodyController.js" />
-        <option value="$PROJECT_DIR$/public/views/stations/stations.html" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/lines/LinesController.js" />
         <option value="$PROJECT_DIR$/public/views/lines/lines.html" />
         <option value="$PROJECT_DIR$/public/javascripts/directives/helperDirectives.js" />
@@ -101,7 +120,6 @@
         <option value="$PROJECT_DIR$/public/stylesheets/trains/test.scss" />
         <option value="$PROJECT_DIR$/public/stylesheets/trains/details.css" />
         <option value="$PROJECT_DIR$/public/javascripts/services/cacheServices.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/stations/stationDetails.scss" />
         <option value="$PROJECT_DIR$/public/stylesheets/stations/details.scss" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsController.js" />
@@ -126,6 +144,8 @@
         <option value="$PROJECT_DIR$/sysman/interactiveStationGeoUpdate.js" />
         <option value="$PROJECT_DIR$/public/views/stations/details.html" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/stations/StationDetailsController.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js" />
+        <option value="$PROJECT_DIR$/public/views/stations/stations.html" />
       </list>
     </option>
   </component>
@@ -286,33 +306,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="train3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="train3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stations" />
+              <option name="myItemId" value="filters" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -912,7 +906,11 @@
       <created>1427421583899</created>
       <updated>1427421583899</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="Allow lat,lng updates from the station update page.">
+      <created>1427423076290</created>
+      <updated>1427423076290</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -977,7 +975,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Style the station selection table" />
     <MESSAGE value="Added a section to play with d3" />
     <MESSAGE value="Added a simple barchart" />
     <MESSAGE value="Fixed up the dropdown menu and added the use of the d3 scale object." />
@@ -1002,7 +999,8 @@
     <MESSAGE value="Starting to plot points" />
     <MESSAGE value="Store maps in database" />
     <MESSAGE value="Added long island via some sysman scripts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added long island via some sysman scripts" />
+    <MESSAGE value="Allow lat,lng updates from the station update page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Allow lat,lng updates from the station update page." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1228,14 +1226,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1159">
-          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/data/sales-by-city.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="31008">
@@ -1414,14 +1404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/stations/stations.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.049222797" vertical-offset="38" max-vertical-offset="1083">
-          <caret line="3" column="83" selection-start-line="3" selection-start-column="83" selection-end-line="3" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sysman/interactiveStationGeoUpdate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="371" max-vertical-offset="969">
@@ -1440,8 +1422,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/stations/StationDetailsController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12801932" vertical-offset="1106" max-vertical-offset="1805">
-          <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1805">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1330">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/stations/stations.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68911916" vertical-offset="532" max-vertical-offset="1159">
+          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
           <folding />
         </state>
       </provider>

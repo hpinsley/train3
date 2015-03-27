@@ -20,6 +20,7 @@
         <th>Abbr</th>
         <th>Lines</th>
         <th>Image</th>
+        <th>Coords</th>
         <th>Travel To</th>
         <th class="text-center">Trains</th>
     </tr>
@@ -37,6 +38,9 @@
         </td>
         <td>
             <img style="height:40px" ng-src="images/{{station.image}}" />
+        </td>
+        <td>
+            {{station | latlng}}
         </td>
         <td>
             <hp-station-select startStationExpr="station" onSelect="onSelect">
