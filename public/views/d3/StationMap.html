@@ -5,6 +5,10 @@
             <div>
                 Line: <select ng-options="line as line.name for line in lines" ng-model="selectedLine" ng-change="lineChange(line)">
                 </select>
+                <div class="input-group">
+                    <input type="checkbox" ng-model="showLinePath" ng-change="changeShowLinePath()" />
+                    Show Line
+                </div>
             </div>
             <ul id="stationList">
                 <li ng-repeat="station in stations | filter:stationInLineFn | orderBy:stationOrder">

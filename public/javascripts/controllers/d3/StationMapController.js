@@ -32,6 +32,10 @@ angular.module("train")
             plotStationLoc(station);
         };
 
+        $scope.changeShowLinePath = function() {
+            $scope.showLinePath ? showLinePath() : removeLinePath();
+        };
+
         $scope.stationOrder = function(station) {
             return _.findIndex($scope.selectedLine.stations, function(lineStation){
                 return station.abbr === lineStation;
@@ -40,11 +44,66 @@ angular.module("train")
 
         $scope.lineChange = function(line) {
             plotMap($scope.selectedLine.map);
-        }
+            $scope.showLinePath = false;
+            removeLinePath();
+        };
+
+        var showLinePath = function() {
+            if (!svg) {
+                return;
+            }
+            var line = $scope.selectedLine;
+            var stations = _.filter($scope.stations, function(station) {
+                return station.lnglat && _.any(line.stations, function (lineStation) {
+                    return lineStation === station.abbr;
+                })
+            });
+
+            var orderedStations = _.sortBy(stations, function(station) {
+                return _.findIndex(line.stations, function(lineStation){
+                    return lineStation == station.abbr;
+                });
+            });
+
+            var lineFun = d3.svg.line()
+                .x(function (station) { return lngScale(station.lnglat[0])})
+                .y(function (station) { return latScale(station.lnglat[1])})
+                .interpolate("linear");
+
+            var lineGroup = svg.append("g").attr("class", "linePath");
+
+            lineGroup.append("path")
+                .attr({
+                    d: lineFun(orderedStations),
+                    "stroke": "yellow",
+                    "stroke-width": 3,
+                    "fill": "none"
+                });
+
+            lineGroup.selectAll("circle.linePathCircle")
+                .data(orderedStations)
+                .enter()
+                .append("circle")
+                .attr({
+                    class: "linePathCircle",
+                    cx: function(station) { return lngScale(station.lnglat[0]);},
+                    cy: function(station) { return latScale(station.lnglat[1]);},
+                    r: 5,
+                    fill: "blue"
+                });
+        };
+
+        var removeLinePath = function() {
+            if (!svg) {
+                return;
+            }
+            svg.select("g.linePath").remove();
+        };
 
         var plotSelectedLineMap = function() {
             plotMap($scope.selectedLine.map);
         }
+
 
         var plotStationLoc = function(station) {
             var lng = station.lnglat[0];
