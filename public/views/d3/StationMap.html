@@ -7,7 +7,7 @@
                 </select>
             </div>
             <ul id="stationList">
-                <li ng-repeat="station in stations | filter:stationInLineFn">
+                <li ng-repeat="station in stations | filter:stationInLineFn | orderBy:stationOrder">
                     <input type="radio" name="stationRadioGroup" value="{{station.abbr}}"
                            ng-click="stationChange(station)" />
                     <span ng-class="station.lnglat ? 'geo': ''">{{station.name}}</span>

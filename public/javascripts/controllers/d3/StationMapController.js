@@ -32,6 +32,12 @@ angular.module("train")
             plotStationLoc(station);
         };
 
+        $scope.stationOrder = function(station) {
+            return _.findIndex($scope.selectedLine.stations, function(lineStation){
+                return station.abbr === lineStation;
+            });
+        }
+
         $scope.lineChange = function(line) {
             plotMap($scope.selectedLine.map);
         }

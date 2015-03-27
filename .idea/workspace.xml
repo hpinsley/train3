@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3832ecd3-a85d-41f0-b7d4-6db12949b7eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js" afterPath="$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/stations/stations.html" afterPath="$PROJECT_DIR$/public/views/stations/stations.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/d3/StationMap.html" afterPath="$PROJECT_DIR$/public/views/d3/StationMap.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="train3.iws" />
@@ -27,51 +27,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="interactiveStationGeoUpdate.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sysman/interactiveStationGeoUpdate.js">
+      <file leaf-file-name="StationMap.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/d3/StationMap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="371" max-vertical-offset="969">
-              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+            <state vertical-scroll-proportion="-6.107143" vertical-offset="0" max-vertical-offset="703">
+              <caret line="9" column="98" selection-start-line="9" selection-start-column="98" selection-end-line="9" selection-end-column="98" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="details.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/stations/details.html">
+      <file leaf-file-name="StationMapController.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.357142" vertical-offset="488" max-vertical-offset="1615">
-              <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StationDetailsController.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/stations/StationDetailsController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1805">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lookupFilters.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1330">
-              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stations.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/views/stations/stations.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68911916" vertical-offset="532" max-vertical-offset="1159">
-              <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.7801932" vertical-offset="342" max-vertical-offset="2527">
+              <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -138,14 +108,14 @@
         <option value="$PROJECT_DIR$/sysman/updateStationsWithGeo.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/d3/stationMap.scss" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/d3/TrainsPerStationController.js" />
-        <option value="$PROJECT_DIR$/public/views/d3/StationMap.html" />
         <option value="$PROJECT_DIR$/sysman/translateNyStateToLI.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js" />
         <option value="$PROJECT_DIR$/sysman/interactiveStationGeoUpdate.js" />
         <option value="$PROJECT_DIR$/public/views/stations/details.html" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/stations/StationDetailsController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js" />
         <option value="$PROJECT_DIR$/public/views/stations/stations.html" />
+        <option value="$PROJECT_DIR$/public/views/d3/StationMap.html" />
+        <option value="$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js" />
       </list>
     </option>
   </component>
@@ -284,6 +254,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="d3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="train3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="train3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="javascripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -307,6 +299,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="filters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="train3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="train3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="train3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="train3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="d3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -910,7 +950,11 @@
       <created>1427423076290</created>
       <updated>1427423076290</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="Show lat,lng on the statoins page via a filter.">
+      <created>1427425042509</created>
+      <updated>1427425042509</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -975,7 +1019,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Added a section to play with d3" />
     <MESSAGE value="Added a simple barchart" />
     <MESSAGE value="Fixed up the dropdown menu and added the use of the d3 scale object." />
     <MESSAGE value="Add a Y axis" />
@@ -1000,7 +1043,8 @@
     <MESSAGE value="Store maps in database" />
     <MESSAGE value="Added long island via some sysman scripts" />
     <MESSAGE value="Allow lat,lng updates from the station update page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Allow lat,lng updates from the station update page." />
+    <MESSAGE value="Show lat,lng on the statoins page via a filter." />
+    <option name="LAST_COMMIT_MESSAGE" value="Show lat,lng on the statoins page via a filter." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1372,26 +1416,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5048309" vertical-offset="1710" max-vertical-offset="2413">
-          <caret line="101" column="23" selection-start-line="101" selection-start-column="23" selection-end-line="101" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/d3/stationMap.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="0" max-vertical-offset="494">
           <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/d3/StationMap.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24611399" vertical-offset="0" max-vertical-offset="703">
-          <caret line="5" column="132" selection-start-line="5" selection-start-column="132" selection-end-line="5" selection-end-column="132" />
           <folding />
         </state>
       </provider>
@@ -1412,14 +1440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/stations/details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.357142" vertical-offset="488" max-vertical-offset="1615">
-          <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/stations/StationDetailsController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1805">
@@ -1428,18 +1448,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/stations/stations.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68911916" vertical-offset="532" max-vertical-offset="1159">
+          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1330">
+        <state vertical-scroll-proportion="0.7119438" vertical-offset="0" max-vertical-offset="1330">
           <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/stations/stations.html">
+    <entry file="file://$PROJECT_DIR$/public/views/stations/details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68911916" vertical-offset="532" max-vertical-offset="1159">
-          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.6062176" vertical-offset="488" max-vertical-offset="1615">
+          <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/d3/StationMap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.107143" vertical-offset="0" max-vertical-offset="703">
+          <caret line="9" column="98" selection-start-line="9" selection-start-column="98" selection-end-line="9" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7801932" vertical-offset="342" max-vertical-offset="2527">
+          <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
           <folding />
         </state>
       </provider>
