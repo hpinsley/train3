@@ -5,9 +5,18 @@ angular.module("train")
         var stationAbbr = $routeParams["stationAbbr"];
         $scope.stationAbbr = stationAbbr;
 
+        function setLatLng(station) {
+            if (!station.lnglat) {
+                $scope.latlng = "";
+            }
+            else {
+                $scope.latlng = station.lnglat[1].toString() + "," + station.lnglat[0].toString();
+            }
+        }
         trainServices.getStation(stationAbbr)
             .success(function(data){
                 $scope.station = data;
+                setLatLng($scope.station);
                 $scope.station.lineString = $scope.station.lines.join(",");
 
                 trainServices.getLines()
@@ -45,6 +54,17 @@ angular.module("train")
             if ($scope.station.lines.length == 0) {
                 alert("You must specify at least one line for the station.");
                 return;
+            }
+
+            if ($scope.latlng) {
+                try {
+                    var latlng = $scope.latlng.split(",");
+                    $scope.station.lnglat = [parseFloat(latlng[1]),parseFloat(latlng[0])];
+                }
+                catch (err) {
+                    alert(err.msg || err);
+                    return;
+                }
             }
             trainServices.updateStation($scope.station)
                 .success(function(data){
