@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3832ecd3-a85d-41f0-b7d4-6db12949b7eb" name="Default" comment="Add a show and remove line function to the maps.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/backups/2015-03-28/trains.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sysman/FirstTest.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/backups/Readme.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
+    <list default="true" id="3832ecd3-a85d-41f0-b7d4-6db12949b7eb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="train3.iws" />
     <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,72 +25,7 @@
     <favorites_list name="train3" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="StationMap.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/d3/StationMap.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.428571" vertical-offset="0" max-vertical-offset="779">
-              <caret line="8" column="87" selection-start-line="8" selection-start-column="87" selection-end-line="8" selection-end-column="87" />
-              <folding>
-                <marker date="1427496501000" expanded="true" signature="154:980" placeholder="..." />
-                <marker date="1427496501000" expanded="true" signature="172:548" placeholder="..." />
-                <marker date="1427496501000" expanded="true" signature="373:529" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StationMapController.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="741" max-vertical-offset="3648">
-              <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FirstTest.ts" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sysman/FirstTest.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.044496488" vertical-offset="0" max-vertical-offset="427">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Readme.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/backups/Readme.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="190">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TrainScatterController.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/d3/TrainScatterController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1937" max-vertical-offset="3914">
-              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="working-with-api.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Documents/Pluralsight/d3/d3js-data-visualization-fundamentals/4-d3js-data-vis-fundamentals-exercise-files/working-with-api.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.642857" vertical-offset="450" max-vertical-offset="1444">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -108,62 +40,8 @@
       </map>
     </option>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="changedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/public/vendor/readme.txt" />
-        <option value="$PROJECT_DIR$/public/stylesheets/style.less" />
-        <option value="$PROJECT_DIR$/public/javascripts/services/cacheService.js" />
-        <option value="$PROJECT_DIR$/public/views/stations/newStation.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/NewStationController.js" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/trains/TripController.js" />
-        <option value="$PROJECT_DIR$/public/views/trains/trip.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/StationsController.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsDialogController.js" />
-        <option value="$PROJECT_DIR$/public/views/trains/dupTrainDialog.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/TrainsController.js" />
-        <option value="$PROJECT_DIR$/public/views/trains/trains.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/bodyController.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/lines/LinesController.js" />
-        <option value="$PROJECT_DIR$/public/views/lines/lines.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/directives/helperDirectives.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/services/trainServices.js" />
-        <option value="$PROJECT_DIR$/routes/api.js" />
-        <option value="$PROJECT_DIR$/public/views/lines/lineDetails.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/lines/LineDetailsController.js" />
-        <option value="$PROJECT_DIR$/public/stylesheets/trains/test.scss" />
-        <option value="$PROJECT_DIR$/public/stylesheets/trains/details.css" />
-        <option value="$PROJECT_DIR$/public/javascripts/services/cacheServices.js" />
-        <option value="$PROJECT_DIR$/public/stylesheets/stations/stationDetails.scss" />
-        <option value="$PROJECT_DIR$/public/stylesheets/stations/details.scss" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/trains/TrainDetailsController.js" />
-        <option value="$PROJECT_DIR$/public/stylesheets/trains/details.scss" />
-        <option value="$PROJECT_DIR$/public/views/trains/details.html" />
-        <option value="$PROJECT_DIR$/public/views/d3/d3Home.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/d3/d3HomeController.js" />
-        <option value="$PROJECT_DIR$/public/views/d3/TrainsPerStation.html" />
-        <option value="$PROJECT_DIR$/public/views/d3/TrainScatter.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/d3/TrainScatterController.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/services/tstest.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/services/tstest.ts" />
-        <option value="$PROJECT_DIR$/public/javascripts/app.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/services/helperServices.js" />
-        <option value="$PROJECT_DIR$/sysman/updateStationsWithGeo.js" />
-        <option value="$PROJECT_DIR$/public/stylesheets/d3/stationMap.scss" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/d3/TrainsPerStationController.js" />
-        <option value="$PROJECT_DIR$/sysman/translateNyStateToLI.js" />
-        <option value="$PROJECT_DIR$/sysman/interactiveStationGeoUpdate.js" />
-        <option value="$PROJECT_DIR$/public/views/stations/details.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/stations/StationDetailsController.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/filters/lookupFilters.js" />
-        <option value="$PROJECT_DIR$/public/views/stations/stations.html" />
-        <option value="$PROJECT_DIR$/public/views/d3/StationMap.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js" />
-        <option value="$PROJECT_DIR$/sysman/FirstTest.ts" />
-      </list>
-    </option>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
   </component>
   <component name="NodeJsMochaPackageDirSetting">
     <data>/usr/local/lib/node_modules/mocha</data>
@@ -253,6 +131,7 @@
     <property name="LayoutCode.rearrangeEntriesJavaScript" value="false" />
     <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
     <property name="LayoutCode.rearrangeEntriesSCSS" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -273,28 +152,22 @@
       <method />
     </configuration>
     <configuration default="false" name="Train" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/local/bin/node" path-to-js-file="www" working-dir="$PROJECT_DIR$/bin">
+      <RunnerSettings RunnerId="Basic" />
       <RunnerSettings RunnerId="NodeJS.debug" />
       <RunnerSettings RunnerId="NodeJS.run" />
+      <ConfigurationWrapper RunnerId="Basic" />
       <ConfigurationWrapper RunnerId="NodeJS.debug" />
       <ConfigurationWrapper RunnerId="NodeJS.run" />
       <method />
     </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="name" value="Dart" />
-      <option name="saveOutputToFile" value="false" />
-      <option name="showConsoleOnStdErr" value="false" />
-      <option name="showConsoleOnStdOut" value="false" />
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -304,21 +177,11 @@
       <setting name="preferredDebugBrowser" value="Chrome" />
       <method />
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
-      <option name="cucumberJsArguments" />
-      <option name="executablePath" />
-      <option name="filePath" />
+    <configuration default="true" type="NodeWebKit" factoryName="Node-webkit">
+      <option name="name" value="" />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="NodeWebKit" factoryName="Node-webkit">
-      <option name="name" value="" />
       <method />
     </configuration>
     <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
@@ -333,6 +196,12 @@
       <method />
     </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" />
+      <option name="executablePath" />
+      <option name="filePath" />
       <method />
     </configuration>
     <configuration default="false" name="GeoStationUpdate" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="/usr/local/bin/node" path-to-js-file="updateStationsWithGeo.js" working-dir="$PROJECT_DIR$/sysman">
@@ -374,449 +243,304 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="3832ecd3-a85d-41f0-b7d4-6db12949b7eb" name="Default" comment="" />
       <created>1413979261560</created>
+      <option name="number" value="Default" />
       <updated>1413979261560</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Initial commit">
-      <created>1413980539262</created>
-      <updated>1413980539262</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Hooked in handlebars using consolidate.">
-      <created>1414068085686</created>
-      <updated>1414068085686</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Hooked in handlebars using consolidate.">
-      <created>1414162837098</created>
-      <updated>1414162837098</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Change to workspace.xml">
-      <created>1414163607907</created>
-      <updated>1414163607907</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Uninstall Jade">
-      <created>1414163848256</created>
-      <updated>1414163848256</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Adding missing files">
-      <created>1414413069686</created>
-      <updated>1414413069686</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Adding missing files">
-      <created>1414413626727</created>
-      <updated>1414413626727</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Updated index.html">
-      <created>1414414195806</created>
-      <updated>1414414195806</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Cleaning up">
-      <created>1414497644349</created>
-      <updated>1414497644349</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added angular routine">
-      <created>1414498814158</created>
-      <updated>1414498814158</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Added a menu">
-      <created>1414585644585</created>
-      <updated>1414585644585</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Added a trainServices factory service to list the stations.">
-      <created>1414587048017</created>
-      <updated>1414587048017</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Introduce promises into the service">
-      <created>1414671473190</created>
-      <updated>1414671473190</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Create an api route">
-      <created>1414757665723</created>
-      <updated>1414757665723</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Injecting my own &quot;middleware&quot; code.">
-      <created>1414759277724</created>
-      <updated>1414759277724</updated>
-    </task>
-    <task id="LOCAL-00016" summary="api/stations now returns mongo data">
-      <created>1415022032924</created>
-      <updated>1415022032924</updated>
-    </task>
-    <task id="LOCAL-00017" summary="The stations service now makes the $http call to the restful web service /api/stations url.  Stations sorted in name order.">
-      <created>1415023511116</created>
-      <updated>1415023511116</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Can now add a station to the database from the web application.">
-      <created>1415194412595</created>
-      <updated>1415194412595</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Prepare to support delete station">
-      <created>1415195151711</created>
-      <updated>1415195151711</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Delete station now supported">
-      <created>1415282340413</created>
-      <updated>1415282340413</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Add train works - bare-boned.">
-      <created>1415626451759</created>
-      <updated>1415626451759</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Working code after disabling Sophos">
-      <created>1416939805930</created>
-      <updated>1416939805930</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Add stop to train">
-      <created>1417613379895</created>
-      <updated>1417613379895</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Delete a train stop">
-      <created>1417615930167</created>
-      <updated>1417615930167</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Storing stops as times and keeping them sorted">
-      <created>1417654621886</created>
-      <updated>1417654621886</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Updating origination and termination stations based on stops array">
-      <created>1417702647281</created>
-      <updated>1417702647281</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Updated the train description with a nicely formatted time and the translation of the termination station.">
-      <created>1417825740689</created>
-      <updated>1417825740689</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Added a station name filter">
-      <created>1417827029606</created>
-      <updated>1417827029606</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Change train numbers to ints.  Remove the new train page and simply assign the next number for the new train.  The train stops define the train description, origination and termination stations anyway so there is no need to prompt for this when a new train is created.">
-      <created>1418048479292</created>
-      <updated>1418048479292</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Created directive to give back the focus to the stop time">
-      <created>1418307411090</created>
-      <updated>1418307411090</updated>
-    </task>
-    <task id="LOCAL-00031" summary="First attempt at an up time directive.">
-      <created>1418653105752</created>
-      <updated>1418653105752</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Directive works better interacting with scope variables rather than the controls.">
-      <created>1418691576521</created>
-      <updated>1418691576521</updated>
-    </task>
-    <task id="LOCAL-00033" summary="hpCopyTime directive works">
-      <created>1419033170181</created>
-      <updated>1419033170181</updated>
-    </task>
-    <task id="LOCAL-00034" summary="hpCopyTime now works with isolate scope">
-      <created>1419256557774</created>
-      <updated>1419256557774</updated>
-    </task>
-    <task id="LOCAL-00035" summary="No longer call back to the server to display the station name after an add.  Rather use the filter cache.">
-      <created>1419257956524</created>
-      <updated>1419257956524</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Fixed bug with copy time">
-      <created>1419340751573</created>
-      <updated>1419340751573</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Sorting and styling changes">
-      <created>1419343151056</created>
-      <updated>1419343151056</updated>
-    </task>
-    <task id="LOCAL-00038" summary="More styling">
-      <created>1419344291441</created>
-      <updated>1419344291441</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Show the trains for a station">
-      <created>1419431222543</created>
-      <updated>1419431222544</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Show the stop time for each train for the displayed station">
-      <created>1419432585765</created>
-      <updated>1419432585765</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Make the trains sort by time for a station">
-      <created>1419467881048</created>
-      <updated>1419467881048</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Added missing vendor files">
-      <created>1420505142672</created>
-      <updated>1420505142672</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Added support for station line">
-      <created>1420676472221</created>
-      <updated>1420676472221</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Continue working on directive">
-      <created>1421110510274</created>
-      <updated>1421110510274</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Basic directive functionality works now">
-      <created>1421156647307</created>
-      <updated>1421156647307</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Made the directive more generic">
-      <created>1421157577567</created>
-      <updated>1421157577567</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Implement cache and helper services to assist with train stop validation.">
-      <created>1421244399702</created>
-      <updated>1421244399702</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Check for duplicate station">
-      <created>1421455175996</created>
-      <updated>1421455175996</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Show the station lines in the train stop list via a new filter.">
-      <created>1421455993031</created>
-      <updated>1421455993031</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Don't allow a station to be deleted if it is a stop on a train.">
-      <created>1421763680718</created>
-      <updated>1421763680718</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Building fitlers for finding trains by start and stop station">
-      <created>1421801594972</created>
-      <updated>1421801594972</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Filter trains by desired stops">
-      <created>1421848499379</created>
-      <updated>1421848499379</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Add trip stops">
-      <created>1421848967790</created>
-      <updated>1421848967790</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Add duration of trip">
-      <created>1421971482783</created>
-      <updated>1421971482783</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Add a swap button">
-      <created>1422020045505</created>
-      <updated>1422020045506</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Allow the station filters to function singlely">
-      <created>1422021096380</created>
-      <updated>1422021096380</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Allow navigation from station list to a filtered train list">
-      <created>1422022562385</created>
-      <updated>1422022562385</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Show a tooltip on the stop count">
-      <created>1422058593912</created>
-      <updated>1422058593913</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Styling the trains table">
-      <created>1422059129392</created>
-      <updated>1422059129392</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Added more tooltips and links">
-      <created>1422060499277</created>
-      <updated>1422060499277</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Filter the start and end station drop downs so that if one is selected the other only shows choices where connections are possible.">
-      <created>1422272459986</created>
-      <updated>1422272459986</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Added a trip display page">
-      <created>1422307907054</created>
-      <updated>1422307907054</updated>
     </task>
     <task id="LOCAL-00063" summary="Added some color">
       <created>1422451314879</created>
+      <option name="number" value="00063" />
+      <option name="project" value="LOCAL" />
       <updated>1422451314879</updated>
     </task>
     <task id="LOCAL-00064" summary="Show elapsed time until train arrival">
       <created>1422454413471</created>
+      <option name="number" value="00064" />
+      <option name="project" value="LOCAL" />
       <updated>1422454413472</updated>
     </task>
     <task id="LOCAL-00065" summary="Properly killing the timer when the scope is destroyed">
       <created>1422489729811</created>
+      <option name="number" value="00065" />
+      <option name="project" value="LOCAL" />
       <updated>1422489729812</updated>
     </task>
     <task id="LOCAL-00066" summary="Created directive to show elapsed time">
       <created>1422492949792</created>
+      <option name="number" value="00066" />
+      <option name="project" value="LOCAL" />
       <updated>1422492949792</updated>
     </task>
     <task id="LOCAL-00067" summary="Add CSS styling to elapsed directive.">
       <created>1422538211223</created>
+      <option name="number" value="00067" />
+      <option name="project" value="LOCAL" />
       <updated>1422538211223</updated>
     </task>
     <task id="LOCAL-00068" summary="Use the new elapsed directive in the trains page">
       <created>1422540054888</created>
+      <option name="number" value="00068" />
+      <option name="project" value="LOCAL" />
       <updated>1422540054888</updated>
     </task>
     <task id="LOCAL-00069" summary="Add debugging tooltip">
       <created>1422670277984</created>
+      <option name="number" value="00069" />
+      <option name="project" value="LOCAL" />
       <updated>1422670277984</updated>
     </task>
     <task id="LOCAL-00070" summary="Add a dropdown to the stations list to select a destination">
       <created>1422886228788</created>
+      <option name="number" value="00070" />
+      <option name="project" value="LOCAL" />
       <updated>1422886228788</updated>
     </task>
     <task id="LOCAL-00071" summary="hp-station-select is creating the correct stations for the select HTML element.">
       <created>1423267696910</created>
+      <option name="number" value="00071" />
+      <option name="project" value="LOCAL" />
       <updated>1423267696911</updated>
     </task>
     <task id="LOCAL-00072" summary="Created a dialog for duplicating a train">
       <created>1423663712974</created>
+      <option name="number" value="00072" />
+      <option name="project" value="LOCAL" />
       <updated>1423663712975</updated>
     </task>
     <task id="LOCAL-00073" summary="Duplicate train now works">
       <created>1423940764542</created>
+      <option name="number" value="00073" />
+      <option name="project" value="LOCAL" />
       <updated>1423940764542</updated>
     </task>
     <task id="LOCAL-00074" summary="Put in multiple train select and a delete trains function.">
       <created>1424182890779</created>
+      <option name="number" value="00074" />
+      <option name="project" value="LOCAL" />
       <updated>1424182890779</updated>
     </task>
     <task id="LOCAL-00075" summary="Refresh train page after deleting train(s)">
       <created>1424477183292</created>
+      <option name="number" value="00075" />
+      <option name="project" value="LOCAL" />
       <updated>1424477183292</updated>
     </task>
     <task id="LOCAL-00076" summary="Added some dummy station images">
       <created>1424479808777</created>
+      <option name="number" value="00076" />
+      <option name="project" value="LOCAL" />
       <updated>1424479808778</updated>
     </task>
     <task id="LOCAL-00077" summary="Clear selections button">
       <created>1424697972679</created>
+      <option name="number" value="00077" />
+      <option name="project" value="LOCAL" />
       <updated>1424697972680</updated>
     </task>
     <task id="LOCAL-00078" summary="Fixed menu active setting">
       <created>1424701260187</created>
+      <option name="number" value="00078" />
+      <option name="project" value="LOCAL" />
       <updated>1424701260187</updated>
     </task>
     <task id="LOCAL-00079" summary="First attempt at moving the focus on the click events for the station movement in a line.">
       <created>1424957437861</created>
+      <option name="number" value="00079" />
+      <option name="project" value="LOCAL" />
       <updated>1424957437862</updated>
     </task>
     <task id="LOCAL-00080" summary="Focus is set">
       <created>1424958746566</created>
+      <option name="number" value="00080" />
+      <option name="project" value="LOCAL" />
       <updated>1424958746566</updated>
     </task>
     <task id="LOCAL-00081" summary="Playing around with different types of station selection.">
       <created>1425306052279</created>
+      <option name="number" value="00081" />
+      <option name="project" value="LOCAL" />
       <updated>1425306052279</updated>
     </task>
     <task id="LOCAL-00082" summary="Style the station selection table">
       <created>1425563552352</created>
+      <option name="number" value="00082" />
+      <option name="project" value="LOCAL" />
       <updated>1425563552352</updated>
     </task>
     <task id="LOCAL-00083" summary="Added a section to play with d3">
       <created>1426031768653</created>
+      <option name="number" value="00083" />
+      <option name="project" value="LOCAL" />
       <updated>1426031768653</updated>
     </task>
     <task id="LOCAL-00084" summary="Added a simple barchart">
       <created>1426430111441</created>
+      <option name="number" value="00084" />
+      <option name="project" value="LOCAL" />
       <updated>1426430111441</updated>
     </task>
     <task id="LOCAL-00085" summary="Fixed up the dropdown menu and added the use of the d3 scale object.">
       <created>1426435705316</created>
+      <option name="number" value="00085" />
+      <option name="project" value="LOCAL" />
       <updated>1426435705316</updated>
     </task>
     <task id="LOCAL-00086" summary="Add a Y axis">
       <created>1426440478891</created>
+      <option name="number" value="00086" />
+      <option name="project" value="LOCAL" />
       <updated>1426440478891</updated>
     </task>
     <task id="LOCAL-00087" summary="Add rotated labels along the X axis.">
       <created>1426468932706</created>
+      <option name="number" value="00087" />
+      <option name="project" value="LOCAL" />
       <updated>1426468932706</updated>
     </task>
     <task id="LOCAL-00088" summary="Added scatter plot">
       <created>1426901626503</created>
+      <option name="number" value="00088" />
+      <option name="project" value="LOCAL" />
       <updated>1426901626503</updated>
     </task>
     <task id="LOCAL-00089" summary="Added tooltip support to the scatter plot.">
       <created>1426956284522</created>
+      <option name="number" value="00089" />
+      <option name="project" value="LOCAL" />
       <updated>1426956284522</updated>
     </task>
     <task id="LOCAL-00090" summary="Added train detail to the tooltip">
       <created>1426975104493</created>
+      <option name="number" value="00090" />
+      <option name="project" value="LOCAL" />
       <updated>1426975104493</updated>
     </task>
     <task id="LOCAL-00091" summary="Change the tickmarks along the Y (time) axis to be generated in nice hourly increments at the top of the hour.">
       <created>1426976692137</created>
+      <option name="number" value="00091" />
+      <option name="project" value="LOCAL" />
       <updated>1426976692137</updated>
     </task>
     <task id="LOCAL-00092" summary="Start of changing from a floating div tooltip to text within an expanding circle">
       <created>1427041695099</created>
+      <option name="number" value="00092" />
+      <option name="project" value="LOCAL" />
       <updated>1427041695099</updated>
     </task>
     <task id="LOCAL-00093" summary="Add transitions to bring the tooltip together with an expanding circle.">
       <created>1427061349568</created>
+      <option name="number" value="00093" />
+      <option name="project" value="LOCAL" />
       <updated>1427061349569</updated>
     </task>
     <task id="LOCAL-00094" summary="Improve the text of the tooltip">
       <created>1427062001839</created>
+      <option name="number" value="00094" />
+      <option name="project" value="LOCAL" />
       <updated>1427062001839</updated>
     </task>
     <task id="LOCAL-00095" summary="Playing with the transition visuals.">
       <created>1427063083293</created>
+      <option name="number" value="00095" />
+      <option name="project" value="LOCAL" />
       <updated>1427063083293</updated>
     </task>
     <task id="LOCAL-00096" summary="Started station map">
       <created>1427114847510</created>
+      <option name="number" value="00096" />
+      <option name="project" value="LOCAL" />
       <updated>1427114847510</updated>
     </task>
     <task id="LOCAL-00097" summary="Draw map of US">
       <created>1427157233945</created>
+      <option name="number" value="00097" />
+      <option name="project" value="LOCAL" />
       <updated>1427157233945</updated>
     </task>
     <task id="LOCAL-00098" summary="First successful attempt at drawing Westchester county.">
       <created>1427249766795</created>
+      <option name="number" value="00098" />
+      <option name="project" value="LOCAL" />
       <updated>1427249766795</updated>
     </task>
     <task id="LOCAL-00099" summary="Better bounds checking for multiple features.">
       <created>1427251156480</created>
+      <option name="number" value="00099" />
+      <option name="project" value="LOCAL" />
       <updated>1427251156480</updated>
     </task>
     <task id="LOCAL-00100" summary="Get rid of files no longer needed">
       <created>1427251350027</created>
+      <option name="number" value="00100" />
+      <option name="project" value="LOCAL" />
       <updated>1427251350027</updated>
     </task>
     <task id="LOCAL-00101" summary="Added a sysman folder and additional configurations to run maintenance scripts">
       <created>1427327472634</created>
+      <option name="number" value="00101" />
+      <option name="project" value="LOCAL" />
       <updated>1427327472634</updated>
     </task>
     <task id="LOCAL-00102" summary="Remove unused files">
       <created>1427327519465</created>
+      <option name="number" value="00102" />
+      <option name="project" value="LOCAL" />
       <updated>1427327519465</updated>
     </task>
     <task id="LOCAL-00103" summary="Created radio buttons for the stations">
       <created>1427378588494</created>
+      <option name="number" value="00103" />
+      <option name="project" value="LOCAL" />
       <updated>1427378588494</updated>
     </task>
     <task id="LOCAL-00104" summary="Starting to plot points">
       <created>1427379621687</created>
+      <option name="number" value="00104" />
+      <option name="project" value="LOCAL" />
       <updated>1427379621687</updated>
     </task>
     <task id="LOCAL-00105" summary="Store maps in database">
       <created>1427381255088</created>
+      <option name="number" value="00105" />
+      <option name="project" value="LOCAL" />
       <updated>1427381255088</updated>
     </task>
     <task id="LOCAL-00106" summary="Added long island via some sysman scripts">
       <created>1427421583899</created>
+      <option name="number" value="00106" />
+      <option name="project" value="LOCAL" />
       <updated>1427421583899</updated>
     </task>
     <task id="LOCAL-00107" summary="Allow lat,lng updates from the station update page.">
       <created>1427423076290</created>
+      <option name="number" value="00107" />
+      <option name="project" value="LOCAL" />
       <updated>1427423076290</updated>
     </task>
     <task id="LOCAL-00108" summary="Show lat,lng on the statoins page via a filter.">
       <created>1427425042509</created>
+      <option name="number" value="00108" />
+      <option name="project" value="LOCAL" />
       <updated>1427425042509</updated>
     </task>
     <task id="LOCAL-00109" summary="Order the stations by the line's station order.">
       <created>1427426953631</created>
+      <option name="number" value="00109" />
+      <option name="project" value="LOCAL" />
       <updated>1427426953631</updated>
     </task>
     <task id="LOCAL-00110" summary="Add a show and remove line function to the maps.">
       <created>1427499078273</created>
+      <option name="number" value="00110" />
+      <option name="project" value="LOCAL" />
       <updated>1427499078273</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Add a database backup of the trains mongo database.">
+      <created>1427568996776</created>
+      <option name="number" value="00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1427568996776</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -843,24 +567,25 @@
     <frame x="0" y="22" width="1440" height="790" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4732143" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44642857" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29315478" sideWeight="0.49964765" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29228488" sideWeight="0.49964765" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32886904" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32886904" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25299507" sideWeight="0.49850747" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25299507" sideWeight="0.49850747" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44940478" sideWeight="0.49928468" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32195845" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24947146" sideWeight="0.50149256" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44940478" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32291666" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44494048" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32886904" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4732143" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32886904" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -881,7 +606,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Add a Y axis" />
     <MESSAGE value="Add rotated labels along the X axis." />
     <MESSAGE value="Added scatter plot" />
     <MESSAGE value="Added tooltip support to the scatter plot." />
@@ -906,7 +630,8 @@
     <MESSAGE value="Show lat,lng on the statoins page via a filter." />
     <MESSAGE value="Order the stations by the line's station order." />
     <MESSAGE value="Add a show and remove line function to the maps." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add a show and remove line function to the maps." />
+    <MESSAGE value="Add a database backup of the trains mongo database." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a database backup of the trains mongo database." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -952,8 +677,17 @@
       </breakpoints-dialog>
       <option name="time" value="110" />
     </breakpoint-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/Documents/Pluralsight/d3/d3js-data-visualization-fundamentals/4-d3js-data-vis-fundamentals-exercise-files/working-with-api.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="1444">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/trains/details.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="790" max-vertical-offset="1843">
@@ -965,7 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="1615">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1023,7 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="4.3846154" vertical-offset="0" max-vertical-offset="2375">
           <caret line="96" column="83" selection-start-line="96" selection-start-column="83" selection-end-line="96" selection-end-column="83" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33718246" vertical-offset="1963" max-vertical-offset="5852">
           <caret line="111" column="64" selection-start-line="111" selection-start-column="47" selection-end-line="111" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1039,7 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.7713004" vertical-offset="141" max-vertical-offset="1083">
           <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1047,7 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0" vertical-offset="285" max-vertical-offset="969">
           <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1069,7 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="618" max-vertical-offset="1216">
           <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1084,7 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="446">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1106,7 +833,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="741" max-vertical-offset="1292">
           <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,7 +840,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="1235">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,7 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="433">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1130,7 +854,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="703">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1138,7 +861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="47" max-vertical-offset="1178">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1154,7 +876,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="447">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1162,7 +883,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="41.217392" vertical-offset="56086" max-vertical-offset="180671">
           <caret line="3850" column="9" selection-start-line="3850" selection-start-column="9" selection-end-line="3850" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1170,7 +890,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180671">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1178,7 +897,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="532">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1186,7 +904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42857143" vertical-offset="1752" max-vertical-offset="2280">
           <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1194,7 +911,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1102">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1207,21 +923,19 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/d3/stationMap.css.map">
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="19" max-vertical-offset="228">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/d3/TrainsPerStationController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="251" max-vertical-offset="1976">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1229,7 +943,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1237,7 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="0" max-vertical-offset="494">
           <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1245,7 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.17798595" vertical-offset="285" max-vertical-offset="798">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1253,7 +964,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="371" max-vertical-offset="969">
           <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1261,7 +971,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1805">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1269,7 +978,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.68911916" vertical-offset="532" max-vertical-offset="1159">
           <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1277,7 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7119438" vertical-offset="0" max-vertical-offset="1330">
           <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1285,19 +992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6062176" vertical-offset="488" max-vertical-offset="1615">
           <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/d3/StationMap.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.428571" vertical-offset="0" max-vertical-offset="779">
-          <caret line="8" column="87" selection-start-line="8" selection-start-column="87" selection-end-line="8" selection-end-column="87" />
-          <folding>
-            <marker date="1427496501000" expanded="true" signature="154:980" placeholder="..." />
-            <marker date="1427496501000" expanded="true" signature="172:548" placeholder="..." />
-            <marker date="1427496501000" expanded="true" signature="373:529" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1305,15 +999,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.8221649" vertical-offset="76593" max-vertical-offset="129029">
           <caret line="3994" column="13" selection-start-line="3994" selection-start-column="9" selection-end-line="3994" selection-end-column="13" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Documents/Pluralsight/d3/d3js-data-visualization-fundamentals/4-d3js-data-vis-fundamentals-exercise-files/working-with-api.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.642857" vertical-offset="450" max-vertical-offset="1444">
+        <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="1444">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
@@ -1323,14 +1014,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1101" max-vertical-offset="3914">
           <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="741" max-vertical-offset="3648">
-          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1345,12 +1028,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sysman/FirstTest.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.044496488" vertical-offset="0" max-vertical-offset="427">
+        <state vertical-scroll-proportion="0.042316258" vertical-offset="0" max-vertical-offset="449">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33853006" vertical-offset="741" max-vertical-offset="3648">
+          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/d3/StationMap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="152" max-vertical-offset="779">
+          <caret line="8" column="87" selection-start-line="8" selection-start-column="87" selection-end-line="8" selection-end-column="87" />
           <folding />
         </state>
       </provider>
     </entry>
   </component>
 </project>
-
