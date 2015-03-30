@@ -42,6 +42,15 @@ angular.module("train")
             return !matchingStation;
         };
 
+        $scope.updateLine = function(line) {
+            trainServices.updateLine(line)
+                .then(function(res) {
+                    alert("Updated " + res.data.updateResult + " lines.");
+                }, function(err){
+                    alert(err.data || err);
+                });
+        };
+
         $scope.addStation = function() {
             if (!$scope.selectedStationAbbr) {
                 return;

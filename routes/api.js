@@ -65,6 +65,20 @@ router.delete("/lines/:lineName/stations/:stationAbbr", function(req, res, next)
     });
 });
 
+//update a line
+router.put('/lines/:name', function(req, res, next){
+    var coll = req.db.collection("lines");
+    var name = req.params.name;
+    req.body._id = mongoskin.helper.toObjectID(req.body._id);
+
+    coll.update({name: name}, req.body, function(e,updateResult){
+        if (e) {
+            return next(e);
+        }
+        res.send({updateResult: updateResult});
+    });
+});
+
 //Add a station to a line
 router.post("/lines/:lineName/stations", function(req, res, next){
     var coll = req.db.collection("lines");
