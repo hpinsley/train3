@@ -131,8 +131,8 @@ angular.module("train")
                 return;
             }
 
-            var w = 800;
-            var h = 500;
+            var w = 600;
+            var h = 600;
 
             //Load in GeoJSON data
             var geoFile = "data/" + mapFile;

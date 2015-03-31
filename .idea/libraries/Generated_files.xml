@@ -2,13 +2,16 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/sysman/FirstTest.js" />
         <item url="file://$PROJECT_DIR$/public/javascripts/services/tstest.js" />
+        <item url="file://$PROJECT_DIR$/typescriptDefs/requirejs/require-tests.js" />
+        <item url="file://$PROJECT_DIR$/sysman/combineMapsSelectively.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/sysman/FirstTest.js" />
+      <root url="file://$PROJECT_DIR$/typescriptDefs/requirejs/require-tests.js" />
       <root url="file://$PROJECT_DIR$/public/javascripts/services/tstest.js" />
+      <root url="file://$PROJECT_DIR$/sysman/combineMapsSelectively.js" />
     </CLASSES>
     <SOURCES />
   </library>
