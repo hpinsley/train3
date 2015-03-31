@@ -103,9 +103,9 @@ angular.module("train")
                 .attr("transform", function(d, i) {
                     // Set d.x and d.y here so that other elements can use it. d is
                     // expected to be an object here.
-                    d.x = MapStationToXValue(d.station);
-                    d.y = MapTimeToYValue(d.time);
-                    return "translate(" + d.x + "," + d.y + ")";
+                    var x = MapStationToXValue(d.station);
+                    var y = MapTimeToYValue(d.time);
+                    return "translate(" + x + "," + y + ")";
                 });
 
             nodes.append('circle')

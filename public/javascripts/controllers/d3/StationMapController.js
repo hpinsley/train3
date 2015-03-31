@@ -6,6 +6,16 @@ angular.module("train")
         var svg;
 
         $scope.title = "Station Map";
+
+        var tooltip = d3.select("section#mapSection")
+            .append("div")
+            .attr("id", "tooltip")
+            .style({
+                opacity: 0,
+                left: 0,
+                top: 0
+            });
+
         trainServices.getLines()
             .then(function(res){
                 $scope.lines = res.data;
@@ -46,6 +56,26 @@ angular.module("train")
             plotMap($scope.selectedLine.map);
             $scope.showLinePath = false;
             removeLinePath();
+        };
+
+        var hideTooltip = function() {
+            tooltip.style("opacity", 0);
+        };
+
+        var buildStationTooltip = function(station) {
+            var str = "<u><b>" + station.name + "</b></u><br/>";
+
+            if (station.lines.length == 1) {
+                str = str + station.lines[0] + " line";
+            }
+            else {
+                str = str + "on line(s): " +
+                station.lines.join(", ");
+            }
+            if (station.lnglat) {
+                str = str + "<br/>[" + station.lnglat[0].toFixed(2) + "," + station.lnglat[1].toFixed(2) + "]";
+            }
+            return str;
         };
 
         var showLinePath = function() {
@@ -108,20 +138,32 @@ angular.module("train")
         var plotStationLoc = function(station) {
             var lng = station.lnglat[0];
             var lat = station.lnglat[1];
+            var cx = lngScale(lng);
+            var cy = latScale(lat);
 
             svg.selectAll("circle.stopPoint").remove();
 
             svg.append("circle")
                 .attr({
                     class: "stopPoint",
-                    cx: lngScale(lng),
-                    cy: latScale(lat),
+                    cx: cx,
+                    cy: cy,
                     r: 5,
                     fill: "red"
                 });
+
+            tooltip.transition()
+                .duration(1000)
+                .style("opacity", 1)
+                .style("left", cx)
+                .style("top", cy + 10);
+
+            tooltip.html(buildStationTooltip(station));
         }
 
         var plotMap = function(mapFile) {
+
+            hideTooltip();
 
             if (svg) {
                 svg.selectAll("*").remove();
@@ -131,7 +173,7 @@ angular.module("train")
                 return;
             }
 
-            var w = 600;
+            var w = 900;
             var h = 600;
 
             //Load in GeoJSON data
