@@ -5,7 +5,7 @@
 import fs = require('fs');
 import _ = require("lodash");
 
-class MapFile {
+export class MapFile {
 
     data: any;
     features: GeoJSON.Feature[];
@@ -50,7 +50,7 @@ class MapFile {
     }
 }
 
-class OutputMapfile {
+export class OutputMapfile {
 
     constructor(public mapfile: string, public maps:MapFile[]) {
 
@@ -70,13 +70,27 @@ class OutputMapfile {
     }
 }
 
-var westchester = new MapFile("../public/data/wcmun-2.json", ["all"]);
-westchester.load();
-westchester.listDesiredFeatures();
+function buildTwoMaps() {
+    var westchester = new MapFile("../public/data/wcmun-2.json", ["all"]);
+    westchester.load();
+    westchester.listDesiredFeatures();
 
-var nystate = new MapFile("../public/data/nystate.json", ["New York","Bronx","Putnam"]);
-nystate.load();
-nystate.listDesiredFeatures();
+    var nystate = new MapFile("../public/data/nystate.json", ["New York","Bronx","Putnam"]);
+    nystate.load();
+    nystate.listDesiredFeatures();
 
-var outputMap = new OutputMapfile("../public/data/harlem-1.json", [westchester, nystate]);
-outputMap.writeFile();
+    var outputMap = new OutputMapfile("../public/data/harlem-1.json", [westchester, nystate]);
+    outputMap.writeFile();
+
+}
+
+function buildTwoStates() {
+    var us = new MapFile("../public/data/us.json", ["New York", "Connecticut"]);
+    us.load();
+    us.listDesiredFeatures();
+    var outputMap = new OutputMapfile("../public/data/region1.json", [us]);
+    outputMap.writeFile();
+
+}
+
+buildTwoStates();

@@ -4,11 +4,13 @@
     <thead>
         <tr>
             <th>Name</th>
+            <th>Map</th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="line in lines">
             <td><a href="/#/lines/{{line.name}}">{{line.name}}</a></td>
+            <td>{{line.map}}</td>
         </tr>
     </tbody>
 </table>

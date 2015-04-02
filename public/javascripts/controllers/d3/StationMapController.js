@@ -63,7 +63,7 @@ angular.module("train")
         };
 
         var buildStationTooltip = function(station) {
-            var str = "<u><b>" + station.name + "</b></u><br/>";
+            var str = "<a href='/#/stations/" + station.abbr + "'>" + station.name + "</a><br/>";
 
             if (station.lines.length == 1) {
                 str = str + station.lines[0] + " line";
