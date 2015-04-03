@@ -1,24 +1,8 @@
 /// <reference path="../../../d.ts/d3.d.ts" />
 /// <reference path="../../../d.ts/lodash.d.ts" />
+/// <reference path="../../../d.ts/traindefs.d.ts" />
 
 module Maps {
-
-    module TrainDefs {
-
-        export interface Station {
-            abbr: string;
-            name: string;
-            image: string;
-            lnglat: number[];
-            lines: string[];
-        }
-
-        export interface Line {
-            name: string;
-            stations: string[];
-            map: string;
-        }
-    }
 
     export class LineMap {
 
