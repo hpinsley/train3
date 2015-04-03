@@ -92,5 +92,3 @@ function buildTwoStates() {
     outputMap.writeFile();
 
 }
-
-buildTwoStates();

@@ -79,10 +79,12 @@ angular.module("train")
         };
 
         var showLinePath = function() {
+
             if (!svg) {
                 return;
             }
             var line = $scope.selectedLine;
+
             var stations = _.filter($scope.stations, function(station) {
                 return station.lnglat && _.any(line.stations, function (lineStation) {
                     return lineStation === station.abbr;

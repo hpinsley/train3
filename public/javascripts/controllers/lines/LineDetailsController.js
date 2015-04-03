@@ -15,6 +15,11 @@ angular.module("train")
                 $scope.stations = stations;
             });
 
+        $scope.drawMap = function() {
+            var map = new Maps.LineMap($scope.line, $scope.stations, "graph", 500, 500);
+            map.sayHi();
+        };
+
         $scope.lineStationFilter = function(station) {
             //Make sure the station is on the line
             var matchingStation = _.find($scope.stations, function(stn){
@@ -41,6 +46,8 @@ angular.module("train")
 
             return !matchingStation;
         };
+
+
 
         $scope.updateLine = function(line) {
             trainServices.updateLine(line)
