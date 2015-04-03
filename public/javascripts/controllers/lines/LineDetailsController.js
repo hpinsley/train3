@@ -17,7 +17,7 @@ angular.module("train")
 
         $scope.drawMap = function() {
             var map = new Maps.LineMap($scope.line, $scope.stations, "graph", 500, 500);
-            map.sayHi();
+            map.plotMap();
         };
 
         $scope.lineStationFilter = function(station) {

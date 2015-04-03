@@ -204,7 +204,8 @@ angular.module("train")
                 var customProjection = function(lngLat) {
                     var lng = lngLat[0];
                     var lat = lngLat[1];
-                    return [lngScale(lng),latScale(lat)];
+                    var result = [lngScale(lng),latScale(lat)];
+                    return result;
                 };
 
                 //Define path generator
