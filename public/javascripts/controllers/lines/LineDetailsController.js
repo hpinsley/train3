@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("LineDetailsController", function ($scope, $modal, $log, $location, trainServices, helperServices, $routeParams, $q) {
+    .controller("LineDetailsController", function ($scope, $modal, $log, $location, trainServices, helperServices, $routeParams, $q, $timeout) {
 
         $log.debug("Start of LineDetailsController");
         var map;
@@ -19,6 +19,12 @@ angular.module("train")
         $q.all([linePromise,stationPromise])
             .then(function(){
                 map = new Maps.LineMap($scope.line, $scope.stations, "graph", 900, 600);
+                map.plotMap();
+
+                $timeout(function() {
+                    map.showLinePath();
+                    $scope.showLine = true;
+                }, 1000, true);
             });
 
         $scope.showLineClicked = function() {
@@ -40,10 +46,6 @@ angular.module("train")
             });
             map.plotStationLoc(station);
         }
-
-        $scope.drawMap = function() {
-            map.plotMap();
-        };
 
         $scope.lineStationFilter = function(station) {
             //Make sure the station is on the line

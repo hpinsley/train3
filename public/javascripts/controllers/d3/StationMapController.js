@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("StationMapController", function($scope, trainServices, helperServices, cacheServices) {
+    .controller("StationMapController", function($scope, trainServices, helperServices, cacheServices, $timeout) {
 
         var map;
 
@@ -32,7 +32,7 @@ angular.module("train")
         };
 
         $scope.changeShowLinePath = function() {
-            $scope.showLinePath ? showLinePath() : removeLinePath();
+            $scope.showLineCheck ? showLinePath() : removeLinePath();
         };
 
         $scope.stationOrder = function(station) {
@@ -47,7 +47,11 @@ angular.module("train")
             }
             map = new Maps.LineMap($scope.selectedLine, $scope.stations, "svgContainer", 900, 600);
             map.plotMap();
-            $scope.showLinePath = false;
+            map.tooltipOffset = 8;
+            $timeout(function() {
+                map.showLinePath();
+                $scope.showLineCheck = true;
+            }, 1000, true);
         };
 
 

@@ -21,6 +21,8 @@ module Maps {
     }
 
     export class LineMap {
+
+        public tooltipOffset: number = 30;
         private svg;        //Wish I could declare this as D3.Svg.Svg.  But it doesn't expose an append method?
         private lngScale: D3.Scale.LinearScale;
         private latScale: D3.Scale.LinearScale;
@@ -173,7 +175,7 @@ module Maps {
                 .duration(1000)
                 .style("opacity", 1)
                 .style("left", cx)
-                .style("top", cy + 50);
+                .style("top", cy + this.tooltipOffset);
 
             this.tooltip.html(this.buildStationTooltip(station));
         }

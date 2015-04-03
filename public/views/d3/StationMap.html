@@ -8,7 +8,7 @@
                 Line: <select ng-options="line as line.name for line in lines" ng-model="selectedLine" ng-change="lineChange(line)">
                 </select>
                 <div class="input-group">
-                    <input type="checkbox" ng-model="showLinePath" ng-change="changeShowLinePath()" />
+                    <input type="checkbox" ng-model="showLineCheck" ng-change="changeShowLinePath()" />
                     Show Line
                 </div>
             </div>
@@ -21,11 +21,9 @@
             </ul>
         </div>
         <div class="col-md-9">
-            <section id="mapSection">
-                <div id="svgContainer">
+            <div id="svgContainer">
 
-                </div>
-            </section>
+            </div>
             <section id="infoSection">
             </section>
         </div>
