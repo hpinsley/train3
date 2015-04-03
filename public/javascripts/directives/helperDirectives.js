@@ -254,7 +254,25 @@ angular.module('train')
             }
         };
     })
-
+    .directive("hpLineMap", function($q){
+        return {
+            restrict: 'A',
+            scope: {
+                id: '@id',
+                line: '=line',
+                stations: '=stations',
+                w: '@',
+                h: '@'
+            },
+            link: function(scope, iElement, iAttrs) {
+                var map = new Maps.LineMap($q, scope.line, scope.stations, scope.id, parseInt(scope.w), parseInt(scope.h));
+                map.plotMap()
+                    .then(function(){
+                        map.showLinePath();
+                    });
+            }
+        }
+    })
     .directive("hpFocusMoveRow", function(){
         return {
             restrict: 'A',

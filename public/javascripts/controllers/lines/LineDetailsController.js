@@ -18,7 +18,7 @@ angular.module("train")
 
         $q.all([linePromise,stationPromise])
             .then(function(){
-                map = new Maps.LineMap($scope.line, $scope.stations, "graph", 900, 600);
+                map = new Maps.LineMap($q, $scope.line, $scope.stations, "graph", 900, 600);
                 map.plotMap();
 
                 $timeout(function() {

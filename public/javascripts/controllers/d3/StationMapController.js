@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("StationMapController", function($scope, trainServices, helperServices, cacheServices, $timeout) {
+    .controller("StationMapController", function($scope, trainServices, helperServices, cacheServices, $timeout, $q) {
 
         var map;
 
@@ -45,7 +45,7 @@ angular.module("train")
             if (map) {
                 map.erase();
             }
-            map = new Maps.LineMap($scope.selectedLine, $scope.stations, "svgContainer", 900, 600);
+            map = new Maps.LineMap($q, $scope.selectedLine, $scope.stations, "svgContainer", 900, 600);
             map.plotMap();
             map.tooltipOffset = 8;
             $timeout(function() {

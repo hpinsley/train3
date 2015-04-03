@@ -1,6 +1,7 @@
 /// <reference path="../../../d.ts/d3.d.ts" />
 /// <reference path="../../../d.ts/lodash.d.ts" />
 /// <reference path="../../../d.ts/traindefs.d.ts" />
+/// <reference path="../../../d.ts/angular.d.ts" />
 
 module Maps {
 
@@ -13,8 +14,9 @@ module Maps {
         private stations: TrainDefs.Station[];  //Filtered by the line and in line order
         private lineFun: D3.Svg.Line;
         private tooltip: D3.Selection;
+        private p: angular.IPromise<boolean>;
 
-        constructor(public line:TrainDefs.Line, allStations:TrainDefs.Station[], public elementId:string, public w:number, public h:number) {
+        constructor(public $q: angular.IQService, public line:TrainDefs.Line, allStations:TrainDefs.Station[], public elementId:string, public w:number, public h:number) {
             var stationList:TrainDefs.Station[] = _.filter(allStations, (station:TrainDefs.Station) => {
                 return line.stations.indexOf(station.abbr) >= 0;
             });
@@ -46,7 +48,10 @@ module Maps {
             this.svg = null;
         }
 
-        public plotMap() {
+        public plotMap():angular.IPromise<boolean> {
+
+            var defer = this.$q.defer();
+
 
             this.hideTooltip();
 
@@ -96,7 +101,7 @@ module Maps {
                     .enter()
                     .append("path")
                     .attr("d", path)
-                    .attr("fill","#666666")
+                    .attr("fill","#fefefe")
                     .attr("stroke", "black");
 
                 this.lineFun = d3.svg.line()
@@ -104,7 +109,11 @@ module Maps {
                     .y(function (station) { return this.latScale(station.lnglat[1])})
                     .interpolate("linear");
 
-            }.bind(this))
+                defer.resolve(true);
+
+            }.bind(this));
+
+            return defer.promise;
         }
 
         public showLinePath() {
@@ -113,7 +122,7 @@ module Maps {
             lineGroup.append("path")
                 .attr({
                     d: this.lineFun(this.stations),
-                    "stroke": "yellow",
+                    "stroke": "black",
                     "stroke-width": 3,
                     "fill": "none"
                 });
@@ -126,7 +135,7 @@ module Maps {
                     class: "linePathCircle",
                     cx: function(station) { return self.lngScale(station.lnglat[0]);},
                     cy: function(station) { return self.latScale(station.lnglat[1]);},
-                    r: 5,
+                    r: this.h < 300 ? 2 : 5,
                     fill: "blue"
                 });
         }

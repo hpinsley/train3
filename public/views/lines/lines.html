@@ -4,6 +4,7 @@
     <thead>
         <tr>
             <th>Name</th>
+            <th>Map File</th>
             <th>Map</th>
         </tr>
     </thead>
@@ -11,6 +12,11 @@
         <tr ng-repeat="line in lines">
             <td><a href="/#/lines/{{line.name}}">{{line.name}}</a></td>
             <td>{{line.map}}</td>
+            <td>
+                <div id="line_{{::$index}}" hp-line-map line="line" stations="stations" w="150" h="150">
+
+                </div>
+            </td>
         </tr>
     </tbody>
 </table>
