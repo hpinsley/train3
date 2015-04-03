@@ -46,12 +46,12 @@ angular.module("train")
                 map.erase();
             }
             map = new Maps.LineMap($q, $scope.selectedLine, $scope.stations, "svgContainer", 900, 600);
-            map.plotMap();
             map.tooltipOffset = 8;
-            $timeout(function() {
-                map.showLinePath();
-                $scope.showLineCheck = true;
-            }, 1000, true);
+            map.plotMap()
+                .then(function(){
+                    map.showLinePath();
+                    $scope.showLineCheck = true;
+                });
         };
 
 

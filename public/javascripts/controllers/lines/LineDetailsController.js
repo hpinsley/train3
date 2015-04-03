@@ -19,12 +19,11 @@ angular.module("train")
         $q.all([linePromise,stationPromise])
             .then(function(){
                 map = new Maps.LineMap($q, $scope.line, $scope.stations, "graph", 900, 600);
-                map.plotMap();
-
-                $timeout(function() {
-                    map.showLinePath();
-                    $scope.showLine = true;
-                }, 1000, true);
+                map.plotMap()
+                    .then(function(){
+                        map.showLinePath();
+                        $scope.showLine = true;
+                    });
             });
 
         $scope.showLineClicked = function() {

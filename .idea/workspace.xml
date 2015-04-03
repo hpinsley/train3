@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3832ecd3-a85d-41f0-b7d4-6db12949b7eb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/lines/LineDetailsController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/lines/LineDetailsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/lines/LinesController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/lines/LinesController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/directives/helperDirectives.js" afterPath="$PROJECT_DIR$/public/javascripts/directives/helperDirectives.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/lines/lines.html" afterPath="$PROJECT_DIR$/public/views/lines/lines.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/services/maps.ts" afterPath="$PROJECT_DIR$/public/javascripts/services/maps.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="train3.iws" />
@@ -31,11 +28,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.63167423">
       <split-first>
         <leaf>
-          <file leaf-file-name="StationMapController.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="StationMapController.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.0162791">
-                  <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -61,6 +58,16 @@
                   <folding>
                     <marker date="1428103346000" expanded="true" signature="3690:3758" placeholder="..." />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="lines.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public/views/lines/lines.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.36069652">
+                  <caret line="15" column="93" selection-start-line="15" selection-start-column="93" selection-end-line="15" selection-end-column="93" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -92,7 +99,7 @@
             <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/lines/LineDetailsController.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+                  <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
                   <folding />
                 </state>
               </provider>
@@ -166,12 +173,12 @@
         <option value="$PROJECT_DIR$/public/views/lines/lineDetails.html" />
         <option value="$PROJECT_DIR$/public/views/d3/StationMap.html" />
         <option value="$PROJECT_DIR$/d.ts/traindefs.d.ts" />
-        <option value="$PROJECT_DIR$/public/views/lines/lines.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/lines/LineDetailsController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/lines/LinesController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/directives/helperDirectives.js" />
         <option value="$PROJECT_DIR$/public/javascripts/services/maps.ts" />
+        <option value="$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/controllers/lines/LineDetailsController.js" />
+        <option value="$PROJECT_DIR$/public/views/lines/lines.html" />
       </list>
     </option>
   </component>
@@ -629,12 +636,6 @@
       <option name="number" value="Default" />
       <updated>1413979261560</updated>
     </task>
-    <task id="LOCAL-00074" summary="Put in multiple train select and a delete trains function.">
-      <created>1424182890779</created>
-      <option name="number" value="00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1424182890779</updated>
-    </task>
     <task id="LOCAL-00075" summary="Refresh train page after deleting train(s)">
       <created>1424477183292</created>
       <option name="number" value="00075" />
@@ -923,7 +924,13 @@
       <option name="project" value="LOCAL" />
       <updated>1428084076592</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="Change PlotMap return a promise so that the plot line function can be called after the map is rendered.">
+      <created>1428103623776</created>
+      <option name="number" value="00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1428103623776</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -941,7 +948,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24947146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39417988" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22128259" sideWeight="0.49850747" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22128259" sideWeight="0.49850747" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3227513" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44642857" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -967,7 +974,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="First successful attempt at drawing Westchester county." />
     <MESSAGE value="Better bounds checking for multiple features." />
     <MESSAGE value="Get rid of files no longer needed" />
     <MESSAGE value="Added a sysman folder and additional configurations to run maintenance scripts" />
@@ -992,7 +998,8 @@
     <MESSAGE value="Pulled mapping logic out of the StationMapController" />
     <MESSAGE value="Fine tuned the display of the map in the two screens." />
     <MESSAGE value="Move the train typescript definitions into a type definition file." />
-    <option name="LAST_COMMIT_MESSAGE" value="Move the train typescript definitions into a type definition file." />
+    <MESSAGE value="Change PlotMap return a promise so that the plot line function can be called after the map is rendered." />
+    <option name="LAST_COMMIT_MESSAGE" value="Change PlotMap return a promise so that the plot line function can be called after the map is rendered." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1408,14 +1415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/lines/lines.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3928572">
-          <caret line="15" column="100" selection-start-line="15" selection-start-column="100" selection-end-line="15" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/d.ts/angular.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.1851852">
@@ -1424,14 +1423,6 @@
             <element signature="n#!!block;n#IPromise#0;n#angular#0" expanded="false" />
             <element signature="n#!!block;n#IDeferred#0;n#angular#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/lines/LineDetailsController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1465,8 +1456,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/d3/StationMapController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0162791">
-          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/lines/LineDetailsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/lines/lines.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36069652">
+          <caret line="15" column="93" selection-start-line="15" selection-start-column="93" selection-end-line="15" selection-end-column="93" />
           <folding />
         </state>
       </provider>
