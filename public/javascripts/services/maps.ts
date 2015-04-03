@@ -1,19 +1,73 @@
 /// <reference path="../../../d.ts/d3.d.ts" />
+/// <reference path="../../../d.ts/lodash.d.ts" />
 
 module Maps {
 
-    export class LineMap {
-        private svg:D3.Svg.Svg;
-        private lngScale: D3.Scale.LinearScale;
-        private latScale: D3.Scale.LinearScale;
+    module TrainDefs {
 
-        //private latScale:d3.scale;
-
-        constructor(public line:any, public stations:any[], public elementId:string, public w:number, public h:number) {
-
+        export interface Station {
+            abbr: string;
+            name: string;
+            image: string;
+            lnglat: number[];
+            lines: string[];
         }
 
-        plotMap() {
+        export interface Line {
+            name: string;
+            stations: string[];
+            map: string;
+        }
+    }
+
+    export class LineMap {
+        private svg;        //Wish I could declare this as D3.Svg.Svg.  But it doesn't expose an append method?
+        private lngScale: D3.Scale.LinearScale;
+        private latScale: D3.Scale.LinearScale;
+        private stations: TrainDefs.Station[];  //Filtered by the line and in line order
+        private lineFun: D3.Svg.Line;
+        private tooltip: D3.Selection;
+
+        constructor(public line:TrainDefs.Line, allStations:TrainDefs.Station[], public elementId:string, public w:number, public h:number) {
+            var stationList:TrainDefs.Station[] = _.filter(allStations, (station:TrainDefs.Station) => {
+                return line.stations.indexOf(station.abbr) >= 0;
+            });
+
+            this.stations = _.sortBy(stationList, function(station:TrainDefs.Station) {
+                return line.stations.indexOf(station.abbr);
+            });
+
+            this.createTooltip();
+        }
+
+        private createTooltip() {
+            this.tooltip = d3.select("#" + this.elementId)
+                .append("div")
+                .attr("id", "tooltip")
+                .style({
+                    opacity: 0,
+                    left: 0,
+                    top: 0
+                });
+        }
+
+        private hideTooltip() {
+            this.tooltip.style("opacity", 0);
+        }
+
+        private erase() {
+            d3.select("svg#map").remove();
+            this.svg = null;
+        }
+
+        public plotMap() {
+
+            this.hideTooltip();
+
+            if (this.svg) {
+                this.svg.selectAll("*").remove();
+            }
+
             var geoFile = "data/" + this.line.map;
             d3.json(geoFile, function(json) {
 
@@ -48,7 +102,7 @@ module Maps {
 
                 //Create SVG element if we haven't already
                 if (!this.svg) {
-                    this.svg = d3.select("#" + this.elementId).append("svg").attr({width:this.w, height: this.h});
+                    this.svg = d3.select("#" + this.elementId).append("svg").attr({id:"map", width:this.w, height: this.h});
                 }
 
                 this.svg.selectAll("path")
@@ -59,7 +113,86 @@ module Maps {
                     .attr("fill","#666666")
                     .attr("stroke", "black");
 
+                this.lineFun = d3.svg.line()
+                    .x(function (station) { return this.lngScale(station.lnglat[0])})
+                    .y(function (station) { return this.latScale(station.lnglat[1])})
+                    .interpolate("linear");
+
             }.bind(this))
+        }
+
+        public showLinePath() {
+            var lineGroup = this.svg.append("g").attr("class", "linePath");
+            var self = this;
+            lineGroup.append("path")
+                .attr({
+                    d: this.lineFun(this.stations),
+                    "stroke": "yellow",
+                    "stroke-width": 3,
+                    "fill": "none"
+                });
+
+            lineGroup.selectAll("circle.linePathCircle")
+                .data(this.stations)
+                .enter()
+                .append("circle")
+                .attr({
+                    class: "linePathCircle",
+                    cx: function(station) { return self.lngScale(station.lnglat[0]);},
+                    cy: function(station) { return self.latScale(station.lnglat[1]);},
+                    r: 5,
+                    fill: "blue"
+                });
+        }
+
+        public removeLinePath() : void {
+            if (!this.svg) {
+                return;
+            }
+            this.svg.select("g.linePath").remove();
+        }
+
+        public plotStationLoc(station:TrainDefs.Station) {
+            var lng = station.lnglat[0];
+            var lat = station.lnglat[1];
+            var cx = this.lngScale(lng);
+            var cy = this.latScale(lat);
+
+            this.svg.selectAll("circle.stopPoint").remove();
+
+            this.svg.append("circle")
+                .attr({
+                    class: "stopPoint",
+                    cx: cx,
+                    cy: cy,
+                    r: 5,
+                    fill: "red"
+                });
+
+            this.tooltip.transition()
+                .duration(1000)
+                .style("opacity", 1)
+                .style("left", cx)
+                .style("top", cy + 50);
+
+            this.tooltip.html(this.buildStationTooltip(station));
+        }
+
+
+        private buildStationTooltip (station:TrainDefs.Station) : string {
+            var str = "<a href='/#/stations/" + station.abbr + "'>" + station.name + "</a><br/>";
+
+            if (station.lines.length == 1) {
+                str = str + station.lines[0] + " line";
+            }
+            else {
+                str = str + "on line(s): " +
+                station.lines.join(", ");
+            }
+            if (station.lnglat) {
+                str = str + "<br/>[" + station.lnglat[0].toFixed(2) + "," + station.lnglat[1].toFixed(2) + "]";
+            }
+            return str;
         }
     }
 

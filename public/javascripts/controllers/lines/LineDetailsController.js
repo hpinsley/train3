@@ -1,22 +1,47 @@
 angular.module("train")
-    .controller("LineDetailsController", function ($scope, $modal, $log, $location, trainServices, helperServices, $routeParams) {
+    .controller("LineDetailsController", function ($scope, $modal, $log, $location, trainServices, helperServices, $routeParams, $q) {
 
         $log.debug("Start of LineDetailsController");
+        var map;
 
         $scope.lineName = $routeParams["lineName"];
 
-        trainServices.getLine($scope.lineName)
+        var linePromise = trainServices.getLine($scope.lineName)
             .success(function(line){
                 $scope.line = line;
             });
 
-        trainServices.getStations()
+        var stationPromise = trainServices.getStations()
             .success(function(stations){
                 $scope.stations = stations;
             });
 
+        $q.all([linePromise,stationPromise])
+            .then(function(){
+                map = new Maps.LineMap($scope.line, $scope.stations, "graph", 900, 600);
+            });
+
+        $scope.showLineClicked = function() {
+            if (!map) {
+                return;
+            }
+
+            if ($scope.showLine) {
+                map.showLinePath();
+            }
+            else {
+                map.removeLinePath();
+            }
+        }
+
+        $scope.stationChange = function(stationAbbr) {
+            var station = _.find($scope.stations, function(station){
+                return station.abbr === stationAbbr;
+            });
+            map.plotStationLoc(station);
+        }
+
         $scope.drawMap = function() {
-            var map = new Maps.LineMap($scope.line, $scope.stations, "graph", 500, 500);
             map.plotMap();
         };
 

@@ -3,3 +3,20 @@ div#graph {
   width: 800px;
   border: 1px solid black;
 }
+
+div#tooltip {
+  position: absolute;
+  width: 150px;
+  height: auto;
+  max-width: 200px;
+  padding: 5px;
+  background-color: yellow;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  font-family: sans-serif;
+  font-size:12px;
+}
