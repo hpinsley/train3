@@ -3,16 +3,16 @@
 <div class="row">
     <div class="col-md-4">
         <h2>{{lineName}} Line</h2>
-        <form>
+        <form class="form-vertical" role="form">
             <div class="form-group">
                 <div class="inputGroup">
-                    <label>Line Name:
-                        <input type="text" ng-model="line.name"/>
+                    <label class="control-label">Line Name:
+                        <input type="text" class="form-control" ng-model="line.name"/>
                     </label>
                 </div>
                 <div class="inputGroup">
-                    <label>Map file:
-                        <input type="text" ng-model="line.map"/>
+                    <label class="control-label">Map file:
+                        <input type="text" class="form-control" ng-model="line.map"/>
                     </label>
                 </div>
                 <div class="inputGroup">
@@ -36,6 +36,7 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <td>Show</td>
             </tr>
             </thead>
             <tbody>
@@ -56,6 +57,11 @@
                 <td>
                     <button class="btn btn-large" ng-click="deleteStation(lineName, stationAbbr)">Delete</button>
                 </td>
+                <td>
+                    <input type="radio" name="stationRadioGroup" value="{{station.abbr}}"
+                           ng-click="stationChange(stationAbbr)" />
+
+                </td>
             </tr>
             </tbody>
         </table>
@@ -63,6 +69,9 @@
     </div>
     <div class="col-md-8">
         <input type="button" class="btn btn-large" ng-click="drawMap()" value="Draw Map" />
+        <input type="checkbox" ng-model="showLine" ng-click="showLineClicked()" />
+        <span>Show Line</span>
+
         <div id="graph">
         </div>
     </div>
