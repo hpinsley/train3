@@ -23,7 +23,7 @@ angular.module("train")
 
         $q.all([linePromise,stationPromise])
             .then(function(){
-                map = new Maps.LineMap($q, $scope.line, $scope.stations, "graph", 900, 600);
+                map = new Maps.LineMap(trainServices, $q, $scope.line, $scope.stations, "graph", 900, 600);
                 map.plotMap()
                     .then(function(){
                         map.showLinePath();

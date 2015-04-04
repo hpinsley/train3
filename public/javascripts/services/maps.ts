@@ -15,17 +15,78 @@ module Maps {
         private lineFun: D3.Svg.Line;
         private tooltip: D3.Selection;
         private p: angular.IPromise<boolean>;
+        private map:string;
+        private train: TrainDefs.Train;
+        private line: TrainDefs.Line;
 
-        constructor(public $q: angular.IQService, public line:TrainDefs.Line, allStations:TrainDefs.Station[], public elementId:string, public w:number, public h:number) {
-            var stationList:TrainDefs.Station[] = _.filter(allStations, (station:TrainDefs.Station) => {
-                return line.stations.indexOf(station.abbr) >= 0;
-            });
+        constructor(public trainServices, public $q: angular.IQService, lineOrTrain:any, allStations:TrainDefs.Station[], public elementId:string, public w:number, public h:number) {
 
-            this.stations = _.sortBy(stationList, function(station:TrainDefs.Station) {
-                return line.stations.indexOf(station.abbr);
-            });
+            var self = this;
 
+            if (lineOrTrain.hasOwnProperty("stops")) {
+                this.train = lineOrTrain;
+                this.getDataForTrain(allStations, self);
+            }
+            else {
+                this.line = lineOrTrain;
+                this.getDataForLine(allStations, self);
+            }
             this.createTooltip();
+        }
+
+        private getDataForLine(allStations: TrainDefs.Station[], self) {
+            self.map = self.line.map;
+
+            var stationList:TrainDefs.Station[] = _.filter(allStations, (station:TrainDefs.Station) => {
+                return self.line.stations.indexOf(station.abbr) >= 0;
+            });
+
+            self.stations = _.sortBy(stationList, function (station:TrainDefs.Station) {
+                return self.line.stations.indexOf(station.abbr);
+            });
+        }
+
+        private getDataForTrain(allStations: TrainDefs.Station[], self) {
+
+            //Get the sorted list of stations for this train and put it in this.stations
+
+            var stationList:TrainDefs.Station[] = _.filter(allStations, (station:TrainDefs.Station) => {
+                return _.any(self.train.stops, (stop:TrainDefs.Stop) => {
+                    return stop.station === station.abbr;
+                });
+            });
+
+            var abbrList:string[] = _.map(self.train.stops, (stop:TrainDefs.Stop) => {
+                return stop.station;
+            });
+
+            self.stations = _.sortBy(stationList, (station:TrainDefs.Station) => {
+                return abbrList.indexOf(station.abbr);
+            });
+
+            //Figure out what maps to use.  We will go through all the stations and select any
+            //of them that are on a single line.  We will use only those lines.
+
+            var linesToUse = {};
+            _.each(self.stations, (station: TrainDefs.Station) => {
+                if (station.lines.length === 1) {
+                    linesToUse[station.lines[0]] = true;
+                }
+            });
+
+            var lines:string[] = [];
+            for (var prop in linesToUse) {
+                if (linesToUse.hasOwnProperty(prop)) {
+                    lines.push(prop);
+                }
+            }
+
+            this.getInfoForLineList(lines);
+        }
+
+        private getInfoForLineList(lines:string[]) : void {
+            var msg = lines.join(",");
+            alert(msg);
         }
 
         private createTooltip() {
@@ -50,8 +111,22 @@ module Maps {
 
         public plotMap():angular.IPromise<boolean> {
 
+            if (!this.map) {
+                throw { msg: 'You did not pass a line in the constructor so we have no map.  Call plotMapData instead.'}
+            }
             var defer = this.$q.defer();
 
+            var geoFile = "data/" + this.map;
+            d3.json(geoFile, function(json) {
+                this.plotMapData(json);
+                defer.resolve(true);
+
+            }.bind(this));
+
+            return defer.promise;
+        }
+
+        public plotMapData(json) {
 
             this.hideTooltip();
 
@@ -59,61 +134,60 @@ module Maps {
                 this.svg.selectAll("*").remove();
             }
 
-            var geoFile = "data/" + this.line.map;
-            d3.json(geoFile, function(json) {
+            var bounds = getBoundsOfFeatures(json.features);
+            var minLng = bounds[0][0];
+            var minLat = bounds[0][1];
+            var maxLng = bounds[1][0];
+            var maxLat = bounds[1][1];
 
-                var bounds = getBoundsOfFeatures(json.features);
-                var minLng = bounds[0][0];
-                var minLat = bounds[0][1];
-                var maxLng = bounds[1][0];
-                var maxLat = bounds[1][1];
+            var padding = 30;
 
-                var padding = 30;
+            this.lngScale = d3.scale
+                .linear()
+                .domain([minLng, maxLng])
+                .range([padding, this.w - padding]);
 
-                this.lngScale = d3.scale
-                    .linear()
-                    .domain([minLng, maxLng])
-                    .range([padding,this.w-padding]);
+            this.latScale = d3.scale
+                .linear()
+                .domain([minLat, maxLat])
+                .range([this.h - padding, padding]);
 
-                this.latScale = d3.scale
-                    .linear()
-                    .domain([minLat, maxLat])
-                    .range([this.h-padding,padding]);
+            var customProjection:D3.Geo.Projection = <D3.Geo.Projection> function (lngLat) {
+                var lng = lngLat[0];
+                var lat = lngLat[1];
+                var result = [this.lngScale(lng), this.latScale(lat)];
+                return result;
+            }.bind(this);
 
-                var customProjection:D3.Geo.Projection = <D3.Geo.Projection> function(lngLat) {
-                    var lng = lngLat[0];
-                    var lat = lngLat[1];
-                    var result = [this.lngScale(lng),this.latScale(lat)];
-                    return result;
-                }.bind(this);
+            //Define path generator
+            var path = d3.geo.path()
+                .projection(customProjection);
 
-                //Define path generator
-                var path = d3.geo.path()
-                    .projection(customProjection);
+            //Create SVG element if we haven't already
+            if (!this.svg) {
+                this.svg = d3.select("#" + this.elementId).append("svg").attr({
+                    id: "map",
+                    width: this.w,
+                    height: this.h
+                });
+            }
 
-                //Create SVG element if we haven't already
-                if (!this.svg) {
-                    this.svg = d3.select("#" + this.elementId).append("svg").attr({id:"map", width:this.w, height: this.h});
-                }
+            this.svg.selectAll("path")
+                .data(json.features)
+                .enter()
+                .append("path")
+                .attr("d", path)
+                .attr("fill", "#fefefe")
+                .attr("stroke", "black");
 
-                this.svg.selectAll("path")
-                    .data(json.features)
-                    .enter()
-                    .append("path")
-                    .attr("d", path)
-                    .attr("fill","#fefefe")
-                    .attr("stroke", "black");
-
-                this.lineFun = d3.svg.line()
-                    .x(function (station) { return this.lngScale(station.lnglat[0])})
-                    .y(function (station) { return this.latScale(station.lnglat[1])})
-                    .interpolate("linear");
-
-                defer.resolve(true);
-
-            }.bind(this));
-
-            return defer.promise;
+            this.lineFun = d3.svg.line()
+                .x(function (station) {
+                    return this.lngScale(station.lnglat[0])
+                })
+                .y(function (station) {
+                    return this.latScale(station.lnglat[1])
+                })
+                .interpolate("linear");
         }
 
         public showLinePath() {

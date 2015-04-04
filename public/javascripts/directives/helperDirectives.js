@@ -254,7 +254,7 @@ angular.module('train')
             }
         };
     })
-    .directive("hpLineMap", function($q){
+    .directive("hpLineMap", function($q, trainServices){
         return {
             restrict: 'A',
             scope: {
@@ -265,7 +265,7 @@ angular.module('train')
                 h: '@'
             },
             link: function(scope, iElement, iAttrs) {
-                var map = new Maps.LineMap($q, scope.line, scope.stations, scope.id, parseInt(scope.w), parseInt(scope.h));
+                var map = new Maps.LineMap(trainServices, $q, scope.line, scope.stations, scope.id, parseInt(scope.w), parseInt(scope.h));
                 map.plotMap()
                     .then(function(){
                         map.showLinePath();

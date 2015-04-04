@@ -45,7 +45,7 @@ angular.module("train")
             if (map) {
                 map.erase();
             }
-            map = new Maps.LineMap($q, $scope.selectedLine, $scope.stations, "svgContainer", 900, 600);
+            map = new Maps.LineMap(trainServices, $q, $scope.selectedLine, $scope.stations, "svgContainer", 900, 600);
             map.tooltipOffset = 8;
             map.plotMap()
                 .then(function(){

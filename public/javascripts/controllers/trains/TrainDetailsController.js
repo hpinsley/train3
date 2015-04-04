@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("TrainDetailsController", function ($scope, $modal, $log, $location, trainServices, helperServices, $routeParams) {
+    .controller("TrainDetailsController", function ($scope, $modal, $log, $location, trainServices, helperServices, $routeParams, $q) {
 
         $log.debug("Start of TrainDetailController");
 
@@ -7,6 +7,7 @@ angular.module("train")
         $scope.showUpdatePanel = false;
 
         var trainNumber = $routeParams["trainNumber"];
+        var map;
 
         $scope.trainNumber = trainNumber;
         trainServices.getTrain(trainNumber)
@@ -16,13 +17,19 @@ angular.module("train")
                 if (stopCount > 0) {
                     $scope.stopTime = new Date($scope.train.stops[stopCount - 1].time);
                 }
+            })
+            .then(function(){
+                //for the select control
+                trainServices.getStations()
+                    .then(function(res){
+                        $scope.stations = res.data;
+
+                        //Here we have both the train and stations.  Enough to prime our map
+                        map = new Maps.LineMap(trainServices, $q, $scope.train, $scope.stations, "trainMap", 900,600);
+                    });
+
             });
 
-        //for the select control
-        trainServices.getStations()
-            .then(function(res){
-                $scope.stations = res.data;
-            });
 
         trainServices.getLines()
             .success(function(lines){
