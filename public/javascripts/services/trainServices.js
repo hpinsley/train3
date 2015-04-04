@@ -101,6 +101,10 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         return $http.delete("/api/lines/" + lineName + "/stations/" + stationAbbr);
     };
 
+    var getMapFileList = function() {
+        return $http.get("/api/lines/maps");
+    }
+
     return {
         getStation: getStation,
         getStations: getStations,
@@ -120,6 +124,7 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         addStationToLine: addStationToLine,
         moveStationInLine: moveStationInLine,
         deleteStationFromLine: deleteStationFromLine,
-        updateLine: updateLine
+        updateLine: updateLine,
+        getMapFileList: getMapFileList
     };
 }]);

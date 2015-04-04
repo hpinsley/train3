@@ -6,14 +6,19 @@ angular.module("train")
 
         $scope.lineName = $routeParams["lineName"];
 
+        trainServices.getMapFileList()
+            .then(function(res){
+                $scope.mapFiles = res.data;
+            })
+
         var linePromise = trainServices.getLine($scope.lineName)
-            .success(function(line){
-                $scope.line = line;
+            .then(function(res){
+                $scope.line = res.data;
             });
 
         var stationPromise = trainServices.getStations()
-            .success(function(stations){
-                $scope.stations = stations;
+            .then(function(res){
+                $scope.stations = res.data;
             });
 
         $q.all([linePromise,stationPromise])

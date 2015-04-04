@@ -5,6 +5,17 @@ var utils = require('../helpers/Utils');
 var lookups = require('../helpers/lookups');
 var _ = require('lodash');
 var moment = require('moment');
+var fs = require('fs');
+
+router.get('/lines/maps', function(req,res, next){
+    var folder = "../public/data";
+    fs.readdir(folder, function(err, filenames){
+        if (err) {
+            return next(err);
+        }
+        res.send(filenames);
+    });
+});
 
 router.post("/lines/:lineName/stations/:stationAbbr/move", function(req, res, next){
     var coll = req.db.collection("lines");

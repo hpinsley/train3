@@ -12,7 +12,8 @@
                 </div>
                 <div class="inputGroup">
                     <label class="control-label">Map file:
-                        <input type="text" class="form-control" ng-model="line.map"/>
+                        <!--<input type="text" class="form-control" ng-model="line.map"/>-->
+                        <select class="input-lg" ng-options="mapFile as mapFile for mapFile in mapFiles | orderBy:'toString()'" ng-model="line.map" />
                     </label>
                 </div>
                 <div class="inputGroup">
