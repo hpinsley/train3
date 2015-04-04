@@ -1,25 +1,28 @@
-<link rel="stylesheet" type="text/css" href="/stylesheets/lines/LineDetails.css" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/lines/LineDetails.css"/>
 
 <div class="row">
     <div class="col-md-4">
         <h2>{{lineName}} Line</h2>
-        <form class="form-vertical" role="form">
+
+        <form class="form-horizontal" role="form">
             <div class="form-group">
-                <div class="inputGroup">
-                    <label class="control-label">Line Name:
-                        <input type="text" class="form-control" ng-model="line.name"/>
-                    </label>
-                </div>
-                <div class="inputGroup">
-                    <label class="control-label">Map file:
-                        <!--<input type="text" class="form-control" ng-model="line.map"/>-->
-                        <select class="input-lg" ng-options="mapFile as mapFile for mapFile in mapFiles | orderBy:'toString()'" ng-model="line.map" />
-                    </label>
-                </div>
-                <div class="inputGroup">
-                    <input type="button" class="btn btn-large" value="Update Line" ng-click="updateLine(line)"/>
+                <label for="lineName" class="control-label col-xs-4">Line Name:</label>
+                <div class="col-xs-8">
+                    <input id="lineName" class="input-lg form-control" type="text" ng-model="line.name" />
                 </div>
             </div>
+            <div class="form-group">
+                <label for="mapFile" class="control-label col-xs-4">Map file:</label>
+                <div class="col-xs-8">
+                    <select id="mapFile" class="input-lg form-control"
+                            ng-options="mapFile as mapFile for mapFile in mapFiles | orderBy:'toString()'"
+                            ng-model="line.map"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="button" class="btn btn-large col-xs-offset-4" value="Update Line" ng-click="updateLine(line)"/>
+            </div>
+
             <div class="form-group">
                 <label>Station:</label>
                 <select class="input-lg" hp-open-list="true" id="station"
@@ -60,7 +63,7 @@
                 </td>
                 <td>
                     <input type="radio" name="stationRadioGroup" value="{{station.abbr}}"
-                           ng-click="stationChange(stationAbbr)" />
+                           ng-click="stationChange(stationAbbr)"/>
 
                 </td>
             </tr>
@@ -69,7 +72,7 @@
 
     </div>
     <div class="col-md-8">
-        <input type="checkbox" ng-model="showLine" ng-click="showLineClicked()" />
+        <input type="checkbox" ng-model="showLine" ng-click="showLineClicked()"/>
         <span>Show Line</span>
 
         <div id="graph">
