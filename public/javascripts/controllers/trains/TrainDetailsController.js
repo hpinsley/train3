@@ -9,6 +9,11 @@ angular.module("train")
         var trainNumber = $routeParams["trainNumber"];
         var map;
 
+        function drawMap() {
+            map = new Maps.LineMap(trainServices, $q, $scope.train, $scope.stations, "trainMap", 900,600);
+            map.plotMap().then(function(){ map.showLinePath();});
+        }
+
         $scope.trainNumber = trainNumber;
         trainServices.getTrain(trainNumber)
             .then(function(res){
@@ -25,7 +30,7 @@ angular.module("train")
                         $scope.stations = res.data;
 
                         //Here we have both the train and stations.  Enough to prime our map
-                        map = new Maps.LineMap(trainServices, $q, $scope.train, $scope.stations, "trainMap", 900,600);
+                        drawMap();
                     });
 
             });
@@ -93,6 +98,10 @@ angular.module("train")
                 .then(function(res){
                     $scope.train = res.data;
                     $scope.afterAdd = true;
+                    if (map) {
+                        map.erase();
+                    }
+                    drawMap();
                 });
         };
 

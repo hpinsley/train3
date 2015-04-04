@@ -15,7 +15,8 @@ module Maps {
         private lineFun: D3.Svg.Line;
         private tooltip: D3.Selection;
         private p: angular.IPromise<boolean>;
-        private map:string;
+        private map:string;                     //If we are passed a line we have this.
+        private lineNames:string[];             //If we are passed a train we set this
         private train: TrainDefs.Train;
         private line: TrainDefs.Line;
 
@@ -74,19 +75,12 @@ module Maps {
                 }
             });
 
-            var lines:string[] = [];
+            self.lineNames = [];
             for (var prop in linesToUse) {
                 if (linesToUse.hasOwnProperty(prop)) {
-                    lines.push(prop);
+                    self.lineNames.push(prop);
                 }
             }
-
-            this.getInfoForLineList(lines);
-        }
-
-        private getInfoForLineList(lines:string[]) : void {
-            var msg = lines.join(",");
-            alert(msg);
         }
 
         private createTooltip() {
@@ -111,17 +105,78 @@ module Maps {
 
         public plotMap():angular.IPromise<boolean> {
 
-            if (!this.map) {
-                throw { msg: 'You did not pass a line in the constructor so we have no map.  Call plotMapData instead.'}
-            }
+            var self = this;
             var defer = this.$q.defer();
 
-            var geoFile = "data/" + this.map;
-            d3.json(geoFile, function(json) {
-                this.plotMapData(json);
-                defer.resolve(true);
+            if (this.map) {                         //We were passed a line and have the map to use
+                var geoFile = "data/" + this.map;
+                d3.json(geoFile, function(json) {
+                    this.plotMapData(json);
+                    defer.resolve(true);
 
-            }.bind(this));
+                }.bind(this));
+            }
+            else {                                  //We were passed a train and have a list of line names
+                self.getGeoFilesForLines(self.lineNames)
+                    .then(function(geoFiles:string[]){
+                        return self.readGeoFiles(geoFiles);
+                    })
+                    .then(function(geoData){
+                        self.plotMapData(geoData);
+                        defer.resolve(true);
+                    });
+            }
+
+            return defer.promise;
+        }
+
+        private getGeoFilesForLines(lines:string[]) : angular.IPromise<string[]> {
+
+            var self = this;
+            var mapFiles:string[] = [];
+            var fileCount: number = 0;
+
+            var defer = this.$q.defer();
+
+            lines.forEach((lineName) => {
+                self.trainServices.getLine(lineName)
+                    .then(function(res){
+                        ++fileCount;
+                        var line:TrainDefs.Line = res.data;
+                        mapFiles.push(line.map);
+                        if (fileCount === lines.length) {
+                            defer.resolve(mapFiles);
+                        }
+
+                    }, function(err){
+                        defer.reject(err);
+                    });
+            });
+
+            return defer.promise;
+        }
+
+        private readGeoFiles(geoFiles:string[]) : angular.IPromise<any> {
+
+            var defer = this.$q.defer();
+            var fileCount: number = 0;
+            var mapObj:any;
+
+            geoFiles.forEach((geoFile) => {
+                var geoFilePath = "data/" + geoFile;
+                d3.json(geoFilePath, function(json) {
+                    ++fileCount;
+                    if (fileCount === 1) {
+                        mapObj = json;
+                    }
+                    else {
+                        mapObj.features = mapObj.features.concat(json.features);
+                    }
+                    if (fileCount === geoFiles.length) {
+                        defer.resolve(mapObj);
+                    }
+                });
+            });
 
             return defer.promise;
         }
