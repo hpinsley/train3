@@ -45,6 +45,9 @@ angular.module("train")
         }
 
         $scope.stationChange = function(stationAbbr) {
+            $scope.$apply(function(){
+                $scope.selectedStation = stationAbbr;   //That will change the radio button if we use the hover directive to invoke this method
+            });
             var station = _.find($scope.stations, function(station){
                 return station.abbr === stationAbbr;
             });

@@ -46,7 +46,7 @@
             <tbody>
             <tr ng-repeat="stationAbbr in line.stations">
                 <td>
-                    <a href="/#/stations/{{stationAbbr}}">{{stationAbbr | stationName}}</a>
+                    <a hp-hover-invoke val="stationAbbr" invoke="$parent.stationChange(stationAbbr)" href="/#/stations/{{stationAbbr}}">{{stationAbbr | stationName}}</a>
                 </td>
                 <td>
                     <button class="btn btn-large glyphicon glyphicon-arrow-up" hp-focus-move-row
@@ -62,7 +62,7 @@
                     <button class="btn btn-large" ng-click="deleteStation(lineName, stationAbbr)">Delete</button>
                 </td>
                 <td>
-                    <input type="radio" name="stationRadioGroup" value="{{station.abbr}}"
+                    <input type="radio" name="stationRadioGroup" ng-value="stationAbbr" ng-model="$parent.selectedStation"
                            ng-click="stationChange(stationAbbr)"/>
 
                 </td>

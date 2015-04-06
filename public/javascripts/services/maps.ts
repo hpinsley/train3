@@ -99,6 +99,7 @@ module Maps {
         }
 
         private erase() {
+            this.hideTooltip();
             d3.select("svg#map").remove();
             this.svg = null;
         }
