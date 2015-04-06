@@ -24,6 +24,7 @@ angular.module("train")
         $q.all([linePromise,stationPromise])
             .then(function(){
                 map = new Maps.LineMap(trainServices, $q, $scope.line, $scope.stations, "graph", 900, 600);
+                map.tooltipOffset = 10;
                 map.plotMap()
                     .then(function(){
                         map.showLinePath();
@@ -45,7 +46,7 @@ angular.module("train")
         }
 
         $scope.stationChange = function(stationAbbr) {
-            $scope.$apply(function(){
+            $scope.$apply(function(){                   //Needed if we come from the mouse enter event
                 $scope.selectedStation = stationAbbr;   //That will change the radio button if we use the hover directive to invoke this method
             });
             var station = _.find($scope.stations, function(station){

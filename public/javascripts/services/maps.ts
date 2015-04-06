@@ -19,6 +19,7 @@ module Maps {
         private lineNames:string[];             //If we are passed a train we set this
         private train: TrainDefs.Train;
         private line: TrainDefs.Line;
+        private transitionTime:number = 1000;
 
         constructor(public trainServices, public $q: angular.IQService, lineOrTrain:any, allStations:TrainDefs.Station[], public elementId:string, public w:number, public h:number) {
 
@@ -265,9 +266,31 @@ module Maps {
                     class: "linePathCircle",
                     cx: function(station) { return self.lngScale(station.lnglat[0]);},
                     cy: function(station) { return self.latScale(station.lnglat[1]);},
-                    r: this.h < 300 ? 2 : 5,
+                    r: self.h < 300 ? 2 : 5,
                     fill: "blue"
+                })
+                .on("mouseenter", function(station){
+                    var circle = d3.select(this);
+                    circle
+                        .transition()
+                        .duration(self.transitionTime)
+                        .attr({
+                            r: 10,
+                            fill: "red"
+                        });
+                    self.plotStationLoc(station, false);
+                })
+                .on("mouseleave", function(d) {
+                    var circle = d3.select(this);
+                    circle
+                        .transition()
+                        .duration(self.transitionTime)
+                        .attr({
+                            r: self.h < 300 ? 2 : 5,
+                            fill: "blue"
+                        });
                 });
+                //.append("title").text(function(station) { return station.name; })
         }
 
         public removeLinePath() : void {
@@ -277,7 +300,7 @@ module Maps {
             this.svg.select("g.linePath").remove();
         }
 
-        public plotStationLoc(station:TrainDefs.Station) {
+        public plotStationLoc(station:TrainDefs.Station, showStopPoint:boolean = true) {
             var lng = station.lnglat[0];
             var lat = station.lnglat[1];
             var cx = this.lngScale(lng);
@@ -285,14 +308,16 @@ module Maps {
 
             this.svg.selectAll("circle.stopPoint").remove();
 
-            this.svg.append("circle")
-                .attr({
-                    class: "stopPoint",
-                    cx: cx,
-                    cy: cy,
-                    r: 5,
-                    fill: "red"
-                });
+            if (showStopPoint) {
+                this.svg.append("circle")
+                    .attr({
+                        class: "stopPoint",
+                        cx: cx,
+                        cy: cy,
+                        r: 5,
+                        fill: "red"
+                    });
+            }
 
             this.tooltip.transition()
                 .duration(1000)

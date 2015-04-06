@@ -11,6 +11,7 @@ angular.module("train")
 
         function drawMap() {
             map = new Maps.LineMap(trainServices, $q, $scope.train, $scope.stations, "trainMap", 900,600);
+            map.tooltipOffset = 100;
             map.plotMap().then(function(){ map.showLinePath();});
         }
 
