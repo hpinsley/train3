@@ -1,11 +1,22 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/trains/details.css"/>
 <div class="container">
-    <div class="row">
-        <div id="leftPanel" ng-class="getLeftPanelClass()">
-            <h2>Train {{trainNumber}} - {{train.description}}</h2>
+    <div id="maps" class="row">
+        <div class="col-md-6">
+            <h4>Train Map</h4>
             <div id="trainMap">
 
             </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Line Map</h4>
+            <div id="lineMap">
+
+            </div>
+        </div>
+    </div>
+    <div class="row" id="notMaps">
+        <div id="leftPanel" ng-class="getLeftPanelClass()">
+            <h2>Train {{trainNumber}} - {{train.description}}</h2>
 
             <h3>
                 <label>Origination:</label> <a href="/#/stations/{{train.originStation}}">{{train.originStation |
@@ -43,16 +54,16 @@
         </div>
         <div id="rightPanel" ng-class="getRightPanelClass()">
             <div id="showUpdatePanelDiv">
-                <button ng-show="showUpdatePanel" ng-click="toggleUpdatePanel()"
-                        class="glyphicon glyphicon-chevron-right"/>
                 <button ng-show="!showUpdatePanel" ng-click="toggleUpdatePanel()"
                         class="glyphicon glyphicon-chevron-left"/>
             </div>
             <div ng-show="showUpdatePanel" id="stationSelectDiv">
+                <button ng-show="showUpdatePanel" ng-click="toggleUpdatePanel()"
+                        class="glyphicon glyphicon-chevron-right"/>
                 <div id="lineSelect">
                     <label for="line">Line:</label>
                     <select class="input-lg" id="line" ng-options="line.name for line in lines" ng-model="line"
-                            ng-click="lineChange(line)"/>
+                            ng-change="lineChange(line)"/>
                 </div>
                 <form name="newStopForm">
                     <label for="stopTime">Time:</label>

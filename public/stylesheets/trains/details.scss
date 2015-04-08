@@ -1,5 +1,14 @@
 $tableBackColor: #002a80;
 
+div#maps {
+}
+
+div#notMaps {
+  height: 300px;
+  max-height: 300px;
+  overflow: scroll;
+}
+
 div#tooltip {
   position: absolute;
   width: 150px;

@@ -1,6 +1,11 @@
 angular.module("train")
     .controller("TrainDetailsController", function ($scope, $modal, $log, $location, trainServices, helperServices, $routeParams, $q) {
 
+        var trainMapWidth = 500;
+        var trainMapHeight = 250;
+        var lineMapWidth = 500;
+        var lineMapHeight = 500;
+
         $log.debug("Start of TrainDetailController");
 
         $scope.afterAdd = false;
@@ -8,9 +13,28 @@ angular.module("train")
 
         var trainNumber = $routeParams["trainNumber"];
         var map;
+        var lineMap;
 
+        function onStationSelect(station) {
+            $scope.$apply(function(){
+                $scope.station = station.abbr;
+            });
+        }
+
+        function drawLineMap(line) {
+            if (lineMap) {
+                lineMap.erase();
+            }
+            lineMap = new Maps.LineMap(trainServices, $q, line, $scope.stations, "lineMap", lineMapWidth,lineMapHeight);
+            lineMap.tooltipOffset = 100;
+            lineMap.plotMap().then(function(){ lineMap.showLinePath();});
+            lineMap.registerStationClick(onStationSelect);
+        }
         function drawMap() {
-            map = new Maps.LineMap(trainServices, $q, $scope.train, $scope.stations, "trainMap", 900,600);
+            if (map) {
+                map.erase();
+            }
+            map = new Maps.LineMap(trainServices, $q, $scope.train, $scope.stations, "trainMap", trainMapWidth,trainMapHeight);
             map.tooltipOffset = 100;
             map.plotMap().then(function(){ map.showLinePath();});
         }
@@ -41,6 +65,10 @@ angular.module("train")
             .success(function(lines){
                 $scope.lines = lines;
             });
+
+        $scope.lineChange = function(line) {
+            drawLineMap(line);
+        };
 
         $scope.selectStation = function(stationAbbr) {
             $scope.station = stationAbbr;
@@ -99,9 +127,6 @@ angular.module("train")
                 .then(function(res){
                     $scope.train = res.data;
                     $scope.afterAdd = true;
-                    if (map) {
-                        map.erase();
-                    }
                     drawMap();
                 });
         };

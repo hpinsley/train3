@@ -5,6 +5,10 @@
 
 module Maps {
 
+    export interface INotifyStationClick {
+        stationClick(station: TrainDefs.Station);
+    }
+
     export class LineMap {
 
         public tooltipOffset: number = 30;
@@ -20,10 +24,15 @@ module Maps {
         private train: TrainDefs.Train;
         private line: TrainDefs.Line;
         private transitionTime:number = 1000;
+        private stationClickHandlers:INotifyStationClick[];
+        private mapId: string;
 
         constructor(public trainServices, public $q: angular.IQService, lineOrTrain:any, allStations:TrainDefs.Station[], public elementId:string, public w:number, public h:number) {
 
             var self = this;
+
+            this.stationClickHandlers = [];
+            this.mapId = _.uniqueId("map");
 
             if (lineOrTrain.hasOwnProperty("stops")) {
                 this.train = lineOrTrain;
@@ -34,6 +43,10 @@ module Maps {
                 this.getDataForLine(allStations, self);
             }
             this.createTooltip();
+        }
+
+        public registerStationClick(stationClickHandler:INotifyStationClick) {
+            this.stationClickHandlers.push(stationClickHandler);
         }
 
         private getDataForLine(allStations: TrainDefs.Station[], self) {
@@ -96,12 +109,15 @@ module Maps {
         }
 
         private hideTooltip() {
-            this.tooltip.style("opacity", 0);
+            this.tooltip.transition()
+                .duration(500)
+                .style("opacity", 0)
+            //this.tooltip.style("opacity", 0);
         }
 
         private erase() {
             this.hideTooltip();
-            d3.select("svg#map").remove();
+            d3.select("svg#" + this.mapId).remove();
             this.svg = null;
         }
 
@@ -185,6 +201,8 @@ module Maps {
 
         public plotMapData(json) {
 
+            var self = this;
+
             this.hideTooltip();
 
             if (this.svg) {
@@ -223,7 +241,7 @@ module Maps {
             //Create SVG element if we haven't already
             if (!this.svg) {
                 this.svg = d3.select("#" + this.elementId).append("svg").attr({
-                    id: "map",
+                    id: self.mapId,
                     width: this.w,
                     height: this.h
                 });
@@ -280,7 +298,7 @@ module Maps {
                         });
                     self.plotStationLoc(station, false);
                 })
-                .on("mouseleave", function(d) {
+                .on("mouseleave", function(station) {
                     var circle = d3.select(this);
                     circle
                         .transition()
@@ -289,6 +307,12 @@ module Maps {
                             r: self.h < 300 ? 2 : 5,
                             fill: "blue"
                         });
+                    self.hideTooltip();
+                })
+                .on("mousedown", function(station){
+                    for (var i = 0; i < self.stationClickHandlers.length; ++i) {
+                        self.stationClickHandlers[i](station);
+                    }
                 });
                 //.append("title").text(function(station) { return station.name; })
         }
