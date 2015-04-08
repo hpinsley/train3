@@ -1,12 +1,17 @@
 $tableBackColor: #002a80;
 
-div#maps {
+div#trainMap {
+  height: 400px;
+  border: 1px solid black;
 }
 
-div#notMaps {
-  height: 300px;
-  max-height: 300px;
-  overflow: scroll;
+div#stopTableDiv {
+  height: 160px;
+  overflow-y: scroll;
+}
+div#lineSelectDiv {
+  width: 100%;
+  text-align: center;
 }
 
 div#tooltip {
@@ -26,20 +31,12 @@ div#tooltip {
   font-size:12px;
 }
 
-div.timeDisplay {
-  font-size: 18pt;
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .clickable:hover {
   cursor: pointer;
 }
 
 h2, h3 {
   color: blue;
-  width: 100%;
   text-align: center;
 }
 
@@ -56,62 +53,14 @@ input[type="time"] {
 }
 
 form {
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 div#stationSelectDiv {
-  position: fixed;
-  height: 600px;
-  margin-left: 50px;
-  border: 5px solid $tableBackColor;
-  border-radius: 10px;
-  background-color: $tableBackColor;
-  padding: 10px;
-
-  label {
-    color: yellow;
-  }
-}
-
-div#stationSelectTableDiv {
-  height: 400px;
-  overflow-y: scroll;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-table#stationSelectTable {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  color: gold;
-  tr {
-    td {
-      text-align: center;
-      border: 5px solid white;
-      padding: 20px;
-      div:hover {
-        cursor: pointer;
-        color: white;
-      }
-    }
-  }
-}
-
-div#showUpdatePanelDiv {
-  width: 100%;
-  text-align: center;
-
-  button {
-    font-size:24pt;
-    width:100px;
-  }
+  border: 1px solid black;
 }
 

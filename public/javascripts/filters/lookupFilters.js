@@ -32,7 +32,7 @@ angular.module("train")
         return function(stationAbbr) {
             var station = cacheServices.getStation(stationAbbr);
             if (station) {
-                return station.lines.join(",");
+                return station.lines.join(", ");
             }
             return "";
         }

@@ -293,7 +293,6 @@ module Maps {
                         .transition()
                         .duration(self.transitionTime)
                         .attr({
-                            r: 10,
                             fill: "red"
                         });
                     self.plotStationLoc(station, false);
@@ -304,7 +303,6 @@ module Maps {
                         .transition()
                         .duration(self.transitionTime)
                         .attr({
-                            r: self.h < 300 ? 3 : 5,
                             fill: "blue"
                         });
                     self.hideTooltip();

@@ -2,14 +2,13 @@ angular.module("train")
     .controller("TrainDetailsController", function ($scope, $modal, $log, $location, trainServices, helperServices, $routeParams, $q) {
 
         var trainMapWidth = 500;
-        var trainMapHeight = 250;
-        var lineMapWidth = 500;
+        var trainMapHeight = 400;
+        var lineMapWidth = 700;
         var lineMapHeight = 500;
 
         $log.debug("Start of TrainDetailController");
 
         $scope.afterAdd = false;
-        $scope.showUpdatePanel = false;
 
         var trainNumber = $routeParams["trainNumber"];
         var map;
@@ -26,7 +25,7 @@ angular.module("train")
                 lineMap.erase();
             }
             lineMap = new Maps.LineMap(trainServices, $q, line, $scope.stations, "lineMap", lineMapWidth,lineMapHeight);
-            lineMap.tooltipOffset = 100;
+            lineMap.tooltipOffset = 150;
             lineMap.plotMap().then(function(){ lineMap.showLinePath();});
             lineMap.registerStationClick({ selectStation: onStationSelect});
         }
@@ -72,19 +71,12 @@ angular.module("train")
 
         $scope.selectStation = function(stationAbbr) {
             $scope.station = stationAbbr;
+            if (lineMap) {
+                lineMap.plotStationLoc(_.find($scope.stations, function(station){
+                    return station.abbr === stationAbbr;
+                }));
+            }
         };
-
-        $scope.toggleUpdatePanel = function() {
-            $scope.showUpdatePanel = !$scope.showUpdatePanel;
-        }
-
-        $scope.getLeftPanelClass = function() {
-            return $scope.showUpdatePanel ? "col-md-7" : "col-md-11";
-        }
-
-        $scope.getRightPanelClass = function() {
-            return $scope.showUpdatePanel ? "col-md-5" : "col-md-1";
-        }
 
         $scope.stationFilterFn = function(station) {
             if (!$scope.line) {
