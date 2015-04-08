@@ -26,6 +26,7 @@ module Maps {
         private transitionTime:number = 1000;
         private stationClickHandlers:INotifyStationClick[];
         private mapId: string;
+        private blackoutStops:string[] = [];
 
         constructor(public trainServices, public $q: angular.IQService, lineOrTrain:any, allStations:TrainDefs.Station[], public elementId:string, public w:number, public h:number) {
 
@@ -47,6 +48,22 @@ module Maps {
 
         public registerStationClick(stationClickHandler:INotifyStationClick) {
             this.stationClickHandlers.push(stationClickHandler);
+        }
+
+        public setBlackoutStops(stationAbbrs:string[]) {
+            this.blackoutStops = stationAbbrs;
+        }
+
+        private getNormalStopColor(station) {
+            var self = this;
+            var blackoutStop:boolean = _.any(self.blackoutStops, (stationAbbr) => {
+                return station.abbr === stationAbbr;
+            });
+            return (blackoutStop) ? "black" : "green";
+        }
+
+        private getHoverStopColor(station) {
+            return "yellow";
         }
 
         private getDataForLine(allStations: TrainDefs.Station[], self) {
@@ -265,6 +282,17 @@ module Maps {
                 .interpolate("linear");
         }
 
+        public updateStopColors() {
+            var self = this;
+            var lineGroup = this.svg.select("g.linePath");
+            lineGroup.selectAll("circle.linePathCircle")
+                //.data(this.stations)
+                .attr({
+                    fill: self.getNormalStopColor.bind(self)
+                })
+
+        }
+
         public showLinePath() {
             var lineGroup = this.svg.append("g").attr("class", "linePath");
             var self = this;
@@ -285,7 +313,7 @@ module Maps {
                     cx: function(station) { return self.lngScale(station.lnglat[0]);},
                     cy: function(station) { return self.latScale(station.lnglat[1]);},
                     r: self.h < 300 ? 3 : 5,
-                    fill: "blue"
+                    fill: self.getNormalStopColor.bind(self)
                 })
                 .on("mouseenter", function(station){
                     var circle = d3.select(this);
@@ -293,7 +321,7 @@ module Maps {
                         .transition()
                         .duration(self.transitionTime)
                         .attr({
-                            fill: "red"
+                            fill: self.getHoverStopColor.bind(self)
                         });
                     self.plotStationLoc(station, false);
                 })
@@ -303,7 +331,7 @@ module Maps {
                         .transition()
                         .duration(self.transitionTime)
                         .attr({
-                            fill: "blue"
+                            fill: self.getNormalStopColor.bind(self)
                         });
                     self.hideTooltip();
                 })

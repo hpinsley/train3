@@ -14,6 +14,21 @@ angular.module("train")
         var map;
         var lineMap;
 
+        function setBlackoutStops() {
+            if (!lineMap) {
+                return;
+            }
+            lineMap.setBlackoutStops(_.map($scope.train.stops, function(stop){
+                return stop.station;
+            }));
+        }
+
+        function redrawBlackoutStops() {
+            if (!lineMap) {
+                return;
+            }
+            lineMap.updateStopColors();
+        }
         function onStationSelect(station) {
             $scope.$apply(function(){
                 $scope.station = station.abbr;
@@ -26,7 +41,9 @@ angular.module("train")
             }
             lineMap = new Maps.LineMap(trainServices, $q, line, $scope.stations, "lineMap", lineMapWidth,lineMapHeight);
             lineMap.tooltipOffset = 150;
-            lineMap.plotMap().then(function(){ lineMap.showLinePath();});
+            lineMap.plotMap().then(function(){
+                setBlackoutStops();
+                lineMap.showLinePath();});
             lineMap.registerStationClick({ selectStation: onStationSelect});
         }
         function drawMap() {
@@ -120,6 +137,8 @@ angular.module("train")
                     $scope.train = res.data;
                     $scope.afterAdd = true;
                     drawMap();
+                    setBlackoutStops();
+                    redrawBlackoutStops();
                 });
         };
 
@@ -131,6 +150,8 @@ angular.module("train")
                 .then(function (res) {
                     $scope.train = res.data;
                     drawMap();
+                    setBlackoutStops();
+                    redrawBlackoutStops();
                 });
         };
 
