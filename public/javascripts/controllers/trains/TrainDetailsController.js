@@ -28,7 +28,7 @@ angular.module("train")
             lineMap = new Maps.LineMap(trainServices, $q, line, $scope.stations, "lineMap", lineMapWidth,lineMapHeight);
             lineMap.tooltipOffset = 100;
             lineMap.plotMap().then(function(){ lineMap.showLinePath();});
-            lineMap.registerStationClick(onStationSelect);
+            lineMap.registerStationClick({ selectStation: onStationSelect});
         }
         function drawMap() {
             if (map) {
@@ -138,6 +138,7 @@ angular.module("train")
                 })
                 .then(function (res) {
                     $scope.train = res.data;
+                    drawMap();
                 });
         };
 

@@ -6,7 +6,7 @@
 module Maps {
 
     export interface INotifyStationClick {
-        stationClick(station: TrainDefs.Station);
+        selectStation(station: TrainDefs.Station) : void;
     }
 
     export class LineMap {
@@ -284,7 +284,7 @@ module Maps {
                     class: "linePathCircle",
                     cx: function(station) { return self.lngScale(station.lnglat[0]);},
                     cy: function(station) { return self.latScale(station.lnglat[1]);},
-                    r: self.h < 300 ? 2 : 5,
+                    r: self.h < 300 ? 3 : 5,
                     fill: "blue"
                 })
                 .on("mouseenter", function(station){
@@ -304,14 +304,14 @@ module Maps {
                         .transition()
                         .duration(self.transitionTime)
                         .attr({
-                            r: self.h < 300 ? 2 : 5,
+                            r: self.h < 300 ? 3 : 5,
                             fill: "blue"
                         });
                     self.hideTooltip();
                 })
-                .on("mousedown", function(station){
+                .on("click", function(station){
                     for (var i = 0; i < self.stationClickHandlers.length; ++i) {
-                        self.stationClickHandlers[i](station);
+                        self.stationClickHandlers[i].selectStation(station);
                     }
                 });
                 //.append("title").text(function(station) { return station.name; })
