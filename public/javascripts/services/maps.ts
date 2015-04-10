@@ -97,7 +97,8 @@ module Maps {
             });
 
             //Figure out what maps to use.  We will go through all the stations and select any
-            //of them that are on a single line.  We will use only those lines.
+            //of them that are on a single line.  We will use only those lines.  We use
+            //a "set" to avoid duplicate lines
 
             var linesToUse = {};
             _.each(self.stations, (station: TrainDefs.Station) => {
@@ -282,14 +283,43 @@ module Maps {
                 .interpolate("linear");
         }
 
+        private X(station:TrainDefs.Station) : number {
+            return this.lngScale(station.lnglat[0])
+        }
+
+        private Y(station:TrainDefs.Station) : number {
+            return this.latScale(station.lnglat[1])
+        }
+
         public updateStopColors() {
             var self = this;
             var lineGroup = this.svg.select("g.linePath");
             lineGroup.selectAll("circle.linePathCircle")
                 .attr({
                     fill: self.getNormalStopColor.bind(self)    //station will be passed
-                })
+                });
 
+        }
+
+        public removeStationLabels() {
+            this.svg.select("g#stationLabelGroup").remove();
+        }
+
+        public showStationLabels() {
+
+            var self = this;
+            this.removeStationLabels();
+            var stationLabelGroup:D3.Selection = this.svg.append("g").attr("id", "stationLabelGroup");
+
+            stationLabelGroup.selectAll("text")
+                .data(this.stations)
+                .enter()
+                .append("text")
+                .text(function(station) { return station.abbr; })
+                .attr({
+                    x: function(station) { return self.X(station) + 10; },
+                    y: function(station) { return self.Y(station) + 15; }
+                });
         }
 
         public showLinePath() {

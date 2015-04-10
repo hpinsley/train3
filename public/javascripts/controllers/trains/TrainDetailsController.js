@@ -47,7 +47,9 @@ angular.module("train")
             lineMap.tooltipOffset = 150;
             lineMap.plotMap().then(function(){
                 setBlackoutStops();
-                lineMap.showLinePath();});
+                lineMap.showLinePath();
+                lineMap.showStationLabels();
+            });
             lineMap.registerStationClick({ selectStation: onStationSelect});
         }
         function drawMap() {
@@ -123,7 +125,10 @@ angular.module("train")
             }
             zoomedTrainMap = new Maps.LineMap(trainServices, $q, $scope.train, $scope.stations, "zoomedMapMap", zoomedTrainMapWidth,zoomedTrainMapHeight);
             zoomedTrainMap.tooltipOffset = 40;
-            zoomedTrainMap.plotMap().then(function(){ zoomedTrainMap.showLinePath();});
+            zoomedTrainMap.plotMap().then(function(){
+                zoomedTrainMap.showLinePath();
+                zoomedTrainMap.showStationLabels();
+            });
 
         };
 

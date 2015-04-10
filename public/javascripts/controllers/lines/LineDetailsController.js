@@ -32,6 +32,14 @@ angular.module("train")
                     });
             });
 
+        $scope.showStationLabelsClicked = function() {
+            if (!map) {
+                return;
+            }
+
+            $scope.showStationLabels ? map.showStationLabels() : map.removeStationLabels();
+        }
+        
         $scope.showLineClicked = function() {
             if (!map) {
                 return;
