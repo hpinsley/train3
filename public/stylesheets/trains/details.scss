@@ -36,19 +36,29 @@ div#zoomedTrainMapTitle {
   width: 1200px;
 }
 
-div#zoomedMap.zoomed {
-  opacity: 1.0;
-  z-index: 1;
-}
-
 div#zoomedMap.unzoomed {
   opacity: 0;
   z-index: -1;
 }
 
+div#zoomedMap.zoomed {
+  z-index: 1;
+  opacity: 1.0;
+  transition: opacity 5s;
+}
+
 div#trainMap {
   height: 400px;
   border: 1px solid black;
+  transition: transform 3s, opacity 3s;
+  opacity: 1;
+}
+
+div#trainMap.goAway {
+  transition: transform 3s, opacity 3s;
+  transform: rotate(360deg);
+  opacity: 0;
+  border: 1px solid red;
 }
 
 div#stopTableDiv {

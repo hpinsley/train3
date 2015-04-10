@@ -39,7 +39,7 @@ angular.module("train")
 
             $scope.showStationLabels ? map.showStationLabels() : map.removeStationLabels();
         }
-        
+
         $scope.showLineClicked = function() {
             if (!map) {
                 return;

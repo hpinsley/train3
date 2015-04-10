@@ -12,6 +12,7 @@ angular.module("train")
 
         $scope.afterAdd = false;
         $scope.zoomClass = "unzoomed";
+        $scope.trainMapClass = "";
 
         var trainNumber = $routeParams["trainNumber"];
         var map;
@@ -93,11 +94,15 @@ angular.module("train")
 
         $scope.zoomTrainMap = function() {
             $scope.zoomClass = "zoomed";
+            $scope.trainMapClass = "goaway";
+
             drawZoomedTrainMap();
         };
 
         $scope.unZoomTrainMap = function() {
             $scope.zoomClass = "unzoomed";
+            $scope.trainMapClass = "";
+
             if (zoomedTrainMap) {
                 zoomedTrainMap.erase();
                 zoomedTrainMap = null;
