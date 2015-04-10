@@ -5,14 +5,18 @@ angular.module("train")
         var trainMapHeight = 400;
         var lineMapWidth = 700;
         var lineMapHeight = 500;
+        var zoomedTrainMapWidth = 1000;
+        var zoomedTrainMapHeight = 700;
 
         $log.debug("Start of TrainDetailController");
 
         $scope.afterAdd = false;
+        $scope.zoomClass = "unzoomed";
 
         var trainNumber = $routeParams["trainNumber"];
         var map;
         var lineMap;
+        var zoomedTrainMap;
 
         function setBlackoutStops() {
             if (!lineMap) {
@@ -51,8 +55,11 @@ angular.module("train")
                 map.erase();
             }
             map = new Maps.LineMap(trainServices, $q, $scope.train, $scope.stations, "trainMap", trainMapWidth,trainMapHeight);
-            map.tooltipOffset = 100;
-            map.plotMap().then(function(){ map.showLinePath();});
+            map.tooltipOffset = 20;
+
+            return map.plotMap().then(function(){
+                map.showLinePath();
+            });
         }
 
         $scope.trainNumber = trainNumber;
@@ -71,7 +78,7 @@ angular.module("train")
                         $scope.stations = res.data;
 
                         //Here we have both the train and stations.  Enough to prime our map
-                        drawMap();
+                        drawMap().then(selectLineFromLastStop);
                     });
 
             });
@@ -81,6 +88,63 @@ angular.module("train")
             .success(function(lines){
                 $scope.lines = lines;
             });
+
+        $scope.zoomTrainMap = function() {
+            $scope.zoomClass = "zoomed";
+            drawZoomedTrainMap();
+        };
+
+        $scope.unZoomTrainMap = function() {
+            $scope.zoomClass = "unzoomed";
+            if (zoomedTrainMap) {
+                zoomedTrainMap.erase();
+                zoomedTrainMap = null;
+            }
+        };
+
+        //If we hover over the name of a station in the list of stops for the train
+        //hightlight it on the map
+        $scope.stationHover = function(stationAbbr) {
+            if (!map) {
+                return;
+            }
+
+            var station = _.find($scope.stations, function(station){
+                return station.abbr === stationAbbr;
+            });
+
+            map.plotStationLoc(station);
+        }
+
+
+        drawZoomedTrainMap = function() {
+            if (zoomedTrainMap) {
+                zoomedTrainMap.erase();
+            }
+            zoomedTrainMap = new Maps.LineMap(trainServices, $q, $scope.train, $scope.stations, "zoomedMapMap", zoomedTrainMapWidth,zoomedTrainMapHeight);
+            zoomedTrainMap.tooltipOffset = 40;
+            zoomedTrainMap.plotMap().then(function(){ zoomedTrainMap.showLinePath();});
+
+        };
+
+        function selectLineFromLastStop() {
+            if ($scope.train.stops.length == 0 || !$scope.lines) {
+                return;
+            }
+
+            var lastStopAbbr = _.last($scope.train.stops).station;
+
+            var line = _.find($scope.lines, function(line){
+                return _.any(line.stations, function(stationAbbr){
+                    return stationAbbr == lastStopAbbr;
+                });
+            });
+
+            if (line) {
+                $scope.line = line;
+                $scope.lineChange(line);
+            }
+        }
 
         $scope.lineChange = function(line) {
             drawLineMap(line);
@@ -191,9 +255,7 @@ angular.module("train")
             if (timeMatch) {
                 alert("You are already stopping at " + timeMatch.station + " at " + stopTime);
                 return false;
-            };
-
-
+            }
             var priorStops = stopGroups[-1];
 
             if (priorStops) {

@@ -1,4 +1,16 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/trains/details.css"/>
+
+<input id="zoomTrainMapBtn" type="button" class="btn btn-lg btn-info" ng-click="zoomTrainMap()" value="Zoom" />
+
+<div id="zoomedMap" ng-class="zoomClass">
+    <div id="zoomedMapControls">
+        <button id="unzoomTrainMapBtn" class="btn btn-lg btn-info" ng-click="unZoomTrainMap()">Close</button>
+        <div id="zoomedTrainMapTitle">Train {{trainNumber}} - {{train.description}}</div>
+    </div>
+    <div id="zoomedMapMap">
+
+    </div>
+</div>
 <div class="row">
     <div class="col-md-5">
 
@@ -42,7 +54,7 @@
                         target="stopTime"
                         class="clickable">{{stop.time | date:"hh:mm a"}}
                     </td>
-                    <td><a href="/#/stations/{{stop.station}}">{{stop.station | stationName}}</a></td>
+                    <td><a hp-hover-invoke val="stop.station" invoke="$parent.stationHover(stationAbbr)" href="/#/stations/{{stop.station}}">{{stop.station | stationName}}</a></td>
                     <td style="width:50px">{{stop.station | showStationLines}}</td>
                     <td>
                         <button ng-click="deleteStop(trainNumber, stop)">Delete</button>

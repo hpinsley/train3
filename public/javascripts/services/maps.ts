@@ -286,9 +286,8 @@ module Maps {
             var self = this;
             var lineGroup = this.svg.select("g.linePath");
             lineGroup.selectAll("circle.linePathCircle")
-                //.data(this.stations)
                 .attr({
-                    fill: self.getNormalStopColor.bind(self)
+                    fill: self.getNormalStopColor.bind(self)    //station will be passed
                 })
 
         }
