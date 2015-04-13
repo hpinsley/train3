@@ -28,6 +28,7 @@ module Maps {
         private stationClickHandlers:INotifyStationClick[];
         private mapId:string;
         private blackoutStops:string[] = [];
+        private labelCallback:(station:TrainDefs.Station) => string;
 
         constructor(public trainServices, public $q:angular.IQService, lineOrTrain:any, allStations:TrainDefs.Station[], public elementId:string, public w:number, public h:number) {
 
@@ -49,6 +50,10 @@ module Maps {
 
         public registerStationClick(stationClickHandler:INotifyStationClick) {
             this.stationClickHandlers.push(stationClickHandler);
+        }
+
+        public registerLabelCallback(callback:(station:TrainDefs.Station) => string) {
+            this.labelCallback = callback;
         }
 
         public setBlackoutStops(stationAbbrs:string[]) {
@@ -94,7 +99,8 @@ module Maps {
             });
 
             self.stations = _.sortBy(stationList, (station:TrainDefs.Station) => {
-                return abbrList.indexOf(station.abbr);
+                var result = abbrList.indexOf(station.abbr);
+                return result;
             });
 
             //Figure out what maps to use.  We will go through all the stations and select any
@@ -318,7 +324,10 @@ module Maps {
                 .data(this.stations)
                 .enter()
                 .append("text")
-                .text(function (station) {
+                .text(function (station: TrainDefs.Station) {
+                    if (self.labelCallback) {
+                        return self.labelCallback(station)
+                    }
                     return station.abbr;
                 })
                 .attr({

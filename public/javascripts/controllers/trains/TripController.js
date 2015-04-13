@@ -6,8 +6,8 @@ angular.module("train")
         $scope.endStation = $routeParams["end"];
 
         var map;
-        var mapWidth = 500;
-        var mapHeight = 500;
+        var mapWidth = 600;
+        var mapHeight = 600;
 
         function drawMap() {
             if (map) {
@@ -16,10 +16,19 @@ angular.module("train")
             map = new Maps.LineMap(trainServices, $q, $scope.train, $scope.stations, "tripMap", mapWidth, mapHeight);
             map.tooltipOffset = 20;
             map.cropFeaturesAtStations = true;
+            map.registerLabelCallback(getStationLabel);
 
             return map.plotMap().then(function(){
                 map.showLinePath();
+                map.showStationLabels();
             });
+        }
+
+        function getStationLabel(station) {
+            var index = stopIndex(station.abbr);
+            var stop = $scope.train.stops[index];
+
+            return station.name + " " + helperServices.formatTime(stop.time);
         }
 
         function stopIndex(stop) {
@@ -49,8 +58,8 @@ angular.module("train")
                     var index = stopIndex(station.abbr);
                     return (index >= $scope.startIndex && index <= $scope.endIndex);
                 });
-                $scope.stations = _.sortBy(filteredStations, function(s1,s2){
-                    return stopIndex(s1.abbr) - stopIndex(s2.abbr);
+                $scope.stations = _.sortBy(filteredStations, function(station){
+                    return stopIndex(station.abbr);
                 });
                 drawMap();
             });
