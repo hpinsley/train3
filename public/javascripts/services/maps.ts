@@ -6,29 +6,30 @@
 module Maps {
 
     export interface INotifyStationClick {
-        selectStation(station: TrainDefs.Station) : void;
+        selectStation(station:TrainDefs.Station) : void;
     }
 
     export class LineMap {
 
-        public tooltipOffset: number = 30;
+        public tooltipOffset:number = 30;
+        public cropFeaturesAtStations:boolean = false;
         private svg;        //Wish I could declare this as D3.Svg.Svg.  But it doesn't expose an append method?
-        private lngScale: D3.Scale.LinearScale;
-        private latScale: D3.Scale.LinearScale;
-        private stations: TrainDefs.Station[];  //Filtered by the line and in line order
-        private lineFun: D3.Svg.Line;
-        private tooltip: D3.Selection;
-        private p: angular.IPromise<boolean>;
+        private lngScale:D3.Scale.LinearScale;
+        private latScale:D3.Scale.LinearScale;
+        private stations:TrainDefs.Station[];  //Filtered by the line and in line order
+        private lineFun:D3.Svg.Line;
+        private tooltip:D3.Selection;
+        private p:angular.IPromise<boolean>;
         private map:string;                     //If we are passed a line we have this.
         private lineNames:string[];             //If we are passed a train we set this
-        private train: TrainDefs.Train;
-        private line: TrainDefs.Line;
+        private train:TrainDefs.Train;
+        private line:TrainDefs.Line;
         private transitionTime:number = 1000;
         private stationClickHandlers:INotifyStationClick[];
-        private mapId: string;
+        private mapId:string;
         private blackoutStops:string[] = [];
 
-        constructor(public trainServices, public $q: angular.IQService, lineOrTrain:any, allStations:TrainDefs.Station[], public elementId:string, public w:number, public h:number) {
+        constructor(public trainServices, public $q:angular.IQService, lineOrTrain:any, allStations:TrainDefs.Station[], public elementId:string, public w:number, public h:number) {
 
             var self = this;
 
@@ -66,7 +67,7 @@ module Maps {
             return "yellow";
         }
 
-        private getDataForLine(allStations: TrainDefs.Station[], self) {
+        private getDataForLine(allStations:TrainDefs.Station[], self) {
             self.map = self.line.map;
 
             var stationList:TrainDefs.Station[] = _.filter(allStations, (station:TrainDefs.Station) => {
@@ -78,7 +79,7 @@ module Maps {
             });
         }
 
-        private getDataForTrain(allStations: TrainDefs.Station[], self) {
+        private getDataForTrain(allStations:TrainDefs.Station[], self) {
 
             //Get the sorted list of stations for this train and put it in this.stations
 
@@ -101,7 +102,7 @@ module Maps {
             //a "set" to avoid duplicate lines
 
             var linesToUse = {};
-            _.each(self.stations, (station: TrainDefs.Station) => {
+            _.each(self.stations, (station:TrainDefs.Station) => {
                 if (station.lines.length === 1) {
                     linesToUse[station.lines[0]] = true;
                 }
@@ -146,7 +147,7 @@ module Maps {
 
             if (this.map) {                         //We were passed a line and have the map to use
                 var geoFile = "data/" + this.map;
-                d3.json(geoFile, function(json) {
+                d3.json(geoFile, function (json) {
                     this.plotMapData(json);
                     defer.resolve(true);
 
@@ -154,10 +155,10 @@ module Maps {
             }
             else {                                  //We were passed a train and have a list of line names
                 self.getGeoFilesForLines(self.lineNames)
-                    .then(function(geoFiles:string[]){
+                    .then(function (geoFiles:string[]) {
                         return self.readGeoFiles(geoFiles);
                     })
-                    .then(function(geoData){
+                    .then(function (geoData) {
                         self.plotMapData(geoData);
                         defer.resolve(true);
                     });
@@ -166,17 +167,17 @@ module Maps {
             return defer.promise;
         }
 
-        private getGeoFilesForLines(lines:string[]) : angular.IPromise<string[]> {
+        private getGeoFilesForLines(lines:string[]):angular.IPromise<string[]> {
 
             var self = this;
             var mapFiles:string[] = [];
-            var fileCount: number = 0;
+            var fileCount:number = 0;
 
             var defer = this.$q.defer();
 
             lines.forEach((lineName) => {
                 self.trainServices.getLine(lineName)
-                    .then(function(res){
+                    .then(function (res) {
                         ++fileCount;
                         var line:TrainDefs.Line = res.data;
                         mapFiles.push(line.map);
@@ -184,7 +185,7 @@ module Maps {
                             defer.resolve(mapFiles);
                         }
 
-                    }, function(err){
+                    }, function (err) {
                         defer.reject(err);
                     });
             });
@@ -192,15 +193,15 @@ module Maps {
             return defer.promise;
         }
 
-        private readGeoFiles(geoFiles:string[]) : angular.IPromise<any> {
+        private readGeoFiles(geoFiles:string[]):angular.IPromise<any> {
 
             var defer = this.$q.defer();
-            var fileCount: number = 0;
+            var fileCount:number = 0;
             var mapObj:any;
 
             geoFiles.forEach((geoFile) => {
                 var geoFilePath = "data/" + geoFile;
-                d3.json(geoFilePath, function(json) {
+                d3.json(geoFilePath, function (json) {
                     ++fileCount;
                     if (fileCount === 1) {
                         mapObj = json;
@@ -227,7 +228,9 @@ module Maps {
                 this.svg.selectAll("*").remove();
             }
 
-            var bounds = getBoundsOfFeatures(json.features);
+            var bounds = getBoundsOfFeatures(json.features,
+                self.cropFeaturesAtStations ? self.stations : null);
+
             var minLng = bounds[0][0];
             var minLat = bounds[0][1];
             var maxLng = bounds[1][0];
@@ -283,11 +286,11 @@ module Maps {
                 .interpolate("linear");
         }
 
-        private X(station:TrainDefs.Station) : number {
+        private X(station:TrainDefs.Station):number {
             return this.lngScale(station.lnglat[0])
         }
 
-        private Y(station:TrainDefs.Station) : number {
+        private Y(station:TrainDefs.Station):number {
             return this.latScale(station.lnglat[1])
         }
 
@@ -315,10 +318,16 @@ module Maps {
                 .data(this.stations)
                 .enter()
                 .append("text")
-                .text(function(station) { return station.abbr; })
+                .text(function (station) {
+                    return station.abbr;
+                })
                 .attr({
-                    x: function(station) { return self.X(station) + 10; },
-                    y: function(station) { return self.Y(station) + 15; }
+                    x: function (station) {
+                        return self.X(station) + 10;
+                    },
+                    y: function (station) {
+                        return self.Y(station) + 15;
+                    }
                 });
         }
 
@@ -339,12 +348,16 @@ module Maps {
                 .append("circle")
                 .attr({
                     class: "linePathCircle",
-                    cx: function(station) { return self.lngScale(station.lnglat[0]);},
-                    cy: function(station) { return self.latScale(station.lnglat[1]);},
+                    cx: function (station) {
+                        return self.lngScale(station.lnglat[0]);
+                    },
+                    cy: function (station) {
+                        return self.latScale(station.lnglat[1]);
+                    },
                     r: self.h < 300 ? 3 : 5,
                     fill: self.getNormalStopColor.bind(self)
                 })
-                .on("mouseenter", function(station){
+                .on("mouseenter", function (station) {
                     var circle = d3.select(this);
                     circle
                         .transition()
@@ -354,7 +367,7 @@ module Maps {
                         });
                     self.plotStationLoc(station, false);
                 })
-                .on("mouseleave", function(station) {
+                .on("mouseleave", function (station) {
                     var circle = d3.select(this);
                     circle
                         .transition()
@@ -364,15 +377,15 @@ module Maps {
                         });
                     self.hideTooltip();
                 })
-                .on("click", function(station){
+                .on("click", function (station) {
                     for (var i = 0; i < self.stationClickHandlers.length; ++i) {
                         self.stationClickHandlers[i].selectStation(station);
                     }
                 });
-                //.append("title").text(function(station) { return station.name; })
+            //.append("title").text(function(station) { return station.name; })
         }
 
-        public removeLinePath() : void {
+        public removeLinePath():void {
             if (!this.svg) {
                 return;
             }
@@ -408,7 +421,7 @@ module Maps {
         }
 
 
-        private buildStationTooltip (station:TrainDefs.Station) : string {
+        private buildStationTooltip(station:TrainDefs.Station):string {
             var str = "<a href='/#/stations/" + station.abbr + "'>" + station.name + "</a><br/>";
 
             if (station.lines.length == 1) {
@@ -425,31 +438,56 @@ module Maps {
         }
     }
 
-    export function getBoundsOfFeatures(features) {
-        for (var i = 0; i < features.length; ++i) {
-            var bounds = d3.geo.bounds(features[i]);
-            var gbounds;
+    export function getBoundsOfFeatures(features, stations:TrainDefs.Station[]) {
 
-            if (i == 0) {
-                gbounds = [
-                    [bounds[0][0],bounds[0][1]],
-                    [bounds[1][0],bounds[1][1]]
-                ];
+        var gbounds;
+        var includeFeature;
+
+        for (var i = 0; i < features.length; ++i) {
+            var feature = features[i];
+            var bounds = d3.geo.bounds(feature);
+
+            var minLng = bounds[0][0];
+            var minLat = bounds[0][1];
+            var maxLng = bounds[1][0];
+            var maxLat = bounds[1][1];
+
+            if (stations) {
+                //Skip the feature if none of the stations are within
+                includeFeature = _.any(stations, function (station) {
+                    var lng = station.lnglat[0];
+                    var lat = station.lnglat[1];
+                    return (lng >= minLng && lng <= maxLng && lat >= minLat && lat <= maxLat);
+                });
+                if (includeFeature) {
+                    console.log("Include: " + includeFeature + " Feature: " + feature.properties.NAME + " from " +
+                        "[" + minLng + "," + minLat + "] - [" + maxLng + "," + maxLat + "]"
+                    );
+                }
             }
             else {
-                var minLng = bounds[0][0];
-                var minLat = bounds[0][1];
-                var maxLng = bounds[1][0];
-                var maxLat = bounds[1][1];
+                includeFeature = true;
+            }
 
-                if (minLng < gbounds[0][0])
-                    gbounds[0][0] = minLng;
-                if (minLat < gbounds[0][1])
-                    gbounds[0][1] = minLat;
-                if (maxLng > gbounds[1][0])
-                    gbounds[1][0] = maxLng;
-                if (maxLat > gbounds[1][1])
-                    gbounds[1][1] = maxLat;
+            if (includeFeature) {
+
+                if (!gbounds) {
+                    gbounds = [
+                        [minLng, minLat],
+                        [maxLng, maxLat]
+                    ];
+                }
+                else {
+
+                    if (minLng < gbounds[0][0])
+                        gbounds[0][0] = minLng;
+                    if (minLat < gbounds[0][1])
+                        gbounds[0][1] = minLat;
+                    if (maxLng > gbounds[1][0])
+                        gbounds[1][0] = maxLng;
+                    if (maxLat > gbounds[1][1])
+                        gbounds[1][1] = maxLat;
+                }
             }
         }
         return gbounds;
