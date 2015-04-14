@@ -16,6 +16,7 @@ angular.module("train")
             map = new Maps.LineMap(trainServices, $q, $scope.train, $scope.stations, "tripMap", mapWidth, mapHeight);
             map.tooltipOffset = 20;
             map.cropFeaturesAtStations = true;
+            map.labelFeatures = true;
             map.registerLabelCallback(getStationLabel);
 
             return map.plotMap().then(function(){

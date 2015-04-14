@@ -13,6 +13,8 @@ module Maps {
 
         public tooltipOffset:number = 30;
         public cropFeaturesAtStations:boolean = false;
+        public labelFeatures:boolean = false;
+
         private svg;        //Wish I could declare this as D3.Svg.Svg.  But it doesn't expose an append method?
         private lngScale:D3.Scale.LinearScale;
         private latScale:D3.Scale.LinearScale;
@@ -242,7 +244,8 @@ module Maps {
             var maxLng = bounds[1][0];
             var maxLat = bounds[1][1];
 
-            var padding = 30;
+            //var padding = 30;
+            var padding = 0;
 
             this.lngScale = d3.scale
                 .linear()
@@ -290,6 +293,44 @@ module Maps {
                     return this.latScale(station.lnglat[1])
                 })
                 .interpolate("linear");
+
+            if (self.labelFeatures) {
+                self.drawFeatureLabels(json.features);
+            }
+        }
+
+        private removeFeatureLabels() {
+            var featureGroup = this.svg.select("g#featureLabels");
+            featureGroup.remove();
+        }
+
+        private drawFeatureLabels(features:any[]) {
+            var self = this;
+            self.removeFeatureLabels();
+            var featureGroup:D3.Selection = self.svg.append("g").attr({id:"featureLabels"});
+            for (var i = 0; i<features.length; ++i) {
+                self.drawFeatureLabel(features[i], featureGroup);
+            }
+        }
+
+        private drawFeatureLabel(feature, featureGroup:D3.Selection) {
+            var featureName = feature.properties.NAME;
+            console.log("Adding label for feature " + featureName);
+            var center = d3.geo.centroid(feature);
+            var x = this.lngScale(center[0]);
+            var y = this.latScale(center[1]);
+
+            featureGroup.append("text")
+                .attr({
+                    x: x,
+                    y: y,
+                    "text-anchor": "middle",
+                    fill: "green"
+                })
+                .text(featureName)
+                .style({
+                    "font-size":"7pt",
+                });
         }
 
         private X(station:TrainDefs.Station):number {
