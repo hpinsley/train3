@@ -8,6 +8,10 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         return $http.post("/api/stations", station);
     }
 
+    var addPoi = function(poi) {
+        return $http.post("/api/poi", poi);
+    }
+
     var updateStation = function(station) {
         return $http.put("/api/stations/" + station.abbr, station);
     }
@@ -125,6 +129,7 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         moveStationInLine: moveStationInLine,
         deleteStationFromLine: deleteStationFromLine,
         updateLine: updateLine,
-        getMapFileList: getMapFileList
+        getMapFileList: getMapFileList,
+        addPoi: addPoi
     };
 }]);

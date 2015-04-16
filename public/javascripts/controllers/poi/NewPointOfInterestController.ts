@@ -6,7 +6,19 @@ angular.module("train").controller("newPointOfInterestController", function ($sc
     $scope.poi = {};
 
     $scope.addPoi = function() {
-        $scope.poi.lnglat = $scope.latlng.split(",").reverse().join(",");
+        $scope.poi.lnglat = _.map($scope.latlng.split(",").reverse(), function(coord:string) {
+            return parseFloat(coord);
+        });
         console.log($scope.poi);
+        trainServices.addPoi($scope.poi)
+            .then(function(res){
+                console.log(res);
+                $scope.poi = res.data[0];
+                delete $scope.poi._id;
+            },
+            function(err){
+                console.error(err);
+            })
     }
 });
+

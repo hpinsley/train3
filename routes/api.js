@@ -185,6 +185,25 @@ router.get('/stations', function(req, res, next) {
   });
 });
 
+router.post('/poi', function(req, res, next){
+    var coll = req.db.collection("poi");
+    coll.find({}, {_id: 0, number: 1}).sort({number: -1}).toArray(function (e, poiNumbers) {
+        if (e) {
+            return next(e);
+        }
+        var lastNumber = (poiNumbers.length === 0) ? 0 : poiNumbers[0].number;
+        var nextNumber = lastNumber + 10;
+        var poi = req.body;
+        poi.number = nextNumber;
+        coll.insert(poi, {}, function(e, results){
+            if (e) {
+                return next(e);
+            }
+            res.send(results);
+        });
+    })
+});
+
 router.post('/stations', function(req, res, next){
     var coll = req.db.collection("stations");
     coll.insert(req.body, {}, function(e, results){
