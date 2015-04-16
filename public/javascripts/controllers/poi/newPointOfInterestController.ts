@@ -18,7 +18,7 @@ angular.module("train").controller("newPointOfInterestController", function ($sc
             },
             function(err){
                 console.error(err);
-            })
+            });
     }
 });
 
