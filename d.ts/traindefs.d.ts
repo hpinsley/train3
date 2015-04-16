@@ -26,4 +26,11 @@ declare module TrainDefs {
         originStation: string;
         terminalStation: string;
     }
+
+    export interface Poi {
+        number: number;
+        name: string;
+        description: string;
+        lnglat:number[];
+    }
 }

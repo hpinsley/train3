@@ -39,6 +39,10 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         return $http.get("/api/lines");
     };
 
+    var getPois = function() {
+        return $http.get("/api/poi");
+    }
+
     var getLine = function(lineName) {
         return $http.get("/api/lines/" + lineName);
     };
@@ -130,6 +134,7 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         deleteStationFromLine: deleteStationFromLine,
         updateLine: updateLine,
         getMapFileList: getMapFileList,
-        addPoi: addPoi
+        addPoi: addPoi,
+        getPois: getPois
     };
 }]);

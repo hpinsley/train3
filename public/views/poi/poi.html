@@ -1,3 +1,22 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/poi/newPointOfInterest.css"/>
 <h1>Points of Interest</h1>
-<a class="btn btn-large" href="/#/poi/new">New</a>
+<a class="btn btn-lg btn-info" href="/#/poi/new">New Point of Interest</a>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Number</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Lat,Lng</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <tr ng-repeat="poi in pois">
+        <td>{{poi.number}}</td>
+        <td>{{poi.name}}</td>
+        <td>{{poi.description}}</td>
+        <td>{{poi.lnglat[1]}},{{poi.lnglat[0]}}</td>
+    </tr>
+    </tbody>
+</table>
