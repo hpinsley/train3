@@ -21,7 +21,12 @@ angular.module("train")
                 $scope.stations = res.data;
             });
 
-        $q.all([linePromise,stationPromise])
+        var poiPromise = trainServices.getPois()
+            .then(function(res){
+                $scope.pois = res.data;
+            });
+
+        $q.all([linePromise,stationPromise,poiPromise])
             .then(function(){
                 map = new Maps.LineMap(trainServices, $q, $scope.line, $scope.stations, "graph", 900, 600);
                 map.tooltipOffset = 10;
@@ -29,6 +34,7 @@ angular.module("train")
                     .then(function(){
                         map.showLinePath();
                         $scope.showLine = true;
+                        map.mapPointsOfInterest($scope.pois);
                     });
             });
 

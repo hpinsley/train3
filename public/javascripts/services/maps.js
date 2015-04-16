@@ -214,6 +214,37 @@ var Maps;
                 self.drawFeatureLabel(features[i], featureGroup);
             }
         };
+        LineMap.prototype.removePointsOfInterest = function () {
+            var poiGroup = this.svg.select("g#pois");
+            poiGroup.remove();
+        };
+        LineMap.prototype.mapPointsOfInterest = function (pois) {
+            var self = this;
+            self.removePointsOfInterest();
+            var poiGroup = self.svg.append("g").attr({ id: "pois" });
+            for (var i = 0; i < pois.length; ++i) {
+                self.drawPointOfInterest(pois[i], poiGroup);
+            }
+        };
+        LineMap.prototype.drawPointOfInterest = function (poi, poiGroup) {
+            var x = this.lngScale(poi.lnglat[0]);
+            var y = this.latScale(poi.lnglat[1]);
+            poiGroup.append("circle").attr({
+                cx: x,
+                cy: y,
+                r: 10,
+                fill: "blue"
+            });
+            poiGroup.append("text").attr({
+                x: x + 12,
+                y: y,
+                "text-anchor": "left",
+                fill: "black"
+            }).text(poi.name).style({
+                "font-size": "7pt",
+                "font-weight": "bold"
+            });
+        };
         LineMap.prototype.drawFeatureLabel = function (feature, featureGroup) {
             var featureName = feature.properties.NAME;
             var center;

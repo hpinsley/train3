@@ -312,6 +312,46 @@ module Maps {
             }
         }
 
+        public removePointsOfInterest() {
+            var poiGroup = this.svg.select("g#pois");
+            poiGroup.remove();
+        }
+
+        public mapPointsOfInterest(pois:TrainDefs.Poi[]) {
+            var self = this;
+            self.removePointsOfInterest();
+            var poiGroup:D3.Selection = self.svg.append("g").attr({id:"pois"});
+            for (var i = 0; i<pois.length; ++i) {
+                self.drawPointOfInterest(pois[i], poiGroup);
+            }
+        }
+
+        private drawPointOfInterest(poi:TrainDefs.Poi, poiGroup:D3.Selection) {
+            var x:number = this.lngScale(poi.lnglat[0]);
+            var y:number = this.latScale(poi.lnglat[1]);
+
+            poiGroup.append("circle")
+                .attr({
+                    cx: x,
+                    cy: y,
+                    r: 10,
+                    fill: "blue"
+                });
+
+            poiGroup.append("text")
+                .attr({
+                    x: x + 12,
+                    y: y,
+                    "text-anchor": "left",
+                    fill: "black"
+                })
+                .text(poi.name)
+                .style({
+                    "font-size":"7pt",
+                    "font-weight": "bold"
+                });
+        }
+
         private drawFeatureLabel(feature, featureGroup:D3.Selection) {
             var featureName = feature.properties.NAME;
             var center;
