@@ -109,6 +109,15 @@ angular.module("train")
             }
         };
 
+        $scope.zoomDrawFeaturesClick = function() {
+            if ($scope.zoomDrawFeatures) {
+                zoomedTrainMap.drawFeatureLabels();
+            }
+            else {
+                zoomedTrainMap.removeFeatureLabels();
+            }
+        }
+
         //If we hover over the name of a station in the list of stops for the train
         //hightlight it on the map
         $scope.stationHover = function(stationAbbr) {

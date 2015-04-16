@@ -4,6 +4,7 @@ angular.module("train")
         $scope.trainNumber = $routeParams["trainNumber"];
         $scope.startStation = $routeParams["start"];
         $scope.endStation = $routeParams["end"];
+        $scope.showStop = "names";
 
         var map;
         var mapWidth = 600;
@@ -17,19 +18,25 @@ angular.module("train")
             map.tooltipOffset = 20;
             map.cropFeaturesAtStations = true;
             map.labelFeatures = true;
-            map.registerLabelCallback(getStationLabel);
 
             return map.plotMap().then(function(){
                 map.showLinePath();
-                map.showStationLabels();
+                $scope.showStopChanged();
             });
         }
 
-        function getStationLabel(station) {
+        function showStopTime(station) {
             var index = stopIndex(station.abbr);
             var stop = $scope.train.stops[index];
 
-            return station.name + " " + helperServices.formatTime(stop.time);
+            return helperServices.formatTime(stop.time);
+        }
+
+        function showStopStationName(station) {
+            var index = stopIndex(station.abbr);
+            var stop = $scope.train.stops[index];
+
+            return station.name;
         }
 
         function stopIndex(stop) {
@@ -73,5 +80,24 @@ angular.module("train")
             return index >= $scope.startIndex && index <= $scope.endIndex;
         };
 
+        $scope.showMapFeaturesClick = function() {
+            if ($scope.showMapFeatures) {
+                map.drawFeatureLabels();
+            }
+            else {
+                map.removeFeatureLabels();
+            }
+        }
+
+        $scope.showStopChanged = function() {
+            if ($scope.showStop === "times") {
+                map.registerLabelCallback(showStopTime);
+                map.showStationLabels();
+            }
+            else {
+                map.registerLabelCallback(showStopStationName);
+                map.showStationLabels();
+            }
+        }
 
     });

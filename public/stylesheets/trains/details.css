@@ -20,6 +20,10 @@ button#unzoomTrainMapBtn {
   left: 65px;
   top: 18px; }
 
+div#zoomedFeatureCheckboxDiv {
+  display: inline-block;
+  margin-right: 200px; }
+
 div#zoomedTrainMapTitle {
   display: inline-block;
   font-size: 18pt;
@@ -36,7 +40,7 @@ div#zoomedMap.unzoomed {
 div#zoomedMap.zoomed {
   z-index: 1;
   opacity: 1.0;
-  transition: opacity 5s; }
+  transition: opacity 5s 2s; }
 
 div#trainMap {
   position: relative;
@@ -48,7 +52,7 @@ div#trainMap {
   border-radius: 5px; }
 
 div#trainMap.goAway {
-  transition: transform 6s, opacity 10s, left 6s;
+  transition: transform 6s 1s, opacity 10s, left 6s;
   transform: rotate(270deg);
   opacity: 0;
   left: 800px; }

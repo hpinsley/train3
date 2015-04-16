@@ -53,6 +53,15 @@ angular.module("train")
             }
         }
 
+        $scope.showMapFeaturesClicked = function() {
+            if ($scope.showMapFeatures) {
+                map.drawFeatureLabels();
+            }
+            else {
+                map.removeFeatureLabels();
+            }
+        }
+
         $scope.stationChange = function(stationAbbr) {
             $scope.$apply(function(){                   //Needed if we come from the mouse enter event
                 $scope.selectedStation = stationAbbr;   //That will change the radio button if we use the hover directive to invoke this method

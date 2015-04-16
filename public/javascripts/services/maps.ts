@@ -13,7 +13,6 @@ module Maps {
 
         public tooltipOffset:number = 30;
         public cropFeaturesAtStations:boolean = false;
-        public labelFeatures:boolean = false;
 
         private svg;        //Wish I could declare this as D3.Svg.Svg.  But it doesn't expose an append method?
         private lngScale:D3.Scale.LinearScale;
@@ -31,6 +30,7 @@ module Maps {
         private mapId:string;
         private blackoutStops:string[] = [];
         private labelCallback:(station:TrainDefs.Station) => string;
+        private mapData;
 
         constructor(public trainServices, public $q:angular.IQService, lineOrTrain:any, allStations:TrainDefs.Station[], public elementId:string, public w:number, public h:number) {
 
@@ -230,6 +230,7 @@ module Maps {
 
             var self = this;
 
+            this.mapData = json;    //save the list of features
             this.hideTooltip();
 
             if (this.svg) {
@@ -294,18 +295,16 @@ module Maps {
                 })
                 .interpolate("linear");
 
-            if (self.labelFeatures) {
-                self.drawFeatureLabels(json.features);
-            }
         }
 
-        private removeFeatureLabels() {
+        public removeFeatureLabels() {
             var featureGroup = this.svg.select("g#featureLabels");
             featureGroup.remove();
         }
 
-        private drawFeatureLabels(features:any[]) {
+        public drawFeatureLabels() {
             var self = this;
+            var features = this.mapData.features;
             self.removeFeatureLabels();
             var featureGroup:D3.Selection = self.svg.append("g").attr({id:"featureLabels"});
             for (var i = 0; i<features.length; ++i) {
@@ -315,8 +314,14 @@ module Maps {
 
         private drawFeatureLabel(feature, featureGroup:D3.Selection) {
             var featureName = feature.properties.NAME;
+            var center;
             console.log("Adding label for feature " + featureName);
-            var center = d3.geo.centroid(feature);
+
+            var bounds = d3.geo.bounds(feature);
+            center = [(bounds[1][0] + bounds[0][0]) /2, (bounds[1][1] + bounds[0][1]) /2 ];
+
+            //center = d3.geo.centroid(feature);
+
             var x = this.lngScale(center[0]);
             var y = this.latScale(center[1]);
 
@@ -325,11 +330,12 @@ module Maps {
                     x: x,
                     y: y,
                     "text-anchor": "middle",
-                    fill: "green"
+                    fill: "black"
                 })
                 .text(featureName)
                 .style({
                     "font-size":"7pt",
+                    "font-weight": "bold"
                 });
         }
 
