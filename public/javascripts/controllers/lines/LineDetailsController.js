@@ -34,10 +34,17 @@ angular.module("train")
                     .then(function(){
                         map.showLinePath();
                         $scope.showLine = true;
-                        map.mapPointsOfInterest($scope.pois);
                     });
             });
 
+        $scope.showPoiClicked = function() {
+            if ($scope.showPoi) {
+                map.mapPointsOfInterest($scope.pois);
+            }
+            else {
+                map.removePointsOfInterest();
+            }
+        }
         $scope.showStationLabelsClicked = function() {
             if (!map) {
                 return;
