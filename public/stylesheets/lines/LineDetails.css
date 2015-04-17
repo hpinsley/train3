@@ -20,4 +20,10 @@ div#tooltip {
   font-family: sans-serif;
   font-size: 12px; }
 
+.poi-text {
+  fill: red;
+  font-size: 12pt;
+  font-style: italic;
+  font-family: "Lucida Grande", Lucida, Verdana, sans-serif; }
+
 /*# sourceMappingURL=LineDetails.css.map */

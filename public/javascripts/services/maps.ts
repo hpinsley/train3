@@ -330,25 +330,31 @@ module Maps {
             var x:number = this.lngScale(poi.lnglat[0]);
             var y:number = this.latScale(poi.lnglat[1]);
 
-            poiGroup.append("circle")
+            var circle = poiGroup.append("circle")
+                .attr({
+                    cx: 5,
+                    cy: 5,
+                    r: 1,
+                    fill: "blue"
+                });
+
+            circle.transition()
+                .duration(2000)
                 .attr({
                     cx: x,
                     cy: y,
                     r: 10,
-                    fill: "blue"
-                });
-
-            poiGroup.append("text")
-                .attr({
-                    x: x + 12,
-                    y: y,
-                    "text-anchor": "left",
-                    fill: "black"
                 })
-                .text(poi.name)
-                .style({
-                    "font-size":"7pt",
-                    "font-weight": "bold"
+                .each("end", function(){
+                    poiGroup.append("text")
+                        .attr({
+                            x: x + 12,
+                            y: y,
+                            "text-anchor": "left",
+                            //fill: "black",
+                            class: "poi-text"
+                        })
+                        .text(poi.name);
                 });
         }
 
