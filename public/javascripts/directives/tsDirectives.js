@@ -14,5 +14,10 @@ angular.module('train').directive('hpHoverInvoke', function () {
             });
         }
     };
+}).directive("hpPoiDetails", function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'views/poi/poiFields.html'
+    };
 });
 //# sourceMappingURL=tsDirectives.js.map

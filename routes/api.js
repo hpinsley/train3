@@ -158,6 +158,23 @@ router.get('/poi', function(req, res, next){
     });
 });
 
+router.get('/poi/:number', function(req,res, next){
+    var coll = req.db.collection("poi");
+    var number = parseInt(req.params.number);
+    coll.findOne({number: number}, function(e, poi){
+        if (e) {
+            return next(e);
+        }
+        if (!poi) {
+            var err = new Error('Not Found');
+            err.status = 404;
+            return next(err);
+        }
+        res.send(poi);
+    });
+
+});
+
 router.get('/stations/:stationAbbr/trains', function(req,res, next) {
     var coll = req.db.collection("trains");
     var stationAbbr = req.params.stationAbbr;
@@ -230,6 +247,18 @@ router.put('/stations/:abbr', function(req, res, next){
     var abbr = req.params.abbr;
     req.body._id = mongoskin.helper.toObjectID(req.body._id);
     coll.update({abbr: abbr}, req.body, function(e,updateResult){
+        if (e) {
+            return next(e);
+        }
+        res.send({updateResult: updateResult});
+    });
+});
+
+router.put('/poi/:number', function(req, res, next){
+    var coll = req.db.collection("poi");
+    var number = parseInt(req.params.number);
+    req.body._id = mongoskin.helper.toObjectID(req.body._id);
+    coll.update({number: number}, req.body, function(e,updateResult){
         if (e) {
             return next(e);
         }

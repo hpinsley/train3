@@ -1,0 +1,17 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/poi/poiDetails.css"/>
+<h1>Details of Point of Interest</h1>
+
+<div class="well">
+    <form name="poiForm" class="form-horizontal" role="form">
+        <hp-poi-details>
+
+        </hp-poi-details>
+        <div class="form-group">
+            <div class="col-xs-5 col-xs-offset-1">
+                <button class="btn btn-large btn-default" ng-disabled="!poiForm.$valid"
+                        ng-click="updatePoi()">Update Point of Interest</button>
+            </div>
+        </div>
+
+    </form>
+</div>

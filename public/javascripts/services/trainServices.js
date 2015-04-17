@@ -16,6 +16,10 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         return $http.put("/api/stations/" + station.abbr, station);
     }
 
+    var updatePoi = function(poi) {
+        return $http.put("/api/poi/" + poi.number, poi);
+    }
+
     var updateLine = function(line) {
         return $http.put("/api/lines/" + line.name, line);
     }
@@ -53,6 +57,10 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
 
     var getTrain = function(trainNumber) {
         return $http.get("/api/trains/" + trainNumber);
+    }
+
+    var getPoi = function(number) {
+        return $http.get("/api/poi/" + number);
     }
 
     var addStop = function(trainNumber, stopTime, station) {
@@ -135,6 +143,8 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         updateLine: updateLine,
         getMapFileList: getMapFileList,
         addPoi: addPoi,
-        getPois: getPois
+        getPois: getPois,
+        getPoi: getPoi,
+        updatePoi: updatePoi
     };
 }]);

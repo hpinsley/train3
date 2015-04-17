@@ -4,8 +4,8 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>Number</th>
         <th>Name</th>
+        <th>Number</th>
         <th>Description</th>
         <th>Lat,Lng</th>
     </tr>
@@ -13,8 +13,8 @@
     </thead>
     <tbody>
     <tr ng-repeat="poi in pois">
+        <td><a href="#/poi/{{poi.number}}">{{poi.name}}</a></td>
         <td>{{poi.number}}</td>
-        <td>{{poi.name}}</td>
         <td>{{poi.description}}</td>
         <td>{{poi.lnglat[1]}},{{poi.lnglat[0]}}</td>
     </tr>

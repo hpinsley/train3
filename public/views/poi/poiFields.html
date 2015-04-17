@@ -1,0 +1,37 @@
+<div>
+    <div class="form-group">
+        <div class="col-xs-1">
+            <label class="control-label" for="poi-number">Number:</label>
+        </div>
+        <div id="poi-number" class="col-xs-5">
+            <span>{{poi.number}}</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-1">
+            <label class="control-label" for="poi-name">Name:</label>
+        </div>
+        <div class="col-xs-5">
+            <input id="poi-name" type="text" ng-model="poi.name" placeholder="Name" required/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-1">
+            <label class="control-label" for="poi-description">Description:</label>
+        </div>
+        <div class="col-xs-5">
+            <input id="poi-description" type="text" ng-model="poi.description"
+                   placeholder="Description" size="50" required/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-1">
+            <label class="control-label" for="poi-latlng">Location:</label>
+        </div>
+        <div class="col-xs-5">
+            <input id="poi-latlng" type="text" ng-model="latlng"
+                   placeholder="latitude,longitude" size="50" required/>
+        </div>
+    </div>
+</div>

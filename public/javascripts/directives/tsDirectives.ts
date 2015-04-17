@@ -17,4 +17,10 @@ angular.module('train')
 
         }
     };
-});
+})
+.directive("hpPoiDetails", function(){
+        return {
+            restrict: 'E',
+            templateUrl: 'views/poi/poiFields.html'
+        }
+    });

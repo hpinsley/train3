@@ -41,6 +41,10 @@ angular.module('train', ['ngRoute','ui.bootstrap'])
                 templateUrl: 'views/poi/newPointOfInterest.html',
                 controller: 'newPointOfInterestController'
             })
+            .when('/poi/:number',{
+                templateUrl: 'views/poi/poiDetails.html',
+                controller: 'poiDetailsController'
+            })
             .when('/poi', {
                 templateUrl: 'views/poi/poi.html',
                 controller: 'poiController'
