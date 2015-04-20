@@ -317,6 +317,14 @@ module Maps {
             poiGroup.remove();
         }
 
+        private XFromPoi(poi:TrainDefs.Poi) : number {
+            return this.lngScale(poi.lnglat[0]);
+        }
+
+        private YFromPoi(poi:TrainDefs.Poi) : number {
+            return this.latScale(poi.lnglat[1]);
+        }
+
         public mapPointsOfInterest(pois:TrainDefs.Poi[]) {
             var self = this;
             self.removePointsOfInterest();
@@ -327,10 +335,10 @@ module Maps {
         }
 
         private drawPointOfInterest(poi:TrainDefs.Poi, poiGroup:D3.Selection) {
-            var x:number = this.lngScale(poi.lnglat[0]);
-            var y:number = this.latScale(poi.lnglat[1]);
+            var self = this;
 
             var circle = poiGroup.append("circle")
+                .datum(poi)
                 .attr({
                     cx: 5,
                     cy: 5,
@@ -341,15 +349,15 @@ module Maps {
             circle.transition()
                 .duration(2000)
                 .attr({
-                    cx: x,
-                    cy: y,
-                    r: 10,
+                    cx: self.XFromPoi.bind(self),
+                    cy: self.YFromPoi.bind(self),
+                    r: 10
                 })
                 .each("end", function(){
                     poiGroup.append("text")
                         .attr({
-                            x: x + 12,
-                            y: y,
+                            x: self.XFromPoi(poi) + 12,
+                            y: self.YFromPoi(poi),
                             "text-anchor": "left",
                             //fill: "black",
                             class: "poi-text"

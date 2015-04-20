@@ -218,6 +218,12 @@ var Maps;
             var poiGroup = this.svg.select("g#pois");
             poiGroup.remove();
         };
+        LineMap.prototype.XFromPoi = function (poi) {
+            return this.lngScale(poi.lnglat[0]);
+        };
+        LineMap.prototype.YFromPoi = function (poi) {
+            return this.latScale(poi.lnglat[1]);
+        };
         LineMap.prototype.mapPointsOfInterest = function (pois) {
             var self = this;
             self.removePointsOfInterest();
@@ -227,22 +233,21 @@ var Maps;
             }
         };
         LineMap.prototype.drawPointOfInterest = function (poi, poiGroup) {
-            var x = this.lngScale(poi.lnglat[0]);
-            var y = this.latScale(poi.lnglat[1]);
-            var circle = poiGroup.append("circle").attr({
+            var self = this;
+            var circle = poiGroup.append("circle").datum(poi).attr({
                 cx: 5,
                 cy: 5,
                 r: 1,
                 fill: "blue"
             });
             circle.transition().duration(2000).attr({
-                cx: x,
-                cy: y,
+                cx: self.XFromPoi.bind(self),
+                cy: self.YFromPoi.bind(self),
                 r: 10
             }).each("end", function () {
                 poiGroup.append("text").attr({
-                    x: x + 12,
-                    y: y,
+                    x: self.XFromPoi(poi) + 12,
+                    y: self.YFromPoi(poi),
                     "text-anchor": "left",
                     //fill: "black",
                     class: "poi-text"
