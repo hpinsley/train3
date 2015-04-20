@@ -240,7 +240,10 @@ var Maps;
                 r: 1,
                 fill: "blue"
             }).on("click", function (poi) {
-                alert(poi.description);
+                var cx = self.XFromPoi(poi);
+                var cy = self.YFromPoi(poi);
+                self.tooltip.transition().duration(1000).style("opacity", 1).style("left", cx).style("top", cy + self.tooltipOffset);
+                self.tooltip.html(poi.description);
             });
             circle.transition().duration(2000).attr({
                 cx: self.XFromPoi.bind(self),

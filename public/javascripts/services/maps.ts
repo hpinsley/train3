@@ -346,7 +346,17 @@ module Maps {
                     fill: "blue"
                 })
                 .on("click", function (poi:TrainDefs.Poi) {
-                    alert(poi.description);
+                    var cx = self.XFromPoi(poi);
+                    var cy = self.YFromPoi(poi);
+
+                    self.tooltip.transition()
+                        .duration(1000)
+                        .style("opacity", 1)
+                        .style("left", cx)
+                        .style("top", cy + self.tooltipOffset);
+
+                    self.tooltip.html(poi.description);
+
                 });
 
 
