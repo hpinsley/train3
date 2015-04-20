@@ -318,11 +318,11 @@ module Maps {
         }
 
         private XFromPoi(poi:TrainDefs.Poi) : number {
-            return this.lngScale(poi.lnglat[0]);
+            return this.LngToX(poi.lnglat[0]);
         }
 
         private YFromPoi(poi:TrainDefs.Poi) : number {
-            return this.latScale(poi.lnglat[1]);
+            return this.LatToY(poi.lnglat[1]);
         }
 
         public mapPointsOfInterest(pois:TrainDefs.Poi[]) {
@@ -344,7 +344,11 @@ module Maps {
                     cy: 5,
                     r: 1,
                     fill: "blue"
+                })
+                .on("click", function (poi:TrainDefs.Poi) {
+                    alert(poi.description);
                 });
+
 
             circle.transition()
                 .duration(2000)
@@ -393,11 +397,19 @@ module Maps {
                 });
         }
 
-        private X(station:TrainDefs.Station):number {
+        private LngToX(lng:number):number {
+            return this.lngScale(lng);
+        }
+
+        private LatToY(lat:number):number {
+            return this.latScale(lat);
+        }
+
+        private XFromStation(station:TrainDefs.Station):number {
             return this.lngScale(station.lnglat[0])
         }
 
-        private Y(station:TrainDefs.Station):number {
+        private YFromStation(station:TrainDefs.Station):number {
             return this.latScale(station.lnglat[1])
         }
 
@@ -433,10 +445,10 @@ module Maps {
                 })
                 .attr({
                     x: function (station) {
-                        return self.X(station) + 10;
+                        return self.XFromStation(station) + 10;
                     },
                     y: function (station) {
-                        return self.Y(station) + 15;
+                        return self.YFromStation(station) + 15;
                     }
                 });
         }

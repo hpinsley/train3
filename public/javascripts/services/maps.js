@@ -219,10 +219,10 @@ var Maps;
             poiGroup.remove();
         };
         LineMap.prototype.XFromPoi = function (poi) {
-            return this.lngScale(poi.lnglat[0]);
+            return this.LngToX(poi.lnglat[0]);
         };
         LineMap.prototype.YFromPoi = function (poi) {
-            return this.latScale(poi.lnglat[1]);
+            return this.LatToY(poi.lnglat[1]);
         };
         LineMap.prototype.mapPointsOfInterest = function (pois) {
             var self = this;
@@ -239,6 +239,8 @@ var Maps;
                 cy: 5,
                 r: 1,
                 fill: "blue"
+            }).on("click", function (poi) {
+                alert(poi.description);
             });
             circle.transition().duration(2000).attr({
                 cx: self.XFromPoi.bind(self),
@@ -273,10 +275,16 @@ var Maps;
                 "font-weight": "bold"
             });
         };
-        LineMap.prototype.X = function (station) {
+        LineMap.prototype.LngToX = function (lng) {
+            return this.lngScale(lng);
+        };
+        LineMap.prototype.LatToY = function (lat) {
+            return this.latScale(lat);
+        };
+        LineMap.prototype.XFromStation = function (station) {
             return this.lngScale(station.lnglat[0]);
         };
-        LineMap.prototype.Y = function (station) {
+        LineMap.prototype.YFromStation = function (station) {
             return this.latScale(station.lnglat[1]);
         };
         LineMap.prototype.updateStopColors = function () {
@@ -300,10 +308,10 @@ var Maps;
                 return station.abbr;
             }).attr({
                 x: function (station) {
-                    return self.X(station) + 10;
+                    return self.XFromStation(station) + 10;
                 },
                 y: function (station) {
-                    return self.Y(station) + 15;
+                    return self.YFromStation(station) + 15;
                 }
             });
         };
