@@ -5,6 +5,8 @@
 
 module Maps {
 
+    var EarthRadiusMiles:number = 3959;
+
     export interface INotifyStationClick {
         selectStation(station:TrainDefs.Station) : void;
     }
@@ -333,7 +335,17 @@ module Maps {
                         var x2 = pos[0];
                         var y2 = pos[1];
 
+                        var lng1 = self.lngScale.invert(x1);
+                        var lng2 = self.lngScale.invert(x2);
+                        var lat1 = self.latScale.invert(y1);
+                        var lat2 = self.latScale.invert(y2);
+
+                        var dist = d3.geo.distance([lng1,lat1],[lng2,lat2]) * EarthRadiusMiles;
+
                         console.log("Drawing line from ", x1, y1, x2, y2);
+                        console.log("Drawing line from ", lng1, lat1, lng2, lat2);
+                        console.log("Distance:", dist);
+
                         self.dragLine.attr({
                             x1: x1,
                             y1: y1,
@@ -345,6 +357,19 @@ module Maps {
                 .on("mouseup", function(){
                     console.log("Mouse up");
                     self.dragging = false;
+                    var pos = d3.mouse(this);   //this is the svg element
+                    var x1 = self.startDrag[0];
+                    var y1 = self.startDrag[1];
+                    var x2 = pos[0];
+                    var y2 = pos[1];
+
+                    var lng1 = self.lngScale.invert(x1);
+                    var lng2 = self.lngScale.invert(x2);
+                    var lat1 = self.latScale.invert(y1);
+                    var lat2 = self.latScale.invert(y2);
+
+                    var dist = d3.geo.distance([lng1,lat1],[lng2,lat2]) * EarthRadiusMiles;
+                    alert("Distance: " + dist + " miles.");
                 });
 
         }
