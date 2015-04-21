@@ -20,6 +20,7 @@ div#tooltip {
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
   font-family: sans-serif;
   font-size:12px;
+  pointer-events: none;
 }
 
 .poi-text {

@@ -31,6 +31,9 @@ module Maps {
         private blackoutStops:string[] = [];
         private labelCallback:(station:TrainDefs.Station) => string;
         private mapData;
+        private startDrag:number[] = [0,0];
+        private dragLine;
+        private dragging:boolean;
 
         constructor(public trainServices, public $q:angular.IQService, lineOrTrain:any, allStations:TrainDefs.Station[], public elementId:string, public w:number, public h:number) {
 
@@ -276,6 +279,7 @@ module Maps {
                     width: this.w,
                     height: this.h
                 });
+
             }
 
             this.svg.selectAll("path")
@@ -294,6 +298,54 @@ module Maps {
                     return this.latScale(station.lnglat[1])
                 })
                 .interpolate("linear");
+            this.dragLine = this.svg.append("line")
+                .style({
+                    stroke: "black",
+                    "stroke-width": "2px"
+                })
+                .attr({
+                    id: "dragLine",
+                    class: "dragLine",
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 0
+                });
+
+            this.svg
+                .on("mousedown", function() {
+                    var pos = d3.mouse(this);   //this is the svg element
+                    console.log("mousedown", pos);
+                    self.dragging = true;
+                    self.startDrag = pos;
+                    self.dragLine.attr({
+                        x1: pos[0],
+                        y1: pos[1],
+                        x2: pos[0],
+                        y2: pos[1]
+                    });
+                })
+                .on("mousemove", function() {
+                    var pos = d3.mouse(this);   //this is the svg element
+                    if (self.dragging) {
+                        var x1 = self.startDrag[0];
+                        var y1 = self.startDrag[1];
+                        var x2 = pos[0];
+                        var y2 = pos[1];
+
+                        console.log("Drawing line from ", x1, y1, x2, y2);
+                        self.dragLine.attr({
+                            x1: x1,
+                            y1: y1,
+                            x2: x2,
+                            y2: y2
+                        });
+                    }
+                })
+                .on("mouseup", function(){
+                    console.log("Mouse up");
+                    self.dragging = false;
+                });
 
         }
 
@@ -345,7 +397,7 @@ module Maps {
                     r: 1,
                     fill: "blue"
                 })
-                .on("click", function (poi:TrainDefs.Poi) {
+                .on("mouseenter", function (poi:TrainDefs.Poi) {
                     var cx = self.XFromPoi(poi);
                     var cy = self.YFromPoi(poi);
 
@@ -355,8 +407,11 @@ module Maps {
                         .style("left", cx)
                         .style("top", cy + self.tooltipOffset);
 
-                    self.tooltip.html(poi.description);
+                    self.tooltip.html(self.buildPoiTooltip(poi));
 
+                })
+                .on("mouseleave", function (poi:TrainDefs.Poi) {
+                    self.hideTooltip();
                 });
 
 
@@ -565,6 +620,16 @@ module Maps {
             }
             if (station.lnglat) {
                 str = str + "<br/>[" + station.lnglat[0].toFixed(2) + "," + station.lnglat[1].toFixed(2) + "]";
+            }
+            return str;
+        }
+        private buildPoiTooltip(poi:TrainDefs.Poi):string {
+            var str = "<a href='/#/poi/" + poi.number + "'>" + poi.name + "</a><br/>";
+
+            str += poi.description;
+
+            if (poi.lnglat) {
+                str = str + "<br/>[" + poi.lnglat[0].toFixed(2) + "," + poi.lnglat[1].toFixed(2) + "]";
             }
             return str;
         }

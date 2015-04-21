@@ -15,6 +15,7 @@ var Maps;
             this.cropFeaturesAtStations = false;
             this.transitionTime = 1000;
             this.blackoutStops = [];
+            this.startDrag = [0, 0];
             var self = this;
             this.stationClickHandlers = [];
             this.mapId = _.uniqueId("map");
@@ -200,6 +201,47 @@ var Maps;
             }).y(function (station) {
                 return this.latScale(station.lnglat[1]);
             }).interpolate("linear");
+            this.dragLine = this.svg.append("line").style({
+                stroke: "black",
+                "stroke-width": "2px"
+            }).attr({
+                id: "dragLine",
+                class: "dragLine",
+                x1: 0,
+                y1: 0,
+                x2: 0,
+                y2: 0
+            });
+            this.svg.on("mousedown", function () {
+                var pos = d3.mouse(this); //this is the svg element
+                console.log("mousedown", pos);
+                self.dragging = true;
+                self.startDrag = pos;
+                self.dragLine.attr({
+                    x1: pos[0],
+                    y1: pos[1],
+                    x2: pos[0],
+                    y2: pos[1]
+                });
+            }).on("mousemove", function () {
+                var pos = d3.mouse(this); //this is the svg element
+                if (self.dragging) {
+                    var x1 = self.startDrag[0];
+                    var y1 = self.startDrag[1];
+                    var x2 = pos[0];
+                    var y2 = pos[1];
+                    console.log("Drawing line from ", x1, y1, x2, y2);
+                    self.dragLine.attr({
+                        x1: x1,
+                        y1: y1,
+                        x2: x2,
+                        y2: y2
+                    });
+                }
+            }).on("mouseup", function () {
+                console.log("Mouse up");
+                self.dragging = false;
+            });
         };
         LineMap.prototype.removeFeatureLabels = function () {
             var featureGroup = this.svg.select("g#featureLabels");
@@ -239,11 +281,13 @@ var Maps;
                 cy: 5,
                 r: 1,
                 fill: "blue"
-            }).on("click", function (poi) {
+            }).on("mouseenter", function (poi) {
                 var cx = self.XFromPoi(poi);
                 var cy = self.YFromPoi(poi);
                 self.tooltip.transition().duration(1000).style("opacity", 1).style("left", cx).style("top", cy + self.tooltipOffset);
-                self.tooltip.html(poi.description);
+                self.tooltip.html(self.buildPoiTooltip(poi));
+            }).on("mouseleave", function (poi) {
+                self.hideTooltip();
             });
             circle.transition().duration(2000).attr({
                 cx: self.XFromPoi.bind(self),
@@ -391,6 +435,14 @@ var Maps;
             }
             if (station.lnglat) {
                 str = str + "<br/>[" + station.lnglat[0].toFixed(2) + "," + station.lnglat[1].toFixed(2) + "]";
+            }
+            return str;
+        };
+        LineMap.prototype.buildPoiTooltip = function (poi) {
+            var str = "<a href='/#/poi/" + poi.number + "'>" + poi.name + "</a><br/>";
+            str += poi.description;
+            if (poi.lnglat) {
+                str = str + "<br/>[" + poi.lnglat[0].toFixed(2) + "," + poi.lnglat[1].toFixed(2) + "]";
             }
             return str;
         };
