@@ -1,13 +1,13 @@
 div#graph {
   height: auto;
   width: auto;
-  border: 1px solid black;
+  //border: 1px solid black;
   position: fixed;
 }
 
 .distanceLabel {
   font-size: 14pt;
-  color: red;
+  fill: red;
 }
 div#tooltip {
   position: absolute;

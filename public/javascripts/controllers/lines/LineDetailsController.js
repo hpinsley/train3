@@ -3,6 +3,8 @@ angular.module("train")
 
         $log.debug("Start of LineDetailsController");
         var map;
+        var mapWidth = 870;
+        var mapHeight = 620;
 
         $scope.lineName = $routeParams["lineName"];
 
@@ -28,7 +30,7 @@ angular.module("train")
 
         $q.all([linePromise,stationPromise,poiPromise])
             .then(function(){
-                map = new Maps.LineMap(trainServices, $q, $scope.line, $scope.stations, "graph", 900, 600);
+                map = new Maps.LineMap(trainServices, $q, $scope.line, $scope.stations, "graph", mapWidth, mapHeight);
                 map.tooltipOffset = 10;
                 map.plotMap()
                     .then(function(){

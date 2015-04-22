@@ -1,18 +1,20 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/lines/LineDetails.css"/>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 well">
         <h2>{{lineName}} Line</h2>
 
         <form class="form-horizontal" role="form">
             <div class="form-group">
                 <label for="lineName" class="control-label col-xs-4">Line Name:</label>
+
                 <div class="col-xs-8">
-                    <input id="lineName" class="input-lg form-control" type="text" ng-model="line.name" />
+                    <input id="lineName" class="input-lg form-control" type="text" ng-model="line.name"/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="mapFile" class="control-label col-xs-4">Map file:</label>
+
                 <div class="col-xs-8">
                     <select id="mapFile" class="input-lg form-control"
                             ng-options="mapFile as mapFile for mapFile in mapFiles | orderBy:'toString()'"
@@ -20,7 +22,8 @@
                 </div>
             </div>
             <div class="form-group">
-                <input type="button" class="btn btn-large col-xs-offset-4" value="Update Line" ng-click="updateLine(line)"/>
+                <input type="button" class="btn btn-large col-xs-offset-4" value="Update Line"
+                       ng-click="updateLine(line)"/>
             </div>
 
             <div class="form-group">
@@ -40,13 +43,14 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <td>Show</td>
+                <th></th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="stationAbbr in line.stations">
                 <td>
-                    <a hp-hover-invoke val="stationAbbr" invoke="$parent.stationChange(stationAbbr)" href="/#/stations/{{stationAbbr}}">{{stationAbbr | stationName}}</a>
+                    <a hp-hover-invoke val="stationAbbr" invoke="$parent.stationChange(stationAbbr)"
+                       href="/#/stations/{{stationAbbr}}">{{stationAbbr | stationName}}</a>
                 </td>
                 <td>
                     <button class="btn btn-large glyphicon glyphicon-arrow-up" hp-focus-move-row
@@ -62,7 +66,8 @@
                     <button class="btn btn-large" ng-click="deleteStation(lineName, stationAbbr)">Delete</button>
                 </td>
                 <td>
-                    <input type="radio" name="stationRadioGroup" ng-value="stationAbbr" ng-model="$parent.selectedStation"
+                    <input type="radio" name="stationRadioGroup" ng-value="stationAbbr"
+                           ng-model="$parent.selectedStation"
                            ng-click="stationChange(stationAbbr)"/>
 
                 </td>
@@ -72,17 +77,19 @@
 
     </div>
     <div class="col-md-8">
-        <input type="checkbox" ng-model="showLine" ng-click="showLineClicked()"/>
-        <span>Show Line</span>
-        &nbsp; &nbsp;
-        <input type="checkbox" ng-model="showStationLabels" ng-click="showStationLabelsClicked()"/>
-        <span>Show Station Labels</span>
-        &nbsp; &nbsp;
-        <input type="checkbox" ng-model="showMapFeatures" ng-click="showMapFeaturesClicked()"/>
-        <span>Show Map Features</span>
-        &nbsp; &nbsp;
-        <input type="checkbox" ng-model="showPoi" ng-click="showPoiClicked()"/>
-        <span>Show Points of Interest</span>
+
+        <div class="well"><input type="checkbox" ng-model="showLine" ng-click="showLineClicked()"/>
+            <span>Show Line</span>
+            &nbsp; &nbsp;
+            <input type="checkbox" ng-model="showStationLabels" ng-click="showStationLabelsClicked()"/>
+            <span>Show Station Labels</span>
+            &nbsp; &nbsp;
+            <input type="checkbox" ng-model="showMapFeatures" ng-click="showMapFeaturesClicked()"/>
+            <span>Show Map Features</span>
+            &nbsp; &nbsp;
+            <input type="checkbox" ng-model="showPoi" ng-click="showPoiClicked()"/>
+            <span>Show Points of Interest</span>
+        </div>
 
         <div id="graph">
         </div>
