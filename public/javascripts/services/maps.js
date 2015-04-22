@@ -17,6 +17,8 @@ var Maps;
             this.transitionTime = 1000;
             this.blackoutStops = [];
             this.startDrag = [0, 0];
+            this.palette0 = ['rgb(215,48,39)', 'rgb(244,109,67)', 'rgb(253,174,97)', 'rgb(254,224,144)', 'rgb(255,255,191)', 'rgb(224,243,248)', 'rgb(171,217,233)', 'rgb(116,173,209)', 'rgb(69,117,180)'];
+            this.palette1 = ['rgb(244,109,67)', 'rgb(253,174,97)', 'rgb(254,224,144)', 'rgb(255,255,191)', 'rgb(224,243,248)', 'rgb(171,217,233)', 'rgb(116,173,209)'];
             var self = this;
             this.stationClickHandlers = [];
             this.mapId = _.uniqueId("map");
@@ -196,7 +198,9 @@ var Maps;
                     height: this.h
                 });
             }
-            this.svg.selectAll("path").data(json.features).enter().append("path").attr("d", path).attr("fill", "#fefefe").attr("stroke", "black");
+            this.svg.selectAll("path").data(json.features).enter().append("path").attr("d", path).attr("fill", function (d, i) {
+                return self.palette1[i % self.palette1.length];
+            }).attr("stroke", "black");
             this.lineFun = d3.svg.line().x(function (station) {
                 return this.lngScale(station.lnglat[0]);
             }).y(function (station) {
