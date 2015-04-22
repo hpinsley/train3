@@ -4,6 +4,10 @@ div#graph {
   border: 1px solid black;
   position: fixed; }
 
+.distanceLabel {
+  font-size: 14pt;
+  color: red; }
+
 div#tooltip {
   position: absolute;
   width: 150px;

@@ -228,7 +228,9 @@ var Maps;
                     x2: pos[0],
                     y2: pos[1]
                 });
-                self.distanceLabel.remove();
+                if (self.distanceLabel) {
+                    self.distanceLabel.remove();
+                }
             }).on("mousemove", function () {
                 var pos = d3.mouse(this); //this is the svg element
                 if (self.dragging) {
@@ -240,10 +242,9 @@ var Maps;
                     var lng2 = self.lngScale.invert(x2);
                     var lat1 = self.latScale.invert(y1);
                     var lat2 = self.latScale.invert(y2);
-                    var dist = d3.geo.distance([lng1, lat1], [lng2, lat2]) * EarthRadiusMiles;
-                    console.log("Drawing line from ", x1, y1, x2, y2);
-                    console.log("Drawing line from ", lng1, lat1, lng2, lat2);
-                    console.log("Distance:", dist);
+                    //console.log("Drawing line from ", x1, y1, x2, y2);
+                    //console.log("Drawing line from ", lng1, lat1, lng2, lat2);
+                    //console.log("Distance:", dist);
                     self.dragLine.attr({
                         x1: x1,
                         y1: y1,
@@ -270,10 +271,25 @@ var Maps;
                 //alert("Distance: " + dist + " miles.");
                 var xMid = (x1 + x2) / 2;
                 var yMid = (y1 + y2) / 2;
-                self.distanceLabel = self.svg.append("text").text(dist.toFixed(2) + " miles").attr({
-                    x: xMid,
-                    y: yMid
+                var radians;
+                if (x1 === x2) {
+                    radians = Math.PI / 2;
+                }
+                else {
+                    var slope = (y1 - y2) / (x2 - x1); //Remember that y values increase going down
+                    radians = Math.atan(slope);
+                }
+                console.log("Radians", radians);
+                var degrees = 180 * (radians / Math.PI);
+                console.log("Degrees", degrees);
+                var rotation = -1 * degrees;
+                console.log("Rotating text " + rotation + " degrees");
+                self.distanceLabel = self.svg.append("text").text(dist.toFixed(2) + " miles").style("text-anchor", "middle").attr({
+                    class: "distanceLabel",
+                    transform: "translate(" + xMid + "," + (yMid - 5) + ")rotate(" + rotation + ")"
                 });
+                //.attr("dx", "-.8em")
+                //.attr("dy", ".15em");
             });
         };
         LineMap.prototype.removeFeatureLabels = function () {
