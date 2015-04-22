@@ -286,7 +286,7 @@ var Maps;
                 console.log("Rotating text " + rotation + " degrees");
                 self.distanceLabel = self.svg.append("text").text(dist.toFixed(2) + " miles").style("text-anchor", "middle").attr({
                     class: "distanceLabel",
-                    transform: "translate(" + xMid + "," + (yMid - 5) + ")rotate(" + rotation + ")"
+                    transform: "translate(" + xMid + "," + yMid + ")rotate(" + rotation + ")translate(0,-5)"
                 });
                 //.attr("dx", "-.8em")
                 //.attr("dy", ".15em");

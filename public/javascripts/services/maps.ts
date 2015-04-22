@@ -412,7 +412,7 @@ module Maps {
                         .style("text-anchor", "middle")
                         .attr({
                             class: "distanceLabel",
-                            transform: "translate(" + xMid + "," + (yMid - 5) + ")rotate(" + rotation + ")"
+                            transform: "translate(" + xMid + "," + yMid + ")rotate(" + rotation + ")translate(0,-5)"
                         });
                             //.attr("dx", "-.8em")
                             //.attr("dy", ".15em");
