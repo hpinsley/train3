@@ -36,6 +36,7 @@ module Maps {
         private startDrag:number[] = [0,0];
         private dragLine;
         private dragging:boolean;
+        private distanceLabel;
 
         constructor(public trainServices, public $q:angular.IQService, lineOrTrain:any, allStations:TrainDefs.Station[], public elementId:string, public w:number, public h:number) {
 
@@ -300,6 +301,14 @@ module Maps {
                     return this.latScale(station.lnglat[1])
                 })
                 .interpolate("linear");
+
+            this.createDistanceLineBehavior();
+        }
+
+        private createDistanceLineBehavior():void {
+
+            var self = this;
+
             this.dragLine = this.svg.append("line")
                 .style({
                     stroke: "black",
@@ -326,6 +335,7 @@ module Maps {
                         x2: pos[0],
                         y2: pos[1]
                     });
+                    self.distanceLabel.remove();
                 })
                 .on("mousemove", function() {
                     var pos = d3.mouse(this);   //this is the svg element
@@ -363,17 +373,31 @@ module Maps {
                     var x2 = pos[0];
                     var y2 = pos[1];
 
+                    if (x1 === x2 && y1 == y2) {
+                        return; //Nothing drawn
+                    }
+
                     var lng1 = self.lngScale.invert(x1);
                     var lng2 = self.lngScale.invert(x2);
                     var lat1 = self.latScale.invert(y1);
                     var lat2 = self.latScale.invert(y2);
 
                     var dist = d3.geo.distance([lng1,lat1],[lng2,lat2]) * EarthRadiusMiles;
-                    alert("Distance: " + dist + " miles.");
+                    //alert("Distance: " + dist + " miles.");
+
+                    var xMid = (x1 + x2) / 2;
+                    var yMid = (y1 + y2) / 2;
+
+                    self.distanceLabel = self.svg.append("text")
+                        .text(dist.toFixed(2) + " miles")
+                        .attr({
+                            x: xMid,
+                            y: yMid
+                        });
                 });
 
-        }
 
+        }
         public removeFeatureLabels() {
             var featureGroup = this.svg.select("g#featureLabels");
             featureGroup.remove();
@@ -436,6 +460,7 @@ module Maps {
 
                 })
                 .on("mouseleave", function (poi:TrainDefs.Poi) {
+
                     self.hideTooltip();
                 });
 
