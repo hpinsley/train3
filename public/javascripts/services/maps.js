@@ -279,17 +279,14 @@ var Maps;
                     var slope = (y1 - y2) / (x2 - x1); //Remember that y values increase going down
                     radians = Math.atan(slope);
                 }
-                console.log("Radians", radians);
                 var degrees = 180 * (radians / Math.PI);
-                console.log("Degrees", degrees);
                 var rotation = -1 * degrees;
-                console.log("Rotating text " + rotation + " degrees");
+                var transformText = "translate(" + xMid + "," + yMid + ")rotate(" + rotation + ")translate(0,-5)";
+                console.log("Text transform:", transformText);
                 self.distanceLabel = self.svg.append("text").text(dist.toFixed(2) + " miles").style("text-anchor", "middle").attr({
                     class: "distanceLabel",
-                    transform: "translate(" + xMid + "," + yMid + ")rotate(" + rotation + ")translate(0,-5)"
+                    transform: transformText
                 });
-                //.attr("dx", "-.8em")
-                //.attr("dy", ".15em");
             });
         };
         LineMap.prototype.removeFeatureLabels = function () {
