@@ -15,7 +15,7 @@ angular.module("train")
                 map.erase();
             }
             map = new Maps.LineMap(trainServices, $q, $scope.train, $scope.stations, "tripMap", mapWidth, mapHeight);
-            map.tooltipOffset = 20;
+            map.tooltipOffset = 40;
             map.cropFeaturesAtStations = true;
             map.labelFeatures = true;
 
@@ -70,6 +70,8 @@ angular.module("train")
                     return stopIndex(station.abbr);
                 });
                 drawMap();
+
+                $scope.distanceInMiles = trainServices.distanceInMilesBetweenStations(_.first($scope.stations), _.last($scope.stations)).toFixed(2);
             });
 
         $scope.stopFilter = function(stop) {

@@ -1,5 +1,7 @@
 angular.module("train").factory('trainServices', ["$http", "$log", "$q", function ($http,$log,$q) {
 
+    var EarthRadiusMiles = 3959;
+
     var getStations = function() {
         return $http.get("/api/stations");
     };
@@ -121,6 +123,15 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         return $http.get("/api/lines/maps");
     }
 
+    var distanceInMilesBetween = function(lnglat1, lnglat2) {
+        var dist = d3.geo.distance(lnglat1,lnglat2) * EarthRadiusMiles;
+        return dist;
+    }
+
+    var distanceInMilesBetweenStations = function(station1, station2) {
+        return distanceInMilesBetween(station1.lnglat, station2.lnglat);
+    }
+
     return {
         getStation: getStation,
         getStations: getStations,
@@ -145,6 +156,8 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         addPoi: addPoi,
         getPois: getPois,
         getPoi: getPoi,
-        updatePoi: updatePoi
+        updatePoi: updatePoi,
+        distanceInMilesBetween: distanceInMilesBetween,
+        distanceInMilesBetweenStations: distanceInMilesBetweenStations
     };
 }]);
