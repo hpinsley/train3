@@ -1,6 +1,17 @@
 <style>
+    div.ls-outer-div {
+        display:inline-block;
+        vertical-align: middle;
+        width: 200px;
+        height: 60px;
+        cursor: pointer;
+    }
+
+    div.ls-inner-div {
+        overflow-y: scroll;
+    }
+
     div.ls-line {
-        /*display:table-cell;*/
         vertical-align: middle;
         background-color: white;
         font-size: 14pt;
@@ -12,6 +23,11 @@
     div.ls-line.expanded:hover {
         background-color: blue;
     }
+
+    div.ls-line.expanded:hover table {
+        color: white;
+    }
+
     td.ls-lineName {
         font-weight: bold;
     }
@@ -24,8 +40,8 @@
     }
 
 </style>
-<div style="display:inline-block; vertical-align: middle; width: 200px; height: 30px;">
-    <div style="overflow-y: scroll; cursor: pointer; width:200px;">
+<div class="ls-outer-div">
+    <div class="ls-inner-div">
         <div class="ls-line" ng-hide="!expanded && $index != selectedIndex" ng-class="getClass()" ng-repeat="line in lines" ng-click="lineClick(line, $index)">
             <table>
                 <tr>
