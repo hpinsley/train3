@@ -29,8 +29,7 @@ angular.module('train')
             restrict: 'E',
             templateUrl: 'views/common/hpLineSelect.html',
             scope: {
-                lines: '=',
-                stations: '='
+                lines: '='
             },
             line: function(scope, iElement, iAttrs) {
 
@@ -38,6 +37,7 @@ angular.module('train')
             controller: function($scope) {
                 $scope.selectedIndex = 0;
                 $scope.expanded = false;
+                $scope.stations = [];           //We don't want to pass the map any stations
 
                 $scope.getClass = function() {
                     return $scope.expanded ? "expanded" : "";

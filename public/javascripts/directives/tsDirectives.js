@@ -24,14 +24,14 @@ angular.module('train').directive('hpHoverInvoke', function () {
         restrict: 'E',
         templateUrl: 'views/common/hpLineSelect.html',
         scope: {
-            lines: '=',
-            stations: '='
+            lines: '='
         },
         line: function (scope, iElement, iAttrs) {
         },
         controller: function ($scope) {
             $scope.selectedIndex = 0;
             $scope.expanded = false;
+            $scope.stations = []; //We don't want to pass the map any stations
             $scope.getClass = function () {
                 return $scope.expanded ? "expanded" : "";
             };
