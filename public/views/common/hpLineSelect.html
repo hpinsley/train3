@@ -1,0 +1,33 @@
+<style>
+    div.lineNameDiv {
+        font-weight: bold;
+        display:inline-block;
+        margin:auto;
+        height:28px;
+    }
+    div.line {
+        display:block;
+        vertical-align: middle;
+        background-color: white;
+        font-size: 14pt;
+        padding: 3px;
+        border: 1px solid black;
+        border-radius: 3px;
+        height: 60px;
+    }
+    div.line.expanded:hover {
+        background-color: blue;
+    }
+
+</style>
+<div style="display:inline-block; vertical-align: middle; width: 200px; height: 30px;">
+    <div style="overflow-y: scroll; cursor: pointer; position:fixed; width:200px;">
+        <div ng-hide="!expanded && $index != selectedIndex" ng-class="getClass()" class="line" ng-repeat="line in lines" ng-click="lineClick(line, $index)">
+            <div class="lineNameDiv">{{line.name}}</div>
+            <div style="display:inline-block" id="line_{{::$index}}" hp-line-map line="line" stations="stations" w="50" h="50">
+            </div>
+            <span ng-show="expanded && $index == selectedIndex" class="glyphicon glyphicon-check"></span>
+            <span ng-show="!expanded" class="glyphicon glyphicon-circle-arrow-down" style="vertical-align: middle; horiz-align: right"></span>
+        </div>
+    </div>
+</div>

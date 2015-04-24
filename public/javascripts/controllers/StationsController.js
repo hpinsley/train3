@@ -39,9 +39,8 @@ angular.module("train")
                 $scope.lines = res;
             });
 
-
         $scope.selectedLineFn = function(station) {
-            if ($scope.selectedLine == null) {
+            if (!$scope.selectedLine) {
                 return true;
             }
 
