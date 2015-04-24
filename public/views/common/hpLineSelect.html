@@ -42,11 +42,11 @@
 </style>
 <div class="ls-outer-div">
     <div class="ls-inner-div">
-        <div class="ls-line" ng-hide="!expanded && $index != selectedIndex" ng-class="getClass()" ng-repeat="line in lines" ng-click="lineClick(line, $index)">
+        <div class="ls-line" ng-hide="!expanded && $index != selectedIndex" ng-class="getClass()" ng-repeat="line in lineList" ng-click="lineClick(line, $index)">
             <table>
                 <tr>
                     <td class="ls-lineName">{{line.name}}</td>
-                    <td class="ls-map" id="line_{{::$index}}" hp-line-map line="line" stations="stations" w="50" h="50"></td>
+                    <td ng-if="line.map" class="ls-map" id="line_{{::$index}}" hp-line-map line="line" stations="stations" w="50" h="50"></td>
                     <td class="ls-arrow" ng-show="expanded && $index == selectedIndex">
                         <span class="glyphicon glyphicon-check"></span>
                     </td>

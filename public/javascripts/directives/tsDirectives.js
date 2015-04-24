@@ -24,11 +24,28 @@ angular.module('train').directive('hpHoverInvoke', function () {
         restrict: 'E',
         templateUrl: 'views/common/hpLineSelect.html',
         scope: {
-            lines: '='
+            lines: '=',
+            includeAllSelection: '@'
         },
         line: function (scope, iElement, iAttrs) {
         },
         controller: function ($scope) {
+            function setLineList() {
+                //We don't want to use the callers array of lines because
+                //we may stick an (all) selection at the front
+                if ($scope.lines && !$scope.lineList) {
+                    $scope.lineList = _.clone($scope.lines);
+                    if ($scope.includeAllSelection === "true") {
+                        var allLines = {
+                            name: '(all)',
+                            map: null,
+                            stations: []
+                        };
+                        $scope.lineList.unshift(allLines);
+                    }
+                }
+            }
+            $scope.$watch("lines", setLineList);
             $scope.selectedIndex = 0;
             $scope.expanded = false;
             $scope.stations = []; //We don't want to pass the map any stations
