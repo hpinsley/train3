@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
 
-debug("Environment:", process.env);
+//debug("Environment:", process.env);
 
 var mongo_url = process.env.TRAINS_MONGO_URL || 'mongodb://@localhost:27017/trains';
 debug("Mongo Url:", mongo_url);
