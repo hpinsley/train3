@@ -17,6 +17,16 @@ router.get('/lines/maps', function(req,res, next){
     });
 });
 
+router.get('/stations/pictures', function(req,res, next){
+    var folder = "../public/images/stations";
+    fs.readdir(folder, function(err, filenames){
+        if (err) {
+            return next(err);
+        }
+        res.send(filenames);
+    });
+});
+
 router.post("/lines/:lineName/stations/:stationAbbr/move", function(req, res, next){
     var coll = req.db.collection("lines");
 

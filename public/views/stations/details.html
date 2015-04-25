@@ -7,7 +7,7 @@
     </div>
 </h2>
 <div class="well">
-    <img ng-src="images/{{station.image}}" />
+    <img ng-src="images/stations/{{station.image}}" />
 </div>
 <div class="row">
     <div class="col-md-3" style="border-right: solid black 1px">
@@ -21,7 +21,9 @@
             <div class="form-group">
                 <label>
                     Picture:
-                    <input type="text" required ng-model="station.image"/>
+                    <select class="input-medium" ng-options="stationPicture as stationPicture for stationPicture in stationPictures | orderBy:'toString()'" ng-model="station.image">
+
+                    </select>
                 </label>
             </div>
             <div class="form-group">

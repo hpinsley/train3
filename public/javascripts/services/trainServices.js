@@ -132,6 +132,10 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         return distanceInMilesBetween(station1.lnglat, station2.lnglat);
     }
 
+    var getStationPictures = function() {
+        return $http.get("/api/stations/pictures");
+    }
+
     return {
         getStation: getStation,
         getStations: getStations,
@@ -158,6 +162,7 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         getPoi: getPoi,
         updatePoi: updatePoi,
         distanceInMilesBetween: distanceInMilesBetween,
-        distanceInMilesBetweenStations: distanceInMilesBetweenStations
+        distanceInMilesBetweenStations: distanceInMilesBetweenStations,
+        getStationPictures: getStationPictures
     };
 }]);

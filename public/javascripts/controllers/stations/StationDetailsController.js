@@ -13,6 +13,11 @@ angular.module("train")
                 $scope.latlng = station.lnglat[1].toString() + "," + station.lnglat[0].toString();
             }
         }
+
+        trainServices.getStationPictures()
+            .then(function(res){
+                $scope.stationPictures = res.data;
+            });
         trainServices.getStation(stationAbbr)
             .success(function(data){
                 $scope.station = data;
