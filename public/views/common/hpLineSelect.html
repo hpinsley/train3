@@ -46,7 +46,10 @@
             <table>
                 <tr>
                     <td class="ls-lineName">{{line.name}}</td>
-                    <td ng-if="line.map" class="ls-map" id="line_{{::$index}}" hp-line-map line="line" stations="stations" w="50" h="50"></td>
+                    <td class="ls-map" >
+                        <div ng-if="line.map" hp-line-map id="line_{{::$index}}" line="line" stations="stations" w="50" h="50">
+                        </div>
+                    </td>
                     <td class="ls-arrow" ng-show="expanded && $index == selectedIndex">
                         <span class="glyphicon glyphicon-check"></span>
                     </td>

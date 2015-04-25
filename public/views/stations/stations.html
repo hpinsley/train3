@@ -1,7 +1,12 @@
 <div class="pull-right">
-    <hp-line-select lines="lines" include-all-selection="true">
+
+    <hp-line-select
+            lines="lines"
+            include-all-selection="true"
+            line-selected="selectLine(line)">
 
     </hp-line-select>
+
     <span>
         <label style="font-size:14pt" class="text-info">Line:
             <select class="input-lg" ng-model="selectedLine" ng-options="line.name as line.name for line in lines">

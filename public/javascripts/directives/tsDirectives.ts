@@ -29,8 +29,10 @@ angular.module('train')
             restrict: 'E',
             templateUrl: 'views/common/hpLineSelect.html',
             scope: {
+                //remember that callers have to use - casing -- not camel casing in their attributes
                 lines: '=',
-                includeAllSelection: '@'
+                includeAllSelection: '@',
+                lineSelected: '&'
             },
             line: function(scope, iElement, iAttrs) {
 
@@ -67,6 +69,8 @@ angular.module('train')
                     if ($scope.expanded) {
                         $scope.selectedIndex = index;
                         $scope.expanded = false;
+
+                        $scope.lineSelected({line: line});  //Tell the directive user
                     }
                     else {
                         $scope.expanded = true;
