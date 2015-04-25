@@ -10,6 +10,7 @@ var lookups = require('./helpers/lookups');
 var app = express();
 var routes = require('./routes/index');
 var api = require('./routes/api');
+var debug = require('debug')('trains');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon());
@@ -19,9 +20,12 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
 
+debug("Environment:", process.env);
 
+var mongo_url = process.env.TRAINS_MONGO_URL || 'mongodb://@localhost:27017/trains';
+debug("Mongo Url:", mongo_url);
 
-var db = mongoskin.db('mongodb://@localhost:27017/trains', {safe:true})
+var db = mongoskin.db(mongo_url, {safe:true})
 lookups.init(db);
 
 //Inject the db into the request object
