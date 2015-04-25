@@ -1,26 +1,12 @@
 <div class="pull-right">
-
-    <hp-line-select
-            lines="lines"
-            include-all-selection="true"
-            line-selected="selectLine(line)">
-
+    <label style="font-size:14pt" class="text-info">Line:</label>
+    <hp-line-select lines="lines" include-all-selection="true" line-selected="selectLine(line)">
+        
     </hp-line-select>
-
-    <span>
-        <label style="font-size:14pt" class="text-info">Line:
-            <select class="input-lg" ng-model="selectedLine" ng-options="line.name as line.name for line in lines">
-                <option value="">(all)</option>
-            </select>
-        </label>
-    </span>
-    <span>
-        <a class="btn btn-lg btn-info" href="#/stations/new">New Station</a>
-    </span>
+    <a class="btn btn-lg btn-info" href="#/stations/new">New Station</a>
 </div>
 
-<h1>Stations <span ng-if="selectedLine">on the {{selectedLine}} line</span>
-</h1>
+<h1>Stations <span ng-if="selectedLine">on the {{selectedLine}} line</span></h1>
 
 <table class="table table-condensed table-striped">
     <thead>
