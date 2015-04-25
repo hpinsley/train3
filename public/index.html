@@ -1,84 +1,84 @@
 <html ng-app="train">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Trains</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Trains</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="/vendor/html5-boilerplate/css/normalize.css">
-        <link rel="stylesheet" href="/vendor/html5-boilerplate/css/main.css">
-        <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css">
-        <script src="/vendor/modernizr/modernizr.js"></script>
-    </head>
-    <body ng-controller="bodyController">
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <link rel="stylesheet" href="/vendor/html5-boilerplate/css/normalize.css">
+    <link rel="stylesheet" href="/vendor/html5-boilerplate/css/main.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css">
+    <script src="/vendor/modernizr/modernizr.js"></script>
+</head>
+<body ng-controller="bodyController">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
 
-        <!-- Add your site or application content here -->
-        <nav class="navbar navbar-inverse" role="navigation">
-            <div class="container-fluid">
-                <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
-                    <ul class="nav navbar-nav">
-                        <li ng-class="getClass('/')"><a href="#">Home</a></li>
-                        <li ng-class="getClass('/stations')"><a href="#/stations">Stations</a></li>
-                        <li ng-class="getClass('/trains')"><a href="#/trains">Trains</a></li>
-                        <li ng-class="getClass('/lines')"><a href="#/lines">Lines</a></li>
-                        <li ng-class="getClass('/poi')"><a href="#/poi">Points of Interest</a></li>
-                        <li ng-class="getClass('/d3')" class="dropdown">
-                            <a data-toggle="dropdown" class="dropdown-toggle">Visualizations<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#/d3/trainsPerStation">Trains Per Station</a></li>
-                                <li><a href="#/d3/trainScatter">Train Scatter</a></li>
-                                <li><a href="#/d3/stationMap">Station Map</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                <!--</div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
-            </div><!-- /.container-fluid -->
-        </nav>
+<!-- Add your site or application content here -->
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#/stations">Stations</a></li>
+            <li><a href="#/trains">Trains</a></li>
+            <li><a href="#/lines">Lines</a></li>
+            <li><a href="#/poi">Points of Interest</a></li>
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle">Visualizations<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#/d3/trainsPerStation">Trains Per Station</a></li>
+                    <li><a href="#/d3/trainScatter">Train Scatter</a></li>
+                    <li><a href="#/d3/stationMap">Station Map</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- /.container-fluid -->
+</nav>
 
-        <div class="container">
-            <div ng-view>
+<div class="container">
+    <div ng-view>
 
-            </div>
-        </div>
+    </div>
+</div>
 
-        <script src="/vendor/jquery/jquery.js"></script>
-        <script src="/vendor/bootstrap/js/bootstrap.js"></script>
-        <script src="/vendor/angular/angular.js"></script>
-        <script src="/vendor/angular/angular-route.js"></script>
-        <script src="/vendor/lodash/lodash.js"></script>
-        <script src="/vendor/moment/moment.js"></script>
-        <script src="/vendor/angular-ui-bootstrap/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-        <script src="/vendor/d3/d3.js"></script>
-        <script src="/javascripts/app.js"></script>
-        <script src="/javascripts/services/maps.js"></script>
-        <script src="/javascripts/services/trainServices.js"></script>
-        <script src="/javascripts/services/cacheServices.js"></script>
-        <script src="/javascripts/services/helperServices.js"></script>
-        <script src="/javascripts/filters/lookupFilters.js"></script>
-        <script src="/javascripts/directives/helperDirectives.js"></script>
-        <script src="/javascripts/directives/tsDirectives.js"></script>
-        <script src="/javascripts/controllers/bodyController.js"></script>
-        <script src="/javascripts/controllers/HomeController.js"></script>
-        <script src="/javascripts/controllers/TrainsController.js"></script>
-        <script src="/javascripts/controllers/StationsController.js"></script>
-        <script src="/javascripts/controllers/NewStationController.js"></script>
-        <script src="/javascripts/controllers/trains/TrainDetailsController.js"></script>
-        <script src="/javascripts/controllers/trains/TrainDetailsDialogController.js"></script>
-        <script src="/javascripts/controllers/stations/StationDetailsController.js"></script>
-        <script src="/javascripts/controllers/trains/TripController.js"></script>
-        <script src="/javascripts/controllers/lines/LinesController.js"></script>
-        <script src="/javascripts/controllers/lines/LineDetailsController.js"></script>
-        <script src="/javascripts/controllers/d3/TrainsPerStationController.js"></script>
-        <script src="/javascripts/controllers/d3/TrainScatterController.js"></script>
-        <script src="/javascripts/controllers/d3/StationMapController.js"></script>
-        <script src="/javascripts/controllers/poi/poiController.js"></script>
-        <script src="/javascripts/controllers/poi/newPointOfInterestController.js"></script>
-        <script src="/javascripts/controllers/poi/poiDetailsController.js"></script>
-    </body>
+<script src="/vendor/jquery/jquery.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="/vendor/angular/angular.js"></script>
+<script src="/vendor/angular/angular-route.js"></script>
+<script src="/vendor/lodash/lodash.js"></script>
+<script src="/vendor/moment/moment.js"></script>
+<script src="/vendor/angular-ui-bootstrap/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+<script src="/vendor/d3/d3.js"></script>
+<script src="/javascripts/app.js"></script>
+<script src="/javascripts/services/maps.js"></script>
+<script src="/javascripts/services/trainServices.js"></script>
+<script src="/javascripts/services/cacheServices.js"></script>
+<script src="/javascripts/services/helperServices.js"></script>
+<script src="/javascripts/filters/lookupFilters.js"></script>
+<script src="/javascripts/directives/helperDirectives.js"></script>
+<script src="/javascripts/directives/tsDirectives.js"></script>
+<script src="/javascripts/controllers/bodyController.js"></script>
+<script src="/javascripts/controllers/HomeController.js"></script>
+<script src="/javascripts/controllers/TrainsController.js"></script>
+<script src="/javascripts/controllers/StationsController.js"></script>
+<script src="/javascripts/controllers/NewStationController.js"></script>
+<script src="/javascripts/controllers/trains/TrainDetailsController.js"></script>
+<script src="/javascripts/controllers/trains/TrainDetailsDialogController.js"></script>
+<script src="/javascripts/controllers/stations/StationDetailsController.js"></script>
+<script src="/javascripts/controllers/trains/TripController.js"></script>
+<script src="/javascripts/controllers/lines/LinesController.js"></script>
+<script src="/javascripts/controllers/lines/LineDetailsController.js"></script>
+<script src="/javascripts/controllers/d3/TrainsPerStationController.js"></script>
+<script src="/javascripts/controllers/d3/TrainScatterController.js"></script>
+<script src="/javascripts/controllers/d3/StationMapController.js"></script>
+<script src="/javascripts/controllers/poi/poiController.js"></script>
+<script src="/javascripts/controllers/poi/newPointOfInterestController.js"></script>
+<script src="/javascripts/controllers/poi/poiDetailsController.js"></script>
+</body>
 </html>
