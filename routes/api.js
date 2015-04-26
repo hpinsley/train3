@@ -6,8 +6,12 @@ var lookups = require('../helpers/lookups');
 var _ = require('lodash');
 var moment = require('moment');
 var fs = require('fs');
+var logger = require('debug')('trains');
+var path = require('path');
 
 router.get('/lines/maps', function(req,res, next){
+    var curPath = process.cwd();
+    logger("Current path is:[%s]", curPath);
     var folder = "../public/data";
     fs.readdir(folder, function(err, filenames){
         if (err) {
