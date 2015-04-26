@@ -12,7 +12,7 @@ var path = require('path');
 router.get('/lines/maps', function(req,res, next){
     var curPath = process.cwd();
     logger("Current path is:[%s]", curPath);
-    var folder = "../public/data";
+    var folder = "./public/data";
     fs.readdir(folder, function(err, filenames){
         if (err) {
             return next(err);
@@ -22,7 +22,7 @@ router.get('/lines/maps', function(req,res, next){
 });
 
 router.get('/stations/pictures', function(req,res, next){
-    var folder = "../public/images/stations";
+    var folder = "./public/images/stations";
     fs.readdir(folder, function(err, filenames){
         if (err) {
             return next(err);
