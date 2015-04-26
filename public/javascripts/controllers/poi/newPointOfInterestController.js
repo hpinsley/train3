@@ -9,7 +9,8 @@ angular.module("train").controller("newPointOfInterestController", function ($sc
         });
         trainServices.addPoi($scope.poi).then(function (res) {
             console.log(res);
-            $location.path("/poi");
+            $scope.poi = res.data[0];
+            delete $scope.poi._id;
         }, function (err) {
             console.error(err);
         });

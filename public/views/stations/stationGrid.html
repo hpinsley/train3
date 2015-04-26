@@ -1,3 +1,19 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/stations/stationGrid.css"/>
 
 <h2>Station Grid</h2>
+
+<table id="grid">
+    <tr>
+       <td>&nbsp;</td>
+       <td ng-repeat="toStation in stations">
+           <span title="{{toStation.name}}">{{toStation.abbr}}</span>
+       </td>
+    </tr>
+
+    <tr ng-repeat="fromStation in stations">
+        <td><span title="{{fromStation.name}}">{{fromStation.abbr}}</span></td>
+        <td ng-repeat="toStation in stations">
+            10
+        </td>
+    </tr>
+</table>
