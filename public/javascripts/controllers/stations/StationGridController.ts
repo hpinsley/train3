@@ -10,6 +10,9 @@ interface StationGridControllerScope extends ng.IScope {
     stationFilterFn(station:TrainDefs.Station):boolean;
     selectLine(line:TrainDefs.Line):void
     selectedLine: TrainDefs.Line;
+    mouseOver(fromStation:TrainDefs.Station,toStation:TrainDefs.Station) :void;
+    fromStation: TrainDefs.Station;
+    toStation: TrainDefs.Station;
 }
 
 angular.module("train")
@@ -29,6 +32,11 @@ angular.module("train")
             }
         );
 
+        $scope.mouseOver = function(fromStation:TrainDefs.Station,toStation:TrainDefs.Station) :void {
+            $scope.fromStation = fromStation;
+            $scope.toStation = toStation;
+        }
+
         $scope.stationFilterFn = function(station:TrainDefs.Station) : boolean {
             if (!$scope.selectedLine) {
                 return false;
@@ -38,6 +46,8 @@ angular.module("train")
 
         $scope.selectLine = function(line:TrainDefs.Line) {
             $scope.selectedLine = line;
+            $scope.fromStation = null;
+            $scope.toStation = null;
         }
 
         function buildGrid() : void {

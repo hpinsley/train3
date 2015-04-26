@@ -11,6 +11,10 @@ angular.module("train").controller("StationGridController", function ($scope, $q
         $scope.trains = resVector[2].data;
         buildGrid();
     });
+    $scope.mouseOver = function (fromStation, toStation) {
+        $scope.fromStation = fromStation;
+        $scope.toStation = toStation;
+    };
     $scope.stationFilterFn = function (station) {
         if (!$scope.selectedLine) {
             return false;
@@ -19,6 +23,8 @@ angular.module("train").controller("StationGridController", function ($scope, $q
     };
     $scope.selectLine = function (line) {
         $scope.selectedLine = line;
+        $scope.fromStation = null;
+        $scope.toStation = null;
     };
     function buildGrid() {
         $scope.selectedLine = $scope.lines[0];

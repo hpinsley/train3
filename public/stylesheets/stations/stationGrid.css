@@ -1,26 +1,38 @@
 h2 {
   color: blue; }
 
-div#tableContainer {
-  width: 1200px;
-  max-width: 1200px;
-  max-height: 700px;
-  overflow-y: scroll;
-  overflow-x: scroll;
-  border: 5px solid darkslategray;
-  border-radius: 5px; }
+.from-to {
+  font-size: 18pt;
+  color: green; }
 
-table#grid tr:nth-of-type(1) {
-  background-color: teal;
-  color: yellow; }
-table#grid th, table#grid td {
-  padding: 3px;
-  border: 1px solid black;
-  overflow: hidden;
-  width: 50px;
-  min-width: 50px; }
-  table#grid th:nth-of-type(1), table#grid td:nth-of-type(1) {
-    background-color: teal;
+.tableTitle {
+  color: blue;
+  font-size: 16pt; }
+
+.horizontalTitle {
+  text-align: center; }
+
+.verticalTitle {
+  display: inline-block;
+  text-wrap: none; }
+
+table#grid {
+  font-family: Tahoma;
+  font-size: 10pt;
+  cursor: pointer; }
+  table#grid tr:nth-of-type(1) {
+    background-color: black;
     color: yellow; }
+  table#grid th, table#grid td {
+    text-align: center;
+    font-weight: normal;
+    padding: 0px;
+    border: 1px solid black;
+    overflow: hidden;
+    width: 37px;
+    min-width: 37px; }
+    table#grid th:nth-of-type(1), table#grid td:nth-of-type(1) {
+      background-color: black;
+      color: yellow; }
 
 /*# sourceMappingURL=stationGrid.css.map */
