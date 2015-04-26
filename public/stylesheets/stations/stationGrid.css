@@ -1,23 +1,24 @@
 h2 {
   color: blue; }
 
-table#grid {
-  width: 800px;
-  height: 400px;
-  table-layout: fixed;
+div#tableContainer {
+  max-width: 1000px;
+  max-height: 700px;
   overflow-y: scroll;
-  overflow-x: scroll; }
-  table#grid tr:nth-of-type(1) {
+  overflow-x: scroll;
+  border: 5px solid darkslategray; }
+
+table#grid tr:nth-of-type(1) {
+  background-color: teal;
+  color: yellow; }
+table#grid th, table#grid td {
+  padding: 3px;
+  border: 1px solid black;
+  overflow: hidden;
+  width: 50px;
+  min-width: 50px; }
+  table#grid th:nth-of-type(1), table#grid td:nth-of-type(1) {
     background-color: teal;
     color: yellow; }
-  table#grid td {
-    padding: 3px;
-    border: 1px solid black;
-    overflow: hidden;
-    min-width: 50px;
-    width: 50px; }
-    table#grid td:nth-of-type(1) {
-      background-color: teal;
-      color: yellow; }
 
 /*# sourceMappingURL=stationGrid.css.map */

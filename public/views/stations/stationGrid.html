@@ -1,19 +1,32 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/stations/stationGrid.css"/>
 
-<h2>Station Grid</h2>
+<div class="container">
+    <div class="pull-left">
+        <h2>Station Grid</h2>
+    </div>
 
-<table id="grid">
-    <tr>
-       <td>&nbsp;</td>
-       <td ng-repeat="toStation in stations">
-           <span title="{{toStation.name}}">{{toStation.abbr}}</span>
-       </td>
-    </tr>
+    <div class="pull-right">
+        <label style="font-size:14pt" class="text-info">Line:</label>
+        <hp-line-select lines="lines" include-all-selection="false" line-selected="selectLine(line)">
 
-    <tr ng-repeat="fromStation in stations">
+        </hp-line-select>
+    </div>
+</div>
+
+<div id="tableContainer">
+    <table id="grid">
+        <tr>
+            <th>X</th>
+            <th ng-repeat="toStation in stations | filter:stationFilterFn | orderBy:'abbr'">
+                <span title="{{toStation.name}}">{{toStation.abbr}}</span>
+            </th>
+        </tr>
+
+        <tr ng-repeat="fromStation in stations| filter:stationFilterFn | orderBy:'abbr'">
         <td><span title="{{fromStation.name}}">{{fromStation.abbr}}</span></td>
-        <td ng-repeat="toStation in stations">
+        <td ng-repeat="toStation in stations | filter:stationFilterFn | orderBy:'abbr'">
             10
         </td>
-    </tr>
-</table>
+        </tr>
+    </table>
+</div>
