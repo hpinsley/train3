@@ -15,7 +15,9 @@
 
 <div id="container">
     <div class="row">
-        <div class="col-md-11 col-md-offset-1"><span class="tableTitle horizontalTitle">To Station</span></div>
+        <div class="col-md-11 col-md-offset-1">
+            <span class="tableTitle horizontalTitle">To Station</span>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-1"><span class="tableTitle verticalTitle">From Station</span></div>
@@ -31,7 +33,7 @@
                 <tr ng-repeat="fromStation in stations| filter:stationFilterFn | orderBy:'abbr'">
                     <td><span title="{{fromStation.name}}">{{fromStation.abbr}}</span></td>
                     <td ng-mouseover="mouseOver(fromStation,toStation)" ng-repeat="toStation in stations | filter:stationFilterFn | orderBy:'abbr'">
-                        10
+                        <span title="{{collector.trainListDisplay(fromStation, toStation)}}"><a href="/#/trains?startStation={{fromStation.abbr}}&endStation={{toStation.abbr}}">{{collector.trainCount(fromStation, toStation)}}</a></span>
                     </td>
                 </tr>
             </table>
@@ -40,7 +42,7 @@
     </div>
     <div class="row">
         <div class="col-md-11 col-md-offset-1">
-            <span ng-if="fromStation && toStation" class="from-to">From {{fromStation.name}} to {{toStation.name}}<span>
+            <span ng-if="fromStation && toStation" class="from-to">From {{fromStation.name}} to {{toStation.name}}</span>
         </div>
     </div>
 </div>
