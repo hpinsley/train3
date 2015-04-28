@@ -73,7 +73,7 @@ angular.module("train")
                 alert("Function restricted to administrators.");
                 return;
             }
-            
+
             if (confirm("Do you really want to delete " + station.name + "?")) {
                 trainServices.deleteStation(station)
                     .success(function(result){
