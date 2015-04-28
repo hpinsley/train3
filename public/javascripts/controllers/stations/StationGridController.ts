@@ -84,6 +84,7 @@ interface StationGridControllerScope extends ng.IScope {
     fromStation: TrainDefs.Station;
     toStation: TrainDefs.Station;
     collector: Collector;
+    getCellClass(fromStation:TrainDefs.Station, toStation:TrainDefs.Station) : string;
 }
 
 angular.module("train")
@@ -109,6 +110,23 @@ angular.module("train")
         $scope.mouseOver = function(fromStation:TrainDefs.Station,toStation:TrainDefs.Station) :void {
             $scope.fromStation = fromStation;
             $scope.toStation = toStation;
+        }
+
+        $scope.getCellClass = function(fromStation:TrainDefs.Station, toStation:TrainDefs.Station) : string {
+
+            if (fromStation === toStation) {
+                return "Disallowed"
+            }
+            if (fromStation === $scope.fromStation && toStation === $scope.toStation) {
+                return "MatchBoth";
+            }
+            if (fromStation === $scope.fromStation) {
+                return "MatchFrom";
+            }
+            if (toStation === $scope.toStation) {
+                return "MatchTo";
+            }
+            return null;
         }
 
         $scope.stationFilterFn = function(station:TrainDefs.Station) : boolean {

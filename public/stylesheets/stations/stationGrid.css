@@ -34,5 +34,15 @@ table#grid {
     table#grid th:nth-of-type(1), table#grid td:nth-of-type(1) {
       background-color: black;
       color: yellow; }
+    table#grid th.Disallowed, table#grid td.Disallowed {
+      background-color: red; }
+    table#grid th.MatchBoth, table#grid td.MatchBoth {
+      background-color: black; }
+      table#grid th.MatchBoth a, table#grid td.MatchBoth a {
+        color: yellow; }
+    table#grid th.MatchFrom, table#grid th.MatchTo, table#grid td.MatchFrom, table#grid td.MatchTo {
+      background-color: black; }
+      table#grid th.MatchFrom a, table#grid th.MatchTo a, table#grid td.MatchFrom a, table#grid td.MatchTo a {
+        color: white; }
 
 /*# sourceMappingURL=stationGrid.css.map */

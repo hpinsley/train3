@@ -71,6 +71,21 @@ angular.module("train").controller("StationGridController", function ($scope, $q
         $scope.fromStation = fromStation;
         $scope.toStation = toStation;
     };
+    $scope.getCellClass = function (fromStation, toStation) {
+        if (fromStation === toStation) {
+            return "Disallowed";
+        }
+        if (fromStation === $scope.fromStation && toStation === $scope.toStation) {
+            return "MatchBoth";
+        }
+        if (fromStation === $scope.fromStation) {
+            return "MatchFrom";
+        }
+        if (toStation === $scope.toStation) {
+            return "MatchTo";
+        }
+        return null;
+    };
     $scope.stationFilterFn = function (station) {
         if (!$scope.selectedLine) {
             return false;

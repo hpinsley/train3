@@ -32,8 +32,8 @@
 
                 <tr ng-repeat="fromStation in stations| filter:stationFilterFn | orderBy:'abbr'">
                     <td><span title="{{fromStation.name}}">{{fromStation.abbr}}</span></td>
-                    <td ng-mouseover="mouseOver(fromStation,toStation)" ng-repeat="toStation in stations | filter:stationFilterFn | orderBy:'abbr'">
-                        <span title="{{collector.trainListDisplay(fromStation, toStation)}}"><a href="/#/trains?startStation={{fromStation.abbr}}&endStation={{toStation.abbr}}">{{collector.trainCount(fromStation, toStation)}}</a></span>
+                    <td ng-class="getCellClass(fromStation, toStation)" ng-mouseover="mouseOver(fromStation,toStation)" ng-repeat="toStation in stations | filter:stationFilterFn | orderBy:'abbr'">
+                        <span ng-show="fromStation != toStation" title="{{collector.trainListDisplay(fromStation, toStation)}}"><a href="/#/trains?startStation={{fromStation.abbr}}&endStation={{toStation.abbr}}">{{collector.trainCount(fromStation, toStation)}}</a></span>
                     </td>
                 </tr>
             </table>
