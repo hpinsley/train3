@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("TrainsController", function($scope, trainServices, cacheServices, helperServices, $location, $routeParams, $interval, $route){
+    .controller("TrainsController", function($scope, trainServices, cacheServices, helperServices, $location, $routeParams, $interval, $route, securityServices){
         $scope.title = "Trains";
 
         trainServices.getStations()
@@ -173,6 +173,11 @@ angular.module("train")
 
             if (!$scope.selectCount) {
                 alert("No trains selected.");
+                return;
+            }
+
+            if (!securityServices.isAdmin()) {
+                alert("Function restricted to admins only.");
                 return;
             }
 

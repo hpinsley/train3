@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("TrainDetailsController", function ($scope, $modal, $log, $location, trainServices, helperServices, $routeParams, $q) {
+    .controller("TrainDetailsController", function ($scope, $modal, $log, $location, trainServices, helperServices, $routeParams, $q, securityServices) {
 
         var trainMapWidth = 500;
         var trainMapHeight = 400;
@@ -194,6 +194,11 @@ angular.module("train")
         };
 
         $scope.dupTrain = function(train) {
+
+            if (!securityServices.isAdmin()) {
+                alert("Function restricted to administrators.");
+                return;
+            }
             var modalInstance = $modal.open({
                 templateUrl: 'views/trains/dupTrainDialog.html',
                 controller: 'TrainDetailsDialogController',

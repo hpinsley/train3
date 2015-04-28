@@ -1,5 +1,5 @@
 angular.module("train")
-    .controller("StationsController", function($scope, $location, $route, trainServices, cacheServices){
+    .controller("StationsController", function($scope, $location, $route, trainServices, cacheServices, securityServices){
 
         var setLineLists = function(stations) {
             _.each(stations, function(station){
@@ -68,6 +68,12 @@ angular.module("train")
         }
 
         $scope.deleteStation = function(station) {
+
+            if (!securityServices.isAdmin()) {
+                alert("Function restricted to administrators.");
+                return;
+            }
+            
             if (confirm("Do you really want to delete " + station.name + "?")) {
                 trainServices.deleteStation(station)
                     .success(function(result){
