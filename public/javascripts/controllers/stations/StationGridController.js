@@ -47,15 +47,74 @@ var Collector = (function () {
         fromToInfo = this.db[key];
         return (fromToInfo && fromToInfo.trainCount()) || 0;
     };
-    Collector.prototype.trainListDisplay = function (fromStation, toStation) {
+    Collector.prototype.getFromTo = function (fromStation, toStation) {
         var key = this.makeKey(fromStation, toStation);
         var fromToInfo;
         fromToInfo = this.db[key];
+        return fromToInfo;
+    };
+    Collector.prototype.trainListDisplay = function (fromStation, toStation) {
+        var fromToInfo = this.getFromTo(fromStation, toStation);
         return (fromToInfo && fromToInfo.trainListDisplay()) || "";
     };
     return Collector;
 })();
-angular.module("train").controller("StationGridController", function ($scope, $q, trainServices) {
+var TripsViewModel = (function () {
+    function TripsViewModel(helperServices, fromToInfo, selectedLine) {
+        this.helperServices = helperServices;
+        this.fromToInfo = fromToInfo;
+        this.selectedLine = selectedLine;
+        this.trains = _.cloneDeep(fromToInfo.trains);
+        this.filterTrainStops();
+    }
+    TripsViewModel.prototype.lineIndex = function (stationAbbr) {
+        return this.selectedLine.stations.indexOf(stationAbbr);
+    };
+    TripsViewModel.prototype.filterTrainStops = function () {
+        var _this = this;
+        var self = this;
+        var fromIndex = this.lineIndex(this.fromToInfo.fromStation.abbr);
+        var toIndex = this.lineIndex(this.fromToInfo.toStation.abbr);
+        var direction = (toIndex - fromIndex) / Math.abs(toIndex - fromIndex);
+        var minIndex = Math.min(fromIndex, toIndex);
+        var maxIndex = Math.max(fromIndex, toIndex);
+        this.stops = _.filter(this.selectedLine.stations, function (stationAbbr) {
+            var index = self.lineIndex(stationAbbr);
+            return index >= minIndex && index <= maxIndex;
+        });
+        this.stops = _.sortBy(this.stops, function (stationAbbr) {
+            var index = self.lineIndex(stationAbbr);
+            return direction * index;
+        });
+        //Take the stops out of these train clones if the stop is not between the
+        //two stations on the selected line.
+        this.trains.forEach(function (train) {
+            var realStops = train.stops; //Save the real stops
+            train.stops = [];
+            //Create a new stop entry for each top in this.stops
+            _this.stops.forEach(function (lineStop) {
+                var realStop = _.find(realStops, function (stop) {
+                    return lineStop === stop.station;
+                });
+                var stopTime;
+                if (realStop) {
+                    var d = _this.helperServices.translateZuluString(realStop.time);
+                    stopTime = _this.helperServices.formatTime(d);
+                }
+                else {
+                    stopTime = undefined;
+                }
+                var newStop = {
+                    station: lineStop,
+                    time: stopTime
+                };
+                train.stops.push(newStop);
+            });
+        });
+    };
+    return TripsViewModel;
+})();
+angular.module("train").controller("StationGridController", function ($scope, $q, trainServices, helperServices) {
     $scope.collector = new Collector();
     var stationsPromise = trainServices.getStations();
     var trainsPromise = trainServices.getTrains();
@@ -70,6 +129,10 @@ angular.module("train").controller("StationGridController", function ($scope, $q
     $scope.mouseOver = function (fromStation, toStation) {
         $scope.fromStation = fromStation;
         $scope.toStation = toStation;
+        var fromTo = $scope.collector.getFromTo(fromStation, toStation);
+        if (fromTo && $scope.selectedLine) {
+            $scope.tripViewModel = new TripsViewModel(helperServices, fromTo, $scope.selectedLine);
+        }
     };
     $scope.getCellClass = function (fromStation, toStation) {
         if (fromStation === toStation) {

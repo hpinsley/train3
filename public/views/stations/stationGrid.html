@@ -32,8 +32,12 @@
 
                 <tr ng-repeat="fromStation in stations| filter:stationFilterFn | orderBy:'abbr'">
                     <td><span title="{{fromStation.name}}">{{fromStation.abbr}}</span></td>
-                    <td ng-class="getCellClass(fromStation, toStation)" ng-mouseover="mouseOver(fromStation,toStation)" ng-repeat="toStation in stations | filter:stationFilterFn | orderBy:'abbr'">
-                        <span ng-show="fromStation != toStation" title="{{collector.trainListDisplay(fromStation, toStation)}}"><a href="/#/trains?startStation={{fromStation.abbr}}&endStation={{toStation.abbr}}">{{collector.trainCount(fromStation, toStation)}}</a></span>
+                    <td ng-class="getCellClass(fromStation, toStation)" ng-mouseover="mouseOver(fromStation,toStation)"
+                        ng-repeat="toStation in stations | filter:stationFilterFn | orderBy:'abbr'">
+                        <span ng-show="fromStation != toStation"
+                              title="{{collector.trainListDisplay(fromStation, toStation)}}"><a
+                                href="/#/trains?startStation={{fromStation.abbr}}&endStation={{toStation.abbr}}">{{collector.trainCount(fromStation,
+                            toStation)}}</a></span>
                     </td>
                 </tr>
             </table>
@@ -42,7 +46,33 @@
     </div>
     <div class="row">
         <div class="col-md-11 col-md-offset-1">
-            <span ng-if="fromStation && toStation" class="from-to">From {{fromStation.name}} to {{toStation.name}}</span>
+            <span ng-if="fromStation && toStation"
+                  class="from-to">From {{fromStation.name}} to {{toStation.name}}</span>
         </div>
     </div>
+</div>
+<div id="tripView">
+    <table id="tripViewTable" class="table table-condensed">
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th ng-repeat="stationAbbr in tripViewModel.stops">
+                {{stationAbbr}}
+            </th>
+        </tr>
+
+        </thead>
+        <tbody>
+
+        </tbody>
+        <tbody>
+
+        <tr ng-repeat="train in tripViewModel.trains">
+            <td>{{train.number}}</td>
+            <td ng-repeat="stop in train.stops">
+                {{stop.time}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>

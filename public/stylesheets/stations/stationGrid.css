@@ -45,4 +45,27 @@ table#grid {
       table#grid th.MatchFrom a, table#grid th.MatchTo a, table#grid td.MatchFrom a, table#grid td.MatchTo a {
         color: white; }
 
+table#tripViewTable {
+  border: 1px solid black;
+  font-size: 8pt; }
+  table#tripViewTable td, table#tripViewTable th {
+    text-align: center; }
+  table#tripViewTable th {
+    background-color: black;
+    color: white; }
+    table#tripViewTable th:nth-child(2) {
+      background-color: darkgreen; }
+    table#tripViewTable th:last-child {
+      background-color: darkred; }
+  table#tripViewTable td {
+    border: 1px solid black; }
+    table#tripViewTable td:nth-child(2) {
+      color: white;
+      font-weight: bold;
+      background-color: darkgreen; }
+    table#tripViewTable td:last-child {
+      color: white;
+      font-weight: bold;
+      background-color: darkred; }
+
 /*# sourceMappingURL=stationGrid.css.map */
