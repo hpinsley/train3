@@ -47,9 +47,16 @@ table#grid {
 
 table#tripViewTable {
   border: 1px solid black;
-  font-size: 8pt; }
+  font-size: 8pt;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto; }
   table#tripViewTable td, table#tripViewTable th {
     text-align: center; }
+    table#tripViewTable td:nth-child(1), table#tripViewTable th:nth-child(1) {
+      font-weight: bold;
+      background-color: black;
+      color: yellow; }
   table#tripViewTable th {
     background-color: black;
     color: white; }
@@ -67,5 +74,7 @@ table#tripViewTable {
       color: white;
       font-weight: bold;
       background-color: darkred; }
+    table#tripViewTable td span.glyphicon-arrow-right {
+      font-size: 12pt; }
 
 /*# sourceMappingURL=stationGrid.css.map */

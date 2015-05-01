@@ -77,9 +77,17 @@ table#grid {
 table#tripViewTable {
     border: 1px solid black;
     font-size: 8pt;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
 
     td,th {
         text-align: center;
+        &:nth-child(1) {
+            font-weight: bold;
+            background-color: black;
+            color: yellow;
+        }
     }
     th {
         background-color: black;
@@ -93,6 +101,7 @@ table#tripViewTable {
     }
     td {
         border: 1px solid black;
+
         &:nth-child(2) {
             color: white;
             font-weight: bold;
@@ -102,6 +111,10 @@ table#tripViewTable {
             color: white;
             font-weight: bold;
             background-color: darkred;
+        }
+
+        span.glyphicon-arrow-right {
+            font-size:12pt;
         }
     }
 }

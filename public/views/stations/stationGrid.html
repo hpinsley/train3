@@ -70,7 +70,8 @@
         <tr ng-repeat="train in tripViewModel.trains">
             <td>{{train.number}}</td>
             <td ng-repeat="stop in train.stops">
-                {{stop.time}}
+                <span ng-show="stop.time">{{stop.time}}</span>
+                <span ng-hide="stop.time" class="glyphicon glyphicon-arrow-right"></span>
             </td>
         </tr>
         </tbody>
