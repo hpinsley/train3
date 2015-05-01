@@ -106,6 +106,14 @@ angular.module("train")
             }
         }
 
+        $scope.stationChange = function(stationAbbr) {
+
+            var station = _.find($scope.stations, function(station){
+                return station.abbr === stationAbbr;
+            });
+            map.plotStationLoc(station);
+        }
+
         $scope.showStopChanged = function() {
             if ($scope.showStop === "times") {
                 map.registerLabelCallback(showStopTime);
