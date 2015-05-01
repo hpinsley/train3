@@ -2,7 +2,12 @@ div#tripMap {
   background-color: #998899; }
 
 div#mapControls {
-  font-size: 12pt; }
+  font-size: 12pt;
+  background-color: black;
+  color: yellow;
+  padding: 5px;
+  font-size: 10pt;
+  font-weight: normal; }
 
 div#tooltip {
   position: absolute;

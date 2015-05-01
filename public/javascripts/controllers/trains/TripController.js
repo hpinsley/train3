@@ -74,6 +74,12 @@ angular.module("train")
                 $scope.distanceInMiles = trainServices.distanceInMilesBetweenStations(_.first($scope.stations), _.last($scope.stations)).toFixed(2);
             });
 
+        trainServices.getPois()
+            .then(function(res){
+                $scope.pois = res.data;
+            });
+
+
         $scope.stopFilter = function(stop) {
             var index = _.findIndex($scope.train.stops, function(tripStop) {
                 return tripStop.station == stop.station;
@@ -81,6 +87,15 @@ angular.module("train")
 
             return index >= $scope.startIndex && index <= $scope.endIndex;
         };
+
+        $scope.showPoiClick = function() {
+            if ($scope.showPoi) {
+                map.mapPointsOfInterest($scope.pois);
+            }
+            else {
+                map.removePointsOfInterest();
+            }
+        }
 
         $scope.showMapFeaturesClick = function() {
             if ($scope.showMapFeatures) {

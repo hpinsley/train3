@@ -36,14 +36,17 @@
     <div class="col-md-6">
         <div id="mapControls">
             <div class="input-group">
+                <input type="checkbox" ng-model="showPoi" ng-click="showPoiClick()" />
+                &nbsp; <label>Points of Interest</label>
+                &nbsp;&nbsp;
                 <input type="checkbox" ng-model="showMapFeatures" ng-click="showMapFeaturesClick()" />
-                &nbsp; <label>Show Map Features</label>
+                &nbsp; <label>Features</label>
                 &nbsp;&nbsp;
                 <input type="radio" value="times" name="showStop" ng-model="showStop" ng-change="showStopChanged()" />
-                &nbsp; <label>Show Stop Times</label>
+                &nbsp; <label>Stop Times</label>
                 &nbsp;&nbsp;
                 <input type="radio" value="names" name="showStop" ng-model="showStop" ng-change="showStopChanged()" />
-                &nbsp; <label>Show Stop Names</label>
+                &nbsp; <label>Stop Names</label>
             </div>
         </div>
         <div id="tripMap">
