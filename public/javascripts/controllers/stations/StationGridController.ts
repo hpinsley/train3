@@ -158,12 +158,15 @@ interface StationGridControllerScope extends ng.IScope {
     collector: Collector;
     getCellClass(fromStation:TrainDefs.Station, toStation:TrainDefs.Station) : string;
     tripViewModel: TripsViewModel;
+    frozen: boolean;
+    toggleFreeze():void;
 }
 
 angular.module("train")
     .controller("StationGridController", function ($scope:StationGridControllerScope, $q:ng.IQService, trainServices, helperServices) {
 
         $scope.collector = new Collector();
+        $scope.frozen = false;
 
         var stationsPromise = trainServices.getStations();
         var trainsPromise = trainServices.getTrains();
@@ -180,7 +183,16 @@ angular.module("train")
             }
         );
 
+        $scope.toggleFreeze = function() {
+            $scope.frozen = !$scope.frozen;
+        }
+
         $scope.mouseOver = function(fromStation:TrainDefs.Station,toStation:TrainDefs.Station) :void {
+
+            if ($scope.frozen) {
+                return;
+            }
+
             $scope.fromStation = fromStation;
             $scope.toStation = toStation;
 

@@ -5,18 +5,33 @@ $tableWidth: 1200px;
 $tableHeight: 700px;
 $font-size: 10pt;
 $font-family: Tahoma;
+$table-title-size: 16pt;
 
 h2 {
     color: blue;
 }
 
-.from-to {
+div.from-to {
+    text-align:center;
+    margin-left: -100px;
     font-size: 18pt;
     color: green;
 }
+
+div.scroller {
+    height: 90%;
+    //border: 1px solid red;
+    overflow-y: scroll;
+}
 .tableTitle {
     color: blue;
-    font-size:16pt;
+    font-size: $table-title-size;
+}
+
+.freezeInstruction {
+    color: red;
+    font-size: $table-title-size;
+    margin-left: 300px;
 }
 
 .horizontalTitle {
@@ -27,6 +42,7 @@ h2 {
     //transform: rotate(-90deg);
     text-wrap: none;
 }
+
 table#grid {
 
     font-family: $font-family;
@@ -60,14 +76,14 @@ table#grid {
         &.MatchBoth {
             background-color: black;
 
-            a {
+            span {
                 color: yellow;
             }
 
         }
         &.MatchFrom, &.MatchTo {
             background-color: black;
-            a {
+            span {
                 color:white;
             }
         }

@@ -116,6 +116,7 @@ var TripsViewModel = (function () {
 })();
 angular.module("train").controller("StationGridController", function ($scope, $q, trainServices, helperServices) {
     $scope.collector = new Collector();
+    $scope.frozen = false;
     var stationsPromise = trainServices.getStations();
     var trainsPromise = trainServices.getTrains();
     var linesPromise = trainServices.getLines();
@@ -126,7 +127,13 @@ angular.module("train").controller("StationGridController", function ($scope, $q
         $scope.selectedLine = $scope.lines[0];
         buildGrid();
     });
+    $scope.toggleFreeze = function () {
+        $scope.frozen = !$scope.frozen;
+    };
     $scope.mouseOver = function (fromStation, toStation) {
+        if ($scope.frozen) {
+            return;
+        }
         $scope.fromStation = fromStation;
         $scope.toStation = toStation;
         var fromTo = $scope.collector.getFromTo(fromStation, toStation);

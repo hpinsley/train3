@@ -1,13 +1,24 @@
 h2 {
   color: blue; }
 
-.from-to {
+div.from-to {
+  text-align: center;
+  margin-left: -100px;
   font-size: 18pt;
   color: green; }
+
+div.scroller {
+  height: 90%;
+  overflow-y: scroll; }
 
 .tableTitle {
   color: blue;
   font-size: 16pt; }
+
+.freezeInstruction {
+  color: red;
+  font-size: 16pt;
+  margin-left: 300px; }
 
 .horizontalTitle {
   text-align: center; }
@@ -38,11 +49,11 @@ table#grid {
       background-color: red; }
     table#grid th.MatchBoth, table#grid td.MatchBoth {
       background-color: black; }
-      table#grid th.MatchBoth a, table#grid td.MatchBoth a {
+      table#grid th.MatchBoth span, table#grid td.MatchBoth span {
         color: yellow; }
     table#grid th.MatchFrom, table#grid th.MatchTo, table#grid td.MatchFrom, table#grid td.MatchTo {
       background-color: black; }
-      table#grid th.MatchFrom a, table#grid th.MatchTo a, table#grid td.MatchFrom a, table#grid td.MatchTo a {
+      table#grid th.MatchFrom span, table#grid th.MatchTo span, table#grid td.MatchFrom span, table#grid td.MatchTo span {
         color: white; }
 
 table#tripViewTable {

@@ -1,79 +1,85 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/stations/stationGrid.css"/>
 
-<div class="container">
-    <div class="pull-left">
-        <h2>Station Grid</h2>
-    </div>
+<div class="scroller">
+    <div class="container">
+        <div class="pull-left">
+            <h2>Station Grid</h2>
+        </div>
 
-    <div class="pull-right">
-        <label style="font-size:14pt" class="text-info">Line:</label>
-        <hp-line-select lines="lines" include-all-selection="false" line-selected="selectLine(line)">
+        <div class="pull-right">
+            <label style="font-size:14pt" class="text-info">Line:</label>
+            <hp-line-select lines="lines" include-all-selection="false" line-selected="selectLine(line)">
 
-        </hp-line-select>
-    </div>
-</div>
-
-<div id="container">
-    <div class="row">
-        <div class="col-md-11 col-md-offset-1">
-            <span class="tableTitle horizontalTitle">To Station</span>
+            </hp-line-select>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-1"><span class="tableTitle verticalTitle">From Station</span></div>
-        <div class="col-md-11">
-            <table id="grid">
-                <tr>
-                    <th>&nbsp;</th>
-                    <th ng-repeat="toStation in stations | filter:stationFilterFn | orderBy:'abbr'">
-                        <span title="{{toStation.name}}">{{toStation.abbr}}</span>
-                    </th>
-                </tr>
 
-                <tr ng-repeat="fromStation in stations| filter:stationFilterFn | orderBy:'abbr'">
-                    <td><span title="{{fromStation.name}}">{{fromStation.abbr}}</span></td>
-                    <td ng-class="getCellClass(fromStation, toStation)" ng-mouseover="mouseOver(fromStation,toStation)"
-                        ng-repeat="toStation in stations | filter:stationFilterFn | orderBy:'abbr'">
+    <div id="container">
+        <div class="row">
+            <div class="col-md-11 col-md-offset-1">
+                <span class="tableTitle horizontalTitle">To Station</span>
+                <span class="freezeInstruction" ng-show="frozen">Click to unfreeze</span>
+                <span class="freezeInstruction" ng-hide="frozen">Click to freeze</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"><span class="tableTitle verticalTitle">From Station</span></div>
+            <div class="col-md-11">
+                <table id="grid" ng-click="toggleFreeze()">
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th ng-repeat="toStation in stations | filter:stationFilterFn | orderBy:'abbr'">
+                            <span title="{{toStation.name}}">{{toStation.abbr}}</span>
+                        </th>
+                    </tr>
+
+                    <tr ng-repeat="fromStation in stations| filter:stationFilterFn | orderBy:'abbr'">
+                        <td><span title="{{fromStation.name}}">{{fromStation.abbr}}</span></td>
+                        <td ng-class="getCellClass(fromStation, toStation)"
+                            ng-mouseover="mouseOver(fromStation,toStation)"
+                            ng-repeat="toStation in stations | filter:stationFilterFn | orderBy:'abbr'">
                         <span ng-show="fromStation != toStation"
-                              title="{{collector.trainListDisplay(fromStation, toStation)}}"><a
-                                href="/#/trains?startStation={{fromStation.abbr}}&endStation={{toStation.abbr}}">{{collector.trainCount(fromStation,
-                            toStation)}}</a></span>
-                    </td>
-                </tr>
-            </table>
+                              title="{{collector.trainListDisplay(fromStation, toStation)}}">
+                            <!--<a href="/#/trains?startStation={{fromStation.abbr}}&endStation={{toStation.abbr}}">{{collector.trainCount(fromStation,toStation)}}</a></span>-->
+                            {{collector.trainCount(fromStation,toStation)}}
+                        </span>
+                        </td>
+                    </tr>
+                </table>
 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-11 col-md-offset-1">
+            <div ng-if="fromStation && toStation"
+                  class="from-to">From {{fromStation.name}} to {{toStation.name}}</div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-11 col-md-offset-1">
-            <span ng-if="fromStation && toStation"
-                  class="from-to">From {{fromStation.name}} to {{toStation.name}}</span>
-        </div>
+    <div id="tripView">
+        <table id="tripViewTable" class="table table-condensed">
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th ng-repeat="stationAbbr in tripViewModel.stops">
+                    {{stationAbbr}}
+                </th>
+            </tr>
+
+            </thead>
+            <tbody>
+
+            </tbody>
+            <tbody>
+
+            <tr ng-repeat="train in tripViewModel.trains">
+                <td><a href="/#/trains/{{train.number}}/trip?start={{fromStation.abbr}}&end={{toStation.abbr}}">{{train.number}}</a></td>
+                <td ng-repeat="stop in train.stops">
+                    <span ng-show="stop.time">{{stop.time}}</span>
+                    <span ng-hide="stop.time" class="glyphicon glyphicon-arrow-right"></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-</div>
-<div id="tripView">
-    <table id="tripViewTable" class="table table-condensed">
-        <thead>
-        <tr>
-            <th>No.</th>
-            <th ng-repeat="stationAbbr in tripViewModel.stops">
-                {{stationAbbr}}
-            </th>
-        </tr>
-
-        </thead>
-        <tbody>
-
-        </tbody>
-        <tbody>
-
-        <tr ng-repeat="train in tripViewModel.trains">
-            <td>{{train.number}}</td>
-            <td ng-repeat="stop in train.stops">
-                <span ng-show="stop.time">{{stop.time}}</span>
-                <span ng-hide="stop.time" class="glyphicon glyphicon-arrow-right"></span>
-            </td>
-        </tr>
-        </tbody>
-    </table>
 </div>
