@@ -9,6 +9,7 @@ div.from-to {
 
 div.scroller {
   height: 90%;
+  width: 100%;
   overflow-y: scroll; }
 
 .tableTitle {

@@ -24,7 +24,7 @@ angular.module('train')
                 var expr = iAttrs.expr;
                 var stopTime = scope.$eval(expr);
                 var updateTime = function() {
-                    console.log("Update time fired");
+                    //console.log("Update time fired");
                     var seconds = helperServices.elapsedSecondsUntil(stopTime);
                     iElement.text(secondsToElapsed(seconds));
                     if (seconds < 3600) {
