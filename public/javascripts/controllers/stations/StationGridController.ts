@@ -160,6 +160,9 @@ interface StationGridControllerScope extends ng.IScope {
     tripViewModel: TripsViewModel;
     frozen: boolean;
     toggleFreeze():void;
+    notePosition(id:string, pos:JQueryMouseEventObject);
+    overX: number;
+    overY: number;
 }
 
 angular.module("train")
@@ -185,6 +188,20 @@ angular.module("train")
 
         $scope.toggleFreeze = function() {
             $scope.frozen = !$scope.frozen;
+        }
+
+        $scope.notePosition = function(id:string, eventObj:JQueryMouseEventObject) {
+            console.log("Controller: id:%s Client: %d,%d; Offset: %d,%d; Page: %d,%d",
+                id,
+                eventObj.clientX, eventObj.clientY,
+                eventObj.offsetX, eventObj.offsetY,
+                eventObj.pageX, eventObj.pageY
+            );
+
+            if (!$scope.frozen) {
+                $scope.overX = eventObj.clientX;
+                $scope.overY = eventObj.clientY;
+            }
         }
 
         $scope.mouseOver = function(fromStation:TrainDefs.Station,toStation:TrainDefs.Station) :void {

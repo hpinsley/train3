@@ -24,6 +24,22 @@ angular.module('train')
             templateUrl: 'views/poi/poiFields.html'
         };
 })
+    .directive("hpReportPosition", function(){
+        return {
+            restrict: 'A',
+            scope: {
+                notePosition: '&'
+            },
+            link: function(scope, iElement: JQuery, iAttrs) {
+                iElement.mouseover(function(event:JQueryMouseEventObject){
+                    scope.notePosition({
+                        id: iElement[0].id,
+                        eventObj:event
+                    });
+                });
+            }
+        };
+    })
     .directive("hpLineSelect", function(){
         return {
             restrict: 'E',
@@ -34,7 +50,7 @@ angular.module('train')
                 includeAllSelection: '@',
                 lineSelected: '&'
             },
-            line: function(scope, iElement, iAttrs) {
+            link: function(scope, iElement, iAttrs) {
 
             },
             controller: function($scope) {

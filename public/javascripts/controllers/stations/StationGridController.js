@@ -130,6 +130,13 @@ angular.module("train").controller("StationGridController", function ($scope, $q
     $scope.toggleFreeze = function () {
         $scope.frozen = !$scope.frozen;
     };
+    $scope.notePosition = function (id, eventObj) {
+        console.log("Controller: id:%s Client: %d,%d; Offset: %d,%d; Page: %d,%d", id, eventObj.clientX, eventObj.clientY, eventObj.offsetX, eventObj.offsetY, eventObj.pageX, eventObj.pageY);
+        if (!$scope.frozen) {
+            $scope.overX = eventObj.clientX;
+            $scope.overY = eventObj.clientY;
+        }
+    };
     $scope.mouseOver = function (fromStation, toStation) {
         if ($scope.frozen) {
             return;

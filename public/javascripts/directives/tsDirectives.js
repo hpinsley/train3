@@ -19,6 +19,21 @@ angular.module('train').directive('hpHoverInvoke', function () {
         restrict: 'E',
         templateUrl: 'views/poi/poiFields.html'
     };
+}).directive("hpReportPosition", function () {
+    return {
+        restrict: 'A',
+        scope: {
+            notePosition: '&'
+        },
+        link: function (scope, iElement, iAttrs) {
+            iElement.mouseover(function (event) {
+                scope.notePosition({
+                    id: iElement[0].id,
+                    eventObj: event
+                });
+            });
+        }
+    };
 }).directive("hpLineSelect", function () {
     return {
         restrict: 'E',
@@ -29,7 +44,7 @@ angular.module('train').directive('hpHoverInvoke', function () {
             includeAllSelection: '@',
             lineSelected: '&'
         },
-        line: function (scope, iElement, iAttrs) {
+        link: function (scope, iElement, iAttrs) {
         },
         controller: function ($scope) {
             function setLineList() {

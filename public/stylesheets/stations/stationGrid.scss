@@ -92,11 +92,13 @@ table#grid {
 }
 
 table#tripViewTable {
-    border: 1px solid black;
+    border: 5px solid yellow;
+    border-radius: 10px;
     font-size: 8pt;
     width: auto;
     margin-left: auto;
     margin-right: auto;
+    background-color: white;
 
     td,th {
         text-align: center;

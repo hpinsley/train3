@@ -25,7 +25,9 @@
         <div class="row">
             <div class="col-md-1"><span class="tableTitle verticalTitle">From Station</span></div>
             <div class="col-md-11">
-                <table id="grid" ng-click="toggleFreeze()">
+                <table id="grid"
+                       hp-report-position note-position="notePosition(element, eventObj)"
+                       ng-click="toggleFreeze()">
                     <tr>
                         <th>&nbsp;</th>
                         <th ng-repeat="toStation in stations | filter:stationFilterFn | orderBy:'abbr'">
@@ -37,6 +39,7 @@
                         <td><span title="{{fromStation.name}}">{{fromStation.abbr}}</span></td>
                         <td ng-class="getCellClass(fromStation, toStation)"
                             ng-mouseover="mouseOver(fromStation,toStation)"
+
                             ng-repeat="toStation in stations | filter:stationFilterFn | orderBy:'abbr'">
                         <span ng-show="fromStation != toStation"
                               title="{{collector.trainListDisplay(fromStation, toStation)}}">
@@ -56,8 +59,9 @@
             </div>
         </div>
     </div>
-    <div id="tripView">
-        <table id="tripViewTable" class="table table-condensed">
+    <div id="tripView" style="position:absolute; z-index: 50; left:{{overX}}; top:{{overY + 50}}">
+        <table id="tripViewTable"
+               class="table table-condensed">
             <thead>
             <tr>
                 <th>No.</th>
