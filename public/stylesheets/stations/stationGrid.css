@@ -60,6 +60,7 @@ table#grid {
 table#tripViewTable {
   border: 5px solid yellow;
   border-radius: 10px;
+  -webkit-border-radius: 10px;
   font-size: 8pt;
   width: auto;
   margin-left: auto;
