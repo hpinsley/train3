@@ -1,0 +1,19 @@
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label for="mapFile" class="control-label">Map file:</label>
+
+        <select id="mapFile" class="input-lg"
+                ng-options="mapFile as mapFile for mapFile in mapFiles | orderBy:'toString()'"
+                ng-model="selectedMapFile"/>
+
+        <button class="input-lg" ng-click="loadGeoFile()" ng-show="selectedMapFile">Load {{selectedMapFile}}</button>
+        <button class="input-lg" ng-click="refreshMap()">Refresh Map</button>
+        <label class="control-label">Output file:</label>
+        <input type="text" ng-model="outputFile" />
+        <button ng-show="outputFile" class="input-lg" ng-click="saveMap()">Save Map</button>
+
+    </div>
+    <div id="map">
+
+    </div>
+</form>

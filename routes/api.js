@@ -122,8 +122,8 @@ router.post("/lines/:lineName/stations", function(req, res, next){
         if (!_.find(stations, function(station){
             return station === stationAbbr;
         })) {
-            stations.unshift(stationAbbr);
-            //stations.push(stationAbbr);
+            //stations.unshift(stationAbbr);
+            stations.push(stationAbbr);
             line.stations = stations;
             coll.save(line, function(e, saveResult){
                 if (e) {
@@ -243,6 +243,51 @@ router.post('/poi', function(req, res, next){
             res.send(results);
         });
     })
+});
+
+router.post("/admin/geoFiles", function(req, res, next){
+    var geoFile = req.body.geoFile;
+    var geoData = req.body.geoData;
+    var folder = "./public/data";
+
+    result = {
+        geoFile: geoFile,
+        featureCount: geoData && geoData.features.length || 0,
+        folder: folder
+    };
+
+    if (!geoData) {
+        result.statusMsg = "No geodata to save!";
+        return next(result);
+    }
+
+    if (/[\\\/]/.test(geoFile)) {
+        result.statusMsg = "Illegal geofile specified.";
+        return next(result);
+    }
+
+    if (!/\.json$/.test(geoFile)) {
+        result.statusMsg = "geoFile must end with .json";
+        return next(result);
+    }
+
+    var outputFile = folder + "/" + geoFile;
+    fs.exists(outputFile, function(exists){
+        if (exists) {
+            result.statusMsg = "File " + geoFile + " already exists and cannot be overwritten.";
+            return next(result);
+        }
+
+        fs.writeFile(outputFile, JSON.stringify(geoData), function(err){
+            if (err) {
+                result.err = err;
+                result.statusMsg = "Write failed for file " + geoFile;
+                return next(result);
+            }
+            res.statusMsg = "Wrote " + geoFile;
+            res.send(result);
+        });
+    });
 });
 
 router.post('/stations', function(req, res, next){

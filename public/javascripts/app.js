@@ -65,6 +65,10 @@ angular.module('train', ['ngRoute','ui.bootstrap'])
                 templateUrl: 'views/d3/StationMap.html',
                 controller: 'StationMapController'
             })
+            .when('/admin/mapEditor', {
+                templateUrl: 'views/admin/MapEditor.html',
+                controller: 'MapEditorController'
+            })
             .otherwise({
                redirectTo: '/'
             });

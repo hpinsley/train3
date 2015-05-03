@@ -123,6 +123,15 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         return $http.get("/api/lines/maps");
     }
 
+    var saveGeoFile = function(geoData, geoFile) {
+        var data = {
+            geoFile: geoFile,
+            geoData: geoData
+        };
+
+        return $http.post("/api/admin/geoFiles", data);
+    }
+
     var distanceInMilesBetween = function(lnglat1, lnglat2) {
         var dist = d3.geo.distance(lnglat1,lnglat2) * EarthRadiusMiles;
         return dist;
@@ -163,6 +172,7 @@ angular.module("train").factory('trainServices', ["$http", "$log", "$q", functio
         updatePoi: updatePoi,
         distanceInMilesBetween: distanceInMilesBetween,
         distanceInMilesBetweenStations: distanceInMilesBetweenStations,
-        getStationPictures: getStationPictures
+        getStationPictures: getStationPictures,
+        saveGeoFile: saveGeoFile
     };
 }]);
